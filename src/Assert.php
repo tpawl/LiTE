@@ -3,9 +3,9 @@
 
 declare(strict_types=1);
 
-namespace Felix\Packages\LiTE\Assert;
+namespace LiTE\Assert;
 
-use Felix\Packages\LiTE\Exceptions\AssertException;
+use LiTE\Exceptions\AssertException;
 
 class Assert
 {
