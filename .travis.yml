@@ -3,4 +3,4 @@ language: php
 php:
   - 7.0
 
-script: phpunit --coverage-text test
+script: phpunit --coverage-text
