@@ -73,7 +73,7 @@ class Context
     /**
      * @return array
      */
-    private function topVariablesContext(): VariablesContext
+    public function topVariablesContext(): VariablesContext
     {
         return $this->variablesContextHead;
     }
