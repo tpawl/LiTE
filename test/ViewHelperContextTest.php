@@ -37,6 +37,8 @@ class ViewHelperContextTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
+        $this->expectOutputString('abc');
+
         $viewHelperContext->execute('Test', [], $filter);
     }
 }
