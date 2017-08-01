@@ -34,6 +34,8 @@ class ContextTest extends TestCase
         $this->assertSame($vc1, $vc);
         
         $instance->popVariablesContext();
+        
+        $instance->reset();
     }
     
     /**
@@ -44,5 +46,7 @@ class ContextTest extends TestCase
         $instance = Context::getInstance();
         
         $instance->popVariablesContext();
+        
+        $instance->reset();
     }    
 }
