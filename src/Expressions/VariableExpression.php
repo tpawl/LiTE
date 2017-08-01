@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespaceLiTE\Expressions;
+namespace LiTE\Expressions;
 
 use LiTE\Context\Context;
 use LiTE\Filter\FilterInterface;
