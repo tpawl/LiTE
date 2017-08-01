@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace Felix\Packages\LiTE\Filter;
+namespace LiTE\Filter;
 
 interface FilterInterface
 {
