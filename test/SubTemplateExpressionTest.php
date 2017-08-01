@@ -8,7 +8,6 @@ namespace LiTE\Tests;
 use PHPUnit\Framework\TestCase;
 use LiTE\Context\Context;
 use LiTE\Expressions\TemplateExpression;
-use LiTE\Expressions\SubTemplateExpression;
 
 class SubTemplateExpressionTest extends TestCase
 {
