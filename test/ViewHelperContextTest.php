@@ -75,4 +75,19 @@ class ViewHelperContextTest extends TestCase
         
         $viewHelperContext->execute('invalid', [], $filter);
     }
+    
+    /**
+     * @expectedException LiTE\Exceptions\ViewHelperException
+     */
+    public function testEceptionViewHelperThrowsAnException()
+    {
+        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
+        
+        $filter = $this->createMock(FilterInterface::class);
+        
+        $filter->method('isValidName')->
+            willReturn(true);
+        
+        $viewHelperContext->execute('exception', [], $filter);
+    }
 }
