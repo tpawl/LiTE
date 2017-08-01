@@ -22,7 +22,7 @@ class SubTemplateExpressionTest extends TestCase
         
         $ste->display();
         
-        $te->dispolay();
+        $te->display();
         
         $instance = Context::getInstance();
    
