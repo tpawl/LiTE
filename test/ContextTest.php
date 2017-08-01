@@ -25,13 +25,13 @@ class ContextTest extends TestCase
         
         $vc = $instance->topVariablesContext();
         
-        $this->assertIsSame($vc2, $vc);
+        $this->assertSame($vc2, $vc);
         
         $instance->popVariablesContext();
         
         $vc = $instance->topVariablesContext();
         
-        $this->assertIsSame($vc1, $vc);
+        $this->assertSame($vc1, $vc);
         
         $instance->popVariablesContext();
     }
