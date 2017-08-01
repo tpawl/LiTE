@@ -21,5 +21,7 @@ class AssertTest extends TestCase
     public function testFalseConditionDoesNothing()
     {
         Assert::isFalse(false);
+        
+        $this->assertTrue(true);
     }
 }
