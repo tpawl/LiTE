@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Felix\Packages\LiTE\Tests;
+namespace LiTE\Tests;
 
 require_once __DIR__ . '/../src/Filter/FilterInterface.php';
 require_once __DIR__ . '/../src/Filter/Filter.php';
