@@ -35,4 +35,14 @@ class ContextTest extends TestCase
         
         $instance->popVariablesContext();
     }
+    
+    /**
+     * @expectedException LiTE\Exceptions\AssertException
+     */
+    public function popFromEmptyVariablesContextThrowsAnException()
+    {
+        $instance = Context::getInstance();
+        
+        $instance->popVariablesContext();
+    }    
 }
