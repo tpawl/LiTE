@@ -5,11 +5,6 @@ declare(strict_types=1);
 
 namespace LiTE\Tests;
 
-require_once __DIR__ . '/../src/Filter/FilterInterface.php';
-require_once __DIR__ . '/../src/Filter/Filter.php';
-require_once __DIR__ . '/../src/Assert/Assert.php';
-require_once __DIR__ . '/../src/Exceptions/AssertException.php';
-
 use PHPUnit\Framework\TestCase;
 use LiTE\Filter\Filter;
 
