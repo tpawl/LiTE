@@ -16,13 +16,13 @@ class AssertTest extends TestCase
     /**
      * @expectedException LiTE\Exceptions\AssertException
      */
-    public function testFalseConditionThrowsAnException()
+    public function testTrueConditionThrowsAnException()
     {
-        Assert::isTrue(false);
+        Assert::isFalse(true);
     }
 
-    public function testTrueConditionDoesNothing()
+    public function testFalseConditionDoesNothing()
     {
-        Assert::isTrue(true);
+        Assert::isFalse(false);
     }
 }
