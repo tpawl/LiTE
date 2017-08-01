@@ -25,4 +25,18 @@ class ViewHelperContextTest extends TestCase
 
         $viewHelperContext->execute('', [], $filter);
     }
+
+    public function testNormalOperationWithExistingViewHelper()
+    {
+        require_once __DIR__ . '/Asset/TestViewHelper.php';
+        
+        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
+
+        $filter = $this->createMock(FilterInterface::class);
+
+        $filter->method('isValidName')->
+            willReturn(true);
+
+        $viewHelperContext->execute('Test', [], $filter);
+    }
 }
