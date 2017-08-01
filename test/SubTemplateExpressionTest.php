@@ -14,13 +14,9 @@ class SubTemplateExpressionTest extends TestCase
 {
     public function testDisplay()
     {
-        $te = new TemplateExpression('', [], __DIR__ . '/Asset', '');
-        
-        $ste = new SubTemplateExpression('abc<?php $this->var; ?><?php self::test(); ?>', ['var' => 'def']);
+        $te = new TemplateExpression('<?php self::sub(); ?>', [], __DIR__ . '/Asset', '');
         
         $this->expectOutputString('abcdefabc');
-        
-        $ste->display();
         
         $te->display();
         
