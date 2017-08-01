@@ -10,7 +10,7 @@ require_once __DIR__ . '/../src/Assert/Assert.php';
 require_once __DIR__ . '/../src/Exceptions/AssertException.php';
 
 use PHPUnit\Framework\TestCase;
-use Felix\Packages\LiTE\Filter\Filter;
+use LiTE\Filter\Filter;
 
 class FilterTest extends TestCase
 {
