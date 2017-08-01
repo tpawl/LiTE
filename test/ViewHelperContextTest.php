@@ -35,10 +35,13 @@ class ViewHelperContextTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $this->expectOutputString('abc');
-
         $viewHelperContext->execute('test', [], $filter);
 
+        
+        $out = $this->getActualOutput();
+        
+        $this->assertEquals('abc', $out);
+        
         $this->expectOutputString('abcabc');
 
         $viewHelperContext->execute('test', [], $filter);
