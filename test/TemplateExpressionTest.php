@@ -15,7 +15,7 @@ class TemplateExpressionTest extends TestCase
     {
         $te = new TemplateExpression('abc<?php $this->var; ?><?php self::test(); ?>', ['var' => 'def'], __DIR__ . '/Asset', '');
         
-        $this->expectedOutput('abcdefTest');
+        $this->expectOutputString('abcdefTest');
         
         $te->display();
         
