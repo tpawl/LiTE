@@ -47,7 +47,7 @@ class ViewHelperContextTest extends TestCase
     }
     
     /**
-     * @expectedException LiTE\Exceptions\ViewHelperException
+     * @expectedException LiTE\Exceptions\ViewHelperContextException
      */
     public function testInvalidViewHelperThrowsAnException()
     {
