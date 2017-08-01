@@ -15,16 +15,16 @@ class Assert
      */
     public static function notEqualsZero(int $value): void
     {
-        self::isTrue($value !== 0);
+        self::isFalse($value === 0);
     }
 
     /**
      * @param bool $condition
      * @return void
      */
-    public static function isTrue(bool $condition): void
+    public static function isFalse(bool $condition): void
     {
-        if (!$condition) {
+        if ($condition) {
 
             throw new AssertException('Assertion failed');
         }
