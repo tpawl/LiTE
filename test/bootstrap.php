@@ -3,9 +3,7 @@
 
 function loader($class)
 {
-    $file = $class . '.php';
-    
-    echo $file;
+    $file = __DIR__ . '/../src/' . substr($class, 5) . '.php';
     
     if (file_exists($file)) {
         require $file;
