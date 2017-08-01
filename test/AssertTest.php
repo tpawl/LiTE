@@ -5,8 +5,8 @@ declare(strict_types=1);
 
 namespace LiTE\Tests;
 
-require_once __DIR__ . '/../src/Assert/Assert.php';
-require_once __DIR__ . '/../src/Exceptions/AssertException.php';
+// require_once __DIR__ . '/../src/Assert/Assert.php';
+// require_once __DIR__ . '/../src/Exceptions/AssertException.php';
 
 use PHPUnit\Framework\TestCase;
 use LiTE\Assert\Assert;
