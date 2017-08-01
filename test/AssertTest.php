@@ -13,7 +13,7 @@ use LiTE\Assert\Assert;
 class AssertTest extends TestCase
 {
     /**
-     * @expectedException Felix\Packages\LiTE\Exceptions\AssertException
+     * @expectedException LiTE\Exceptions\AssertException
      */
     public function testFalseConditionThrowsAnException()
     {
