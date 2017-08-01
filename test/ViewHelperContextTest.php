@@ -15,7 +15,7 @@ class ViewHelperContextTest extends TestCase
      * @expectedException LiTE\Exceptions\ViewHelperContextException
      */
     public function testInvalidNameThrowsAnException()
-    {    
+    {
         $viewHelperContext = new ViewHelperContext('', '', null);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -27,7 +27,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     public function testNormalOperation()
-    {   
+    {
         $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -37,11 +37,10 @@ class ViewHelperContextTest extends TestCase
 
         $viewHelperContext->execute('test', [], $filter);
 
-        
         $out = $this->getActualOutput();
-        
+
         $this->assertEquals('abc', $out);
-        
+
         $this->expectOutputString('abcabc');
 
         $viewHelperContext->execute('test', [], $filter);
