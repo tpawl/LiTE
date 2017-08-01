@@ -3,7 +3,7 @@
 
 function loader($class)
 {
-    $file = __DIR__ . '/../src/' . substr($class, 5) . '.php';
+    $file = __DIR__ . '/../src/' . str_replace('\\', '/', substr($class, 5)) . '.php';
     
     var_dump($file);
     
