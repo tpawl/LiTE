@@ -8,6 +8,13 @@ namespace LiTE\ErrorHandlers;
 class ErrorHandlers
 {
     /**
+     * @return void
+     */
+    private function __construct()
+    {
+    }
+    
+    /**
      * @param callable|null $errorHandler
      * @return void
      */
