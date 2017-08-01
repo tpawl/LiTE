@@ -9,7 +9,7 @@
 
 ## Requirements
 
-**LiTE** needs PHP 7.1+
+**LiTE** requires PHP 7.1+
 
 ## Installation
 
