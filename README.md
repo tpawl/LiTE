@@ -8,5 +8,5 @@
 **LiTE** needs PHP 7.1+
 ## Installation
 Coming soon...
-##Usage
+## Usage
 Coming soon...
