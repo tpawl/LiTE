@@ -7,6 +7,6 @@ class TestViewHelper implements ViewHelperInterface
 {
     public static function execute(array $arguments): void
     {
-        print 'Test';
+        print 'abc';
     }
 }
