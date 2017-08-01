@@ -5,6 +5,8 @@ function loader($class)
 {
     $file = __DIR__ . '/../src/' . substr($class, 5) . '.php';
     
+    var_dump($file);
+    
     if (file_exists($file)) {
         require $file;
     }
