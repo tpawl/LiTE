@@ -37,10 +37,10 @@ class ViewHelperContextTest extends TestCase
 
         $this->expectOutputString('abc');
 
-        $viewHelperContext->execute('Test', [], $filter);
+        $viewHelperContext->execute('test', [], $filter);
 
         $this->expectOutputString('abc');
 
-        $viewHelperContext->execute('Test', [], $filter);
+        $viewHelperContext->execute('test', [], $filter);
     }
 }
