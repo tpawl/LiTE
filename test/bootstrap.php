@@ -4,6 +4,9 @@
 function loader($class)
 {
     $file = $class . '.php';
+    
+    echo $file;
+    
     if (file_exists($file)) {
         require $file;
     }
