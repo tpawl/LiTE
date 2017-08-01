@@ -5,10 +5,6 @@ declare(strict_types=1);
 
 namespace LiTE\Tests;
 
-require_once __DIR__ . '/../src/Context/VariablesContext.php';
-require_once __DIR__ . '/../src/Filter/FilterInterface.php';
-require_once __DIR__ . '/../src/Exceptions/VariablesContextException.php';
-
 use PHPUnit\Framework\TestCase;
 use LiTE\Context\VariablesContext;
 use LiTE\Filter\FilterInterface;
