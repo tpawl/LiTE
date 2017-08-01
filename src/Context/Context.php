@@ -118,6 +118,18 @@ class Context
         $this->viewHelperContext = null;
     }
 
+    public function reset(): void
+    {
+        $this->viewHelperContext = null;
+        
+        $this->variablesContextTail = [];
+        $this->variablesContextHead = null;
+        
+        $this->templateContext = null;
+    
+        self::$instance = null;
+    }
+    
     private function __clone()
     {
     }
