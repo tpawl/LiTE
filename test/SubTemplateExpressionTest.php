@@ -22,6 +22,8 @@ class SubTemplateExpressionTest extends TestCase
         
         $ste->display();
         
+        $te->dispolay();
+        
         $instance = Context::getInstance();
    
         $instance->reset();
