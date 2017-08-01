@@ -10,6 +10,13 @@ use LiTE\Exceptions\AssertException;
 class Assert
 {
     /**
+     * @return void
+     */
+    private function __construct()
+    {
+    }
+    
+    /**
      * @param int $value
      * @return void
      */
