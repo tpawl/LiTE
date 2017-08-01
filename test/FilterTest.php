@@ -15,7 +15,7 @@ use LiTE\Filter\Filter;
 class FilterTest extends TestCase
 {
     /**
-     * @expectedException Felix\Packages\LiTE\Exceptions\AssertException
+     * @expectedException LiTE\Exceptions\AssertException
      */
     public function testEmptyNameThrowsAnException()
     {
