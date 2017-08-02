@@ -7,4 +7,4 @@ php:
 
 script: 
   - phpunit --coverage-text
-  - bin/atoum --test-all
+  - php vendor/bin/coveralls -v
