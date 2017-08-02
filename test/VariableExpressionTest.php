@@ -14,7 +14,7 @@ class TemplateExpressionTest extends TestCase
 {
     public function testDisplay()
     {
-        $te = new TemplateExpression('', ['aaa' => 'bbb', var' => 'def', 'ccc' => 'ddd'], __DIR__ . '/Asset', '');
+        $te = new TemplateExpression('', ['aaa' => 'bbb', 'var' => 'def', 'ccc' => 'ddd'], __DIR__ . '/Asset', '');
         
         $filter = $this->createMock(FilterInterface::class);
         
