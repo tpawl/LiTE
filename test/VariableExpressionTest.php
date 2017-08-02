@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use LiTE\Context\Context;
 use LiTE\Expressions\VariableExpression;
 use LiTE\Expressions\TemplateExpression;
+use LiTE\Filter\FilterInterface;
 
 class VariableExpressionTest extends TestCase
 {
