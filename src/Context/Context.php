@@ -115,6 +115,8 @@ class Context
 
     public function clearViewHelperContext(): void
     {
+        $this->viewHelperContext->clear();
+        
         $this->viewHelperContext = null;
     }
 
