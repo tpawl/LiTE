@@ -10,10 +10,10 @@ matrix:
   allow_failures:
     - php: nightly
 
-before_script: composer require satooshi/php-coveralls:^0.7
+before_script: if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then composer require satooshi/php-coveralls:^0.7 -n ; fi
 
 script:
-  - mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml
-  - phpunit --coverage-text
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '7.1' ]]; then phpunit ; fi
 
-after_script: php vendor/bin/coveralls -v
+after_script: if [[ "$TRAVIS_PHP_VERSION" == '7.1' ]]; then php vendor/bin/coveralls -v ; fi
