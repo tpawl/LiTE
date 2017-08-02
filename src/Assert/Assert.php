@@ -15,7 +15,7 @@ class Assert
     private function __construct()
     {
     }
-    
+
     /**
      * @param int $value
      * @return void
