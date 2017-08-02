@@ -58,10 +58,11 @@ class Context
     }
 
     /**
-     * @param array $variables
+     * @param VariablesContext $variablesContext
      * @return void
      */
-    public function pushVariablesContext(VariablesContext $variablesContext): void
+    public function pushVariablesContext(VariablesContext $variablesContext):
+        void
     {
         if (!$this->isVariablesContextEmpty()) {
 
@@ -71,7 +72,7 @@ class Context
     }
 
     /**
-     * @return array
+     * @return VariablesContext
      */
     public function topVariablesContext(): VariablesContext
     {
@@ -96,14 +97,16 @@ class Context
         return is_null($this->variablesContextHead);
     }
 
-    public function executeViewHelper(string $name, array $arguments, FilterInterface $filter): void
+    public function executeViewHelper(string $name, array $arguments,
+        FilterInterface $filter): void
     {
         $viewHelperContext = $this->getViewHelperContext();
 
         $viewHelperContext->execute($name, $arguments, $filter);
     }
 
-    public function setViewHelperContext(ViewHelperContext $viewHelperContext): void
+    public function setViewHelperContext(ViewHelperContext $viewHelperContext):
+        void
     {
         $this->viewHelperContext = $viewHelperContext;
     }
