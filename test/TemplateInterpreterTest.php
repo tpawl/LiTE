@@ -7,7 +7,7 @@ namespace LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
 use LiTE\Interpreter\TemplateInterpreter;
-use LiTE\Context\TemplateContext();
+use LiTE\Context\TemplateContext;
 use Lite\Context\Context;
 
 class TemplateInterpreterTest extends TestCase
