@@ -26,9 +26,11 @@ class TemplateContext
      */
     public function get(): string
     {
-        return $this->template;
+        $template = $this->template;
        
         $this->clear();
+       
+        return $template;
     }
 
     /**
