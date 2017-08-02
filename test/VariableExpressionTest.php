@@ -10,7 +10,7 @@ use LiTE\Context\Context;
 use LiTE\Expressions\VariableExpression;
 use LiTE\Expressions\TemplateExpression;
 
-class TemplateExpressionTest extends TestCase
+class VariableExpressionTest extends TestCase
 {
     public function testDisplay()
     {
