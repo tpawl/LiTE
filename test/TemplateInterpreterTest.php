@@ -22,7 +22,7 @@ class TemplateInterpreterTest extends TestCase
     
         $ti = new TemplateInterpreter();
     
-        $this->expectedOutputString('<?xml test ?>');
+        $this->expectOutputString('<?xml test ?>');
     
         $ti->_xml('test');
     
