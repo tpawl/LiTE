@@ -12,17 +12,20 @@ use Lite\Context\Context;
 
 class TemplateInterpreterTest extends TestCase
 {
-    $instance = Context::getInstance();
+    public function testXml()
+    {
+        $instance = Context::getInstance();
     
-    $tc = new TemplateContext('');
+        $tc = new TemplateContext('');
     
-    $instance->setTemplateContext($tc);
+        $instance->setTemplateContext($tc);
     
-    $ti = new TemplateInterpreter();
+        $ti = new TemplateInterpreter();
     
-    $this->expectedOutputString('<?xml test ?>');
+        $this->expectedOutputString('<?xml test ?>');
     
-    $ti->_xml('test');
+        $ti->_xml('test');
     
-    $instance->reset();
+        $instance->reset();
+    }
 }
