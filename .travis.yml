@@ -4,5 +4,11 @@ language: php
 
 php:
   - '7.1'
+  
+before_script: composer require satooshi/php-coveralls:^0.7
 
-script: phpunit --coverage-text
+script:
+  - mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml
+  - phpunit --coverage-text
+
+after_script: php vendor/bin/coveralls -v
