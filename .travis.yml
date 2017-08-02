@@ -4,7 +4,8 @@ language: php
 
 php:
   - '7.1'
+before_script: composer require atoum/atoum
 
 script: 
   - phpunit --coverage-text
-  - php vendor/bin/coveralls -v
+  - bin/atoum --test-all
