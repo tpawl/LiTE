@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Context;
+namespace Felix\Packages\LiTE\Context;
 
-use LiTE\Filter\FilterInterface;
-use LiTE\ErrorHandlers\ErrorHandlers;
-use LiTE\Exceptions\ViewHelperException;
-use LiTE\Exceptions\ViewHelperContextException;
-use LiTE\ViewHelperInterface;
+use Felix\Packages\LiTE\Filter\FilterInterface;
+use Felix\Packages\LiTE\ErrorHandlers\ErrorHandlers;
+use Felix\Packages\LiTE\Exceptions\ViewHelperException;
+use Felix\Packages\LiTE\Exceptions\ViewHelperContextException;
+use Felix\Packages\LiTE\ViewHelperInterface;
 
 class ViewHelperContext
 {
@@ -48,7 +48,8 @@ class ViewHelperContext
      * @return void
      * @throws LiTE\exceptions\ViewHelperException
      */
-    public function execute(string $name, array $arguments, FilterInterface $filter): void
+    public function execute(string $name, array $arguments,
+        FilterInterface $filter): void
     {
         if (!$filter->isValidName($name)) {
 
@@ -91,7 +92,7 @@ class ViewHelperContext
      */
     private function getClassQualifier(string $className): string
     {
-        return $this->getNamespace() . "\\{$className}";
+        return "{$this->getNamespace()}\\{$className}";
     }
 
     /**
@@ -118,7 +119,7 @@ class ViewHelperContext
      */
     private function getClassFilename(string $className): string
     {
-        return $this->getDirectory() . "/{$className}.php";
+        return "{$this->getDirectory()}/{$className}.php";
     }
 
     /**
@@ -136,7 +137,8 @@ class ViewHelperContext
      * @return void
      * @throws ViewHelperException
      */
-    private function tryExecuteViewHelper(string $classQualifier, array $arguments): void
+    private function tryExecuteViewHelper(string $classQualifier,
+        array $arguments): void
     {
         try {
 
@@ -154,7 +156,8 @@ class ViewHelperContext
      * @return void
      * @throws \RuntimeException
      */
-    private function executeViewHelper(string $classQualifier, array $arguments): void
+    private function executeViewHelper(string $classQualifier,
+        array $arguments): void
     {
         ErrorHandlers::push($this->getErrorHandler());
 
