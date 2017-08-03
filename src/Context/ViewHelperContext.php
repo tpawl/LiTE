@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace Felix\Packages\LiTE\Context;
+namespace LiTE\Context;
 
-use Felix\Packages\LiTE\Filter\FilterInterface;
-use Felix\Packages\LiTE\ErrorHandlers\ErrorHandlers;
-use Felix\Packages\LiTE\Exceptions\ViewHelperException;
-use Felix\Packages\LiTE\Exceptions\ViewHelperContextException;
-use Felix\Packages\LiTE\ViewHelperInterface;
+use LiTE\Filter\FilterInterface;
+use LiTE\ErrorHandlers\ErrorHandlers;
+use LiTE\Exceptions\ViewHelperException;
+use LiTE\Exceptions\ViewHelperContextException;
+use LiTE\ViewHelperInterface;
 
 class ViewHelperContext
 {
