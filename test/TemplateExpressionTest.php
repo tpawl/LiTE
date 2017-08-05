@@ -11,6 +11,17 @@ use LiTE\Expressions\TemplateExpression;
 
 class TemplateExpressionTest extends TestCase
 {
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNonExistingIndex0InConfigurationThrowsAnException()
+    {
+        $configuration = [
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
     public function testDisplay()
     {
         $configuration = [
