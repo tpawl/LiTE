@@ -22,6 +22,45 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($configuration);
     }
     
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNonExistingIndex1InConfigurationThrowsAnException()
+    {
+        $configuration = [
+            '',
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNonExistingIndex2InConfigurationThrowsAnException()
+    {
+        $configuration = [
+            '',
+            [],
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testNonExistingIndex3InConfigurationThrowsAnException()
+    {
+        $configuration = [
+            '',
+            [],
+            '',
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
     public function testDisplay()
     {
         $configuration = [
