@@ -32,6 +32,8 @@ class TemplateExpression extends SubTemplateExpression
      */
     public function __construct(array $configuration)
     {
+        self::validateConfiguration($configuration);
+        
         [$template, $variables, $viewHelperDirectory, $viewHelperNamespace] =
             $configuration;
         
@@ -42,6 +44,54 @@ class TemplateExpression extends SubTemplateExpression
         $this->viewHelperErrorHandler = ErrorHandlers::top();
     }
 
+    /**
+     * @param array $configuration
+     * @return void
+     */
+    private static function validateConfiguration(array $configuration): void
+    {
+        $hasConfigurationAnIndex0 = array_key_exists(0, $configuration);
+
+        if (!$hasConfigurationAnIndex0) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        if (!is_string($configuration[0])) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        $hasConfigurationAnIndex1 = array_key_exists(1, $configuration);
+
+        if (!$hasConfigurationAnIndex1) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        if (!is_array($configuration[1])) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        $hasConfigurationAnIndex2 = array_key_exists(2, $configuration);
+
+        if (!$hasConfigurationAnIndex2) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        if (!is_string($configuration[2])) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        $hasConfigurationAnIndex3 = array_key_exists(3, $configuration);
+
+        if (!$hasConfigurationAnIndex3) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+        if (!is_string($configuration[3])) {
+
+            throw new InvalidArgumentException(/* todo: ... */);
+        }
+    }
+    
     /**
      * @param string $template
      * @param array $values
