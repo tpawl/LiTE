@@ -64,31 +64,31 @@ class TemplateExpression extends SubTemplateExpression
 
         if (!$hasConfigurationAnIndex1) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         if (!is_array($configuration[1])) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         $hasConfigurationAnIndex2 = array_key_exists(2, $configuration);
 
         if (!$hasConfigurationAnIndex2) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         if (!is_string($configuration[2])) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         $hasConfigurationAnIndex3 = array_key_exists(3, $configuration);
 
         if (!$hasConfigurationAnIndex3) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         if (!is_string($configuration[3])) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
     }
     
