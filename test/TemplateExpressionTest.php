@@ -61,6 +61,60 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($configuration);
     }
     
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testIndex0InConfigurationWithWrongTypeThrowsAnException()
+    {
+        $configuration = [
+            null,
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testIndex1InConfigurationWithWrongTypeThrowsAnException()
+    {
+        $configuration = [
+            '',
+            null,
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testIndex2InConfigurationWithWrongTypeThrowsAnException()
+    {
+        $configuration = [
+            '',
+            [],
+            null,
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testIndex3InConfigurationWithWrongTypeThrowsAnException()
+    {
+        $configuration = [
+            '',
+            [],
+            '',
+            null,
+        ];
+        
+        $te = new TemplateExpression($configuration);
+    }
+    
     public function testDisplay()
     {
         $configuration = [
