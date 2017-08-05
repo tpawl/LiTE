@@ -54,11 +54,11 @@ class TemplateExpression extends SubTemplateExpression
 
         if (!$hasConfigurationAnIndex0) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         if (!is_string($configuration[0])) {
 
-            throw new InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(/* todo: ... */);
         }
         $hasConfigurationAnIndex1 = array_key_exists(1, $configuration);
 
