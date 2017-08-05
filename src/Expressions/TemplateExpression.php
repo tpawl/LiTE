@@ -27,13 +27,16 @@ class TemplateExpression extends SubTemplateExpression
     private $viewHelperErrorHandler;
 
     /**
-     * @param string $viewHelperDirectory
-     * @param string $viewHelperNamespace
+     * @param array $configuration
      * @return void
      */
-    public function __construct(string $template, array $variables, string $viewHelperDirectory, string $viewHelperNamespace)
+    public function __construct(array $configuration)
     {
+        [$template, $variables, $viewHelperDirectory, $viewHelperNamespace] =
+            $configuration;
+        
         parent::__construct($template, $variables);
+        
         $this->viewHelperDirectory = realpath($viewHelperDirectory);
         $this->viewHelperNamespace = $viewHelperNamespace;
         $this->viewHelperErrorHandler = ErrorHandlers::top();
