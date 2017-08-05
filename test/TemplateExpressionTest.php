@@ -13,7 +13,14 @@ class TemplateExpressionTest extends TestCase
 {
     public function testDisplay()
     {
-        $te = new TemplateExpression('abc<?php $this->var; ?><?php self::test(); ?>', ['var' => 'def'], __DIR__ . '/Asset', '');
+        $configuration = [
+            'abc<?php $this->var; ?><?php self::test(); ?>',
+            ['var' => 'def'],
+             __DIR__ . '/Asset',
+            '',
+        ];
+        
+        $te = new TemplateExpression($configuration);
         
         $this->expectOutputString('abcdefabc');
         
