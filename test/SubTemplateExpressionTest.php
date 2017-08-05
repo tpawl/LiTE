@@ -13,7 +13,14 @@ class SubTemplateExpressionTest extends TestCase
 {
     public function testDisplay()
     {
-        $te = new TemplateExpression('<?php self::sub(); ?>', [], __DIR__ . '/Asset', '');
+        $configuration = [
+            '<?php self::sub(); ?>',
+            [],
+            __DIR__ . '/Asset',
+            '',
+        ];
+        
+        $te = new TemplateExpression($configuration);
         
         $this->expectOutputString('abcdefabc');
         
