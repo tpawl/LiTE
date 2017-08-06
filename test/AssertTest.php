@@ -17,11 +17,4 @@ class AssertTest extends TestCase
     {
         Assert::isFalse(true);
     }
-
-    public function testFalseConditionDoesNothing()
-    {
-        Assert::isFalse(false);
-        
-        $this->assertTrue(true);
-    }
 }
