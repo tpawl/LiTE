@@ -3,9 +3,9 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Assert;
+namespace Felix\Packages\LiTE\Assert;
 
-use LiTE\Exceptions\AssertException;
+use Felix\Packages\LiTE\Exceptions\AssertException;
 
 class Assert
 {
@@ -17,31 +17,35 @@ class Assert
     }
 
     /**
+     * @param string $message
      * @return void
      */
-    public static function shouldNeverReachHere(): void
+    public static function shouldNeverReachHere(string $message = ''): void
     {
-        self::isFalse(true);
+        self::isFalse(true, $message);
     }
-    
+
     /**
      * @param int $value
+     * @param string $message
      * @return void
      */
-    public static function notEqualsZero(int $value): void
+    public static function notEqualsZero(int $value, string $message = ''): void
     {
-        self::isFalse($value === 0);
+        self::isFalse($value === 0, $message);
     }
 
     /**
      * @param bool $condition
+     * @param string $message
      * @return void
      */
-    public static function isFalse(bool $condition): void
+    public static function isFalse(bool $condition, string $message = ''): void
     {
         if ($condition) {
 
-            throw new AssertException('Assertion failed');
+            throw new AssertException($message);
         }
     }
 }
+
