@@ -17,6 +17,14 @@ class Assert
     }
 
     /**
+     * @return void
+     */
+    public static function shouldNeverReachHere(): void
+    {
+        self::isFalse(true);
+    }
+    
+    /**
      * @param int $value
      * @return void
      */
