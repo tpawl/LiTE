@@ -50,43 +50,51 @@ class TemplateExpression extends SubTemplateExpression
      */
     private static function validateConfiguration(array $configuration): void
     {
-        $hasConfigurationAnIndex0 = array_key_exists(0, $configuration);
+        self::validateConfigurationIndex($configuration, 0, 'string');
 
-        if (!$hasConfigurationAnIndex0) {
+        self::validateConfigurationIndex($configuration, 1, 'array');
 
-            throw new \InvalidArgumentException(/* todo: ... */);
-        }
-        if (!is_string($configuration[0])) {
+        self::validateConfigurationIndex($configuration, 2, 'string');
 
-            throw new \InvalidArgumentException(/* todo: ... */);
-        }
-        $hasConfigurationAnIndex1 = array_key_exists(1, $configuration);
+        self::validateConfigurationIndex($configuration, 3, 'string');
+    }
+    
+    /**
+     * @param array $configuration
+     * @param int $index
+     * @param string $type
+     * @return void
+     */
+    private static function validateConfigurationIndex(array $configuration,
+        int $index, string $type): void
+    {
+        $hasConfigurationGivenIndex = array_key_exists($index, $configuration);
 
-        if (!$hasConfigurationAnIndex1) {
-
-            throw new \InvalidArgumentException(/* todo: ... */);
-        }
-        if (!is_array($configuration[1])) {
-
-            throw new \InvalidArgumentException(/* todo: ... */);
-        }
-        $hasConfigurationAnIndex2 = array_key_exists(2, $configuration);
-
-        if (!$hasConfigurationAnIndex2) {
+        if (!$hasConfigurationGivenIndex) {
 
             throw new \InvalidArgumentException(/* todo: ... */);
         }
-        if (!is_string($configuration[2])) {
+        $configurationValueAtGivenIndex = $configuration[$index];
 
-            throw new \InvalidArgumentException(/* todo: ... */);
+        switch ($type) {
+
+            case 'string':
+
+                $isOfType = is_string($configurationValueAtGivenIndex);
+
+                break;
+
+            case 'array':
+
+                $isOfType = is_array($configurationValueAtGivenIndex);
+
+                break;
+
+            default:
+
+                Assert::shouldNeverReachHere();
         }
-        $hasConfigurationAnIndex3 = array_key_exists(3, $configuration);
-
-        if (!$hasConfigurationAnIndex3) {
-
-            throw new \InvalidArgumentException(/* todo: ... */);
-        }
-        if (!is_string($configuration[3])) {
+        if (!$isOfType) {
 
             throw new \InvalidArgumentException(/* todo: ... */);
         }
