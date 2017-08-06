@@ -74,27 +74,9 @@ class TemplateExpression extends SubTemplateExpression
 
             throw new \InvalidArgumentException(/* todo: ... */);
         }
-        $configurationValueAtGivenIndex = $configuration[$index];
+        $givenType = gettype($configuration[$index]);
 
-        switch ($type) {
-
-            case 'string':
-
-                $isOfType = is_string($configurationValueAtGivenIndex);
-
-                break;
-
-            case 'array':
-
-                $isOfType = is_array($configurationValueAtGivenIndex);
-
-                break;
-
-            default:
-
-                Assert::shouldNeverReachHere();
-        }
-        if (!$isOfType) {
+        if ($givenType !== $type) {
 
             throw new \InvalidArgumentException(/* todo: ... */);
         }
