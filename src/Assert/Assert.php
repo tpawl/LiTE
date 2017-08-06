@@ -17,15 +17,6 @@ class Assert
     }
 
     /**
-     * @param string $message
-     * @return void
-     */
-    public static function shouldNeverReachHere(string $message = ''): void
-    {
-        self::isFalse(true, $message);
-    }
-
-    /**
      * @param int $value
      * @param string $message
      * @return void
