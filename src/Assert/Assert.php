@@ -15,7 +15,6 @@ class Assert
      */
     private function __construct()
     {
-        echo '*';
     }
 
     /**
