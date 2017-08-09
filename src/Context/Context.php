@@ -137,7 +137,7 @@ class Context
     
     private function __clone()
     {
-    
+    }
 
     private function __construct()
     {
