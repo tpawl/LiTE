@@ -135,10 +135,17 @@ class Context
         self::$instance = null;
     }
     
+    /**
+     * @return void
+     * @codeCoverageIgnore
+     */
     private function __clone()
     {
     }
 
+    /**
+     * @return void
+     */
     private function __construct()
     {
     }
