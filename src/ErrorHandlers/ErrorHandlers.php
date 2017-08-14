@@ -9,6 +9,7 @@ class ErrorHandlers
 {
     /**
      * @return void
+     * @codeCoverageIgnore
      */
     private function __construct()
     {
