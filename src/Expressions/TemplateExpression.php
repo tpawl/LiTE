@@ -74,9 +74,9 @@ class TemplateExpression extends SubTemplateExpression
 
             throw new \InvalidArgumentException(/* todo: ... */);
         }
-        $givenType = gettype($configuration[$index]);
+        $typeAtGivenIndex = gettype($configuration[$index]);
 
-        if ($givenType !== $type) {
+        if ($typeAtGivenIndex !== $type) {
 
             throw new \InvalidArgumentException(/* todo: ... */);
         }
