@@ -93,7 +93,8 @@ class TemplateExpression extends SubTemplateExpression
 
         $context = Context::getInstance();
 
-        $viewHelperContext = new ViewHelperContext($this->viewHelperDirectory, $this->viewHelperNamespace, $this->viewHelperErrorHandler);
+        $viewHelperContext = new ViewHelperContext($this->viewHelperDirectory,
+            $this->viewHelperNamespace, $this->viewHelperErrorHandler);
 
         $context->setViewHelperContext($viewHelperContext);
     }
