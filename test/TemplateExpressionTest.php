@@ -13,6 +13,7 @@ class TemplateExpressionTest extends TestCase
 {
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing index 0 in configuration
      */
     public function testNonExistingIndex0InConfigurationThrowsAnException()
     {
@@ -24,6 +25,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing index 1 in configuration
      */
     public function testNonExistingIndex1InConfigurationThrowsAnException()
     {
@@ -36,6 +38,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing index 2 in configuration
      */
     public function testNonExistingIndex2InConfigurationThrowsAnException()
     {
@@ -49,6 +52,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Missing index 3 in configuration
      */
     public function testNonExistingIndex3InConfigurationThrowsAnException()
     {
@@ -63,6 +67,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Wrong type in configuration at index 0: 'string' expected, 'null' given
      */
     public function testIndex0InConfigurationWithWrongTypeThrowsAnException()
     {
@@ -75,6 +80,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Wrong type in configuration at index 1: 'array' expected, 'null' given
      */
     public function testIndex1InConfigurationWithWrongTypeThrowsAnException()
     {
@@ -88,6 +94,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Wrong type in configuration at index 2: 'string' expected, 'null' given
      */
     public function testIndex2InConfigurationWithWrongTypeThrowsAnException()
     {
@@ -102,6 +109,7 @@ class TemplateExpressionTest extends TestCase
     
     /**
      * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Wrong type in configuration at index 3: 'string' expected, 'null' given
      */
     public function testIndex3InConfigurationWithWrongTypeThrowsAnException()
     {
