@@ -72,13 +72,15 @@ class TemplateExpression extends SubTemplateExpression
 
         if (!$hasConfigurationGivenIndex) {
 
-            throw new \InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(
+                "Missing index {$index} in configuration");
         }
         $typeAtGivenIndex = gettype($configuration[$index]);
 
         if ($typeAtGivenIndex !== $type) {
 
-            throw new \InvalidArgumentException(/* todo: ... */);
+            throw new \InvalidArgumentException(
+                "Wrong type in configuration at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given");
         }
     }
     
