@@ -75,7 +75,7 @@ class TemplateExpression extends SubTemplateExpression
             throw new \InvalidArgumentException(
                 "Missing index {$index} in configuration");
         }
-        $typeAtGivenIndex = gettype($configuration[$index]);
+        $typeAtGivenIndex = strtolower(gettype($configuration[$index]));
 
         if ($typeAtGivenIndex !== $type) {
 
