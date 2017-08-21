@@ -152,7 +152,7 @@ class Context
     
     /**
      * @return void
-     * @coseCoverageIgnore
+     * @codeCoverageIgnore
      */
     private function __wakeup()
     {
