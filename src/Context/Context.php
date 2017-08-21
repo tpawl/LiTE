@@ -27,7 +27,14 @@ class Context
         }
         return self::$instance;
     }
-
+    
+    /**
+     * @return void
+     */
+    private function __construct()
+    {
+    }
+    
     public function getTemplate(): string
     {
         $templateContext = $this->getTemplateContext();
@@ -142,11 +149,12 @@ class Context
     private function __clone()
     {
     }
-
+    
     /**
      * @return void
+     * @coseCoverageIgnore
      */
-    private function __construct()
+    private function __wakeup()
     {
     }
 }
