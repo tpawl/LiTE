@@ -33,6 +33,10 @@ class SubTemplateExpressionTest extends TestCase
         $instance->reset();
     }
     
+    /**
+     * @expectedException \ErrorException
+     * @expectedExceptionMessage Test
+     */
     public function testErrorHandler()
     {
         $instance = Configuration::getInstance();
