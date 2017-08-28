@@ -10,6 +10,7 @@ use LiTE\Interpreter\TemplateInterpreter;
 use LiTE\Context\TemplateContext;
 use LiTE\Context\VariablesContext;
 use LiTE\Context\Context;
+use LiTE\Php\Configuration;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
@@ -43,9 +44,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
 
     public static function errorHandler($errno, $errstr, $errfile, $errline)
     {
-        $shouldReport = error_reporting() & $errno;
-
-        if ($shouldReport) {
+        if (Configuration::shouldErrorLevelReport($errno)) {
 
             throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
         }
