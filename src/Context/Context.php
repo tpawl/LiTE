@@ -11,12 +11,23 @@ use LiTE\Assert\Assert;
 
 class Context extends Singleton
 {
+    private static $instance = null;
+    
     private $templateContext = null;
 
     private $variablesContextHead = null;
     private $variablesContextTail = [];
 
     private $viewHelperContext = null;
+
+    public static function getInstance()
+    {
+        if (is_null(self::$instance))
+        {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
     
     public function getTemplate(): string
     {
@@ -123,5 +134,10 @@ class Context extends Singleton
         $this->templateContext = null;
     
         $this->setInstance(null);
+    }
+    
+    public function setInstance($instance) void
+    {
+        self::$instance = $instance;
     }
 }
