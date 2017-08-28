@@ -42,7 +42,7 @@ class SubTemplateExpressionTest extends TestCase
             willReturn(true);
         
         $instance->setInstance($mock);
-    
-        $this->errorHandler(E_WARNING, 'Test', '', 0);
+   
+        SubTemplateExpression::errorHandler(E_WARNING, 'Test', '', 0);
     }   
 }
