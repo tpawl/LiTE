@@ -9,7 +9,7 @@ class Context
 {
     private static $instance = null;
     
-    public static function getInstance()
+    public static function getInstance(): Context
     {
         if (is_null(self::$instance))
         {
