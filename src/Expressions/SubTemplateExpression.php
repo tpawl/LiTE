@@ -41,7 +41,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         ErrorHandlers::pop();
     }
 
-    public function errorHandler($errno, $errstr, $errfile, $errline)
+    public static function errorHandler($errno, $errstr, $errfile, $errline)
     {
         $shouldReport = error_reporting() & $errno;
 
