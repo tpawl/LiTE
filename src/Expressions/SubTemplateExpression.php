@@ -46,7 +46,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         $configuration = Configuration::getInstance();
         
-        if ($configuration->shouldErrorLevelReport($errno)) {
+        if ($configuration->shouldErrorLevelBeReported($errno)) {
 
             throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
         }
