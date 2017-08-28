@@ -7,7 +7,7 @@ namespace LiTE\Php;
 
 class Configuration
 {
-    public function shouldErrorLevelReport(int $errorLevel): bool
+    public static function shouldErrorLevelReport(int $errorLevel): bool
     {
         return error_reporting() & $errorLevel;
     }
