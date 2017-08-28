@@ -5,11 +5,11 @@ declare(strict_types=1);
 
 namespace LiTE\Php;
 
-class Context
+class Configuration
 {
     private static $instance = null;
     
-    public static function getInstance(): Context
+    public static function getInstance(): Configuration
     {
         if (is_null(self::$instance))
         {
