@@ -25,7 +25,12 @@ class Singleton
     {
     }
     
-        /**
+    public function setInstance($instance): void
+    {
+        self::$instance = $instance;
+    }
+    
+    /**
      * @return void
      * @codeCoverageIgnore
      */
