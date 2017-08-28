@@ -34,7 +34,7 @@ class Configuration
      * @return void
      * @codeCoverageIgnore
      */
-    public static setInstance(Context $context): void
+    public function setInstance(Context $context): void
     {
         self::$instance = $context;
     }
