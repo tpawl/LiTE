@@ -9,7 +9,7 @@ class Configuration
 {
     private static $instance = null;
     
-    public static function getInstance(): Configuration
+    public static function getInstance()
     {
         if (is_null(self::$instance))
         {
@@ -34,7 +34,7 @@ class Configuration
      * @return void
      * @codeCoverageIgnore
      */
-    public function setInstance(Context $context): void
+    public function setInstance($context): void
     {
         self::$instance = $context;
     }
