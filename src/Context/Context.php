@@ -136,7 +136,7 @@ class Context extends Singleton
         $this->setInstance(null);
     }
     
-    public function setInstance($instance) void
+    public function setInstance($instance): void
     {
         self::$instance = $instance;
     }
