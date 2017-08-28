@@ -8,6 +8,7 @@ namespace LiTE\Tests;
 use PHPUnit\Framework\TestCase;
 use LiTE\Context\Context;
 use LiTE\Expressions\TemplateExpression;
+use LiTE\Php\Configuration;
 
 class SubTemplateExpressionTest extends TestCase
 {
@@ -30,4 +31,18 @@ class SubTemplateExpressionTest extends TestCase
    
         $instance->reset();
     }
+    
+    public function testErrorHandler()
+    {
+        $instance = Configuration::getInstance();
+        
+        $mock = $this->createMock(Configuration::class);
+        
+        $mock->method('shouldErrorLevelReport')->
+            willReturn(true);
+        
+        $instance->setInstance($mock);
+    
+        $this->errorHandler(E_WARNING, 'Test', '', 0);
+    }   
 }
