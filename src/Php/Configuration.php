@@ -7,7 +7,6 @@ namespace LiTE\Php;
 
 use LiTE\DesignPatterns\Singleton;
 
-
 class Configuration extends Singleton
 {   
     public function shouldErrorLevelReport(int $errorLevel): bool
