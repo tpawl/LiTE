@@ -9,7 +9,7 @@ use LiTE\DesignPatterns\Singleton;
 
 class Configuration extends Singleton
 {   
-    public function shouldErrorLevelReport(int $errorLevel): bool
+    public function shouldErrorLevelBeReported(int $errorLevel): bool
     {
         return (bool) (error_reporting() & $errorLevel);
     }
