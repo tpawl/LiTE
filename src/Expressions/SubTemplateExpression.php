@@ -30,7 +30,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function display(): void
     {
-        ErrorHandlers::push(array(__NAMESPACE__ . '\SubTemplateExpression', 'errorHandler'));
+        ErrorHandlers::push('self::errorHandler');
 
         $this->initialize($this->template, $this->variables);
 
