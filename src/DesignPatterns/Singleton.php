@@ -10,7 +10,7 @@ class Singleton
     /**
      * @return void
      */
-    private function __construct()
+    protected function __construct()
     {
     }
     
