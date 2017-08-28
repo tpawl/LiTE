@@ -9,6 +9,6 @@ class Configuration
 {
     public function shouldErrorLevelReport(int errorLevel): bool
     {
-        error_reporting() & $errorLevel;
+        return error_reporting() & $errorLevel;
     }
 }
