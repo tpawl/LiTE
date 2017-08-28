@@ -30,16 +30,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function display(): void
     {
-        ErrorHandlers::push(function($errno, $errstr, $errfile, $errline)
-            {
-                $shouldReport = error_reporting() & $errno;
-
-                if ($shouldReport) {
-
-                    throw new \ErrorException($errstr, 0, $errno, $errfile,
-                        $errline);
-                }
-            });
+        ErrorHandlers::push('self::errorHandler');
 
         $this->initialize($this->template, $this->variables);
 
@@ -50,6 +41,16 @@ class SubTemplateExpression implements TemplateExpressionInterface
         ErrorHandlers::pop();
     }
 
+    public function errorHandler($errno, $errstr, $errfile, $errline)
+    {
+        $shouldReport = error_reporting() & $errno;
+
+        if ($shouldReport) {
+
+            throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+        }
+    }
+    
     /**
      * @param string $template
      * @param array $variables
