@@ -30,6 +30,15 @@ class Context
         return (bool) (error_reporting() & $errorLevel);
     }
     
+    /**
+     * @return void
+     * @codeCoverageIgnore
+     */
+    public static setInstance(Context $context): void
+    {
+        self::$instance = $context;
+    }
+    
      /**
      * @return void
      * @codeCoverageIgnore
