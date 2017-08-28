@@ -43,7 +43,7 @@ class SubTemplateExpressionTest extends TestCase
         
         $mock = $this->createMock(Configuration::class);
         
-        $mock->method('shouldErrorLevelReport')->
+        $mock->method('shouldErrorLevelBeReported')->
             willReturn(true);
         
         $instance->setInstance($mock);
