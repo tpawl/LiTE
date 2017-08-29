@@ -5,11 +5,10 @@ declare(strict_types=1);
 
 namespace LiTE\Context;
 
-use LiTE\DesignPatterns\Singleton;
 use LiTE\Filter\FilterInterface;
 use LiTE\Assert\Assert;
 
-class Context extends Singleton
+class Context
 {
     private static $instance = null;
     
@@ -27,6 +26,13 @@ class Context extends Singleton
             self::$instance = new self();
         }
         return self::$instance;
+    }
+    
+     /**
+     * @return void
+     */
+    private function __construct()
+    {
     }
     
     public function getTemplate(): string
@@ -139,5 +145,22 @@ class Context extends Singleton
     public function setInstance($instance): void
     {
         self::$instance = $instance;
+    }
+    
+    
+    /**
+     * @return void
+     * @codeCoverageIgnore
+     */
+    private function __clone()
+    {
+    }
+    
+    /**
+     * @return void
+     * @codeCoverageIgnore
+     */
+    private function __wakeup()
+    {
     }
 }
