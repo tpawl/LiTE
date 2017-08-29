@@ -34,7 +34,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         $configuration = new Configuration();
         
-        ErrorHandlers::push(self::getErrorHanlder($configuration));
+        ErrorHandlers::push(self::getErrorHandler($configuration));
 
         $this->initialize($this->template, $this->variables);
 
