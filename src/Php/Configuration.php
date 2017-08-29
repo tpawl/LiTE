@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace LiTE\Php;
 
 class Configuration implements ConfigurationInterface
-{   
+{
     public function shouldErrorLevelBeReported(int $errorLevel): bool
     {
         return (bool) (error_reporting() & $errorLevel);
