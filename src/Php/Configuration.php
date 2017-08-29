@@ -5,28 +5,12 @@ declare(strict_types=1);
 
 namespace LiTE\Php;
 
-use LiTE\DesignPatterns\Singleton;
+use LiTE\Php\ConfigurationInterface;
 
-class Configuration extends Singleton
-{ 
-    private static $instance = null;
-
-    public static function getInstance()
-    {
-        if (is_null(self::$instance))
-        {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
-    
+class Configuration implements ConfigurationInterface
+{   
     public function shouldErrorLevelBeReported(int $errorLevel): bool
     {
         return (bool) (error_reporting() & $errorLevel);
-    }
-    
-    public function setInstance($instance): void
-    {
-        self::$instance = $instance;
     }
 }
