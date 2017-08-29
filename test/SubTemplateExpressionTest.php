@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use LiTE\Context\Context;
 use LiTE\Expressions\TemplateExpression;
 use LiTE\Expressions\SubTemplateExpression;
+use LiTE\Php\ConfigurationInterface;
 use LiTE\Php\Configuration;
 
 class SubTemplateExpressionTest extends TestCase
@@ -38,16 +39,14 @@ class SubTemplateExpressionTest extends TestCase
      * @expectedExceptionMessage Test
      */
     public function testErrorHandler()
-    {
-        $instance = Configuration::getInstance();
-        
-        $mock = $this->createMock(Configuration::class);
+    {   
+        $mock = $this->createMock(ConfigurationInterface::class);
         
         $mock->method('shouldErrorLevelBeReported')->
             willReturn(true);
-        
-        $instance->setInstance($mock);
    
-        SubTemplateExpression::errorHandler(E_WARNING, 'Test', '', 0);
+        $eh = SubTemplateExpression::getErrorHandler($mock);
+        
+        call_user_func($eh, E_WARNING, 'Test', '', 0);
     }   
 }
