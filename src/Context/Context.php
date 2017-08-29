@@ -19,7 +19,10 @@ class Context
 
     private $viewHelperContext = null;
 
-    public static function getInstance()
+    /**
+     * @return static
+     */
+    public static function getInstance(): Context
     {
         if (is_null(self::$instance))
         {
