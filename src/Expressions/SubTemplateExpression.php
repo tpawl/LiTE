@@ -10,6 +10,7 @@ use LiTE\Interpreter\TemplateInterpreter;
 use LiTE\Context\TemplateContext;
 use LiTE\Context\VariablesContext;
 use LiTE\Context\Context;
+use LiTE\Php\ConfigurationInterface;
 use LiTE\Php\Configuration;
 
 class SubTemplateExpression implements TemplateExpressionInterface
@@ -31,7 +32,9 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function display(): void
     {
-        ErrorHandlers::push(self::class . '::errorHandler');
+        $configuration = new Configuration();
+        
+        ErrorHandlers::push(self::getErrorHanlder($configuration));
 
         $this->initialize($this->template, $this->variables);
 
@@ -42,14 +45,15 @@ class SubTemplateExpression implements TemplateExpressionInterface
         ErrorHandlers::pop();
     }
 
-    public static function errorHandler($errno, $errstr, $errfile, $errline)
+    private static function getErrorHandler(ConfigurationInterface $configuration): callable
     {
-        $configuration = Configuration::getInstance();
+        return function($errno, $errstr, $errfile, $errline) use ($configuration) {
         
-        if ($configuration->shouldErrorLevelBeReported($errno)) {
+            if ($configuration->shouldErrorLevelBeReported($errno)) {
 
-            throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
-        }
+                throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+            }
+        };
     }
     
     /**
