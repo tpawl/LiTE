@@ -133,6 +133,13 @@ class Context
         $this->viewHelperContext = null;
     }
 
+    public static function isEmpty(): bool
+    {
+        $instance = self::getInstance();
+        
+        return is_null($instance->variablesContextHead);
+    }
+    
     public function reset(): void
     {
         $this->viewHelperContext = null;
