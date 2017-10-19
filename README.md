@@ -7,7 +7,7 @@ LiTE
 Description
 -----------
 
-**LiTE** is an ad hoc Template Engine especially suited for Backends. It´s native, because it uses PHP as its Template Language and needs no compiling of templates. It supports Template Variables and View-helpers.
+**LiTE** is an ad hoc Template Engine especially suited for Backends. It´s native, because it uses PHP as its Template Language and needs no compiling of templates. It supports Template Variables and View Helpers.
 
 Requirements
 ------------
@@ -52,10 +52,21 @@ $templateExpression->display();
 This defines a template variable with name `foo`.
 The complete expression above is replaced by the value of the template variable `foo`.
 
+#### View helpers
+
+```
+<?php self::bar(); ?>
+```
+
+This calls the view helper `BarViewHelper` with no arguments.
+If you have arguments, you have to write them as a comma separated list between the parentheses after `bar`.
+Example: `<?php self::bar('arg1', 'arg2, ...); ?>`
+
+
 Example
 -------
 
-Save the following view-helper to a file named `MsgViewHelper.php` in any folder:
+Save the following view helper to a file named `MsgViewHelper.php` in any folder:
 
 ```php
 <?php
@@ -78,7 +89,7 @@ class MsgViewHelper implements LiTE\ViewHelperInterface
 
 ```
 
-Suppose you have the following script in the same folder as the above view-helper:
+Suppose you have the following script in the same folder as the above view helper:
 
 ```php
 <?php
