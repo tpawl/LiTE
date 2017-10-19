@@ -55,7 +55,9 @@ The complete expression above is replaced by the value of the template variable 
 Example
 -------
 ```php
-$template = <<<TEMPLATE
+<? php
+
+$template = <<<'TEMPLATE'
 Hello <?php $this->name; ?>.
 You are running PHP <?php $this->ver; ?>:
 <?php self::msg(); ?>
