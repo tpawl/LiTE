@@ -74,6 +74,7 @@ class HelloViewHelper implements LiTE\ViewHelperInterface
         print 'Hello world.';
     }
 }
+
 ```
 
 `$arguments` is an indexed array of arguments that can be given to the view helper.
