@@ -54,6 +54,14 @@ Note that the only argument of the template expression is an array of configurat
 $templateExpression->display();
 ```
 
+#### Defining a view helper
+
+#### Predefined view helpers
+
+#### Sub template expression
+
+#### Miscellaneous
+
 ### LiTE for Template Designers
 
 #### Template variables
