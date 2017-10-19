@@ -57,6 +57,27 @@ Example
 ```php
 <?php
 
+class MsgViewHelper implements LiTE\ViewHelperInterface
+{
+    public static function execute(array $arguments): void
+    {
+        if (version_compare(PHP_VERSION, '7.1.0') >= 0) {
+            
+            $msg = 'Everything is fine';
+        
+        } else {
+        
+            $msg = 'That is not good';
+        }
+        print $msg;
+    }
+}
+
+```
+
+```php
+<?php
+
 require_once '/path/to/vendor/autoload.php';
 
 $template = <<<'HTML'
