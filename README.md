@@ -57,6 +57,8 @@ Example
 ```php
 <?php
 
+require_once '/path/to/vendor/autoload.php';
+
 $template = <<<'HTML'
 <!DOCTYPE html>
 Hello <?php $this->name; ?>!<br>
