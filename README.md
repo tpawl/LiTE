@@ -67,7 +67,7 @@ class MsgViewHelper implements LiTE\ViewHelperInterface
         
         } else {
         
-            $msg = 'That is not good';
+            $msg = 'This is not good';
         }
         print $msg;
     }
