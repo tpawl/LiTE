@@ -102,3 +102,10 @@ $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 
 $templateExpression->display();
 ```
+
+One possible output could be:
+
+```
+Hello Thomas!
+You are running PHP 7.1.10: Everything is fine
+```
