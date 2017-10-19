@@ -45,7 +45,7 @@ $templateExpression->display();
 
 #### Template variables
 
-```php
+```html
 <?php $this->foo; ?>
 ```
 
