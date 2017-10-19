@@ -17,4 +17,10 @@ Coming soon...
 
 ## Usage
 
+### Lite for Developers
+
+Coming soon...
+
+### Lite for Template Designers
+
 Coming soon...
