@@ -30,6 +30,10 @@ $configuration = [
 $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 ```
 
+```php
+$templateExpression->display();
+```
+
 ### LiTE for Template Designers
 
 Coming soon...
