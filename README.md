@@ -48,4 +48,6 @@ $templateExpression->display();
 ```php
 <?php $this->foo; ?>
 ```
+
 This defines a template-variable with name `foo`.
+The complete expression above is replaced by the value of the template variable `foo`.
