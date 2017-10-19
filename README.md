@@ -57,16 +57,16 @@ Example
 ```php
 <?php
 
-$template = <<<'TEMPLATE'
-Hello <?php $this->name; ?>.
-You are running PHP <?php $this->ver; ?>:
-<?php self::msg(); ?>
-TEMPLATE;
+$template = <<<'HTML'
+<!DOCTYPE html>
+Hello <?php $this->name; ?>!<br>
+You are running PHP <?php $this->ver; ?>: <?php self::msg(); ?>
+HTML;
 
 $configuration = [
     $template,
     ['name' => 'Thomas', 'ver' => PHP_VERSION],
-    ,
+    '.',
     '',
 ];
 
