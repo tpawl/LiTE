@@ -120,7 +120,7 @@ $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 $templateExpression->display();
 ```
 
-If you run the above script, one possible output could be:
+If you run the above script in the browser, one possible output could be:
 
 ```
 Hello Thomas!
