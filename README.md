@@ -62,6 +62,7 @@ This calls the view helper `BarViewHelper` with no arguments.
 If you have arguments, you have to write them as a comma separated list between the parentheses after `bar`.
 Example: `<?php self::bar('arg1', 'arg2', ...); ?>`
 
+The complete expression above is replaced by the output of the view helper `BarViewHelper`.
 
 Example
 -------
