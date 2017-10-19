@@ -63,9 +63,14 @@ Hello <?php $this->name; ?>!<br>
 You are running PHP <?php $this->ver; ?>: <?php self::msg(); ?>
 HTML;
 
+$variables = [
+    'name' => 'Thomas',
+    'ver' => PHP_VERSION,
+];
+
 $configuration = [
     $template,
-    ['name' => 'Thomas', 'ver' => PHP_VERSION],
+    $variables,
     '.',
     '',
 ];
