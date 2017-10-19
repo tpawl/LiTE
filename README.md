@@ -38,4 +38,8 @@ $templateExpression->display();
 
 ### LiTE for Template Designers
 
-Coming soon...
+#### Template-variables
+
+```php
+<?php $this->foo; ?>
+```
