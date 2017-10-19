@@ -48,7 +48,7 @@ Note that the only argument of the template expression is an array of configurat
 * The third option is the path to the folder in which the view helpers are stored.
 * The fourth option is the namespace in which the view helpers are defined as a string. If you do not use a namespace for your view helpers, write the empty string (`''`) here.
 
-#### Outputting the Template
+#### Outputting the template
 
 ```php
 $templateExpression->display();
