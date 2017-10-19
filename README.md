@@ -24,6 +24,8 @@ Usage
 
 ### LiTE for Developers
 
+#### Basics
+
 ```php
 $configuration = [
     $template, // a string holding the template
