@@ -56,6 +56,29 @@ $templateExpression->display();
 
 #### Defining a view helper
 
+A view helper is a class that implements the interface `LiTE\ViewHelperInterface`, that has a static `execute` method.
+The name of that class must be ending with `ViewHelper` and the first letter must be upper-case.
+The code for this class must be saved in a file with the name of the corresponding class with a trailing `.php`.
+This file must be saved in a folder given as the third configuration option of the template expression.
+
+Example:
+
+```php
+<?php
+// HelloViewHelper.php
+
+class HelloViewHelper implements LiTE\ViewHelperInterface
+{
+    public static function execute(array $arguments): void
+    {
+        print 'Hello world.';
+    }
+}
+```
+
+`$arguments` is an indexed array of arguments that can be given to the view helper.
+
+
 #### Predefined view helpers
 
 #### Sub template expression
