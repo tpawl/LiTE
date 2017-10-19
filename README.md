@@ -75,6 +75,8 @@ class MsgViewHelper implements LiTE\ViewHelperInterface
 
 ```
 
+Suppose you have the following script in the same folder as the above view-helper:
+
 ```php
 <?php
 
