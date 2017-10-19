@@ -43,3 +43,4 @@ $templateExpression->display();
 ```php
 <?php $this->foo; ?>
 ```
+This defines a template-variable with name foo.
