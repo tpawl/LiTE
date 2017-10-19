@@ -17,10 +17,10 @@ Coming soon...
 
 ## Usage
 
-### Lite for Developers
+### LiTE for Developers
 
 Coming soon...
 
-### Lite for Template Designers
+### LiTE for Template Designers
 
 Coming soon...
