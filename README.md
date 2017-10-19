@@ -21,13 +21,13 @@ Coming soon...
 
 ```php
 $configuration = [
-    $template,
+    $template, // a string holding the template
     ['the' => 'variables', 'go' => 'here'],
     '/path/to/view-helpers',
     'view-helpers\namespace',
 ];
 
-LiTE\Expressions\TemplateExpression($configuration);
+$templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 ```
 
 ### LiTE for Template Designers
