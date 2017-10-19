@@ -19,7 +19,16 @@ Coming soon...
 
 ### LiTE for Developers
 
-Coming soon...
+```php
+$configuration = [
+    $template,
+    ['the' => 'variables', 'go' => 'here'],
+    '/path/to/view-helpers',
+    'view-helpers\namespace',
+];
+
+LiTE\Expressions\TemplateExpression($configuration);
+```
 
 ### LiTE for Template Designers
 
