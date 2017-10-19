@@ -26,6 +26,10 @@ Usage
 
 #### Basics
 
+The heart of **LiTE** is a object called the **template expression** (of class `LiTE\Expressions\TemplateExpression`).
+
+A template expression object is created like this:
+
 ```php
 $configuration = [
     $template, // a string holding the template
@@ -37,6 +41,12 @@ $configuration = [
 $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 ```
 This will create a template expression that looks up the view helpers in the `/path/to/view_helpers/` folder.
+
+Note that the only argument of the template expression is an array of configuration options.
+The first option is the template as a string.
+The second option is an associative array of template variables, with the name of the variable as the key and its value.
+The third option is the path to the folder in which the view helpers are stored.
+The fourth option is the namespace in which the view helpers are defined as a string. If you do not use a namespace for your view helpers, write the empty string (`''`) here.
 
 #### Outputting the Template
 
