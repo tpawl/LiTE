@@ -5,7 +5,7 @@
 
 ## Description
 
-**LiTE** is an ad hoc Template Engine especially suited for Backends. It´s native, because it uses PHP as its Template Language and needs no compiling of templates.
+**LiTE** is an ad hoc Template Engine especially suited for Backends. It´s native, because it uses PHP as its Template Language and needs no compiling of templates. It supprts Tempate-variables and View-helpers.
 
 ## Requirements
 
