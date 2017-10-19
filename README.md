@@ -28,8 +28,8 @@ Usage
 $configuration = [
     $template, // a string holding the template
     ['the' => 'variables', 'go' => 'here'],
-    '/path/to/view-helpers',
-    'view-helpers\namespace',
+    '/path/to/view_helpers',
+    'view_helpers\namespace',
 ];
 
 $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
