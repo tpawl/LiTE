@@ -86,7 +86,7 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 
 #### Miscellaneous
 
-To determine wether you are inside or outside of a view helper you can use the static method `LiTE\Context\Context::isEmpty()`.
+To determine wether you are inside/outside of a view helper you can use the static method `LiTE\Context\Context::isEmpty()`.
 It returns `false` if you are inside a view helper, `true` otherwise.
 
 ### LiTE for Template Designers
