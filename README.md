@@ -54,6 +54,9 @@ The complete expression above is replaced by the value of the template variable 
 
 Example
 -------
+
+Save the following view-helper to a file named `MsgViewHelper.php` in any folder:
+
 ```php
 <?php
 
