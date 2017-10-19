@@ -36,6 +36,7 @@ $configuration = [
 
 $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 ```
+This will create a template expression that looks up the view helpers in the `/path/to/view_helpers/` folder.
 
 #### Outputting the Template
 
