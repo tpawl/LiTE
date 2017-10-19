@@ -45,9 +45,19 @@ $templateExpression->display();
 
 #### Template variables
 
-```html
+```
 <?php $this->foo; ?>
 ```
 
 This defines a template variable with name `foo`.
 The complete expression above is replaced by the value of the template variable `foo`.
+
+Example
+-------
+```php
+$template = <<<TEMPLATE
+Hello <?php $this->name; ?>.
+You are running PHP <?php $this->ver; ?>:
+<?php self::msg(); ?>
+TEMPLATE;
+```
