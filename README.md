@@ -7,7 +7,7 @@ LiTE
 Description
 -----------
 
-**LiTE** is an ad hoc Template Engine especially suited for Backends. It´s native, because it uses PHP as its Template Language and needs no compiling of templates. It supports Template-variables and View-helpers.
+**LiTE** is an ad hoc Template Engine especially suited for Backends. It´s native, because it uses PHP as its Template Language and needs no compiling of templates. It supports Template variables and View-helpers.
 
 Requirements
 ------------
@@ -43,11 +43,11 @@ $templateExpression->display();
 
 ### LiTE for Template Designers
 
-#### Template-variables
+#### Template variables
 
 ```php
 <?php $this->foo; ?>
 ```
 
-This defines a template-variable with name `foo`.
+This defines a template variable with name `foo`.
 The complete expression above is replaced by the value of the template variable `foo`.
