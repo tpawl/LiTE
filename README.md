@@ -108,7 +108,7 @@ $templateExpression = new LiTE\Expressions\TemplateExpression($configuration);
 $templateExpression->display();
 ```
 
-if you run the above script, one possible output could be:
+If you run the above script, one possible output could be:
 
 ```
 Hello Thomas!
