@@ -60,7 +60,7 @@ The complete expression above is replaced by the value of the template variable 
 
 This calls the view helper `BarViewHelper` with no arguments.
 If you have arguments, you have to write them as a comma separated list between the parentheses after `bar`.
-Example: `<?php self::bar('arg1', 'arg2, ...); ?>`
+Example: `<?php self::bar('arg1', 'arg2', ...); ?>`
 
 
 Example
