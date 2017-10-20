@@ -88,7 +88,7 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 #### Sub template expression
 
 Objects of the class `LiTE\Expressions\SubTemplateExpression` are intended for use inside a view helper.
-They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted by the configuration options.
+They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted in the configuration options.
 
 Example:
 
