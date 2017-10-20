@@ -92,6 +92,20 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 To determine wether you are inside/outside of a view helper you can use the method `LiTE\Context\Context::isEmpty()`.
 It returns `false` if you are inside a view helper, `true` otherwise.
 
+There is the class `LiTE\Version` defined, that holds version information for **LiTE**.
+It has the following constants defined:
+* `MAJOR` for the major version number (major release).
+* `MINOR` for the minor version number (minor release).
+* `REVISION` for the revision number (patch level).
+
+Example:
+
+```php
+use LiTE\Version;
+
+echo 'Powered by LiTE ', Version::MAJOR, '.', Version::MINOR;
+```
+
 ### LiTE for Template Designers
 
 #### Template variables
