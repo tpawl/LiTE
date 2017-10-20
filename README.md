@@ -102,25 +102,25 @@ class ExampleViewHelper implements LiTE\ViewHelperInterface
         $condition = $arguments[0];
 
         if ($condition) {
-        
+
             $configuration = [
                 $templateA,
                 ['the' => 'variables', 'go' => 'here'],
             ];
 
             $subTemplateExpression = new SubTemplateExpression($configuration);
-        
+
             $subTemplateExpression->display();
-         
+
         } else {
-        
+
             $configuration = [
                 $templateB,
                 ['the' => 'variables', 'go' => 'here'],
             ];
 
             $subTemplateExpression = new SubTemplateExpression($configuration);
-        
+
             $subTemplateExpression->display();
         }
     }
