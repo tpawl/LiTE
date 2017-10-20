@@ -87,6 +87,46 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 
 #### Sub template expression
 
+Objects of the class `LiTE\Expressions\SubTemplateExpression` are intended for use inside a view helper.
+They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted by the configuration options.
+
+Example:
+
+```php
+use LiTE\Expressions\SubTemplateExpression;
+
+class ExampleViewHelper implements LiTE\ViewHelperInterface
+{
+    public static function execute(array $arguments): void
+    {
+        $condition = $arguments[0];
+
+        if ($condition) {
+        
+            $configuration = [
+                $templateA,
+                ['the' => 'variables', 'go' => 'here'],
+            ];
+
+            $subTemplateExpression = new SubTemplateExpression($configuration);
+        
+            $subTemplateExpression->display();
+         
+        } else {
+        
+            $configuration = [
+                $templateB,
+                ['the' => 'variables', 'go' => 'here'],
+            ];
+
+            $subTemplateExpression = new SubTemplateExpression($configuration);
+        
+            $subTemplateExpression->display();
+        }
+    }
+}
+```
+
 #### Miscellaneous
 
 To determine wether you are inside/outside of a view helper you can use the method `LiTE\Context\Context::isEmpty()`.
