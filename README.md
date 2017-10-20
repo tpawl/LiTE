@@ -83,8 +83,6 @@ class HelloViewHelper implements LiTE\ViewHelperInterface
 `$arguments` is an indexed array of arguments that can be given to the view helper.
 Output in the view helper can be done with `echo`, `print`, `printf`, ...
 
-#### Predefined view helpers
-
 #### Sub template expression
 
 Objects of the class `LiTE\Expressions\SubTemplateExpression` are intended for use inside a view helper.
@@ -168,6 +166,18 @@ If you have arguments, you have to write them as a comma separated list between 
 Example: `<?php self::bar('arg1', 'arg2', ...); ?>`
 
 The complete expression above is replaced by the output of the view helper `BarViewHelper`.
+
+#### Predefined view helpers
+
+There is the view helper `_xmlViewHelper` predefined.
+It is called like this:
+
+```
+<?php self::_xml('version="1.0" encoding="UTF-8" standalone="yes"'); ?>
+```
+
+This will convert to `<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>`.
+It is useful if you want to output XML.
 
 Example
 -------
