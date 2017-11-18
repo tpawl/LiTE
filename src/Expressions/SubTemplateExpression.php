@@ -3,15 +3,15 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Expressions;
+namespace tpawl\lite\Expressions;
 
-use LiTE\ErrorHandlers\ErrorHandlers;
-use LiTE\Interpreter\TemplateInterpreter;
-use LiTE\Context\TemplateContext;
-use LiTE\Context\VariablesContext;
-use LiTE\Context\Context;
-use LiTE\Php\ConfigurationInterface;
-use LiTE\Php\Configuration;
+use tpawl\lite\ErrorHandlers\ErrorHandlers;
+use tpawl\lite\Interpreter\TemplateInterpreter;
+use tpawl\lite\Context\TemplateContext;
+use tpawl\lite\Context\VariablesContext;
+use tpawl\lite\Context\Context;
+use tpawl\lite\Php\ConfigurationInterface;
+use tpawl\lite\Php\Configuration;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
