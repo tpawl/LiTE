@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Context\Context;
-use LiTE\Expressions\TemplateExpression;
+use tpawl\lite\Context\Context;
+use tpawl\lite\Expressions\TemplateExpression;
 
 class TemplateExpressionTest extends TestCase
 {
