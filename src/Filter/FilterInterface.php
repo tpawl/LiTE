@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Filter;
+namespace tpawl\lite\Filter;
 
 interface FilterInterface
 {
