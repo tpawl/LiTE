@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
 use tpawl\lite\Assert\Assert;
