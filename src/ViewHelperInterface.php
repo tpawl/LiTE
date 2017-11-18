@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace LiTE;
+namespace tpawl\lite;
 
 interface ViewHelperInterface
 {
