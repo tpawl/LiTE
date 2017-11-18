@@ -1,7 +1,7 @@
 <?php
 // Copyright (c) 2017 by Thomas Pawlitschko. All rights reserved.
 
-use LiTE\ViewHelperInterface;
+use tpawl\lite\ViewHelperInterface;
 
 class TestViewHelper implements ViewHelperInterface
 {
