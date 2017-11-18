@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace Felix\Packages\LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Context\ViewHelperContext;
-use LiTE\Filter\FilterInterface;
+use tpawl\lite\Context\ViewHelperContext;
+use tpawl\lite\Filter\FilterInterface;
 
 class ViewHelperContextTest extends TestCase
 {
