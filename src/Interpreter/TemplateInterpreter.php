@@ -3,12 +3,12 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Interpreter;
+namespace tpawl\lite\Interpreter;
 
-use LiTE\Context\Context;
-use LiTE\Filter\Filter;
-use LiTE\Expressions\VariableExpression;
-use LiTE\Expressions\ViewHelperExpression;
+use tpawl\lite\Context\Context;
+use tpawl\lite\Filter\Filter;
+use tpawl\lite\Expressions\VariableExpression;
+use tpawl\lite\Expressions\ViewHelperExpression;
 
 class TemplateInterpreter
 {
