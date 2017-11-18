@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Context;
+namespace tpawl\lite\Context;
 
-use LiTE\Filter\FilterInterface;
-use LiTE\ErrorHandlers\ErrorHandlers;
-use LiTE\Exceptions\ViewHelperException;
-use LiTE\Exceptions\ViewHelperContextException;
-use LiTE\ViewHelperInterface;
+use tpawl\lite\Filter\FilterInterface;
+use tpawl\lite\ErrorHandlers\ErrorHandlers;
+use tpawl\lite\Exceptions\ViewHelperException;
+use tpawl\lite\Exceptions\ViewHelperContextException;
+use tpawl\lite\ViewHelperInterface;
 
 class ViewHelperContext
 {
