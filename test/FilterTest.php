@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Filter\Filter;
+use tpawl\lite\Filter\Filter;
 
 class FilterTest extends TestCase
 {
