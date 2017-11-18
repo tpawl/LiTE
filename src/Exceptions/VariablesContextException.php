@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Exceptions;
+namespace tpawl\lite\Exceptions;
 
 class VariablesContextException extends \LogicException
 {
