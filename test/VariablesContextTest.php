@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Context\VariablesContext;
-use LiTE\Filter\FilterInterface;
+use tpawl\lite\Context\VariablesContext;
+use tpawl\lite\Filter\FilterInterface;
 
 class VariablesContextTest extends TestCase
 {
