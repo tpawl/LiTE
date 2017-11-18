@@ -3,9 +3,9 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Filter;
+namespace tpawl\lite\Filter;
 
-use LiTE\Assert\Assert;
+use tpawl\lite\Assert\Assert;
 
 class Filter implements FilterInterface
 {
