@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Context;
+namespace tpawl\lite\Context;
 
-use LiTE\Filter\FilterInterface;
-use LiTE\Exceptions\VariablesContextException;
+use tpawl\lite\Filter\FilterInterface;
+use tpawl\lite\Exceptions\VariablesContextException;
 
 class VariablesContext
 {
