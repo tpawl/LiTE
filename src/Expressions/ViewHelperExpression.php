@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Expressions;
+namespace tpawl\lite\Expressions;
 
-use LiTE\Context\Context;
-use LiTE\Filter\FilterInterface;
+use tpawl\lite\Context\Context;
+use tpawl\lite\Filter\FilterInterface;
 
 class ViewHelperExpression implements TemplateExpressionInterface
 {
