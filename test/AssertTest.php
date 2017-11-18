@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Assert\Assert;
+use tpawl\lite\Assert\Assert;
 
 class AssertTest extends TestCase
 {
