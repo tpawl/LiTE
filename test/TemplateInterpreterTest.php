@@ -3,12 +3,12 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Interpreter\TemplateInterpreter;
-use LiTE\Context\TemplateContext;
-use Lite\Context\Context;
+use tpawl\lite\Interpreter\TemplateInterpreter;
+use tpawl\lite\Context\TemplateContext;
+use tpawl\lite\Context\Context;
 
 class TemplateInterpreterTest extends TestCase
 {
