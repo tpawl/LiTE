@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace LiTE\Tests;
+namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use LiTE\Context\Context;
-use LiTE\Context\VariablesContext;
+use tpawl\lite\Context\Context;
+use tpawl\lite\Context\VariablesContext;
 
 class ContextTest extends TestCase
 {
