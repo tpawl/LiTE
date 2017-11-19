@@ -127,7 +127,7 @@ class ExampleViewHelper implements tpawl\lite\ViewHelperInterface
 
 #### Miscellaneous
 
-To determine wether you are inside/outside of a view helper you can use the method `tpawl\lite\Context\Context::isEmpty()`.
+To determine wether you are inside/outside of a view helper you can use the static method `tpawl\lite\Context\Context::isEmpty()`.
 It returns `false` if you are inside a view helper, `true` otherwise.
 
 There is the class `tpawl\lite\Version` defined, that holds version information for **LiTE**.
