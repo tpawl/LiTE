@@ -11,7 +11,7 @@ use tpawl\lite\Assert\Assert;
 class AssertTest extends TestCase
 {
     /**
-     * @expectedException LiTE\Exceptions\AssertException
+     * @expectedException tpawl\lite\Exceptions\AssertException
      */
     public function testTrueConditionThrowsAnException()
     {
