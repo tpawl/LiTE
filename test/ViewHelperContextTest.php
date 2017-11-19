@@ -12,7 +12,7 @@ use tpawl\lite\Filter\FilterInterface;
 class ViewHelperContextTest extends TestCase
 {
     /**
-     * @expectedException LiTE\Exceptions\ViewHelperContextException
+     * @expectedException tpawl\lite\Exceptions\ViewHelperContextException
      */
     public function testInvalidNameThrowsAnException()
     {
@@ -47,7 +47,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     /**
-     * @expectedException LiTE\Exceptions\ViewHelperContextException
+     * @expectedException tpawl\lite\Exceptions\ViewHelperContextException
      */
     public function testWrongViewHelperThrowsAnException()
     {
@@ -62,7 +62,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     /**
-     * @expectedException LiTE\Exceptions\ViewHelperContextException
+     * @expectedException tpawl\lite\Exceptions\ViewHelperContextException
      */
     public function testInvalidViewHelperThrowsAnException()
     {
@@ -77,7 +77,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     /**
-     * @expectedException LiTE\Exceptions\ViewHelperException
+     * @expectedException tpawl\lite\Exceptions\ViewHelperException
      */
     public function testEceptionViewHelperThrowsAnException()
     {
