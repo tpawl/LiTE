@@ -12,7 +12,7 @@ use tpawl\lite\Filter\FilterInterface;
 class VariablesContextTest extends TestCase
 {
     /**
-     * @expectedException LiTE\Exceptions\VariablesContextException
+     * @expectedException tpawl\lite\Exceptions\VariablesContextException
      */
     public function testInvalidNameThrowsAnException()
     {
@@ -27,7 +27,7 @@ class VariablesContextTest extends TestCase
     }
 
     /**
-     * @expectedException LiTE\Exceptions\VariablesContextException
+     * @expectedException tpawl\lite\Exceptions\VariablesContextException
      */
     public function testNonExistingVariableThrowsAnException()
     {
