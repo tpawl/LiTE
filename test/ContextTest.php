@@ -39,7 +39,7 @@ class ContextTest extends TestCase
     }
     
     /**
-     * @expectedException LiTE\Exceptions\AssertException
+     * @expectedException tpawl\lite\Exceptions\AssertException
      */
     public function popFromEmptyVariablesContextThrowsAnException()
     {
