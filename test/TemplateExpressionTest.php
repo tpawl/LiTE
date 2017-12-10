@@ -140,6 +140,8 @@ class TemplateExpressionTest extends TestCase
         
         $instance = Context::getInstance();
    
-        $instance->reset();
+        $ref = new \ReflectionProperty('Context', 'instance');
+        $ref->setAccessible(true);
+        $ref->setValue(null);
     }
 }
