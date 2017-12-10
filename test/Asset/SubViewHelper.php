@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2017 by Thomas Pawlitschko. All rights reserved.
+// Copyright (c) 2017 by Thomas Pawlitschko. (MIT License)
 
 use tpawl\lite\ViewHelperInterface;
 use tpawl\lite\Expressions\SubTemplateExpression;
