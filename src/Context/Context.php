@@ -137,7 +137,7 @@ class Context
     {
         $instance = self::getInstance();
         
-        return is_null($instance->variablesContextHead);
+        return $instance->isVariablesContextEmpty();
     }
 
     /**
