@@ -26,7 +26,7 @@ class TemplateInterpreterTest extends TestCase
     
         $ti->_xml('test');
     
-        $ref = new \ReflectionProperty('Context', 'instance');
+        $ref = new \ReflectionProperty(Context::class, 'instance');
         $ref->setAccessible(true);
         $ref->setValue(null);
     }
