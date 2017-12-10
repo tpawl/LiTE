@@ -139,25 +139,7 @@ class Context
         
         return is_null($instance->variablesContextHead);
     }
-    
-    public function reset(): void
-    {
-        $this->viewHelperContext = null;
-        
-        $this->variablesContextTail = [];
-        $this->variablesContextHead = null;
-        
-        $this->templateContext = null;
-    
-        $this->setInstance(null);
-    }
-    
-    public function setInstance($instance): void
-    {
-        self::$instance = $instance;
-    }
-    
-    
+
     /**
      * @return void
      * @codeCoverageIgnore
