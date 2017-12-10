@@ -43,7 +43,7 @@ class ContextTest extends TestCase
     /**
      * @expectedException tpawl\lite\Exceptions\AssertException
      */
-    public function popFromEmptyVariablesContextThrowsAnException()
+    public function testPopFromEmptyVariablesContextThrowsAnException()
     {
         $instance = Context::getInstance();
         
@@ -52,5 +52,26 @@ class ContextTest extends TestCase
         $ref = new \ReflectionProperty(Context::class, 'instance');
         $ref->setAccessible(true);
         $ref->setValue(null);
-    }    
+    }
+
+    public function testIsEmpty()
+    {
+        $this->assertTrue(Context::isEmpty());
+        
+        $instance = Context::getInstance();
+        
+        $vc = new VariablesContext([]);
+        
+        $instance->pushVariablesContext($vc);
+        
+        $this->assertFalse(Context::isEmpty());
+        
+        $instance->popVariablesContext();
+        
+        $this->assertTrue(Context::isEmpty());
+        
+        $ref = new \ReflectionProperty(Context::class, 'instance');
+        $ref->setAccessible(true);
+        $ref->setValue(null);
+    }
 }
