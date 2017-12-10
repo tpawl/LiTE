@@ -49,8 +49,8 @@ class ContextTest extends TestCase
         
         $instance->popVariablesContext();
         
-        $ref = new \ReflectionProperty('Someclass', 'self');
+        $ref = new \ReflectionProperty('Context', 'instance');
         $ref->setAccessible(true);
-        $ref->setValue(null, null);
+        $ref->setValue(null);
     }    
 }
