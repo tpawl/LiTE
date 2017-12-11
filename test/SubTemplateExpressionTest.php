@@ -11,6 +11,7 @@ use tpawl\lite\Expressions\TemplateExpression;
 use tpawl\lite\Expressions\SubTemplateExpression;
 use tpawl\lite\Php\ConfigurationInterface;
 use tpawl\lite\Php\Configuration;
+use tpawl\lite\Tests\Asset\Functions;
 
 class SubTemplateExpressionTest extends TestCase
 {
@@ -31,9 +32,7 @@ class SubTemplateExpressionTest extends TestCase
         
         $instance = Context::getInstance();
    
-        $ref = new \ReflectionProperty(Context::class, 'instance');
-        $ref->setAccessible(true);
-        $ref->setValue(null);
+        Functions::resetContext();
     }
     
     /**
