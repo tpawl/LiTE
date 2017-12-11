@@ -8,6 +8,7 @@ namespace tpawl\lite\Tests;
 use PHPUnit\Framework\TestCase;
 use tpawl\lite\Context\Context;
 use tpawl\lite\Expressions\TemplateExpression;
+use tpawl\lite\Tests\Asset\Functions;
 
 class TemplateExpressionTest extends TestCase
 {
@@ -140,8 +141,5 @@ class TemplateExpressionTest extends TestCase
         
         $instance = Context::getInstance();
    
-        $ref = new \ReflectionProperty(Context::class, 'instance');
-        $ref->setAccessible(true);
-        $ref->setValue(null);
-    }
+        Functions::resetContext();
 }
