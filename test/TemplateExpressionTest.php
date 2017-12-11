@@ -142,4 +142,5 @@ class TemplateExpressionTest extends TestCase
         $instance = Context::getInstance();
    
         Functions::resetContext();
+    }
 }
