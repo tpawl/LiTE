@@ -5,7 +5,7 @@ function loader($class)
 {
     if (strpos($class, 'Tests/') !== false) {
         
-        $file = __DIR__ . '/../test/' . str_replace('\\', '/', substr($class, 17)) . '.php';
+        $file = __DIR__ . '/' . str_replace('\\', '/', substr($class, 17)) . '.php';
         
     } else {
         
