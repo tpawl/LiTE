@@ -20,7 +20,7 @@ class SubTemplateExpressionTest extends TestCase
         $configuration = [
             '<?php self::sub(); ?>',
             [],
-            __DIR__ . '/Asset',
+            __DIR__ . '/Asset/ViewHelpers',
             '',
         ];
         
