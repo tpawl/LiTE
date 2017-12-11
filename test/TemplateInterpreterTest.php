@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use tpawl\lite\Interpreter\TemplateInterpreter;
 use tpawl\lite\Context\TemplateContext;
 use tpawl\lite\Context\Context;
+use tpawl\lite\Tests\Asset\Functions;
 
 class TemplateInterpreterTest extends TestCase
 {
@@ -26,8 +27,6 @@ class TemplateInterpreterTest extends TestCase
     
         $ti->_xml('test');
     
-        $ref = new \ReflectionProperty(Context::class, 'instance');
-        $ref->setAccessible(true);
-        $ref->setValue(null);
+        Functions::resetContext();
     }
 }
