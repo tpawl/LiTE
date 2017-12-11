@@ -20,6 +20,16 @@ class Context
     private $viewHelperContext = null;
 
     /**
+     * @return bool
+     */
+    public static function isEmpty(): bool
+    {
+        $instance = self::getInstance();
+        
+        return $instance->isVariablesContextEmpty();
+    }
+    
+    /**
      * @return static
      */
     public static function getInstance(): Context
@@ -131,13 +141,6 @@ class Context
         $this->viewHelperContext->clear();
         
         $this->viewHelperContext = null;
-    }
-
-    public static function isEmpty(): bool
-    {
-        $instance = self::getInstance();
-        
-        return $instance->isVariablesContextEmpty();
     }
 
     /**
