@@ -28,7 +28,7 @@ class ViewHelperContextTest extends TestCase
 
     public function testNormalOperation()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
+        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
 
         $filter = $this->createMock(FilterInterface::class);
 
@@ -51,7 +51,7 @@ class ViewHelperContextTest extends TestCase
      */
     public function testWrongViewHelperThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
+        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
 
         $filter = $this->createMock(FilterInterface::class);
 
@@ -66,7 +66,7 @@ class ViewHelperContextTest extends TestCase
      */
     public function testInvalidViewHelperThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
+        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
 
         $filter = $this->createMock(FilterInterface::class);
 
@@ -81,7 +81,7 @@ class ViewHelperContextTest extends TestCase
      */
     public function testEceptionViewHelperThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset', '', null);
+        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
 
         $filter = $this->createMock(FilterInterface::class);
 
