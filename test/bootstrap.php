@@ -11,6 +11,8 @@ function loader($class)
         
         $file = __DIR__ . '/../src/' . str_replace('\\', '/', substr($class, 11)) . '.php';
     }
+    echo '#####', $file, "\n";
+    
     if (file_exists($file)) {
         
         require $file;
