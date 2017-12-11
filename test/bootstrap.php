@@ -6,12 +6,13 @@ function loader($class)
     if (strpos($class, 'Tests/') !== false) {
         
         $file = __DIR__ . '/' . str_replace('\\', '/', substr($class, 17)) . '.php';
+     
+        echo '#####', $file, "\n";
         
     } else {
         
         $file = __DIR__ . '/../src/' . str_replace('\\', '/', substr($class, 11)) . '.php';
     }
-    echo '#####', $file, "\n";
     
     if (file_exists($file)) {
         
