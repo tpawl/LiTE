@@ -11,10 +11,10 @@ class Functions
 {
     public static function resetContext(): void
     {
-        $ref = new \ReflectionProperty(Context::class, 'instance');
+        $rp = new \ReflectionProperty(Context::class, 'instance');
         
-        $ref->setAccessible(true);
+        $rp->setAccessible(true);
         
-        $ref->setValue(null);
+        $rp->setValue(null);
     }
 }
