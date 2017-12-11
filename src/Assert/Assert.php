@@ -13,7 +13,7 @@ class Assert
      * @return void
      * @codeCoverageIgnore
      */
-    private function __constructor()
+    private function __construct()
     {
     }
 
