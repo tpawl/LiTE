@@ -8,6 +8,7 @@ namespace tpawl\lite\Tests;
 use PHPUnit\Framework\TestCase;
 use tpawl\lite\Context\Context;
 use tpawl\lite\Context\VariablesContext;
+use tpawl\lites\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
@@ -35,9 +36,7 @@ class ContextTest extends TestCase
         
         $instance->popVariablesContext();
         
-        $ref = new \ReflectionProperty(Context::class, 'instance');
-        $ref->setAccessible(true);
-        $ref->setValue(null);
+        Functions::resetContext();
     }
     
     /**
@@ -49,9 +48,7 @@ class ContextTest extends TestCase
         
         $instance->popVariablesContext();
         
-        $ref = new \ReflectionProperty(Context::class, 'instance');
-        $ref->setAccessible(true);
-        $ref->setValue(null);
+        Functions::resetContext();
     }
 
     public function testIsEmpty()
@@ -70,8 +67,6 @@ class ContextTest extends TestCase
         
         $this->assertTrue(Context::isEmpty());
         
-        $ref = new \ReflectionProperty(Context::class, 'instance');
-        $ref->setAccessible(true);
-        $ref->setValue(null);
+        Functions::resetContext();
     }
 }
