@@ -9,7 +9,7 @@ use tpawl\lite\Context\Context;
 
 class Functions
 {
-    public static resetContext(): void
+    public static function resetContext(): void
     {
         $ref = new \ReflectionProperty(Context::class, 'instance');
         
