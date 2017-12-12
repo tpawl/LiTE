@@ -3,15 +3,15 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Expressions;
+namespace TPawl\LiTE\Expressions;
 
-use tpawl\lite\ErrorHandlers\ErrorHandlers;
-use tpawl\lite\Interpreter\TemplateInterpreter;
-use tpawl\lite\Context\TemplateContext;
-use tpawl\lite\Context\VariablesContext;
-use tpawl\lite\Context\Context;
-use tpawl\lite\Php\ConfigurationInterface;
-use tpawl\lite\Php\Configuration;
+use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
+use TPawl\LiTE\Interpreter\TemplateInterpreter;
+use TPawl\LiTE\Context\TemplateContext;
+use TPawl\LiTE\Context\VariablesContext;
+use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Php\ConfigurationInterface;
+use TPawl\LiTE\Php\Configuration;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
@@ -28,7 +28,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param string $template
      * @param array $variables
      * @return void
-     * @throws \tpawl\lite\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
     public function display(): void
     {
