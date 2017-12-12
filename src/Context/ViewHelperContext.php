@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Context;
+namespace TPawl\LiTE\Context;
 
-use tpawl\lite\Filter\FilterInterface;
-use tpawl\lite\ErrorHandlers\ErrorHandlers;
-use tpawl\lite\Exceptions\ViewHelperException;
-use tpawl\lite\Exceptions\ViewHelperContextException;
-use tpawl\lite\ViewHelperInterface;
+use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
+use TPawl\LiTE\Exceptions\ViewHelperException;
+use TPawl\LiTE\Exceptions\ViewHelperContextException;
+use TPawl\LiTE\ViewHelperInterface;
 
 class ViewHelperContext
 {
@@ -47,7 +47,7 @@ class ViewHelperContext
      * @param array $arguments
      * @param FilterInterface $filter
      * @return void
-     * @throws \tpawl\lite\Exceptions\ViewHelperContextException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
      */
     public function execute(string $name, array $arguments,
         FilterInterface $filter): void
@@ -72,7 +72,7 @@ class ViewHelperContext
             if (!$this->isClassImplementingViewHelper($classQualifier)) {
 
                 throw new ViewHelperContextException(
-                    "View helper {$classQualifier} must implement the interface tpawl\lite\ViewHelperInterface");
+                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
             }
         }
         $this->tryExecuteViewHelper($classQualifier, $arguments);
@@ -136,7 +136,7 @@ class ViewHelperContext
      * @param string $classQualifier
      * @param array $arguments
      * @return void
-     * @throws ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
     private function tryExecuteViewHelper(string $classQualifier,
         array $arguments): void
