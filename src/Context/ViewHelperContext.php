@@ -45,8 +45,9 @@ class ViewHelperContext
     /**
      * @param string $name
      * @param array $arguments
+     * @param FilterInterface $filter
      * @return void
-     * @throws ViewHelperContextException
+     * @throws \tpawl\lite\Exceptions\ViewHelperContextException
      */
     public function execute(string $name, array $arguments,
         FilterInterface $filter): void
@@ -71,7 +72,7 @@ class ViewHelperContext
             if (!$this->isClassImplementingViewHelper($classQualifier)) {
 
                 throw new ViewHelperContextException(
-                    "View helper {$classQualifier} must implement the interface LiTE\ViewHelperInterface");
+                    "View helper {$classQualifier} must implement the interface tpawl\lite\ViewHelperInterface");
             }
         }
         $this->tryExecuteViewHelper($classQualifier, $arguments);
