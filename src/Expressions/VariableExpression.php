@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Expressions;
+namespace TPawl\LiTE\Expressions;
 
-use tpawl\lite\Context\Context;
-use tpawl\lite\Filter\FilterInterface;
+use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Filter\FilterInterface;
 
 class VariableExpression implements TemplateExpressionInterface
 {
