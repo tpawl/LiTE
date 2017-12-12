@@ -3,12 +3,12 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Tests;
+namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Context\Context;
-use tpawl\lite\Context\VariablesContext;
-use tpawl\lite\Tests\Asset\Functions;
+use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Context\VariablesContext;
+use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
@@ -40,7 +40,7 @@ class ContextTest extends TestCase
     }
     
     /**
-     * @expectedException tpawl\lite\Exceptions\AssertException
+     * @expectedException TPawl\LiTE\Exceptions\AssertException
      */
     public function testPopFromEmptyVariablesContextThrowsAnException()
     {
