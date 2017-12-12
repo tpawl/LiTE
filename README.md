@@ -29,7 +29,7 @@ Usage
 
 #### Basics
 
-The heart of **LiTE** is a object called the **template expression** (of class `LiTE\Expressions\TemplateExpression`).
+The heart of **LiTE** is a object called the **template expression** (of class `TPawl\LiTE\Expressions\TemplateExpression`).
 
 A template expression object is created like this:
 
@@ -41,7 +41,7 @@ $configuration = [
     'view_helpers\namespace',
 ];
 
-$templateExpression = new tpawl\lite\Expressions\TemplateExpression($configuration);
+$templateExpression = new TPawl\LiTE\Expressions\TemplateExpression($configuration);
 ```
 This will create a template expression that looks up the view helpers in the `/path/to/view_helpers/` folder.
 
@@ -59,7 +59,7 @@ $templateExpression->display();
 
 #### Defining a view helper
 
-A view helper is a class that implements the interface `tpawl\lite\ViewHelperInterface`, that has a static `execute` method.
+A view helper is a class that implements the interface `TPawl\LiTE\ViewHelperInterface`, that has a static `execute` method.
 The name of that class must be ending with `ViewHelper` and the first letter must be upper-case.
 The code for this class must be saved in a file with the name of the corresponding class with a trailing `.php`.
 This file must be stored in a folder given as the third configuration option of the template expression.
@@ -70,7 +70,7 @@ Example:
 <?php
 // HelloViewHelper.php
 
-class HelloViewHelper implements tpawl\lite\ViewHelperInterface
+class HelloViewHelper implements TPawl\LiTE\ViewHelperInterface
 {
     public static function execute(array $arguments): void
     {
@@ -85,15 +85,15 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 
 #### Sub template expression
 
-Objects of the class `tpawl\lite\Expressions\SubTemplateExpression` are intended for use inside a view helper.
+Objects of the class `TPawl\LiTE\Expressions\SubTemplateExpression` are intended for use inside a view helper.
 They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted in the configuration options.
 
 Example:
 
 ```php
-use tpawl\lite\Expressions\SubTemplateExpression;
+use TPawl\LiTE\Expressions\SubTemplateExpression;
 
-class ExampleViewHelper implements tpawl\lite\ViewHelperInterface
+class ExampleViewHelper implements TPawl\LiTE\ViewHelperInterface
 {
     public static function execute(array $arguments): void
     {
@@ -127,10 +127,10 @@ class ExampleViewHelper implements tpawl\lite\ViewHelperInterface
 
 #### Miscellaneous
 
-To determine wether you are inside/outside of a view helper you can use the static method `tpawl\lite\Context\Context::isEmpty()`.
+To determine wether you are inside/outside of a view helper you can use the static method `TPawl\LiTE\Context\Context::isEmpty()`.
 It returns `false` if you are inside a view helper, `true` otherwise.
 
-There is the class `tpawl\lite\Version` defined, that holds version information for **LiTE**.
+There is the class `TPawl\LiTE\Version` defined, that holds version information for **LiTE**.
 It has the following constants defined:
 * `MAJOR` for the major version number (major release).
 * `MINOR` for the minor version number (minor release).
@@ -139,7 +139,7 @@ It has the following constants defined:
 Example:
 
 ```php
-use tpawl\lite\Version;
+use TPawl\LiTE\Version;
 
 echo 'Powered by LiTE ', Version::MAJOR, '.', Version::MINOR;
 ```
@@ -187,7 +187,7 @@ Save the following view helper to a file named `MsgViewHelper.php` in any folder
 ```php
 <?php
 
-class MsgViewHelper implements tpawl\lite\ViewHelperInterface
+class MsgViewHelper implements TPawl\LiTE\ViewHelperInterface
 {
     public static function execute(array $arguments): void
     {
@@ -230,7 +230,7 @@ $configuration = [
     '',
 ];
 
-$templateExpression = new tpawl\lite\Expressions\TemplateExpression($configuration);
+$templateExpression = new TPawl\LiTE\Expressions\TemplateExpression($configuration);
 
 $templateExpression->display();
 
