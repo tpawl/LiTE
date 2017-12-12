@@ -6,12 +6,12 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Assert\Assert;
+use TPawl\LiTE\Assert\Assert;
 
 class AssertTest extends TestCase
 {
     /**
-     * @expectedException tpawl\lite\Exceptions\AssertException
+     * @expectedException TPawl\LiTE\Exceptions\AssertException
      */
     public function testTrueConditionThrowsAnException()
     {
