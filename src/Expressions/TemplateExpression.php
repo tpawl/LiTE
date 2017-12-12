@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Expressions;
+namespace TPawl\LiTE\Expressions;
 
-use tpawl\lite\ErrorHandlers\ErrorHandlers;
-use tpawl\lite\Context\Context;
-use tpawl\lite\Context\ViewHelperContext;
+use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
+use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Context\ViewHelperContext;
 
 class TemplateExpression extends SubTemplateExpression
 {
