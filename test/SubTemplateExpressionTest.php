@@ -10,7 +10,6 @@ use tpawl\lite\Context\Context;
 use tpawl\lite\Expressions\TemplateExpression;
 use tpawl\lite\Expressions\SubTemplateExpression;
 use tpawl\lite\Php\ConfigurationInterface;
-use tpawl\lite\Php\Configuration;
 use tpawl\lite\Tests\Asset\Functions;
 
 class SubTemplateExpressionTest extends TestCase
