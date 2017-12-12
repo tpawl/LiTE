@@ -1,8 +1,8 @@
 <?php
 // Copyright (c) 2017 by Thomas Pawlitschko. (MIT License)
 
-use tpawl\lite\ViewHelperInterface;
-use tpawl\lite\Expressions\SubTemplateExpression;
+use TPawl\LiTE\ViewHelperInterface;
+use TPawl\LiTE\Expressions\SubTemplateExpression;
 
 class SubViewHelper implements ViewHelperInterface
 {
