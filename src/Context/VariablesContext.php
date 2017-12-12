@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Context;
+namespace TPawl\LiTE\Context;
 
-use tpawl\lite\Filter\FilterInterface;
-use tpawl\lite\Exceptions\VariablesContextException;
+use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Exceptions\VariablesContextException;
 
 class VariablesContext
 {
@@ -40,7 +40,7 @@ class VariablesContext
         if (!$isVariableExisting) {
 
             throw new VariablesContextException(
-                "Template variable {$name} does not exist");
+                "Template variable '{$name}' does not exist");
         }
         return $this->variables[$name];
     }
