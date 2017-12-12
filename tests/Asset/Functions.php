@@ -3,9 +3,9 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Tests\Asset;
+namespace TPawl\LiTE\Tests\Asset;
 
-use tpawl\lite\Context\Context;
+use TPawl\LiTE\Context\Context;
 
 class Functions
 {
