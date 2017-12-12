@@ -15,11 +15,11 @@ class TemplateInterpreterTest extends TestCase
 {
     public function testXml()
     {
-        $instance = Context::getInstance();
+        $context = Context::getInstance();
     
         $tc = new TemplateContext('');
     
-        $instance->setTemplateContext($tc);
+        $context->setTemplateContext($tc);
     
         $ti = new TemplateInterpreter();
     
