@@ -3,15 +3,15 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Tests;
+namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Filter\Filter;
+use TPawl\LiTE\Filter\Filter;
 
 class FilterTest extends TestCase
 {
     /**
-     * @expectedException tpawl\lite\Exceptions\AssertException
+     * @expectedException TPawl\LiTE\Exceptions\AssertException
      */
     public function testEmptyNameThrowsAnException()
     {
