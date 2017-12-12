@@ -46,7 +46,7 @@ class ViewHelperContext
      * @param string $name
      * @param array $arguments
      * @return void
-     * @throws LiTE\exceptions\ViewHelperException
+     * @throws ViewHelperContextException
      */
     public function execute(string $name, array $arguments,
         FilterInterface $filter): void

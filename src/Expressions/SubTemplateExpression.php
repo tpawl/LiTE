@@ -28,7 +28,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param string $template
      * @param array $variables
      * @return void
-     * @throws ViewHelperException
+     * @throws \tpawl\lite\Exceptions\ViewHelperException
      */
     public function display(): void
     {
