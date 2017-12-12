@@ -10,8 +10,14 @@ use tpawl\lite\Assert\Assert;
 
 class Context
 {
+    /**
+     * @var \tpawl\lite\Context\Context
+     */
     private static $instance = null;
     
+    /**
+     * @var \tpawl\lite\Context\TemplateContext
+     */
     private $templateContext = null;
 
     private $variablesContextHead = null;
