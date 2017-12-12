@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Exceptions;
+namespace TPawl\LiTE\Exceptions;
 
 class ViewHelperContextException extends \LogicException
 {
