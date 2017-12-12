@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Php;
+namespace TPawl\LiTE\Php;
 
 class Configuration implements ConfigurationInterface
 {
