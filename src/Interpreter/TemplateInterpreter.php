@@ -3,18 +3,18 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Interpreter;
+namespace TPawl\LiTE\Interpreter;
 
-use tpawl\lite\Context\Context;
-use tpawl\lite\Filter\Filter;
-use tpawl\lite\Expressions\VariableExpression;
-use tpawl\lite\Expressions\ViewHelperExpression;
+use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Filter\Filter;
+use TPawl\LiTE\Expressions\VariableExpression;
+use TPawl\LiTE\Expressions\ViewHelperExpression;
 
 class TemplateInterpreter
 {
     /**
      * @return void
-     * @throws \tpawl\lite\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
     public function __construct()
     {
@@ -38,7 +38,7 @@ class TemplateInterpreter
      * @param string $name
      * @param array $arguments
      * @return void
-     * @throws \tpawl\lite\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
     public static function __callStatic(string $name, array $arguments): void
     {
