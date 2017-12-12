@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\ErrorHandlers;
+namespace TPawl\LiTE\ErrorHandlers;
 
 class ErrorHandlers
 {
