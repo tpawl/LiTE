@@ -14,27 +14,27 @@ class ContextTest extends TestCase
 {
     public function testPushVariablesContext()
     {
-        $instance = Context::getInstance();
+        $context = Context::getInstance();
         
         $vc1 = new VariablesContext([]);
         
-        $instance->pushVariablesContext($vc1);
+        $context->pushVariablesContext($vc1);
         
         $vc2 = new VariablesContext([]);
         
-        $instance->pushVariablesContext($vc2);
+        $context->pushVariablesContext($vc2);
         
-        $vc = $instance->topVariablesContext();
+        $vc = $context->topVariablesContext();
         
         $this->assertSame($vc2, $vc);
         
-        $instance->popVariablesContext();
+        $context->popVariablesContext();
         
-        $vc = $instance->topVariablesContext();
+        $vc = $context->topVariablesContext();
         
         $this->assertSame($vc1, $vc);
         
-        $instance->popVariablesContext();
+        $context->popVariablesContext();
         
         Functions::resetContext();
     }
@@ -44,9 +44,9 @@ class ContextTest extends TestCase
      */
     public function testPopFromEmptyVariablesContextThrowsAnException()
     {
-        $instance = Context::getInstance();
+        $context = Context::getInstance();
         
-        $instance->popVariablesContext();
+        $context->popVariablesContext();
         
         Functions::resetContext();
     }
@@ -55,15 +55,15 @@ class ContextTest extends TestCase
     {
         $this->assertTrue(Context::isEmpty());
         
-        $instance = Context::getInstance();
+        $context = Context::getInstance();
         
         $vc = new VariablesContext([]);
         
-        $instance->pushVariablesContext($vc);
+        $context->pushVariablesContext($vc);
         
         $this->assertFalse(Context::isEmpty());
         
-        $instance->popVariablesContext();
+        $context->popVariablesContext();
         
         $this->assertTrue(Context::isEmpty());
         
