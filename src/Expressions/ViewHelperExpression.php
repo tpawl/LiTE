@@ -3,10 +3,10 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Expressions;
+namespace TPawl\LiTE\Expressions;
 
-use tpawl\lite\Context\Context;
-use tpawl\lite\Filter\FilterInterface;
+use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Filter\FilterInterface;
 
 class ViewHelperExpression implements TemplateExpressionInterface
 {
@@ -32,7 +32,7 @@ class ViewHelperExpression implements TemplateExpressionInterface
      * @param string $name
      * @param array $arguments
      * @return void
-     * @throws \tpawl\lite\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
     public function display(): void
     {
