@@ -20,9 +20,19 @@ class Context
      */
     private $templateContext = null;
 
+    /**
+     * @var \tpawl\lite\Context\VariablesContext
+     */
     private $variablesContextHead = null;
+    
+    /**
+     * @var \tpawl\lite\Context\VariablesContext[]
+     */
     private $variablesContextTail = [];
 
+    /**
+     * @var \tpawl\lite\Context\ViewHelperContext
+     */
     private $viewHelperContext = null;
 
     /**
