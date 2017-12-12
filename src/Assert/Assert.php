@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Asser;
+namespace tpawl\lite\Assert;
 
 use tpawl\lite\Exceptions\AssertException;
 
