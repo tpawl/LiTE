@@ -3,35 +3,35 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Context;
+namespace TPawl\LiTE\Context;
 
-use tpawl\lite\Filter\FilterInterface;
-use tpawl\lite\Assert\Assert;
+use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Assert\Assert;
 
 class Context
 {
     /**
-     * @var \tpawl\lite\Context\Context
+     * @var \TPawl\LiTE\Context\Context
      */
     private static $instance = null;
     
     /**
-     * @var \tpawl\lite\Context\TemplateContext
+     * @var \TPawl\LiTE\Context\TemplateContext
      */
     private $templateContext = null;
 
     /**
-     * @var \tpawl\lite\Context\VariablesContext
+     * @var \TPawl\LiTE\Context\VariablesContext
      */
     private $variablesContextHead = null;
     
     /**
-     * @var \tpawl\lite\Context\VariablesContext[]
+     * @var \TPawl\LiTE\Context\VariablesContext[]
      */
     private $variablesContextTail = [];
 
     /**
-     * @var \tpawl\lite\Context\ViewHelperContext
+     * @var \TPawl\LiTE\Context\ViewHelperContext
      */
     private $viewHelperContext = null;
 
@@ -75,7 +75,7 @@ class Context
     }
 
     /**
-     * @param \tpawl\lite\Context\TemplateContext $templateContext
+     * @param \TPawl\LiTE\Context\TemplateContext $templateContext
      * @return void
      */
     public function setTemplateContext(TemplateContext $templateContext): void
@@ -84,7 +84,7 @@ class Context
     }
 
     /**
-     * @return \tpawl\lite\Context\TemplateContext
+     * @return \TPawl\LiTE\Context\TemplateContext
      */
     private function getTemplateContext(): TemplateContext
     {
@@ -101,7 +101,7 @@ class Context
 
     /**
      * @param string $name
-     * @param \tpawl\lite\Filter\FilterInterface $filter
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return mixed
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
@@ -112,7 +112,7 @@ class Context
     }
 
     /**
-     * @param \tpawl\lite\Context\VariablesContext $variablesContext
+     * @param \TPawl\LiTE\Context\VariablesContext $variablesContext
      * @return void
      */
     public function pushVariablesContext(VariablesContext $variablesContext):
@@ -126,7 +126,7 @@ class Context
     }
 
     /**
-     * @return \tpawl\lite\Context\VariablesContext
+     * @return \TPawl\LiTE\Context\VariablesContext
      */
     public function topVariablesContext(): VariablesContext
     {
@@ -154,7 +154,7 @@ class Context
     /**
      * @param string $name
      * @param array $arguments
-     * @param \tpawl\lite\Filter\FilterInterface $filter
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      */
     public function executeViewHelper(string $name, array $arguments,
@@ -166,7 +166,7 @@ class Context
     }
 
     /**
-     * @param \tpawl\lite\Context\ViewHelperContext $viewHelperContext
+     * @param \TPawl\LiTE\Context\ViewHelperContext $viewHelperContext
      * @return void
      */
     public function setViewHelperContext(ViewHelperContext $viewHelperContext):
@@ -176,7 +176,7 @@ class Context
     }
 
     /**
-     * @return \tpawl\lite\Context\ViewHelperContext
+     * @return \TPawl\LiTE\Context\ViewHelperContext
      */
     private function getViewHelperContext(): ViewHelperContext
     {
