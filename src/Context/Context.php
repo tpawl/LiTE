@@ -40,9 +40,9 @@ class Context
      */
     public static function isEmpty(): bool
     {
-        $instance = self::getInstance();
+        $self = self::getInstance();
         
-        return $instance->isVariablesContextEmpty();
+        return $self->isVariablesContextEmpty();
     }
     
     /**
