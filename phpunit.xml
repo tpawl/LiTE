@@ -2,18 +2,18 @@
 
 <phpunit bootstrap="./tests/bootstrap.php" colors="true">
 
-	<testsuites>
-		<testsuite name="LiTE Test Suite">
-			<directory>./tests/</directory>
-		</testsuite>
-	</testsuites>
+  <testsuites>
+    <testsuite name="LiTE Test Suite">
+      <directory>./tests/</directory>
+    </testsuite>
+  </testsuites>
 
-	<filter>
-		<whitelist>
-			<directory>./</directory>
-			<exclude>
-				<directory>./tests</directory>
-			</exclude>
-		</whitelist>
-	</filter>
+  <filter>
+    <whitelist>
+      <directory>./</directory>
+      <exclude>
+        <directory>./tests</directory>
+      </exclude>
+    </whitelist>
+  </filter>
 </phpunit>
