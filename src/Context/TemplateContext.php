@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Context;
+namespace TPawl\LiTE\Context;
 
 class TemplateContext
 {
