@@ -3,16 +3,16 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Tests;
+namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Context\ViewHelperContext;
-use tpawl\lite\Filter\FilterInterface;
+use TPawl\LiTE\Context\ViewHelperContext;
+use TPawl\LiTE\Filter\FilterInterface;
 
 class ViewHelperContextTest extends TestCase
 {
     /**
-     * @expectedException tpawl\lite\Exceptions\ViewHelperContextException
+     * @expectedException TPawl\LiTE\Exceptions\ViewHelperContextException
      */
     public function testInvalidNameThrowsAnException()
     {
@@ -47,7 +47,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     /**
-     * @expectedException tpawl\lite\Exceptions\ViewHelperContextException
+     * @expectedException TPawl\LiTE\Exceptions\ViewHelperContextException
      */
     public function testWrongViewHelperThrowsAnException()
     {
@@ -62,7 +62,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     /**
-     * @expectedException tpawl\lite\Exceptions\ViewHelperContextException
+     * @expectedException TPawl\LiTE\Exceptions\ViewHelperContextException
      */
     public function testInvalidViewHelperThrowsAnException()
     {
@@ -77,7 +77,7 @@ class ViewHelperContextTest extends TestCase
     }
 
     /**
-     * @expectedException tpawl\lite\Exceptions\ViewHelperException
+     * @expectedException TPawl\LiTE\Exceptions\ViewHelperException
      */
     public function testEceptionViewHelperThrowsAnException()
     {
