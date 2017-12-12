@@ -47,7 +47,10 @@ class Context
     private function __construct()
     {
     }
-    
+
+    /**
+     * @return string
+     */
     public function getTemplate(): string
     {
         $templateContext = $this->getTemplateContext();
@@ -55,21 +58,36 @@ class Context
         return $templateContext->get();
     }
 
+    /**
+     * @param \tpawl\lite\Context\TemplateContext $templateContext
+     * @return void
+     */
     public function setTemplateContext(TemplateContext $templateContext): void
     {
         $this->templateContext = $templateContext;
     }
 
+    /**
+     * @return \tpawl\lite\Context\TemplateContext
+     */
     private function getTemplateContext(): TemplateContext
     {
         return $this->templateContext;
     }
 
+    /**
+     * @return void
+     */
     public function clearTemplateContext(): void
     {
         $this->templateContext = null;
     }
 
+    /**
+     * @param string $name
+     * @param \tpawl\lite\Filter\FilterInterface $filter
+     * @return mixed
+     */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
         $variablesContext = $this->topVariablesContext();
@@ -78,7 +96,7 @@ class Context
     }
 
     /**
-     * @param VariablesContext $variablesContext
+     * @param \tpawl\lite\Context\VariablesContext $variablesContext
      * @return void
      */
     public function pushVariablesContext(VariablesContext $variablesContext):
@@ -92,7 +110,7 @@ class Context
     }
 
     /**
-     * @return VariablesContext
+     * @return \tpawl\lite\Context\VariablesContext
      */
     public function topVariablesContext(): VariablesContext
     {
@@ -116,7 +134,13 @@ class Context
     {
         return is_null($this->variablesContextHead);
     }
-
+    
+    /**
+     * @param string $name
+     * @param array $arguments
+     * @param \tpawl\lite\Filter\FilterInterface $filter
+     * @return void
+     */
     public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
     {
@@ -125,17 +149,27 @@ class Context
         $viewHelperContext->execute($name, $arguments, $filter);
     }
 
+    /**
+     * @param \tpawl\lite\Context\ViewHelperContext $viewHelperContext
+     * @return void
+     */
     public function setViewHelperContext(ViewHelperContext $viewHelperContext):
         void
     {
         $this->viewHelperContext = $viewHelperContext;
     }
 
+    /**
+     * @return \tpawl\lite\Context\ViewHelperContext
+     */
     private function getViewHelperContext(): ViewHelperContext
     {
         return $this->viewHelperContext;
     }
 
+    /**
+     * @return void
+     */
     public function clearViewHelperContext(): void
     {
         $this->viewHelperContext->clear();
