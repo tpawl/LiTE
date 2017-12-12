@@ -3,16 +3,16 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Tests;
+namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Context\VariablesContext;
-use tpawl\lite\Filter\FilterInterface;
+use TPawl\LiTE\Context\VariablesContext;
+use TPawl\LiTE\Filter\FilterInterface;
 
 class VariablesContextTest extends TestCase
 {
     /**
-     * @expectedException tpawl\lite\Exceptions\VariablesContextException
+     * @expectedException TPawl\LiTE\Exceptions\VariablesContextException
      */
     public function testInvalidNameThrowsAnException()
     {
@@ -27,7 +27,7 @@ class VariablesContextTest extends TestCase
     }
 
     /**
-     * @expectedException tpawl\lite\Exceptions\VariablesContextException
+     * @expectedException TPawl\LiTE\Exceptions\VariablesContextException
      */
     public function testNonExistingVariableThrowsAnException()
     {
