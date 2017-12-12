@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Expressions;
+namespace TPawl\LiTE\Expressions;
 
 interface TemplateExpressionInterface
 {
