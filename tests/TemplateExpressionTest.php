@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Tests;
+namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Expressions\TemplateExpression;
-use tpawl\lite\Tests\Asset\Functions;
+use TPawl\LiTE\Expressions\TemplateExpression;
+use TPawl\LiTE\Tests\Asset\Functions;
 
 class TemplateExpressionTest extends TestCase
 {
