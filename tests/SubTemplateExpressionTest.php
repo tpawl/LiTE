@@ -6,7 +6,6 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use tpawl\lite\Context\Context;
 use tpawl\lite\Expressions\TemplateExpression;
 use tpawl\lite\Expressions\SubTemplateExpression;
 use tpawl\lite\Php\ConfigurationInterface;
@@ -28,8 +27,6 @@ class SubTemplateExpressionTest extends TestCase
         $this->expectOutputString('abcdefghi');
         
         $te->display();
-        
-        $instance = Context::getInstance();
    
         Functions::resetContext();
     }
