@@ -135,7 +135,7 @@ class TemplateExpressionTest extends TestCase
         
         $te = new TemplateExpression($configuration);
         
-        $this->expectOutputString('abcdefabc');
+        $this->expectOutputString('abcdefghi');
         
         $te->display();
         

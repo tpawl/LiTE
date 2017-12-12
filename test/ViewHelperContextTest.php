@@ -39,9 +39,9 @@ class ViewHelperContextTest extends TestCase
 
         $out = $this->getActualOutput();
 
-        $this->assertEquals('abc', $out);
+        $this->assertEquals('ghi', $out);
 
-        $this->expectOutputString('abcabc');
+        $this->expectOutputString('ghighi');
 
         $viewHelperContext->execute('test', [], $filter);
     }
