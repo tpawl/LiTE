@@ -3,9 +3,9 @@
 
 declare(strict_types=1);
 
-namespace tpawl\lite\Assert;
+namespace TPawl\LiTE\Assert;
 
-use tpawl\lite\Exceptions\AssertException;
+use TPawl\LiTE\Exceptions\AssertException;
 
 class Assert
 {
