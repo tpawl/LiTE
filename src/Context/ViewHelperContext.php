@@ -45,11 +45,27 @@ class ViewHelperContext
     /**
      * @param string $name
      * @param array $arguments
-     * @param FilterInterface $filter
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
      */
     public function execute(string $name, array $arguments,
+        FilterInterface $filter): void
+    {
+        self::filterName($name, $filter);
+        
+        $classQualifier = $this->load($name);
+        
+        $this->tryCall($classQualifier, $arguments);
+    }
+
+    /**
+     * @param string $name
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return void
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
+     */
+    private static function filterName(string $name,
         FilterInterface $filter): void
     {
         if (!$filter->isValidName($name)) {
@@ -57,11 +73,8 @@ class ViewHelperContext
             throw new ViewHelperContextException(
                 "{$name} is not a valid View helper name");
         }
-        $classQualifier = $this->load($name);
-        
-        $this->tryCall($classQualifier, $arguments);
     }
-
+    
     /**
      * @param string $name
      * @return string
