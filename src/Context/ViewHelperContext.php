@@ -75,7 +75,7 @@ class ViewHelperContext
                     "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
             }
         }
-        $this->tryExecuteViewHelper($classQualifier, $arguments);
+        $this->tryCall($classQualifier, $arguments);
     }
 
     /**
@@ -138,12 +138,12 @@ class ViewHelperContext
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
-    private function tryExecuteViewHelper(string $classQualifier,
+    private function tryCall(string $classQualifier,
         array $arguments): void
     {
         try {
 
-            $this->executeViewHelper($classQualifier, $arguments);
+            $this->call($classQualifier, $arguments);
 
         } catch (\RuntimeException $ex) {
 
@@ -157,7 +157,7 @@ class ViewHelperContext
      * @return void
      * @throws \RuntimeException
      */
-    private function executeViewHelper(string $classQualifier,
+    private function call(string $classQualifier,
         array $arguments): void
     {
         ErrorHandlers::push($this->getErrorHandler());
