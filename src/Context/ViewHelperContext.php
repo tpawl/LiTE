@@ -79,7 +79,7 @@ class ViewHelperContext
      * @param string $name
      * @return string
      */
-    private function getClassName(string $name): string
+    private static function getClassName(string $name): string
     {
         return ucfirst($name) . 'ViewHelper';
     }
@@ -97,7 +97,7 @@ class ViewHelperContext
      * @param string $classQualifier
      * @return bool
      */
-    private function isClassExisting(string $classQualifier): bool
+    private static function isClassExisting(string $classQualifier): bool
     {
         return class_exists($classQualifier, false);
     }
@@ -108,19 +108,19 @@ class ViewHelperContext
      */
     private function load(string $name): string
     {
-        $className = $this->getClassName($name);
+        $className = self::getClassName($name);
         $classQualifier = $this->getClassQualifier($className);
 
-        if (!$this->isClassExisting($classQualifier)) {
+        if (!self::isClassExisting($classQualifier)) {
 
             include $this->getClassFilename($className);
 
-            if (!$this->isClassExisting($classQualifier)) {
+            if (!self::isClassExisting($classQualifier)) {
 
                 throw new ViewHelperContextException(
                     "View helper {$classQualifier} does not exist");
             }
-            if (!$this->isClassImplementingViewHelper($classQualifier)) {
+            if (!self::isClassImplementingViewHelper($classQualifier)) {
 
                 throw new ViewHelperContextException(
                     "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
@@ -142,7 +142,7 @@ class ViewHelperContext
      * @param string $classQualifier
      * @return bool
      */
-    private function isClassImplementingViewHelper(string $classQualifier): bool
+    private static function isClassImplementingViewHelper(string $classQualifier): bool
     {
         return is_subclass_of($classQualifier, ViewHelperInterface::class);
     }
