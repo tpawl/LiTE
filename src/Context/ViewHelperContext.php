@@ -57,24 +57,8 @@ class ViewHelperContext
             throw new ViewHelperContextException(
                 "{$name} is not a valid View helper name");
         }
-        $className = $this->getClassName($name);
-        $classQualifier = $this->getClassQualifier($className);
-
-        if (!$this->isClassExisting($classQualifier)) {
-
-            include $this->getClassFilename($className);
-
-            if (!$this->isClassExisting($classQualifier)) {
-
-                throw new ViewHelperContextException(
-                    "View helper {$classQualifier} does not exist");
-            }
-            if (!$this->isClassImplementingViewHelper($classQualifier)) {
-
-                throw new ViewHelperContextException(
-                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
-            }
-        }
+        $classQualifier = $this->load($name);
+        
         $this->tryCall($classQualifier, $arguments);
     }
 
@@ -107,11 +91,29 @@ class ViewHelperContext
 
     /**
      * @param string $className
-     * @return void
+     * @return string
      */
-    private function load(string $className): void
+    private function load(string $name): string
     {
-        include $this->getClassFilename($className);
+        $className = $this->getClassName($name);
+        $classQualifier = $this->getClassQualifier($className);
+
+        if (!$this->isClassExisting($classQualifier)) {
+
+            include $this->getClassFilename($className);
+
+            if (!$this->isClassExisting($classQualifier)) {
+
+                throw new ViewHelperContextException(
+                    "View helper {$classQualifier} does not exist");
+            }
+            if (!$this->isClassImplementingViewHelper($classQualifier)) {
+
+                throw new ViewHelperContextException(
+                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
+            }
+        }
+        return $classQualifier;
     }
 
     /**
