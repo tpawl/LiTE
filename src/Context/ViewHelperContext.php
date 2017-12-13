@@ -62,7 +62,7 @@ class ViewHelperContext
 
         if (!$this->isClassExisting($classQualifier)) {
 
-            $this->load($className);
+            include $this->getClassFilename($className);
 
             if (!$this->isClassExisting($classQualifier)) {
 
