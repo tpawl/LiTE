@@ -27,14 +27,12 @@ class VariablesContext
     /**
      * @param string $name
      * @return mixed
+     * @throws \TPawl\LiTE\Exceptions\VariablesContextException
      */
     public function lookUp(string $name, FilterInterface $filter)
     {
-        if (!$filter->isValidName($name)) {
-
-            throw new VariablesContextException(
-                "Invalid variable name: {$name}");
-        }
+        self::filterName($name, $filter);
+        
         $isVariableExisting = array_key_exists($name, $this->variables);
 
         if (!$isVariableExisting) {
@@ -43,5 +41,21 @@ class VariablesContext
                 "Template variable '{$name}' does not exist");
         }
         return $this->variables[$name];
+    }
+    
+    /**
+     * @param string $name
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return void
+     * @throws \TPawl\LiTE\Exceptions\VariablesContextException
+     */
+    private static function filterName(string $name,
+        FilterInterface $filter): void
+    {
+        if (!$filter->isValidName($name)) {
+
+            throw new VariablesContextException(
+                "Invalid variable name: {$name}");
+        }
     }
 }
