@@ -86,19 +86,24 @@ class TemplateExpression extends SubTemplateExpression
         }
     }
     
+    public function display(): void
+    {
+        $viewHelperContext = new ViewHelperContext($this->viewHelperDirectory,
+            $this->viewHelperNamespace, $this->viewHelperErrorHandler);
+        
+        $this->initializeTemplateExpression($viewHelperContext);
+        
+        parent::display();
+    }
+    
     /**
      * @param string $template
      * @param array $values
      * @return void
      */
-    protected function initialize(TemplateContext $templateContext, VariablesContext $variablesContext): void
+    private function initializeTemplateExpression(ViewHelperContext $viewHelperContext): void
     {
-        parent::initialize($templateContext, $variablesContext);
-
         $context = Context::getInstance();
-
-        $viewHelperContext = new ViewHelperContext($this->viewHelperDirectory,
-            $this->viewHelperNamespace, $this->viewHelperErrorHandler);
 
         $context->setViewHelperContext($viewHelperContext);
     }
