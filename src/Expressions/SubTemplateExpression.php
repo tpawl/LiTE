@@ -33,10 +33,12 @@ class SubTemplateExpression implements TemplateExpressionInterface
     public function display(): void
     {
         $configuration = new Configuration();
+        $templateContext = new TemplateContext($this->template);
+        $variablesContext = new VariablesContext($this->variables);
         
         ErrorHandlers::push(self::getErrorHandler($configuration));
 
-        $this->initialize($this->template, $this->variables);
+        $this->initialize($templateContext, $variablesContext);
 
         new TemplateInterpreter();
 
@@ -61,12 +63,9 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param array $variables
      * @return void
      */
-    protected function initialize(string $template, array $variables): void
+    protected function initialize(TemplateContext $templateContext, VariablesContext $variablesContext): void
     {
         $context = Context::getInstance();
-
-        $templateContext = new TemplateContext($template);
-        $variablesContext = new VariablesContext($variables);
 
         $context->setTemplateContext($templateContext);
         $context->pushVariablesContext($variablesContext);
