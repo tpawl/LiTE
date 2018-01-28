@@ -8,6 +8,8 @@ namespace TPawl\LiTE\Expressions;
 use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Context\ViewHelperContext;
+use TPawl\LiTE\Context\TemplateContext;
+use TPawl\LiTE\Context\VariablesContext;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -89,9 +91,9 @@ class TemplateExpression extends SubTemplateExpression
      * @param array $values
      * @return void
      */
-    protected function initialize(string $template, array $values): void
+    protected function initialize(TemplateContext $templateContext, VariablesContext $variablesContext): void
     {
-        parent::initialize($template, $values);
+        parent::initialize($templateContext, $variablesContext);
 
         $context = Context::getInstance();
 
