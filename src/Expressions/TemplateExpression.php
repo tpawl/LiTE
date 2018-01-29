@@ -111,7 +111,7 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @return void
      */
-    protected function cleanup(): void
+    protected static function cleanup(): void
     {
         $context = Context::getInstance();
 
