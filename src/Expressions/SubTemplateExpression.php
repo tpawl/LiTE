@@ -41,7 +41,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         
         ErrorHandlers::push(self::getErrorHandler($configuration));
 
-        $this->initializeSubTemplateExpression($templateContext, $variablesContext);
+        self::initializeSubTemplateExpression($templateContext, $variablesContext);
 
         new TemplateInterpreter();
 
@@ -66,7 +66,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param \TPawl\LiTE\Context\VariablesContext $variablesContext
      * @return void
      */
-    private function initializeSubTemplateExpression(TemplateContext $templateContext, VariablesContext $variablesContext): void
+    private static function initializeSubTemplateExpression(TemplateContext $templateContext, VariablesContext $variablesContext): void
     {
         $context = Context::getInstance();
 
