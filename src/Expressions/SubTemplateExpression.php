@@ -15,7 +15,14 @@ use TPawl\LiTE\Php\Configuration;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
+    /**
+     * @var string
+     */
     private $template;
+    
+    /**
+     * @var array
+     */
     private $variables;
 
     /**
