@@ -18,6 +18,11 @@ class SubTemplateExpression implements TemplateExpressionInterface
     private $template;
     private $variables;
 
+    /**
+     * @param string $template
+     * @param array $variables
+     * @return void
+     */
     public function __construct(string $template, array $variables)
     {
         $this->template = $template;
@@ -25,8 +30,6 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
 
     /**
-     * @param string $template
-     * @param array $variables
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
@@ -59,8 +62,8 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
     
     /**
-     * @param string $template
-     * @param array $variables
+     * @param \TPawl\LiTE\Context\TemplateContext $templateContext
+     * @param \TPawl\LiTE\Context\VariablesContext $variablesContext
      * @return void
      */
     private function initializeSubTemplateExpression(TemplateContext $templateContext, VariablesContext $variablesContext): void
