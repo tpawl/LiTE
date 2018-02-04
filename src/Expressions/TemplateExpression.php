@@ -27,15 +27,15 @@ class TemplateExpression extends SubTemplateExpression
     private $viewHelperErrorHandler;
 
     /**
-     * @param array $configuration
+     * @param array $settings
      * @return void
      */
-    public function __construct(array $configuration)
+    public function __construct(array $settings)
     {
-        self::validateConfiguration($configuration);
+        self::validateSettings($settings);
         
         [$template, $variables, $viewHelperDirectory, $viewHelperNamespace] =
-            $configuration;
+            $settings;
         
         parent::__construct($template, $variables);
         
@@ -45,18 +45,18 @@ class TemplateExpression extends SubTemplateExpression
     }
 
     /**
-     * @param array $configuration
+     * @param array $settings
      * @return void
      */
-    private static function validateConfiguration(array $configuration): void
+    private static function validateSettings(array $settings): void
     {
-        self::validateConfigurationIndex($configuration, 0, 'string');
+        self::validateSettingsIndex($settings, 0, 'string');
 
-        self::validateConfigurationIndex($configuration, 1, 'array');
+        self::validateSettingsIndex($settings, 1, 'array');
 
-        self::validateConfigurationIndex($configuration, 2, 'string');
+        self::validateSettingsIndex($settings, 2, 'string');
 
-        self::validateConfigurationIndex($configuration, 3, 'string');
+        self::validateSettingsIndex($settings, 3, 'string');
     }
     
     /**
@@ -65,22 +65,22 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $type
      * @return void
      */
-    private static function validateConfigurationIndex(array $configuration,
+    private static function validateSettingsIndex(array $settings,
         int $index, string $type): void
     {
-        $hasConfigurationGivenIndex = array_key_exists($index, $configuration);
+        $hasSettingsGivenIndex = array_key_exists($index, $settings);
 
-        if (!$hasConfigurationGivenIndex) {
+        if (!$hasSettingsGivenIndex) {
 
             throw new \InvalidArgumentException(
-                "Missing index {$index} in configuration");
+                "Missing index {$index} in settings");
         }
-        $typeAtGivenIndex = strtolower(gettype($configuration[$index]));
+        $typeAtGivenIndex = strtolower(gettype($settings[$index]));
 
         if ($typeAtGivenIndex !== $type) {
 
             throw new \InvalidArgumentException(
-                "Wrong type in configuration at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given");
+                "Wrong type in settings at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given");
         }
     }
     
