@@ -13,114 +13,114 @@ class TemplateExpressionTest extends TestCase
 {
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 0 in configuration
+     * @expectedExceptionMessage Missing index 0 in settings
      */
-    public function testNonExistingIndex0InConfigurationThrowsAnException()
+    public function testNonExistingIndex0InSettingsThrowsAnException()
     {
-        $configuration = [
+        $settings = [
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 1 in configuration
+     * @expectedExceptionMessage Missing index 1 in settings
      */
-    public function testNonExistingIndex1InConfigurationThrowsAnException()
+    public function testNonExistingIndex1InSettingsThrowsAnException()
     {
-        $configuration = [
+        $settings = [
             '',
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 2 in configuration
+     * @expectedExceptionMessage Missing index 2 in settings
      */
-    public function testNonExistingIndex2InConfigurationThrowsAnException()
+    public function testNonExistingIndex2InSettingsThrowsAnException()
     {
-        $configuration = [
+        $settings = [
             '',
             [],
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 3 in configuration
+     * @expectedExceptionMessage Missing index 3 in settings
      */
-    public function testNonExistingIndex3InConfigurationThrowsAnException()
+    public function testNonExistingIndex3InSettingsThrowsAnException()
     {
-        $configuration = [
+        $settings = [
             '',
             [],
             '',
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in configuration at index 0: 'string' expected, 'null' given
+     * @expectedExceptionMessage Wrong type in settings at index 0: 'string' expected, 'null' given
      */
-    public function testIndex0InConfigurationWithWrongTypeThrowsAnException()
+    public function testIndex0InSettingsWithWrongTypeThrowsAnException()
     {
-        $configuration = [
+        $settings = [
             null,
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in configuration at index 1: 'array' expected, 'null' given
+     * @expectedExceptionMessage Wrong type in settings at index 1: 'array' expected, 'null' given
      */
-    public function testIndex1InConfigurationWithWrongTypeThrowsAnException()
+    public function testIndex1InSettingsWithWrongTypeThrowsAnException()
     {
-        $configuration = [
+        $settings = [
             '',
             null,
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in configuration at index 2: 'string' expected, 'null' given
+     * @expectedExceptionMessage Wrong type in settings at index 2: 'string' expected, 'null' given
      */
-    public function testIndex2InConfigurationWithWrongTypeThrowsAnException()
+    public function testIndex2InSettingsWithWrongTypeThrowsAnException()
     {
-        $configuration = [
-            '',
-            [],
-            null,
-        ];
-        
-        $te = new TemplateExpression($configuration);
-    }
-    
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in configuration at index 3: 'string' expected, 'null' given
-     */
-    public function testIndex3InConfigurationWithWrongTypeThrowsAnException()
-    {
-        $configuration = [
+        $settings = [
             '',
             [],
+            null,
+        ];
+        
+        $te = new TemplateExpression($settings);
+    }
+    
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Wrong type in settings at index 3: 'string' expected, 'null' given
+     */
+    public function testIndex3InSettingsWithWrongTypeThrowsAnException()
+    {
+        $settings = [
+            '',
+            [],
             '',
             null,
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
     }
     
     public function testDisplay()
