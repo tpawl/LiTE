@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2017, 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -125,14 +125,14 @@ class TemplateExpressionTest extends TestCase
     
     public function testDisplay()
     {
-        $configuration = [
+        $settings = [
             'abc<?php $this->var; ?><?php self::test(); ?>',
             ['var' => 'def'],
              __DIR__ . '/Asset',
             '',
         ];
         
-        $te = new TemplateExpression($configuration);
+        $te = new TemplateExpression($settings);
         
         $this->expectOutputString('abcdefghi');
         
