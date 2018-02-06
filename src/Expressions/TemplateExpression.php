@@ -60,7 +60,7 @@ class TemplateExpression extends SubTemplateExpression
     }
     
     /**
-     * @param array $configuration
+     * @param array $settings
      * @param int $index
      * @param string $type
      * @return void
