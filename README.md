@@ -34,18 +34,18 @@ The heart of **LiTE** is a object called the **template expression** (of class `
 A template expression object is created like this:
 
 ```php
-$configuration = [
+$settings = [
     $template, // a string holding the template
     ['the' => 'variables', 'go' => 'here'],
     '/path/to/view_helpers',
     'view_helpers\namespace',
 ];
 
-$templateExpression = new TPawl\LiTE\Expressions\TemplateExpression($configuration);
+$templateExpression = new TPawl\LiTE\Expressions\TemplateExpression($settings);
 ```
 This will create a template expression that looks up the view helpers in the `/path/to/view_helpers/` folder.
 
-Note that the only argument of the template expression is an array of configuration options.
+Note that the only argument of the template expression is an array of settings options.
 * The first option is the template as a string.
 * The second option is an associative array of template variables, with the name of the variable as the key and its value.
 * The third option is the path to the folder in which the view helpers are stored.
@@ -86,7 +86,7 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 #### Sub template expression
 
 Objects of the class `TPawl\LiTE\Expressions\SubTemplateExpression` are intended for use inside a view helper.
-They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted in the configuration options.
+They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted in the settings options.
 
 Example:
 
@@ -101,23 +101,23 @@ class ExampleViewHelper implements TPawl\LiTE\ViewHelperInterface
 
         if ($condition) {
 
-            $configuration = [
+            $settings = [
                 $templateA,
                 ['the' => 'variables', 'go' => 'here'],
             ];
 
-            $subTemplateExpression = new SubTemplateExpression($configuration);
+            $subTemplateExpression = new SubTemplateExpression($settings);
 
             $subTemplateExpression->display();
 
         } else {
 
-            $configuration = [
+            $settings = [
                 $templateB,
                 ['the' => 'variables', 'go' => 'here'],
             ];
 
-            $subTemplateExpression = new SubTemplateExpression($configuration);
+            $subTemplateExpression = new SubTemplateExpression($settings);
 
             $subTemplateExpression->display();
         }
@@ -223,14 +223,14 @@ $variables = [
     'ver' => PHP_VERSION,
 ];
 
-$configuration = [
+$settings = [
     $template,
     $variables,
     '.',
     '',
 ];
 
-$templateExpression = new TPawl\LiTE\Expressions\TemplateExpression($configuration);
+$templateExpression = new TPawl\LiTE\Expressions\TemplateExpression($settings);
 
 $templateExpression->display();
 
