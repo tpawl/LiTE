@@ -86,7 +86,9 @@ Output in the view helper can be done with `echo`, `print`, `printf`, ...
 #### Sub template expression
 
 Objects of the class `TPawl\LiTE\Expressions\SubTemplateExpression` are intended for use inside a view helper.
-They are used exactly as template expressions, except that the view helper path and the view helper namespace are omitted in the settings options.
+The constructor takes two arguments:
+* The first argument is the template as a string.
+* The second argument is an associative array of template variables, with the name of the variable as the key and its value.
 
 Example:
 
@@ -101,23 +103,15 @@ class ExampleViewHelper implements TPawl\LiTE\ViewHelperInterface
 
         if ($condition) {
 
-            $settings = [
-                $templateA,
-                ['the' => 'variables', 'go' => 'here'],
-            ];
-
-            $subTemplateExpression = new SubTemplateExpression($settings);
+            $subTemplateExpression = new SubTemplateExpression(
+                $templateA, ['the' => 'variables', 'go' => 'here']);
 
             $subTemplateExpression->display();
 
         } else {
 
-            $settings = [
-                $templateB,
-                ['the' => 'variables', 'go' => 'here'],
-            ];
-
-            $subTemplateExpression = new SubTemplateExpression($settings);
+            $subTemplateExpression = new SubTemplateExpression(
+                $templateB, ['the' => 'variables', 'go' => 'here']);
 
             $subTemplateExpression->display();
         }
