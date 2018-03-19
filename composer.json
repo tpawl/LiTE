@@ -1,7 +1,7 @@
 {
     "name": "tpawl/lite",
     "type": "library",
-    "description": ":package_description",
+    "description": "Lightweight Template Engine",
     "keywords": [
         ":vendor",
         ":package_name"
