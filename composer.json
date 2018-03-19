@@ -5,7 +5,10 @@
     "keywords": [
         "tpawl",
         "lite",
-        "template-engine"
+        "template-engine",
+        "lightweight",
+        "ad-hoc",
+        "native"
     ],
     "homepage": "https://github.com/tpawl/LiTE",
     "license": "MIT",
