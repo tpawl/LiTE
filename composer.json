@@ -1,12 +1,12 @@
 {
-    "name": ":vendor/:package_name",
+    "name": "tpawl/lite",
     "type": "library",
     "description": ":package_description",
     "keywords": [
         ":vendor",
         ":package_name"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/tpawl/LiTE",
     "license": "MIT",
     "authors": [
         {
