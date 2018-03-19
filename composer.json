@@ -10,9 +10,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
+            "name": "Thomas Pawlitschko",
             "email": ":author_email",
-            "homepage": ":author_website",
+            "homepage": "https://github.com/tpawl",
             "role": "Developer"
         }
     ],
