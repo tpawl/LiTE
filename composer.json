@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "TPawl\\LiTE\\": "src"
+            "TPawl\\LiTE\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":vendor\\:package_name\\": "tests"
+            "TPawl\\LiTE\\Test\\": "tests/"
         }
     }
 }
