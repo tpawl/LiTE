@@ -20,7 +20,7 @@ Requirements
 Installation
 ------------
 
-Coming soon...
+```composer require tpawl/lite```
 
 Usage
 -----
