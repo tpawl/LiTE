@@ -20,7 +20,11 @@ Requirements
 Installation
 ------------
 
-```composer require tpawl/lite```
+Via Composer
+
+```bash
+$ composer require tpawl/lite
+```
 
 Usage
 -----
