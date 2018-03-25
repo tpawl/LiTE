@@ -82,7 +82,15 @@ class SubTemplateExpression implements TemplateExpressionInterface
         $context->setTemplateContext($templateContext);
         $context->pushVariablesContext($variablesContext);
     }
-    
+
+    /**
+     * @return string
+     */
+    public function getTemplate(): string
+    {
+        return $this->template;
+    }
+
     /**
      * @param string $name
      * @return mixed
