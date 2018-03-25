@@ -18,7 +18,7 @@ class Context
     /**
      * @var \TPawl\LiTE\Expressions\SubTemplateExpression
      */
-    private $first = null;
+    private $firstSubTemplateExpression = null;
 
     /**
      * @var \TPawl\LiTE\Context\ViewHelperContext
@@ -70,9 +70,9 @@ class Context
      */
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
-        $subTemplateExpression->next = $this->first;
+        $subTemplateExpression->next = $this->firstSubTemplateExpression;
         
-        $this->first = $subTemplateExpression;
+        $this->firstSubTemplateExpression = $subTemplateExpression;
     }
 
     /**
