@@ -12,6 +12,8 @@ use TPawl\LiTE\Context\VariablesContext;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Php\Configuration;
+use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Exceptions\VariablesContextException;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
@@ -80,7 +82,42 @@ class SubTemplateExpression implements TemplateExpressionInterface
         $context->setTemplateContext($templateContext);
         $context->pushVariablesContext($variablesContext);
     }
-
+    
+    /**
+     * @param string $name
+     * @return mixed
+     * @throws \TPawl\LiTE\Exceptions\VariablesContextException
+     */
+    public function lookUp(string $name, FilterInterface $filter)
+    {
+        self::filterName($name, $filter);
+        
+        $isVariableExisting = array_key_exists($name, $this->variables);
+        
+        if (!$isVariableExisting) {
+            
+            throw new VariablesContextException(
+                "Template variable '{$name}' does not exist");
+        }
+        return $this->variables[$name];
+    }
+    
+    /**
+     * @param string $name
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return void
+     * @throws \TPawl\LiTE\Exceptions\VariablesContextException
+     */
+    private static function filterName(string $name,
+        FilterInterface $filter): void
+    {
+        if (!$filter->isValidName($name)) {
+            
+            throw new VariablesContextException(
+                "Invalid variable name: {$name}");
+        }
+    }
+    
     /**
      * @return void
      */
