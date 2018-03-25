@@ -65,6 +65,15 @@ class Context
         $this->firstSubTemplateExpression = $subTemplateExpression;
     }
 
+    public function popSubTemplateExpression(): void
+    {
+        $first = $this->firstSubTemplateExpression;
+        
+        Assert::notIsNull($first);
+        
+        $this->firstSubTemplateExpression = $first->next; 
+    }
+    
     /**
      * @return string
      */
