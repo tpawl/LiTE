@@ -28,6 +28,11 @@ class SubTemplateExpression implements TemplateExpressionInterface
     private $variables;
 
     /**
+     * @var \TPawl\LiTE\Expressions\SubTemplateExpression
+     */
+    private $next;
+    
+    /**
      * @param string $template
      * @param array $variables
      * @return void
