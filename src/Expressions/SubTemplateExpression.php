@@ -50,12 +50,10 @@ class SubTemplateExpression implements TemplateExpressionInterface
     public function display(): void
     {
         $configuration = new Configuration();
-        $templateContext = new TemplateContext($this->template);
-        $variablesContext = new VariablesContext($this->variables);
         
         ErrorHandlers::push(self::getErrorHandler($configuration));
 
-        self::initializeSubTemplateExpression($templateContext, $variablesContext);
+        self::initializeSubTemplateExpression();
 
         new TemplateInterpreter();
 
@@ -80,12 +78,11 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param \TPawl\LiTE\Context\VariablesContext $variablesContext
      * @return void
      */
-    private static function initializeSubTemplateExpression(TemplateContext $templateContext, VariablesContext $variablesContext): void
+    private static function initializeSubTemplateExpression(): void
     {
         $context = Context::getInstance();
 
-        $context->setTemplateContext($templateContext);
-        $context->pushVariablesContext($variablesContext);
+        $context->pushSubTemplateExpression($this);
     }
 
     /**
