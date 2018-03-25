@@ -14,21 +14,11 @@ class Context
      * @var \TPawl\LiTE\Context\Context
      */
     private static $instance = null;
-    
-    /**
-     * @var \TPawl\LiTE\Context\TemplateContext
-     */
-    private $templateContext = null;
 
     /**
-     * @var \TPawl\LiTE\Context\VariablesContext
+     * @var \TPawl\LiTE\Expressions\SubTemplateExpression
      */
-    private $variablesContextHead = null;
-    
-    /**
-     * @var \TPawl\LiTE\Context\VariablesContext[]
-     */
-    private $variablesContextTail = [];
+    private $first = null;
 
     /**
      * @var \TPawl\LiTE\Context\ViewHelperContext
@@ -78,9 +68,11 @@ class Context
      * @param \TPawl\LiTE\Context\TemplateContext $templateContext
      * @return void
      */
-    public function setTemplateContext(TemplateContext $templateContext): void
+    public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
-        $this->templateContext = $templateContext;
+        $subTemplateExpression->next = $this->first;
+        
+        $this->first = $subTemplateExpression;
     }
 
     /**
