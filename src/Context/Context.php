@@ -55,16 +55,6 @@ class Context
     }
 
     /**
-     * @return string
-     */
-    public function getTemplate(): string
-    {
-        $templateContext = $this->getTemplateContext();
-
-        return $templateContext->get();
-    }
-
-    /**
      * @param \TPawl\LiTE\Context\TemplateContext $templateContext
      * @return void
      */
@@ -76,19 +66,11 @@ class Context
     }
 
     /**
-     * @return \TPawl\LiTE\Context\TemplateContext
+     * @return string
      */
-    private function getTemplateContext(): TemplateContext
+    public function getTemplate(): string
     {
-        return $this->templateContext;
-    }
-
-    /**
-     * @return void
-     */
-    public function clearTemplateContext(): void
-    {
-        $this->templateContext = null;
+        return $this->firstSubTemplateExpression->getTemplate();
     }
 
     /**
@@ -98,49 +80,15 @@ class Context
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
-        $variablesContext = $this->topVariablesContext();
-
-        return $variablesContext->lookUp($name, $filter);
+        return $this->firstSubTemplateExpression->lookUp($name, $filter);
     }
-
-    /**
-     * @param \TPawl\LiTE\Context\VariablesContext $variablesContext
-     * @return void
-     */
-    public function pushVariablesContext(VariablesContext $variablesContext):
-        void
-    {
-        if (!$this->isVariablesContextEmpty()) {
-
-            $this->variablesContextTail[] = $this->variablesContextHead;
-        }
-        $this->variablesContextHead = $variablesContext;
-    }
-
-    /**
-     * @return \TPawl\LiTE\Context\VariablesContext
-     */
-    public function topVariablesContext(): VariablesContext
-    {
-        return $this->variablesContextHead;
-    }
-
-    /**
-     * @return void
-     */
-    public function popVariablesContext(): void
-    {
-        Assert::isFalse($this->isVariablesContextEmpty());
-
-        $this->variablesContextHead = array_pop($this->variablesContextTail);
-    }
-
+    
     /**
      * @return bool
      */
     private function isVariablesContextEmpty(): bool
     {
-        return is_null($this->variablesContextHead);
+        return is_null($this->firstSubTemplateExpression);
     }
     
     /**
