@@ -135,6 +135,6 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         $context = Context::getInstance();
 
-        $context->popVariablesContext();
+        $context->popSubTemplateExpression();
     }
 }
