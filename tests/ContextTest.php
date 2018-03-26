@@ -16,25 +16,25 @@ class ContextTest extends TestCase
     {
         $context = Context::getInstance();
         
-        $vc1 = new VariablesContext([]);
+        $vc1 = new SubTemplateExpression('', []);
         
-        $context->pushVariablesContext($vc1);
+        $context->pushSubTemplateExpression($vc1);
         
-        $vc2 = new VariablesContext([]);
+        $vc2 = new SubTemplateExpression('', []);
         
-        $context->pushVariablesContext($vc2);
+        $context->pushSubTemplateExpression($vc2);
         
-        $vc = $context->topVariablesContext();
+        $vc = $context->topSubTemplateExpression();
         
         $this->assertSame($vc2, $vc);
         
-        $context->popVariablesContext();
+        $context->popSubTemplateExpression();
         
-        $vc = $context->topVariablesContext();
+        $vc = $context->topSubTemplateExpression();
         
         $this->assertSame($vc1, $vc);
         
-        $context->popVariablesContext();
+        $context->popSubTemplateExpression();
         
         Functions::resetContext();
     }
