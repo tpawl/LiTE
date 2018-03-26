@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2017, 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -16,23 +16,23 @@ class ContextTest extends TestCase
     {
         $context = Context::getInstance();
         
-        $vc1 = new SubTemplateExpression('', []);
+        $ste1 = new SubTemplateExpression('', []);
         
-        $context->pushSubTemplateExpression($vc1);
+        $context->pushSubTemplateExpression($ste1);
         
-        $vc2 = new SubTemplateExpression('', []);
+        $ste2 = new SubTemplateExpression('', []);
         
-        $context->pushSubTemplateExpression($vc2);
+        $context->pushSubTemplateExpression($ste2);
         
-        $vc = $context->topSubTemplateExpression();
+        $ste = $context->topSubTemplateExpression();
         
-        $this->assertSame($vc2, $vc);
+        $this->assertSame($ste2, $ste);
         
         $context->popSubTemplateExpression();
         
-        $vc = $context->topSubTemplateExpression();
+        $ste = $context->topSubTemplateExpression();
         
-        $this->assertSame($vc1, $vc);
+        $this->assertSame($ste1, $ste);
         
         $context->popSubTemplateExpression();
         
@@ -57,9 +57,9 @@ class ContextTest extends TestCase
         
         $context = Context::getInstance();
         
-        $vc = new SubTemplateExpression('', []);
+        $ste = new SubTemplateExpression('', []);
         
-        $context->pushSubTemplateExpression($vc);
+        $context->pushSubTemplateExpression($ste);
         
         $this->assertFalse(Context::isEmpty());
         
