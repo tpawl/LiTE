@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2016, 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2016 - 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -17,6 +17,11 @@ class Assert
     {
     }
 
+    public static function notIsNull($value, string $message = ''): void
+    {
+        self::isFalse(is_null($value), $message);
+    }
+    
     /**
      * @param int $value
      * @param string $message
