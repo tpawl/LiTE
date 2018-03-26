@@ -118,7 +118,5 @@ class TemplateExpression extends SubTemplateExpression
         $context->clearViewHelperContext();
 
         parent::cleanup();
-
-        $context->clearTemplateContext();
     }
 }
