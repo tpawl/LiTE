@@ -1,10 +1,11 @@
 <?php
-// Copyright (c) 2013 - 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2013 - 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
 namespace TPawl\LiTE\Context;
 
+use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Assert\Assert;
 
