@@ -7,7 +7,7 @@ namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Context\Context;
-use TPawl\LiTE\Context\VariablesContext;
+use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
