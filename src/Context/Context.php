@@ -61,14 +61,14 @@ class Context
      */
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
-        $subTemplateExpression->next = $this->firstSubTemplateExpression;
+        $subTemplateExpression->setNext($this->firstSubTemplateExpression);
         
         $this->firstSubTemplateExpression = $subTemplateExpression;
     }
 
     public function popSubTemplateExpression(): void
     {   
-        $this->firstSubTemplateExpression = $this->topSubTemplateExpression()->next; 
+        $this->firstSubTemplateExpression = $this->topSubTemplateExpression()->getNext(); 
     }
     
     public function topSubTemplateExpression(): SubTemplateExpression
