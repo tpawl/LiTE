@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2017, 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -18,9 +18,9 @@ class TemplateInterpreterTest extends TestCase
     {
         $context = Context::getInstance();
     
-        $tc = new SubTemplateExpression('', []);
+        $ste = new SubTemplateExpression('', []);
     
-        $context->pushSubTemplateExpression($tc);
+        $context->pushSubTemplateExpression($ste);
     
         $ti = new TemplateInterpreter();
     
