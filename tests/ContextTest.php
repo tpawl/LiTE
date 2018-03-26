@@ -46,7 +46,7 @@ class ContextTest extends TestCase
     {
         $context = Context::getInstance();
         
-        $context->popVariablesContext();
+        $context->popSubTemplateExpression();
         
         Functions::resetContext();
     }
