@@ -85,7 +85,7 @@ class Context
      */
     public function getTemplate(): string
     {
-        return $this->firstSubTemplateExpression->getTemplate();
+        return $this->topSubTemplateExpression()->getTemplate();
     }
 
     /**
@@ -95,7 +95,7 @@ class Context
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
-        return $this->firstSubTemplateExpression->lookUp($name, $filter);
+        return $this->topSubTemplateExpression()->lookUp($name, $filter);
     }
     
     /**
