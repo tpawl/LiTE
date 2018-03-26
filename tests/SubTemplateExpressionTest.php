@@ -13,6 +13,50 @@ use TPawl\LiTE\Tests\Asset\Functions;
 
 class SubTemplateExpressionTest extends TestCase
 {
+    /**
+     * @expectedException TPawl\LiTE\Exceptions\VariablesContextException
+     */
+    public function testInvalidNameThrowsAnException()
+    {
+        $variablesContext = new SubTemplateExpression('', []);
+
+        $filter = $this->createMock(FilterInterface::class);
+
+        $filter->method('isValidName')->
+            willReturn(false);
+
+        $variablesContext->lookUp('', $filter);
+    }
+
+    /**
+     * @expectedException TPawl\LiTE\Exceptions\VariablesContextException
+     */
+    public function testNonExistingVariableThrowsAnException()
+    {
+        $variablesContext = new SubTemplateExpression('', []);
+
+        $filter = $this->createMock(FilterInterface::class);
+
+        $filter->method('isValidName')->
+            willReturn(true);
+
+        $variablesContext->lookUp('abc', $filter);
+    }
+
+    public function testNormalOperation()
+    {
+        $variablesContext = new SubTemplateExpression('', ['abc' => 123]);
+
+        $filter = $this->createMock(FilterInterface::class);
+
+        $filter->method('isValidName')->
+            willReturn(true);
+
+        $value = $variablesContext->lookUp('abc', $filter);
+
+        $this->assertEquals(123, $value);
+    }
+    
     public function testDisplay()
     {
         $settings = [
