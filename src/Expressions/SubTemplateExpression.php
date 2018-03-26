@@ -30,7 +30,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     /**
      * @var \TPawl\LiTE\Expressions\SubTemplateExpression
      */
-    public $next;
+    private $next;
     
     /**
      * @param string $template
@@ -126,6 +126,16 @@ class SubTemplateExpression implements TemplateExpressionInterface
             throw new VariablesContextException(
                 "Invalid variable name: {$name}");
         }
+    }
+    
+    public function setNext(SubTemplateExpression $subTemplateExpression): void
+    {
+        $this->next = $subTemplateExpression;
+    }
+    
+    public function getNext(): SubTemplateExpression
+    {
+        return $this->next;
     }
     
     /**
