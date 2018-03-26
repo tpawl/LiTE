@@ -128,7 +128,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         }
     }
     
-    public function setNext(SubTemplateExpression $subTemplateExpression): void
+    public function setNext(?SubTemplateExpression $subTemplateExpression): void
     {
         $this->next = $subTemplateExpression;
     }
