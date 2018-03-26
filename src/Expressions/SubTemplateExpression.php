@@ -28,7 +28,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     private $variables;
 
     /**
-     * @var \TPawl\LiTE\Expressions\SubTemplateExpression
+     * @var \TPawl\LiTE\Expressions\SubTemplateExpression|null
      */
     private $next;
     
@@ -133,7 +133,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         $this->next = $subTemplateExpression;
     }
     
-    public function getNext(): SubTemplateExpression
+    public function getNext(): ?SubTemplateExpression
     {
         return $this->next;
     }
