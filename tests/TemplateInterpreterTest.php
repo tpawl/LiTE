@@ -10,6 +10,7 @@ use TPawl\LiTE\Interpreter\TemplateInterpreter;
 use TPawl\LiTE\Context\TemplateContext;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Tests\Asset\Functions;
+use TPawl\LiTE\Expressions\SubTemplateExpression;
 
 class TemplateInterpreterTest extends TestCase
 {
@@ -17,9 +18,9 @@ class TemplateInterpreterTest extends TestCase
     {
         $context = Context::getInstance();
     
-        $tc = new TemplateContext('');
+        $tc = new SubTemplateExpression('', []);
     
-        $context->setTemplateContext($tc);
+        $context->pushSubTemplateExpression($tc);
     
         $ti = new TemplateInterpreter();
     
@@ -27,6 +28,8 @@ class TemplateInterpreterTest extends TestCase
     
         $ti->_xml('test');
     
+        $context->popSubTemplateExpression();
+        
         Functions::resetContext();
     }
 }
