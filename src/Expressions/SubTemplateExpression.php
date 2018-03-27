@@ -96,7 +96,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     /**
      * @param string $name
      * @return mixed
-     * @throws \TPawl\LiTE\Exceptions\VariablesContextException
+     * @throws \OutOfRangeException
      */
     public function lookUp(string $name, FilterInterface $filter)
     {
@@ -106,7 +106,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         
         if (!$isVariableExisting) {
             
-            throw new VariablesContextException(
+            throw new \OutOfRangeException(
                 "Template variable '{$name}' does not exist");
         }
         return $this->variables[$name];
