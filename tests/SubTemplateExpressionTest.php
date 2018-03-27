@@ -15,7 +15,7 @@ use TPawl\LiTE\Filter\FilterInterface;
 class SubTemplateExpressionTest extends TestCase
 {
     /**
-     * @expectedException TPawl\LiTE\Exceptions\VariablesContextException
+     * @expectedException \DomainException
      */
     public function testInvalidNameThrowsAnException()
     {
