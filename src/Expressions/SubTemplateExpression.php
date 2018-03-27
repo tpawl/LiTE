@@ -13,7 +13,6 @@ use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Php\Configuration;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Exceptions\VariablesContextException;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
@@ -116,14 +115,14 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\VariablesContextException
+     * @throws \DomainException
      */
     private static function filterName(string $name,
         FilterInterface $filter): void
     {
         if (!$filter->isValidName($name)) {
             
-            throw new VariablesContextException(
+            throw new \DomainException(
                 "Invalid variable name: {$name}");
         }
     }
