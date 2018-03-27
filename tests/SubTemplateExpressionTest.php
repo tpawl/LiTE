@@ -19,14 +19,14 @@ class SubTemplateExpressionTest extends TestCase
      */
     public function testInvalidNameThrowsAnException()
     {
-        $variablesContext = new SubTemplateExpression('', []);
+        $subTemplateExpression = new SubTemplateExpression('', []);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(false);
 
-        $variablesContext->lookUp('', $filter);
+        $subTemplateExpression->lookUp('', $filter);
     }
 
     /**
@@ -34,26 +34,26 @@ class SubTemplateExpressionTest extends TestCase
      */
     public function testNonExistingVariableThrowsAnException()
     {
-        $variablesContext = new SubTemplateExpression('', []);
+        $subTemplateExpression = new SubTemplateExpression('', []);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(true);
 
-        $variablesContext->lookUp('abc', $filter);
+        $subTemplateExpression->lookUp('abc', $filter);
     }
 
     public function testNormalOperation()
     {
-        $variablesContext = new SubTemplateExpression('', ['abc' => 123]);
+        $subTemplateExpression = new SubTemplateExpression('', ['abc' => 123]);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(true);
 
-        $value = $variablesContext->lookUp('abc', $filter);
+        $value = $subTemplateExpression->lookUp('abc', $filter);
 
         $this->assertEquals(123, $value);
     }
