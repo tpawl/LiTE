@@ -30,7 +30,7 @@ class SubTemplateExpressionTest extends TestCase
     }
 
     /**
-     * @expectedException TPawl\LiTE\Exceptions\VariablesContextException
+     * @expectedException \OutOfRangeException
      */
     public function testNonExistingVariableThrowsAnException()
     {
