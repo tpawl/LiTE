@@ -16,7 +16,7 @@ class SubTemplateExpressionTest extends TestCase
 {
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Invalid template variable name: \'\'
+     * @expectedExceptionMessage Invalid template variable name: abc
      */
     public function testInvalidNameThrowsAnException()
     {
@@ -27,7 +27,7 @@ class SubTemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $subTemplateExpression->lookUp('', $filter);
+        $subTemplateExpression->lookUp('abc', $filter);
     }
 
     /**
