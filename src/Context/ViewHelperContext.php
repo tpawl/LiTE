@@ -63,15 +63,15 @@ class ViewHelperContext
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
+     * @throws \DomainException
      */
     private static function filterName(string $name,
         FilterInterface $filter): void
     {
         if (!$filter->isValidName($name)) {
 
-            throw new ViewHelperContextException(
-                "{$name} is not a valid View helper name");
+            throw new \DomainException(
+                "Invalid view helper name: {$name}");
         }
     }
     
