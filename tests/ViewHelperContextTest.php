@@ -12,7 +12,8 @@ use TPawl\LiTE\Filter\FilterInterface;
 class ViewHelperContextTest extends TestCase
 {
     /**
-     * @expectedException TPawl\LiTE\Exceptions\ViewHelperContextException
+     * @expectedException \DomainException
+     * @expectedExceptionMessage Invalid view helper name: abc
      */
     public function testInvalidNameThrowsAnException()
     {
@@ -23,7 +24,7 @@ class ViewHelperContextTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $viewHelperContext->execute('', [], $filter);
+        $viewHelperContext->execute('abc', [], $filter);
     }
 
     public function testNormalOperation()
