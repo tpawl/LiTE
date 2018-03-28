@@ -16,7 +16,7 @@ class SubTemplateExpressionTest extends TestCase
 {
     /**
      * @expectedException \DomainException
-     * @expectedExceptionMessage Invalid template variable name: ''
+     * @expectedExceptionMessage Invalid template variable name: \'\'
      */
     public function testInvalidNameThrowsAnException()
     {
