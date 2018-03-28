@@ -123,7 +123,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         if (!$filter->isValidName($name)) {
             
             throw new \DomainException(
-                "Invalid variable name: {$name}");
+                "Invalid template variable name: {$name}");
         }
     }
     
