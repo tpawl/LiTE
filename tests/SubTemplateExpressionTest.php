@@ -32,6 +32,7 @@ class SubTemplateExpressionTest extends TestCase
 
     /**
      * @expectedException \OutOfRangeException
+     * @expectedExceptionMessage Template variable 'abc' does not exist
      */
     public function testNonExistingVariableThrowsAnException()
     {
