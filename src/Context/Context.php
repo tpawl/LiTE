@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Context;
 
+use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Assert\Assert;
@@ -16,6 +17,11 @@ class Context
      */
     private static $instance = null;
 
+    /**
+     * @var \TPawl\LiTE\Expressions\TemplateExpression
+     */
+    private $templateExpression = null;
+    
     /**
      * @var \TPawl\LiTE\Expressions\SubTemplateExpression
      */
