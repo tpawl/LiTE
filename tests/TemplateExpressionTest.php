@@ -141,8 +141,6 @@ class TemplateExpressionTest extends TestCase
         Functions::resetContext();
     }
     
-    class ViewHelperContextTest extends TestCase
-{
     /**
      * @expectedException \DomainException
      * @expectedExceptionMessage Invalid view helper name: abc
