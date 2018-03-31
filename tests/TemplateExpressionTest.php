@@ -219,28 +219,42 @@ class TemplateExpressionTest extends TestCase
      */
     public function testInvalidViewHelperThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
+        $settings = [
+            '',
+            [],
+            __DIR__ . '/Asset/ViewHelpers',
+            '',
+        ];
+        
+        $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperContext->execute('invalid', [], $filter);
+        $templateExpression->execute('invalid', [], $filter);
     }
 
     /**
      * @expectedException TPawl\LiTE\Exceptions\ViewHelperException
      */
-    public function testEceptionViewHelperThrowsAnException()
+    public function testExceptionViewHelperThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
+        $settings = [
+            '',
+            [],
+            __DIR__ . '/Asset/ViewHelpers',
+            '',
+        ];
+        
+        $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperContext->execute('exception', [], $filter);
+        $templateExpression->execute('exception', [], $filter);
     }
 }
