@@ -283,7 +283,7 @@ class TemplateExpression extends SubTemplateExpression
     {
         $context = Context::getInstance();
 
-        $context->clearViewHelperContext();
+        $context->resetTemplateExpression();
 
         parent::cleanup();
     }
