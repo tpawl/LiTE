@@ -8,6 +8,10 @@ namespace TPawl\LiTE\Expressions;
 use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Context\ViewHelperContext;
+use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Exceptions\ViewHelperException;
+use TPawl\LiTE\Exceptions\ViewHelperContextException;
+use TPawl\LiTE\ViewHelperInterface;
 
 class TemplateExpression extends SubTemplateExpression
 {
