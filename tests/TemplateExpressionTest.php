@@ -148,14 +148,21 @@ class TemplateExpressionTest extends TestCase
      */
     public function testInvalidNameThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext('', '', null);
+        $settings = [
+            '',
+            [],
+            '',
+            '',
+        ];
+        
+        $templateExpression = new TemplateExpression(settings);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(false);
 
-        $viewHelperContext->execute('abc', [], $filter);
+        $templateExpression->execute('abc', [], $filter);
     }
 
     public function testNormalOperation()
