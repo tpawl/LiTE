@@ -61,6 +61,11 @@ class Context
     {
     }
 
+    public function setTemplateExpression(TemplateExpression $templateExpression): void
+    {
+        $this->templateExpression = $templateExpression;
+    }
+    
     /**
      * @param \TPawl\LiTE\Context\TemplateContext $templateContext
      * @return void
