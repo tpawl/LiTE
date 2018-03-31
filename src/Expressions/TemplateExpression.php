@@ -85,6 +85,170 @@ class TemplateExpression extends SubTemplateExpression
     }
     
     /**
+     * @param string $name
+     * @param array $arguments
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return void
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
+     */
+    public function execute(string $name, array $arguments,
+        FilterInterface $filter): void
+    {
+        self::filterName($name, $filter);
+        
+        $classQualifier = $this->load($name);
+        
+        $this->tryCall($classQualifier, $arguments);
+    }
+
+    /**
+     * @param string $name
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return void
+     * @throws \DomainException
+     */
+    private static function filterName(string $name,
+        FilterInterface $filter): void
+    {
+        if (!$filter->isValidName($name)) {
+
+            throw new \DomainException(
+                "Invalid view helper name: {$name}");
+        }
+    }
+    
+    /**
+     * @param string $name
+     * @return string
+     */
+    private static function getClassName(string $name): string
+    {
+        return ucfirst($name) . 'ViewHelper';
+    }
+
+    /**
+     * @param string $className
+     * @return string
+     */
+    private function getClassQualifier(string $className): string
+    {
+        return "{$this->getNamespace()}\\{$className}";
+    }
+
+    /**
+     * @param string $classQualifier
+     * @return bool
+     */
+    private static function isClassExisting(string $classQualifier): bool
+    {
+        return class_exists($classQualifier, false);
+    }
+
+    /**
+     * @param string $className
+     * @return string
+     */
+    private function load(string $name): string
+    {
+        $className = self::getClassName($name);
+        $classQualifier = $this->getClassQualifier($className);
+
+        if (!self::isClassExisting($classQualifier)) {
+
+            include $this->getClassFilename($className);
+
+            if (!self::isClassExisting($classQualifier)) {
+
+                throw new ViewHelperContextException(
+                    "View helper {$classQualifier} does not exist");
+            }
+            if (!self::isClassImplementingViewHelper($classQualifier)) {
+
+                throw new ViewHelperContextException(
+                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
+            }
+        }
+        return $classQualifier;
+    }
+
+    /**
+     * @param string $className
+     * @return string
+     */
+    private function getClassFilename(string $className): string
+    {
+        return "{$this->getDirectory()}/{$className}.php";
+    }
+
+    /**
+     * @param string $classQualifier
+     * @return bool
+     */
+    private static function isClassImplementingViewHelper(string $classQualifier): bool
+    {
+        return is_subclass_of($classQualifier, ViewHelperInterface::class);
+    }
+
+    /**
+     * @param string $classQualifier
+     * @param array $arguments
+     * @return void
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
+     */
+    private function tryCall(string $classQualifier,
+        array $arguments): void
+    {
+        try {
+
+            $this->call($classQualifier, $arguments);
+
+        } catch (\RuntimeException $ex) {
+
+            throw new ViewHelperException($ex->getMessage());
+        }
+    }
+
+    /**
+     * @param string $classQualifier
+     * @param array $arguments
+     * @return void
+     * @throws \RuntimeException
+     */
+    private function call(string $classQualifier,
+        array $arguments): void
+    {
+        ErrorHandlers::push($this->getErrorHandler());
+
+        $classQualifier::execute($arguments);
+
+        ErrorHandlers::pop();
+    }
+
+    /**
+     * @return string
+     */
+    private function getDirectory(): string
+    {
+        return $this->directory;
+    }
+
+    /**
+     * @return string
+     */
+    private function getNamespace(): string
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @return callable|null
+     */
+    private function getErrorHandler(): ?callable
+    {
+        return $this->errorHandler;
+    }
+    
+    /**
      * @return void
      */
     public function display(): void
