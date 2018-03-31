@@ -66,6 +66,11 @@ class Context
         $this->templateExpression = $templateExpression;
     }
     
+    public function resetTemplateExpression(): void
+    {
+        $this->templateExpression = null;
+    }
+    
     /**
      * @param \TPawl\LiTE\Context\TemplateContext $templateContext
      * @return void
