@@ -197,14 +197,21 @@ class TemplateExpressionTest extends TestCase
      */
     public function testWrongViewHelperThrowsAnException()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
+        $settings = [
+            '',
+            [],
+            __DIR__ . '/Asset/ViewHelpers',
+            '',
+        ];
+        
+        $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperContext->execute('wrong', [], $filter);
+        $templateExpression->execute('wrong', [], $filter);
     }
 
     /**
