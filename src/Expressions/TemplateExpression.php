@@ -221,7 +221,7 @@ class TemplateExpression extends SubTemplateExpression
     private function call(string $classQualifier,
         array $arguments): void
     {
-        ErrorHandlers::push($this->getErrorHandler());
+        ErrorHandlers::push($this->getViewHelperErrorHandler());
 
         $classQualifier::execute($arguments);
 
@@ -247,7 +247,7 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @return callable|null
      */
-    private function getErrorHandler(): ?callable
+    private function getViewHelperErrorHandler(): ?callable
     {
         return $this->viewHelperErrorHandler;
     }
