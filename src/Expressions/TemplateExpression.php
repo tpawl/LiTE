@@ -269,11 +269,11 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Context\ViewHelperContext $viewHelperContext
      * @return void
      */
-    private static function initializeTemplateExpression(ViewHelperContext $viewHelperContext): void
+    private static function initializeTemplateExpression(): void
     {
         $context = Context::getInstance();
 
-        $context->setViewHelperContext($viewHelperContext);
+        $context->setTemplateExpression($this);
     }
 
     /**
