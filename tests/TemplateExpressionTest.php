@@ -155,7 +155,7 @@ class TemplateExpressionTest extends TestCase
             '',
         ];
         
-        $templateExpression = new TemplateExpression(settings);
+        $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
 
