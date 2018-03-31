@@ -8,6 +8,7 @@ namespace TPawl\LiTE\Tests;
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
+use TPawl\LiTE\Filter\FilterInterface;
 
 class TemplateExpressionTest extends TestCase
 {
