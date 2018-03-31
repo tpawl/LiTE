@@ -167,14 +167,21 @@ class TemplateExpressionTest extends TestCase
 
     public function testNormalOperation()
     {
-        $viewHelperContext = new ViewHelperContext(__DIR__ . '/Asset/ViewHelpers', '', null);
+        $settings = [
+            '',
+            [],
+            __DIR__ . '/Asset/ViewHelpers',
+            '',
+        ];
+        
+        $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
 
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperContext->execute('test', [], $filter);
+        $templateExpression->execute('test', [], $filter);
 
         $out = $this->getActualOutput();
 
@@ -182,7 +189,7 @@ class TemplateExpressionTest extends TestCase
 
         $this->expectOutputString('ghighi');
 
-        $viewHelperContext->execute('test', [], $filter);
+        $templateExpression->execute('test', [], $filter);
     }
 
     /**
