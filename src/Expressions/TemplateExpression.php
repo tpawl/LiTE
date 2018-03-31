@@ -233,7 +233,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getDirectory(): string
     {
-        return $this->directory;
+        return $this->viewHelperDirectory;
     }
 
     /**
@@ -241,7 +241,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getNamespace(): string
     {
-        return $this->namespace;
+        return $this->viewHelperNamespace;
     }
 
     /**
@@ -249,7 +249,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getErrorHandler(): ?callable
     {
-        return $this->errorHandler;
+        return $this->viewHelperErrorHandler;
     }
     
     /**
