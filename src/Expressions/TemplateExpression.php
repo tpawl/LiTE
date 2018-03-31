@@ -7,7 +7,6 @@ namespace TPawl\LiTE\Expressions;
 
 use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
-use TPawl\LiTE\Context\ViewHelperContext;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\ViewHelperException;
 use TPawl\LiTE\Exceptions\ViewHelperContextException;
@@ -256,11 +255,8 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      */
     public function display(): void
-    {
-        $viewHelperContext = new ViewHelperContext($this->viewHelperDirectory,
-            $this->viewHelperNamespace, $this->viewHelperErrorHandler);
-        
-        self::initializeTemplateExpression($viewHelperContext);
+    {   
+        $this->initializeTemplateExpression();
         
         parent::display();
     }
@@ -269,7 +265,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Context\ViewHelperContext $viewHelperContext
      * @return void
      */
-    private static function initializeTemplateExpression(): void
+    private function initializeTemplateExpression(): void
     {
         $context = Context::getInstance();
 
