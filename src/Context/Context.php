@@ -28,11 +28,6 @@ class Context
     private $firstSubTemplateExpression = null;
 
     /**
-     * @var \TPawl\LiTE\Context\ViewHelperContext
-     */
-    private $viewHelperContext = null;
-
-    /**
      * @return bool
      */
     public static function isEmpty(): bool
@@ -131,37 +126,7 @@ class Context
     public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
     {
-        $viewHelperContext = $this->getViewHelperContext();
-
-        $viewHelperContext->execute($name, $arguments, $filter);
-    }
-
-    /**
-     * @param \TPawl\LiTE\Context\ViewHelperContext $viewHelperContext
-     * @return void
-     */
-    public function setViewHelperContext(ViewHelperContext $viewHelperContext):
-        void
-    {
-        $this->viewHelperContext = $viewHelperContext;
-    }
-
-    /**
-     * @return \TPawl\LiTE\Context\ViewHelperContext
-     */
-    private function getViewHelperContext(): ViewHelperContext
-    {
-        return $this->viewHelperContext;
-    }
-
-    /**
-     * @return void
-     */
-    public function clearViewHelperContext(): void
-    {
-        $this->viewHelperContext->clear();
-        
-        $this->viewHelperContext = null;
+        $this->templateExpression->execute($name, $arguments, $filter);
     }
 
     /**
