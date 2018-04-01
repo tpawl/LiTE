@@ -55,6 +55,8 @@ class TemplateInterpreter
      */
     public static function _xml(string $attributes): void
     {
+        // if (!Context::isEmpty()) { ???
         echo '<?xml ', $attributes, " ?>\n";
+        // }
     }
 }
