@@ -18,9 +18,16 @@ class TemplateInterpreterTest extends TestCase
     {
         $context = Context::getInstance();
     
-        $ste = new SubTemplateExpression('', []);
+        $settings = [
+            '',
+            [],
+            '.',
+            ''
+        ];
+        
+        $te = new TemplateExpression($settings);
     
-        $context->pushSubTemplateExpression($ste);
+        $context->setTemplateExpression($te);
     
         $ti = new TemplateInterpreter();
     
@@ -28,7 +35,7 @@ class TemplateInterpreterTest extends TestCase
     
         $ti->_xml('test');
     
-        $context->popSubTemplateExpression();
+        $context->resetTemplateExpression();
         
         Functions::resetContext();
     }
