@@ -123,7 +123,7 @@ class Context
      */
     private function isVariablesContextEmpty(): bool
     {
-        return is_null($this->firstSubTemplateExpression);
+        return is_null($this->templateExpression);
     }
     
     /**
