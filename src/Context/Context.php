@@ -58,6 +58,10 @@ class Context
 
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
+        if (!is_null($this->templateExpression)) {
+            
+            throw new ContextException('A template expression can not be used within a Template expression');
+        }
         $this->templateExpression = $templateExpression;
     }
     
