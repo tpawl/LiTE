@@ -10,7 +10,7 @@ use TPawl\LiTE\Interpreter\TemplateInterpreter;
 use TPawl\LiTE\Context\TemplateContext;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Tests\Asset\Functions;
-use TPawl\LiTE\Expressions\SubTemplateExpression;
+use TPawl\LiTE\Expressions\TemplateExpression;
 
 class TemplateInterpreterTest extends TestCase
 {
