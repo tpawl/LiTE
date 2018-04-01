@@ -9,6 +9,7 @@ use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Assert\Assert;
+use TPawl\LiTE\Exceptions\ContextException;
 
 class Context
 {
