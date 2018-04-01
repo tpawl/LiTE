@@ -9,7 +9,7 @@ use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\ViewHelperException;
-use TPawl\LiTE\Exceptions\ViewHelperContextException;
+use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
 
 class TemplateExpression extends SubTemplateExpression
@@ -162,12 +162,12 @@ class TemplateExpression extends SubTemplateExpression
 
             if (!self::isClassExisting($classQualifier)) {
 
-                throw new ViewHelperContextException(
+                throw new TemplateExpressionException(
                     "View helper {$classQualifier} does not exist");
             }
             if (!self::isClassImplementingViewHelper($classQualifier)) {
 
-                throw new ViewHelperContextException(
+                throw new TemplateExpressionException(
                     "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
             }
         }
