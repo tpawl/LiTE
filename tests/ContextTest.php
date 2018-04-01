@@ -67,13 +67,22 @@ class ContextTest extends TestCase
         
         $context = Context::getInstance();
         
-        $ste = new SubTemplateExpression('', []);
+        $settings = [
+            '',
+            [],
+            '.',
+            ''
+        ];
         
-        $context->pushSubTemplateExpression($ste);
+        $te = new SubTemplateExpression($settings);
+        
+        $context->setTemplateExpression($te);
+        $context->pushSubTemplateExpression($te);
         
         $this->assertFalse(Context::isEmpty());
         
         $context->popSubTemplateExpression();
+        $context->resetTemplateExpression();
         
         $this->assertTrue(Context::isEmpty());
         
