@@ -74,7 +74,7 @@ class ContextTest extends TestCase
             ''
         ];
         
-        $te = new SubTemplateExpression($settings);
+        $te = new TemplateExpression($settings);
         
         $context->setTemplateExpression($te);
         $context->pushSubTemplateExpression($te);
