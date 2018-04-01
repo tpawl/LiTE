@@ -8,11 +8,11 @@ namespace TPawl\LiTE;
 class Version
 {
     // Major version number (major release)
-    public const MAJOR = 1;
+    public const MAJOR = 2;
 
     // Minor version number (minor release)
     public const MINOR = 0;
 
     // Revision number (patch level)
-    public const REVISION = 3;
+    public const REVISION = 0;
 }
