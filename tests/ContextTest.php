@@ -7,6 +7,7 @@ namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Context\Context;
+use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
 
@@ -16,25 +17,34 @@ class ContextTest extends TestCase
     {
         $context = Context::getInstance();
         
-        $ste1 = new SubTemplateExpression('', []);
+        $settings = [
+            '',
+            [],
+            '.',
+            ''
+        ];
         
-        $context->pushSubTemplateExpression($ste1);
+        $te = new TemplateExpression($settings);
         
-        $ste2 = new SubTemplateExpression('', []);
+        $context->setTemplateExpression($te);
+        $context->pushSubTemplateExpression($te);
         
-        $context->pushSubTemplateExpression($ste2);
+        $ste = new SubTemplateExpression('', []);
         
-        $ste = $context->topSubTemplateExpression();
+        $context->pushSubTemplateExpression($ste);
         
-        $this->assertSame($ste2, $ste);
+        $tste = $context->topSubTemplateExpression();
+        
+        $this->assertSame($ste, $tste);
         
         $context->popSubTemplateExpression();
         
-        $ste = $context->topSubTemplateExpression();
+        $tste = $context->topSubTemplateExpression();
         
-        $this->assertSame($ste1, $ste);
+        $this->assertSame($te, $tste);
         
         $context->popSubTemplateExpression();
+        $context->resetTemplateExpression();
         
         Functions::resetContext();
     }
