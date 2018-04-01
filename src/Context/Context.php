@@ -59,7 +59,7 @@ class Context
 
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
-        if (!is_null($this->templateExpression)) {
+        if (!$this->isVariablesContextEmpty()) {
             
             throw new ContextException('A template expression can not be used within a template expression');
         }
@@ -77,7 +77,7 @@ class Context
      */
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
-        if (is_null($this->templateExpression)) {
+        if ($this->isVariablesContextEmpty()) {
             
             throw new ContextException(/* todo: ... */);
         }
