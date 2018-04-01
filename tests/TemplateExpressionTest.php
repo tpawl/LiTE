@@ -193,7 +193,7 @@ class TemplateExpressionTest extends TestCase
     }
 
     /**
-     * @expectedException TPawl\LiTE\Exceptions\ViewHelperContextException
+     * @expectedException TPawl\LiTE\Exceptions\TemplateExpressionException
      */
     public function testWrongViewHelperThrowsAnException()
     {
@@ -215,7 +215,7 @@ class TemplateExpressionTest extends TestCase
     }
 
     /**
-     * @expectedException TPawl\LiTE\Exceptions\ViewHelperContextException
+     * @expectedException TPawl\LiTE\Exceptions\TemplateExpressionException
      */
     public function testInvalidViewHelperThrowsAnException()
     {
