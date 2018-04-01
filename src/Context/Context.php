@@ -61,7 +61,7 @@ class Context
     {
         if (!is_null($this->templateExpression)) {
             
-            throw new ContextException('A template expression can not be used within a Template expression');
+            throw new ContextException('A template expression can not be used within a template expression');
         }
         $this->templateExpression = $templateExpression;
     }
