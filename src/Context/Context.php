@@ -77,7 +77,7 @@ class Context
      */
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
-        if (is_null($this->firstSubTemplateExpression)) {
+        if (is_null($this->templateExpression)) {
             
             throw new ContextException(/* todo: ... */);
         }
