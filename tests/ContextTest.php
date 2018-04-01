@@ -13,6 +13,20 @@ use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
+     /**
+     * @expectedException TPawl\LiTE\Exceptions\ContextException
+     */
+    public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
+    {
+        $context = Context::getInstance();
+        
+        $ste = new SubTemplateExpression('', []);
+        
+        $context->pushSubTemplateExpression($ste);
+        
+        Functions::resetContext();
+    }
+    
     public function testPushVariablesContext()
     {
         $context = Context::getInstance();
