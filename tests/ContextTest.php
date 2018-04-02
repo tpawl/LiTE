@@ -33,22 +33,16 @@ class ContextTest extends TestCase
         $te = new TemplateExpression($settings);
         
         $te->display();
-        
-        Functions::resetContext();
     }
     
     /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
-    {
-        $context = Context::getInstance();
-        
+    {   
         $ste = new SubTemplateExpression('', []);
         
-        $context->pushSubTemplateExpression($ste);
-        
-        Functions::resetContext();
+        $ste->display();
     }
     
     public function testPushVariablesContext()
@@ -83,8 +77,6 @@ class ContextTest extends TestCase
         
         $context->popSubTemplateExpression();
         $context->resetTemplateExpression();
-        
-        Functions::resetContext();
     }
     
     /**
@@ -95,8 +87,6 @@ class ContextTest extends TestCase
         $context = Context::getInstance();
         
         $context->popSubTemplateExpression();
-        
-        Functions::resetContext();
     }
 
     public function testIsEmpty()
@@ -123,7 +113,5 @@ class ContextTest extends TestCase
         $context->resetTemplateExpression();
         
         $this->assertTrue(Context::isEmpty());
-        
-        Functions::resetContext();
     }
 }
