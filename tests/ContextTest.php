@@ -13,6 +13,11 @@ use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
+    protected function tearDown()
+    {
+        Functions::resetContext();
+    }
+
     /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
      */
