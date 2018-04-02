@@ -13,6 +13,22 @@ use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
+    public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
+    {
+        $settings = [
+            '<?php self::template(); ?>',
+            [],
+            '.',
+            ''
+        ];
+        
+        $te = new TemplateExpression($settings);
+        
+        $te->display();
+        
+        Functions::resetContext();
+    }
+    
      /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
      */
