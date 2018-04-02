@@ -13,6 +13,9 @@ use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
+    /**
+     * @expectedException TPawl\LiTE\Exceptions\ContextException
+     */
     public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
     {
         $settings = [
@@ -29,7 +32,7 @@ class ContextTest extends TestCase
         Functions::resetContext();
     }
     
-     /**
+    /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
