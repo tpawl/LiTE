@@ -18,7 +18,7 @@ class ContextTest extends TestCase
         $settings = [
             '<?php self::template(); ?>',
             [],
-             __DIR__ . '/Asset',
+             __DIR__ . '/Asset/ViewHelpers',
             ''
         ];
         
