@@ -20,6 +20,7 @@ class ContextTest extends TestCase
 
     /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
+     * @expectedExceptionMessage A template expression can not be used within a template expression
      */
     public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
     {
