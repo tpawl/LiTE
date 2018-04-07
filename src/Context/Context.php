@@ -61,7 +61,7 @@ class Context
     {
         if (!$this->isVariablesContextEmpty()) {
             
-            throw new ContextException('A template expression can not be used within a template expression');
+            throw new ContextException('A template expression must not be used within a template expression');
         }
         $this->templateExpression = $templateExpression;
     }
