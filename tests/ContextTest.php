@@ -42,7 +42,7 @@ class ContextTest extends TestCase
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
     {  
-        $context = Context::getInstance():
+        $context = Context::getInstance();
         
         $ste = new SubTemplateExpression('', []);
         
