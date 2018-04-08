@@ -29,7 +29,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     /**
      * @var \TPawl\LiTE\Expressions\SubTemplateExpression|null
      */
-    private $next;
+    private $next = null;
     
     /**
      * @param string $template
