@@ -24,16 +24,30 @@ class ContextTest extends TestCase
      */
     public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
     {
+        $context = Context::getInstance();
+        
         $settings = [
-            '<?php self::template(); ?>',
+            '',
             [],
-             __DIR__ . '/Asset/ViewHelpers',
+            '.',
             ''
         ];
         
-        $te = new TemplateExpression($settings);
+        $te1 = new TemplateExpression($settings);
         
-        $te->display();
+        $context->setTemplateExpression($te1);
+        $context->pushSubTemplateExpression($te1);
+        
+        $te2 = new TemplateExpression($settings);
+        
+        $context->setTemplateExpression($te2);
+        $context->pushSubTemplateExpression($te2);
+        
+        $context->popSubTemplateExpression();
+        $context->resetTemplateExpression();
+        
+        $context->popSubTemplateExpression();
+        $context->resetTemplateExpression();
     }
     
     /**
