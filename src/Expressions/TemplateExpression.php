@@ -220,19 +220,11 @@ class TemplateExpression extends SubTemplateExpression
     private function call(string $classQualifier,
         array $arguments): void
     {
-        ErrorHandlers::push($this->getViewHelperErrorHandler());
+        ErrorHandlers::push($this->viewHelperErrorHandler);
 
         $classQualifier::execute($arguments);
 
         ErrorHandlers::pop();
-    }
-    
-    /**
-     * @return callable|null
-     */
-    private function getViewHelperErrorHandler(): ?callable
-    {
-        return $this->viewHelperErrorHandler;
     }
     
     /**
