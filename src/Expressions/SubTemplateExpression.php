@@ -28,7 +28,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     private $variables;
 
     /**
-     * @var \TPawl\LiTE\Expressions\SubTemplateExpression|null
+     * @var static|null
      */
     private $next = null;
     
@@ -142,6 +142,9 @@ class SubTemplateExpression implements TemplateExpressionInterface
         return $this->next;
     }
     
+    /**
+     * @return bool
+     */
     public function isInUse(): bool
     {
         return !is_null($this->next);
