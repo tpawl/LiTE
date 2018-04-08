@@ -38,6 +38,7 @@ class ContextTest extends TestCase
     
     /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
+     * @expectedExceptionMessage A sub-template expression must only be used within a template expression
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
     {   
