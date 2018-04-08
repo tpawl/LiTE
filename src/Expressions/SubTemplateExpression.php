@@ -137,6 +137,9 @@ class SubTemplateExpression implements TemplateExpressionInterface
         $this->next = $subTemplateExpression;
     }
     
+    /**
+     * @return static
+     */
     public function getNext(): ?SubTemplateExpression
     {
         return $this->next;
