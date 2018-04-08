@@ -135,7 +135,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getClassQualifier(string $className): string
     {
-        return "{$this->getNamespace()}\\{$className}";
+        return "{$this->viewHelperNamespace}\\{$className}";
     }
 
     /**
@@ -227,14 +227,6 @@ class TemplateExpression extends SubTemplateExpression
         ErrorHandlers::pop();
     }
     
-    /**
-     * @return string
-     */
-    private function getNamespace(): string
-    {
-        return $this->viewHelperNamespace;
-    }
-
     /**
      * @return callable|null
      */
