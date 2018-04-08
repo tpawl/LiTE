@@ -130,7 +130,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     
     public function setNext(?SubTemplateExpression $subTemplateExpression): void
     {
-        if (!is_null($this->next) && !is_null($subTemplateExpression)) {
+        if (!(is_null($this->next) || is_null($subTemplateExpression))) {
          
             throw new ContextException('Sub-template expression already in use');
         }
