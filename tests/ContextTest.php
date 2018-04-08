@@ -65,6 +65,40 @@ class ContextTest extends TestCase
         $context->popSubTemplateExpression();
     }
     
+    /**
+     * @expectedException TPawl\LiTE\Exceptions\ContextException
+     * @expectedExceptionMessage Sub-template expression already in use
+     */
+    public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
+    {  
+        $context = Context::getInstance();
+        
+         $settings = [
+            '',
+            [],
+            '.',
+            ''
+        ];
+        
+        $te = new TemplateExpression($settings);
+        
+        $context->setTemplateExpression($te);
+        $context->pushSubTemplateExpression($te);
+        
+        $ste = new SubTemplateExpression('', []);
+        
+        $context->pushSubTemplateExpression($ste);
+        
+        $context->pushSubTemplateExpression($ste);
+        
+        $context->popSubTemplateExpression($ste);
+        
+        $context->popSubTemplateExpression($ste);
+        
+        $context->popSubTemplateExpression();
+        $context->resetTemplateExpression();
+    }
+    
     public function testPushVariablesContext()
     {
         $context = Context::getInstance();
