@@ -79,7 +79,7 @@ class Context
     {
         if ($this->isVariablesContextEmpty()) {
             
-            throw new ContextException(/* todo: ... */);
+            throw new ContextException('A sub-template expression must only be used within a template expression');
         }
         $subTemplateExpression->setNext($this->firstSubTemplateExpression);
         
