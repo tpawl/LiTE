@@ -149,6 +149,10 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         $context = Context::getInstance();
 
+        $topSubTemplateExpression = $context->topSubTemplateExpression();
+        
         $context->popSubTemplateExpression();
+        
+        $topSubTemplateExpression->setNext(null);
     }
 }
