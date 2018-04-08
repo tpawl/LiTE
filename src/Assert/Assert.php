@@ -17,6 +17,11 @@ class Assert
     {
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     * @return void
+     */
     public static function notIsNull($value, string $message = ''): void
     {
         self::isFalse(is_null($value), $message);
