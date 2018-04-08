@@ -41,10 +41,14 @@ class ContextTest extends TestCase
      * @expectedExceptionMessage A sub-template expression must only be used within a template expression
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
-    {   
+    {  
+        $context = Context::getInstance():
+        
         $ste = new SubTemplateExpression('', []);
         
-        $ste->display();
+        $context->pushSubTemplateExpression($ste);
+        
+        $context->popSubTemplateExpression();
     }
     
     public function testPushVariablesContext()
