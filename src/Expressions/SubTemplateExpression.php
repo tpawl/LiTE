@@ -132,7 +132,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         if (!(is_null($this->next) || is_null($subTemplateExpression))) {
          
-            throw new ContextException('Sub-template expression already in use');
+            throw new ContextException('Sub-template expression is already in use');
         }
         $this->next = $subTemplateExpression;
     }
