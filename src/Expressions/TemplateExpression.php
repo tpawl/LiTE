@@ -180,7 +180,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getClassFilename(string $className): string
     {
-        return "{$this->getDirectory()}/{$className}.php";
+        return "{$this->viewHelperDirectory}/{$className}.php";
     }
 
     /**
@@ -226,15 +226,7 @@ class TemplateExpression extends SubTemplateExpression
 
         ErrorHandlers::pop();
     }
-
-    /**
-     * @return string
-     */
-    private function getDirectory(): string
-    {
-        return $this->viewHelperDirectory;
-    }
-
+    
     /**
      * @return string
      */
