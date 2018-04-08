@@ -13,7 +13,7 @@ use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Php\Configuration;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Exceptions\ContextException;
+use TPawl\LiTE\Exceptions\SubTemplateExpressionException;
 
 class SubTemplateExpression implements TemplateExpressionInterface
 {
@@ -132,7 +132,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         if (!(is_null($this->next) || is_null($subTemplateExpression))) {
          
-            throw new ContextException('Sub-template expression is already in use');
+            throw new SubTemplateExpressionException('Sub-template expression is already in use');
         }
         $this->next = $subTemplateExpression;
     }
