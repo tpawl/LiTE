@@ -66,7 +66,7 @@ class ContextTest extends TestCase
     }
     
     /**
-     * @expectedException TPawl\LiTE\Exceptions\ContextException
+     * @expectedException TPawl\LiTE\Exceptions\SubTemplateExpressionException
      * @expectedExceptionMessage Sub-template expression is already in use
      */
     public function testSubTemplateExpressionAlreadyInUseThrowsAnException()
