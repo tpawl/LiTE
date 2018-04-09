@@ -13,6 +13,13 @@ use TPawl\LiTE\Tests\Asset\Functions;
 
 class ContextTest extends TestCase
 {
+    private $context;
+    
+    protected function setUp()
+    {
+        $this->context = Context::getInstance();
+    }
+    
     protected function tearDown()
     {
         Functions::resetContext();
@@ -23,9 +30,7 @@ class ContextTest extends TestCase
      * @expectedExceptionMessage A template expression must not be used within a template expression
      */
     public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
-    {
-        $context = Context::getInstance();
-        
+    {   
         $settings = [
             '',
             [],
@@ -35,19 +40,19 @@ class ContextTest extends TestCase
         
         $te1 = new TemplateExpression($settings);
         
-        $context->setTemplateExpression($te1);
-        $context->pushSubTemplateExpression($te1);
+        $this->context->setTemplateExpression($te1);
+        $this->context->pushSubTemplateExpression($te1);
         
         $te2 = new TemplateExpression($settings);
         
-        $context->setTemplateExpression($te2);
-        $context->pushSubTemplateExpression($te2);
+        $this->context->setTemplateExpression($te2);
+        $this->context->pushSubTemplateExpression($te2);
         
-        $context->popSubTemplateExpression();
-        $context->resetTemplateExpression();
+        $this->context->popSubTemplateExpression();
+        $this->context->resetTemplateExpression();
         
-        $context->popSubTemplateExpression();
-        $context->resetTemplateExpression();
+        $this->context->popSubTemplateExpression();
+        $this->context->resetTemplateExpression();
     }
     
     /**
@@ -56,19 +61,15 @@ class ContextTest extends TestCase
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
     {  
-        $context = Context::getInstance();
-        
         $ste = new SubTemplateExpression('', []);
         
-        $context->pushSubTemplateExpression($ste);
+        $this->context->pushSubTemplateExpression($ste);
         
-        $context->popSubTemplateExpression();
+        $this->context->popSubTemplateExpression();
     }
     
     public function testPushVariablesContext()
     {
-        $context = Context::getInstance();
-        
         $settings = [
             '',
             [],
@@ -78,25 +79,25 @@ class ContextTest extends TestCase
         
         $te = new TemplateExpression($settings);
         
-        $context->setTemplateExpression($te);
-        $context->pushSubTemplateExpression($te);
+        $this->context->setTemplateExpression($te);
+        $this->context->pushSubTemplateExpression($te);
         
         $ste = new SubTemplateExpression('', []);
         
-        $context->pushSubTemplateExpression($ste);
+        $this->context->pushSubTemplateExpression($ste);
         
         $tste = $context->topSubTemplateExpression();
         
         $this->assertSame($ste, $tste);
         
-        $context->popSubTemplateExpression();
+        $this->context->popSubTemplateExpression();
         
         $tste = $context->topSubTemplateExpression();
         
         $this->assertSame($te, $tste);
         
-        $context->popSubTemplateExpression();
-        $context->resetTemplateExpression();
+        $this->context->popSubTemplateExpression();
+        $this->context->resetTemplateExpression();
     }
     
     /**
@@ -104,16 +105,12 @@ class ContextTest extends TestCase
      */
     public function testPopFromEmptyVariablesContextThrowsAnException()
     {
-        $context = Context::getInstance();
-        
-        $context->popSubTemplateExpression();
+        $this->context->popSubTemplateExpression();
     }
 
     public function testIsEmpty()
     {
         $this->assertTrue(Context::isEmpty());
-        
-        $context = Context::getInstance();
         
         $settings = [
             '',
@@ -124,13 +121,13 @@ class ContextTest extends TestCase
         
         $te = new TemplateExpression($settings);
         
-        $context->setTemplateExpression($te);
-        $context->pushSubTemplateExpression($te);
+        $this->context->setTemplateExpression($te);
+        $this->context->pushSubTemplateExpression($te);
         
         $this->assertFalse(Context::isEmpty());
         
-        $context->popSubTemplateExpression();
-        $context->resetTemplateExpression();
+        $this->context->popSubTemplateExpression();
+        $this->context->resetTemplateExpression();
         
         $this->assertTrue(Context::isEmpty());
     }
