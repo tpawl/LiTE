@@ -15,6 +15,20 @@ use TPawl\LiTE\Filter\FilterInterface;
 class SubTemplateExpressionTest extends TestCase
 {
     /**
+     * @expectedException TPawl\LiTE\Exceptions\SubTemplateExpressionException
+     * @expectedExceptionMessage Sub-template expression is already in use
+     */
+    public function testSubTemplateExpressionAlreadyInUseThrowsAnException()
+    {   
+        $subTemplateExpression1 = new SubTemplateExpression('', []);
+        $subTemplateExpression2 = new SubTemplateExpression('', []);
+        
+        $subTemplateExpression->setNext($subTemplateExpression2);
+        
+        $subTemplateExpression->setNext($subTemplateExpression2);
+    }
+    
+    /**
      * @expectedException \DomainException
      * @expectedExceptionMessage Invalid template variable name: abc
      */
