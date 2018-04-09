@@ -23,9 +23,9 @@ class SubTemplateExpressionTest extends TestCase
         $subTemplateExpression1 = new SubTemplateExpression('', []);
         $subTemplateExpression2 = new SubTemplateExpression('', []);
         
-        $subTemplateExpression->setNext($subTemplateExpression2);
+        $subTemplateExpression1->setNext($subTemplateExpression2);
         
-        $subTemplateExpression->setNext($subTemplateExpression2);
+        $subTemplateExpression1->setNext($subTemplateExpression2);
     }
     
     /**
