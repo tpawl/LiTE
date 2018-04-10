@@ -135,7 +135,7 @@ class Context
     public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
     {
-        $this->templateExpression->execute($name, $arguments, $filter);
+        $this->templateExpression->executeViewHelper($name, $arguments, $filter);
     }
 
     /**
