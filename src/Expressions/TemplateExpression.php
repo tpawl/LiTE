@@ -94,7 +94,7 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
      */
-    public function execute(string $name, array $arguments,
+    public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
     {
         self::filterName($name, $filter);
