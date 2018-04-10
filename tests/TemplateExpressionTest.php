@@ -162,7 +162,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $templateExpression->execute('abc', [], $filter);
+        $templateExpression->executeViewHelper('abc', [], $filter);
     }
 
     public function testNormalOperation()
@@ -181,7 +181,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->execute('test', [], $filter);
+        $templateExpression->executeViewHelper('test', [], $filter);
 
         $out = $this->getActualOutput();
 
@@ -189,7 +189,7 @@ class TemplateExpressionTest extends TestCase
 
         $this->expectOutputString('ghighi');
 
-        $templateExpression->execute('test', [], $filter);
+        $templateExpression->executeViewHelper('test', [], $filter);
     }
 
     /**
@@ -211,7 +211,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->execute('wrong', [], $filter);
+        $templateExpression->executeViewHelper('wrong', [], $filter);
     }
 
     /**
@@ -233,7 +233,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->execute('invalid', [], $filter);
+        $templateExpression->executeViewHelper('invalid', [], $filter);
     }
 
     /**
@@ -255,6 +255,6 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->execute('exception', [], $filter);
+        $templateExpression->executeViewHelper('exception', [], $filter);
     }
 }
