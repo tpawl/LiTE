@@ -7,8 +7,6 @@ namespace TPawl\LiTE\Expressions;
 
 use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Interpreter\TemplateInterpreter;
-use TPawl\LiTE\Context\TemplateContext;
-use TPawl\LiTE\Context\VariablesContext;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Php\Configuration;
