@@ -57,6 +57,36 @@ class Context
         return self::$instance;
     }
     
+    /**
+     * @return string
+     */
+    public function getTemplate(): string
+    {
+        return $this->topSubTemplateExpression()->getTemplate();
+    }
+
+    /**
+     * @param string $name
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return mixed
+     */
+    public function lookUpVariable(string $name, FilterInterface $filter)
+    {
+        return $this->topSubTemplateExpression()->lookUp($name, $filter);
+    }
+    
+    /**
+     * @param string $name
+     * @param array $arguments
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     * @return void
+     */
+    public function executeViewHelper(string $name, array $arguments,
+        FilterInterface $filter): void
+    {
+        $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
+    }
+    
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
         if (!$this->isContextEmpty()) {
@@ -107,36 +137,6 @@ class Context
         return $first;
     }
     
-    /**
-     * @return string
-     */
-    public function getTemplate(): string
-    {
-        return $this->topSubTemplateExpression()->getTemplate();
-    }
-
-    /**
-     * @param string $name
-     * @param \TPawl\LiTE\Filter\FilterInterface $filter
-     * @return mixed
-     */
-    public function lookUpVariable(string $name, FilterInterface $filter)
-    {
-        return $this->topSubTemplateExpression()->lookUp($name, $filter);
-    }
-    
-    /**
-     * @param string $name
-     * @param array $arguments
-     * @param \TPawl\LiTE\Filter\FilterInterface $filter
-     * @return void
-     */
-    public function executeViewHelper(string $name, array $arguments,
-        FilterInterface $filter): void
-    {
-        $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
-    }
-
     /**
      * @return bool
      */
