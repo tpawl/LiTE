@@ -42,7 +42,7 @@ class Context
     {
         $self = self::getInstance();
         
-        return $self->isVariablesContextEmpty();
+        return $self->isContextEmpty();
     }
     
     /**
@@ -59,7 +59,7 @@ class Context
     
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
-        if (!$this->isVariablesContextEmpty()) {
+        if (!$this->isContextEmpty()) {
             
             throw new ContextException('A template expression must not be used within a template expression');
         }
@@ -84,7 +84,7 @@ class Context
      */
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
-        if ($this->isVariablesContextEmpty()) {
+        if ($this->isContextEmpty()) {
             
             throw new ContextException('A sub-template expression must only be used within a template expression');
         }
@@ -128,7 +128,7 @@ class Context
     /**
      * @return bool
      */
-    private function isVariablesContextEmpty(): bool
+    private function isContextEmpty(): bool
     {
         return is_null($this->templateExpression);
     }
