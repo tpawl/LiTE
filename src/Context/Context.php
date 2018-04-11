@@ -126,14 +126,6 @@ class Context
     }
     
     /**
-     * @return bool
-     */
-    private function isContextEmpty(): bool
-    {
-        return is_null($this->templateExpression);
-    }
-    
-    /**
      * @param string $name
      * @param array $arguments
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
@@ -145,6 +137,14 @@ class Context
         $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
     }
 
+    /**
+     * @return bool
+     */
+    private function isContextEmpty(): bool
+    {
+        return is_null($this->templateExpression);
+    }
+    
     /**
      * @return void
      * @codeCoverageIgnore
