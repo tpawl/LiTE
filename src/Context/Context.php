@@ -124,8 +124,12 @@ class Context
     }
 
     public function popSubTemplateExpression(): void
-    {   
-        $this->firstSubTemplateExpression = $this->topSubTemplateExpression()->getNext(); 
+    {  
+        $topSubTemplateExpression = $this->topSubTemplateExpression();
+        
+        $this->firstSubTemplateExpression = $topSubTemplateExpression->getNext();
+        
+        $topSubTemplateExpression->setNext(null);
     }
     
     public function topSubTemplateExpression(): SubTemplateExpression
