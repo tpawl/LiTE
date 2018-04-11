@@ -14,7 +14,7 @@ use TPawl\LiTE\Exceptions\ContextException;
 class Context
 {
     /**
-     * @var \TPawl\LiTE\Context\Context
+     * @var static
      */
     private static $instance = null;
 
@@ -27,6 +27,13 @@ class Context
      * @var \TPawl\LiTE\Expressions\SubTemplateExpression
      */
     private $firstSubTemplateExpression = null;
+
+    /**
+     * @return void
+     */
+    private function __construct()
+    {
+    }
 
     /**
      * @return bool
@@ -50,13 +57,6 @@ class Context
         return self::$instance;
     }
     
-     /**
-     * @return void
-     */
-    private function __construct()
-    {
-    }
-
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
         if (!$this->isVariablesContextEmpty()) {
