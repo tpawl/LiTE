@@ -129,7 +129,7 @@ class Context
         
         $this->firstSubTemplateExpression = $topSubTemplateExpression->getNext();
         
-        $topSubTemplateExpression->setNext(null);
+        $topSubTemplateExpression->resetNext();
     }
     
     public function topSubTemplateExpression(): SubTemplateExpression
