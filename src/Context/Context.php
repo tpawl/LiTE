@@ -71,6 +71,13 @@ class Context
         $this->templateExpression = null;
     }
     
+    public function getTemplateExpression(): TemplateExpression
+    {
+        Assert::notIsNull($this->templateExpression);
+        
+        return $this->templateExpression;
+    }
+    
     /**
      * @param \TPawl\LiTE\Context\TemplateContext $templateContext
      * @return void
@@ -135,7 +142,7 @@ class Context
     public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
     {
-        $this->templateExpression->executeViewHelper($name, $arguments, $filter);
+        $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
     }
 
     /**
