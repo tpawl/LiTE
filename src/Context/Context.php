@@ -87,6 +87,10 @@ class Context
         $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
     }
     
+    /**
+     * @param \TPawl\LiTE\Expressions\TemplateExpression $templateExpression
+     * @return void
+     */
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
         if (!$this->isContextEmpty()) {
@@ -96,11 +100,17 @@ class Context
         $this->templateExpression = $templateExpression;
     }
     
+    /**
+     * @return void
+     */
     public function resetTemplateExpression(): void
     {
         $this->templateExpression = null;
     }
     
+    /**
+     * @return \TPawl\LiTE\Expressions\TemplateExpression
+     */
     public function getTemplateExpression(): TemplateExpression
     {
         Assert::notIsNull($this->templateExpression);
@@ -109,7 +119,7 @@ class Context
     }
     
     /**
-     * @param \TPawl\LiTE\Context\TemplateContext $templateContext
+     * @param \TPawl\LiTE\Expressions\SubTemplateExpression $subTemplateExpression
      * @return void
      */
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
@@ -123,6 +133,9 @@ class Context
         $this->firstSubTemplateExpression = $subTemplateExpression;
     }
 
+    /**
+     * @return void
+     */
     public function popSubTemplateExpression(): void
     {  
         $topSubTemplateExpression = $this->topSubTemplateExpression();
@@ -132,6 +145,9 @@ class Context
         $topSubTemplateExpression->setNext(null);
     }
     
+    /**
+     * @return \TPawl\LiTE\Expressions\SubTemplateExpression
+     */
     public function topSubTemplateExpression(): SubTemplateExpression
     {
         $first = $this->firstSubTemplateExpression;
