@@ -149,12 +149,10 @@ class Context
      * @return \TPawl\LiTE\Expressions\SubTemplateExpression
      */
     public function topSubTemplateExpression(): SubTemplateExpression
-    {
-        $first = $this->firstSubTemplateExpression;
+    {   
+        Assert::notIsNull($this->firstSubTemplateExpression);
         
-        Assert::notIsNull($first);
-        
-        return $first;
+        return $this->firstSubTemplateExpression;
     }
     
     /**
