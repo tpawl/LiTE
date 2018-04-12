@@ -60,6 +60,10 @@ class SubTemplateExpression implements TemplateExpressionInterface
         ErrorHandlers::pop();
     }
 
+    /**
+     * @param \TPawl\LiTE\Php\ConfigurationInterface $configuration
+     * @return callable
+     */
     public static function getErrorHandler(ConfigurationInterface $configuration): callable
     {
         return function($errno, $errstr, $errfile, $errline) use ($configuration) {
@@ -72,8 +76,6 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
     
     /**
-     * @param \TPawl\LiTE\Context\TemplateContext $templateContext
-     * @param \TPawl\LiTE\Context\VariablesContext $variablesContext
      * @return void
      */
     private function initializeSubTemplateExpression(): void
@@ -93,6 +95,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
 
     /**
      * @param string $name
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return mixed
      * @throws \OutOfRangeException
      */
@@ -126,6 +129,10 @@ class SubTemplateExpression implements TemplateExpressionInterface
         }
     }
     
+    /**
+     * @param static|null $subTemplateExpression
+     * @return void
+     */
     public function setNext(?SubTemplateExpression $subTemplateExpression): void
     {
         if ($this->isInUse() && !is_null($subTemplateExpression)) {
@@ -136,7 +143,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
     
     /**
-     * @return static
+     * @return static|null
      */
     public function getNext(): ?SubTemplateExpression
     {
