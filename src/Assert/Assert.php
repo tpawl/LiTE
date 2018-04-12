@@ -41,6 +41,7 @@ class Assert
      * @param bool $condition
      * @param string $message
      * @return void
+     * @throws \TPawl\LiTE\Exceptions\AssertException
      */
     public static function isFalse(bool $condition, string $message = ''): void
     {
