@@ -21,6 +21,7 @@ class Assert
      * @param mixed $value
      * @param string $message
      * @return void
+     * @throws \TPawl\LiTE\Exceptions\AssertException
      */
     public static function notIsNull($value, string $message = ''): void
     {
@@ -31,6 +32,7 @@ class Assert
      * @param int $value
      * @param string $message
      * @return void
+     * @throws \TPawl\LiTE\Exceptions\AssertException
      */
     public static function notEqualsZero(int $value, string $message = ''): void
     {
