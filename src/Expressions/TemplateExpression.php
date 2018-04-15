@@ -232,9 +232,7 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      */
     private function initialize(Context $context): void
-    { 
-        exit(-1);
-        
+    {   
         $context->setTemplateExpression($this);
     
         parent::initialize($context);
