@@ -101,7 +101,7 @@ class TemplateExpression extends SubTemplateExpression
         
         $classQualifier = $this->loadViewHelper($name);
         
-        $this->tryCall($classQualifier, $arguments);
+        $this->tryCallViewHelper($classQualifier, $arguments);
     }
 
     /**
@@ -198,12 +198,12 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperException
      */
-    private function tryCall(string $classQualifier,
+    private function tryCallViewHelper(string $classQualifier,
         array $arguments): void
     {
         try {
 
-            $this->call($classQualifier, $arguments);
+            $this->callViewHelper($classQualifier, $arguments);
 
         } catch (\RuntimeException $ex) {
 
@@ -217,7 +217,7 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      * @throws \RuntimeException
      */
-    private function call(string $classQualifier,
+    private function callViewHelper(string $classQualifier,
         array $arguments): void
     {
         ErrorHandlers::push($this->viewHelperErrorHandler);
