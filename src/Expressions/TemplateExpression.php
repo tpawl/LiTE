@@ -231,7 +231,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
-    private function initialize(Context $context): void
+    protected function initialize(Context $context): void
     {   
         $context->setTemplateExpression($this);
     
