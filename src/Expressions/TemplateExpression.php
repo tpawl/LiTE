@@ -244,10 +244,10 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      */
     private function initialize(Context $context): void
-    {
-        parent::initialize($context);
-        
+    {   
         $context->setTemplateExpression($this);
+    
+        parent::initialize($context);
     }
 
     /**
