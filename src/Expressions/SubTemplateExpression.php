@@ -83,7 +83,6 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     private function initialize(Context $context): void
     {
-        exit(-1);
         $context->pushSubTemplateExpression($this);
     }
 
