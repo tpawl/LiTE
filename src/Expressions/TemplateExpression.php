@@ -231,20 +231,20 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      */
     public function display(): void
-    {   
-        $this->initializeTemplateExpression();
+    {
+        $context = Context::getInstance();
+        
+        $this->initializeTemplateExpression($context);
         
         parent::display();
     }
     
     /**
-     * @param \TPawl\LiTE\Context\ViewHelperContext $viewHelperContext
+     * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
-    private function initializeTemplateExpression(): void
+    private function initializeTemplateExpression(Context $context): void
     {
-        $context = Context::getInstance();
-
         $context->setTemplateExpression($this);
     }
 
