@@ -245,9 +245,9 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function initialize(Context $context): void
     {
-        $context->setTemplateExpression($this);
-        
         parent::initialize($context);
+        
+        $context->setTemplateExpression($this);
     }
 
     /**
