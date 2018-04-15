@@ -81,7 +81,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
-    private function initialize(Context $context): void
+    protected function initialize(Context $context): void
     {
         $context->pushSubTemplateExpression($this);
     }
