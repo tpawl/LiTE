@@ -99,7 +99,7 @@ class TemplateExpression extends SubTemplateExpression
     {
         self::filterName($name, $filter);
         
-        $classQualifier = $this->load($name);
+        $classQualifier = $this->loadViewHelper($name);
         
         $this->tryCall($classQualifier, $arguments);
     }
@@ -151,7 +151,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $className
      * @return string
      */
-    private function load(string $name): string
+    private function loadViewHelper(string $name): string
     {
         $className = self::getClassName($name);
         $classQualifier = $this->getClassQualifier($className);
