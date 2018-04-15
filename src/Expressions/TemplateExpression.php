@@ -244,8 +244,8 @@ class TemplateExpression extends SubTemplateExpression
      */
     protected static function cleanup(Context $context): void
     {
-        $context->resetTemplateExpression();
-
         parent::cleanup();
+        
+        $context->resetTemplateExpression();
     }
 }
