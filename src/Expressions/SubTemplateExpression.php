@@ -57,7 +57,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
 
         new TemplateInterpreter();
 
-        static::cleanup();
+        static::cleanup($context);
 
         ErrorHandlers::pop();
     }
@@ -160,12 +160,11 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
     
     /**
+     * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
-    protected static function cleanup(): void
+    protected static function cleanup(Context $context): void
     {
-        $context = Context::getInstance();
-
         $context->popSubTemplateExpression();
     }
 }
