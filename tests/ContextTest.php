@@ -55,9 +55,7 @@ class ContextTest extends TestCase
     {  
         $ste = new SubTemplateExpression('', []);
         
-        $this->context->pushSubTemplateExpression($ste);
-        
-        $this->context->popSubTemplateExpression();
+        ste->initialize($this->context);
     }
     
     public function testPushVariablesContext()
