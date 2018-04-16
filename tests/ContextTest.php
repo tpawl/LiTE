@@ -73,7 +73,7 @@ class ContextTest extends TestCase
         
         $ste = new SubTemplateExpression('', []);
         
-        $ste->initialie($this->context);
+        $ste->initialize($this->context);
         
         $tste = $this->context->topSubTemplateExpression();
         
