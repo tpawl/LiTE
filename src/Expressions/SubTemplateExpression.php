@@ -163,7 +163,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
-    protected static function cleanup(Context $context): void
+    public static function cleanup(Context $context): void
     {
         $context->popSubTemplateExpression();
     }
