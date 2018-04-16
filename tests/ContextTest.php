@@ -113,8 +113,7 @@ class ContextTest extends TestCase
         
         $this->assertFalse(Context::isEmpty());
         
-        $this->context->popSubTemplateExpression();
-        $this->context->resetTemplateExpression();
+        TemplateExpression::cleanup($this->context);
         
         $this->assertTrue(Context::isEmpty());
     }
