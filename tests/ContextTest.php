@@ -69,12 +69,11 @@ class ContextTest extends TestCase
         
         $te = new TemplateExpression($settings);
         
-        $this->context->setTemplateExpression($te);
-        $this->context->pushSubTemplateExpression($te);
+        $te->initialize($this->context);
         
         $ste = new SubTemplateExpression('', []);
         
-        $this->context->pushSubTemplateExpression($ste);
+        $ste->initialie($this->context);
         
         $tste = $this->context->topSubTemplateExpression();
         
@@ -111,8 +110,7 @@ class ContextTest extends TestCase
         
         $te = new TemplateExpression($settings);
         
-        $this->context->setTemplateExpression($te);
-        $this->context->pushSubTemplateExpression($te);
+        $te->initialize($this->context);
         
         $this->assertFalse(Context::isEmpty());
         
