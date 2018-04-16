@@ -79,14 +79,13 @@ class ContextTest extends TestCase
         
         $this->assertSame($ste, $tste);
         
-        $this->context->popSubTemplateExpression();
+        SubTemplateExpression::cleanup($this->context);
         
         $tste = $this->context->topSubTemplateExpression();
         
         $this->assertSame($te, $tste);
         
-        $this->context->popSubTemplateExpression();
-        $this->context->resetTemplateExpression();
+        TemplateExpression::cleanup($this->context);
     }
     
     /**
