@@ -40,19 +40,11 @@ class ContextTest extends TestCase
         
         $te1 = new TemplateExpression($settings);
         
-        $this->context->setTemplateExpression($te1);
-        $this->context->pushSubTemplateExpression($te1);
+        $te1->initialize($this->context);
         
         $te2 = new TemplateExpression($settings);
         
-        $this->context->setTemplateExpression($te2);
-        $this->context->pushSubTemplateExpression($te2);
-        
-        $this->context->popSubTemplateExpression();
-        $this->context->resetTemplateExpression();
-        
-        $this->context->popSubTemplateExpression();
-        $this->context->resetTemplateExpression();
+        $te2->initialize($this->context);
     }
     
     /**
