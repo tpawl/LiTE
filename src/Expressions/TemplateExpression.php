@@ -242,7 +242,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
-    protected static function cleanup(Context $context): void
+    public static function cleanup(Context $context): void
     {
         parent::cleanup($context);
         
