@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2017, 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -12,6 +12,7 @@ class FilterTest extends TestCase
 {
     /**
      * @expectedException TPawl\LiTE\Exceptions\AssertException
+     * @expectedExceptionMessage Name must not be empty
      */
     public function testEmptyNameThrowsAnException()
     {
