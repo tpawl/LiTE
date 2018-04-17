@@ -20,8 +20,6 @@ class Filter implements FilterInterface
 
         Assert::notEqualsZero($nameLength, 'Name must not be empty');
 
-        $ascii = ord($name);
-
         return self::isFirstCharacterOfNameValid($name) ?
             strspn($name,
                 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_',
