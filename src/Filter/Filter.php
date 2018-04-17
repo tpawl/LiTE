@@ -9,6 +9,9 @@ use TPawl\LiTE\Assert\Assert;
 
 class Filter implements FilterInterface
 {
+    private const REMAINING_VALID_NAME_CHARCTERS =
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
+    
     /**
      * @param string $name
      * @return bool
@@ -21,12 +24,15 @@ class Filter implements FilterInterface
         Assert::notEqualsZero($nameLength, 'Name must not be empty');
 
         return self::isFirstCharacterOfNameValid($name) ?
-            strspn($name,
-                'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_',
-                1) === $nameLength - 1 :
+            strspn($name, self::REMAINING_VALID_NAME_CHARCTERS, 1) === 
+                $nameLength - 1 :
             false;
     }
     
+    /**
+     * @param string $name
+     * @return bool;
+     */
     private static function isFirstCharacterOfNameValid(string $name): bool
     {
         $ascii = ord($name);
