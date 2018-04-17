@@ -12,9 +12,10 @@ class AssertTest extends TestCase
 {
     /**
      * @expectedException TPawl\LiTE\Exceptions\AssertException
+     * @expectedExceptionMessage abc
      */
     public function testTrueConditionThrowsAnException()
     {
-        Assert::isFalse(true);
+        Assert::isFalse(true, 'abc');
     }
 }
