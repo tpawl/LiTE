@@ -22,12 +22,19 @@ class Filter implements FilterInterface
 
         $ascii = ord($name);
 
-        return ($ascii >= 97 && $ascii <= 122 || // a - z
-            $ascii >= 65 && $ascii <= 90 || // A - Z
-            $ascii === 95) ? // _
+        return self::isFirstCharacterOfNameValid($name) ?
             strspn($name,
                 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_',
                 1) === $nameLength - 1 :
             false;
+    }
+    
+    private static function isFirstCharacterOfNameValid(string $name): bool
+    {
+        $ascii = ord($name);
+
+        return $ascii >= 97 && $ascii <= 122 || // a - z
+            $ascii >= 65 && $ascii <= 90 || // A - Z
+            $ascii === 95; //_
     }
 }
