@@ -22,14 +22,12 @@ class Filter implements FilterInterface
 
         $ascii = ord($name);
 
-        if (!($ascii >= 97 && $ascii <= 122 || // a - z
+        return ($ascii >= 97 && $ascii <= 122 || // a - z
             $ascii >= 65 && $ascii <= 90 || // A - Z
-            $ascii === 95)) { // _
-
-            return false;
-        }
-        return strspn($name,
-            'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_',
-            1) === $nameLength - 1;
+            $ascii === 95) ? // _
+            strspn($name,
+                'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_',
+                1) === $nameLength - 1 :
+            false;
     }
 }
