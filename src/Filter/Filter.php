@@ -35,6 +35,6 @@ class Filter implements FilterInterface
 
         return $ascii >= 97 && $ascii <= 122 || // a - z
             $ascii >= 65 && $ascii <= 90 || // A - Z
-            $ascii === 95; //_
+            $ascii === 95; // _
     }
 }
