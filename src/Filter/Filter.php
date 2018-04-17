@@ -24,8 +24,7 @@ class Filter implements FilterInterface
         Assert::notEqualsZero($nameLength, 'Name must not be empty');
 
         return self::isFirstCharacterOfNameValid($name) ?
-            strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) === 
-                $nameLength - 1 :
+            self::areRemainingCharactersOfNameValid($name, $nameLength) :
             false;
     }
     
@@ -40,5 +39,15 @@ class Filter implements FilterInterface
         return $ascii >= 97 && $ascii <= 122 || // a - z
             $ascii >= 65 && $ascii <= 90 || // A - Z
             $ascii === 95; // _
+    }
+    
+    /**
+     * @param string $name
+     * @param int $nameLength
+     * @return bool
+     */
+    private static function areRemainingCharactersOfNameValid(string $name, int $nameLength): bool
+    {
+        return strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) === $nameLength - 1;
     }
 }
