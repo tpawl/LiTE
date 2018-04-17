@@ -18,7 +18,7 @@ class Filter implements FilterInterface
     {
         $nameLength = strlen($name);
 
-        Assert::notEqualsZero($nameLength);
+        Assert::notEqualsZero($nameLength, 'Name must not be empty');
 
         $ascii = ord($name);
 
