@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace TPawl\LiTE\Assert;
+namespace TPawl\LiTE\Assertion;
 
 use TPawl\LiTE\Exceptions\AssertException;
 
-class Assert
+class Assertion
 {
     /**
      * @return void
