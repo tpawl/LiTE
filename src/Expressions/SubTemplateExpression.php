@@ -19,7 +19,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @var string
      */
     private $template;
-    
+
     /**
      * @var array
      */
@@ -29,7 +29,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @var static|null
      */
     private $next = null;
-    
+
     /**
      * @param string $template
      * @param array $variables
@@ -48,9 +48,9 @@ class SubTemplateExpression implements TemplateExpressionInterface
     public function display(): void
     {
         $context = Context::getInstance();
-        
+
         $configuration = new Configuration();
-        
+
         ErrorHandlers::push(self::getErrorHandler($configuration));
 
         $this->initialize($context);
@@ -69,14 +69,14 @@ class SubTemplateExpression implements TemplateExpressionInterface
     public static function getErrorHandler(ConfigurationInterface $configuration): callable
     {
         return function($errno, $errstr, $errfile, $errline) use ($configuration) {
-        
+
             if ($configuration->shouldErrorLevelBeReported($errno)) {
 
                 throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
             }
         };
     }
-    
+
     /**
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
@@ -103,17 +103,17 @@ class SubTemplateExpression implements TemplateExpressionInterface
     public function lookUp(string $name, FilterInterface $filter)
     {
         self::filterName($name, $filter);
-        
+
         $isVariableExisting = array_key_exists($name, $this->variables);
-        
+
         if (!$isVariableExisting) {
-            
+
             throw new \OutOfRangeException(
                 "Template variable '{$name}' does not exist");
         }
         return $this->variables[$name];
     }
-    
+
     /**
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
@@ -124,12 +124,12 @@ class SubTemplateExpression implements TemplateExpressionInterface
         FilterInterface $filter): void
     {
         if (!$filter->isValidName($name)) {
-            
+
             throw new \DomainException(
                 "Invalid template variable name: {$name}");
         }
     }
-    
+
     /**
      * @param static|null $subTemplateExpression
      * @return void
@@ -137,12 +137,12 @@ class SubTemplateExpression implements TemplateExpressionInterface
     public function setNext(?SubTemplateExpression $subTemplateExpression): void
     {
         if ($this->isInUse() && !is_null($subTemplateExpression)) {
-         
+
             throw new SubTemplateExpressionException('Sub-template expression is already in use');
         }
         $this->next = $subTemplateExpression;
     }
-    
+
     /**
      * @return static|null
      */
@@ -150,7 +150,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         return $this->next;
     }
-    
+
     /**
      * @return bool
      */
@@ -158,7 +158,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         return !is_null($this->next);
     }
-    
+
     /**
      * @param \TPawl\LiTE\Context\Context $context
      * @return void

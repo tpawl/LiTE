@@ -27,7 +27,7 @@ class Assertion
     {
         self::isFalse(is_null($value), $message);
     }
-    
+
     /**
      * @param string $string
      * @param string $message

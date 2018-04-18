@@ -14,7 +14,7 @@ class ErrorHandlers
     private function __construct()
     {
     }
-    
+
     /**
      * @param callable|null $errorHandler
      * @return void

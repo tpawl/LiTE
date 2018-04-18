@@ -36,12 +36,12 @@ class TemplateExpression extends SubTemplateExpression
     public function __construct(array $settings)
     {
         self::validateSettings($settings);
-        
+
         [$template, $variables, $viewHelperDirectory, $viewHelperNamespace] =
             $settings;
-        
+
         parent::__construct($template, $variables);
-        
+
         $this->viewHelperDirectory = realpath($viewHelperDirectory);
         $this->viewHelperNamespace = $viewHelperNamespace;
         $this->viewHelperErrorHandler = ErrorHandlers::top();
@@ -61,7 +61,7 @@ class TemplateExpression extends SubTemplateExpression
 
         self::validateSettingsIndex($settings, 3, 'string');
     }
-    
+
     /**
      * @param array $settings
      * @param int $index
@@ -86,7 +86,7 @@ class TemplateExpression extends SubTemplateExpression
                 "Wrong type in settings at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given");
         }
     }
-    
+
     /**
      * @param string $name
      * @param array $arguments
@@ -97,9 +97,9 @@ class TemplateExpression extends SubTemplateExpression
         FilterInterface $filter): void
     {
         self::filterName($name, $filter);
-        
+
         $classQualifier = $this->loadViewHelper($name);
-        
+
         $this->tryCallViewHelper($classQualifier, $arguments);
     }
 
@@ -118,7 +118,7 @@ class TemplateExpression extends SubTemplateExpression
                 "Invalid view helper name: {$name}");
         }
     }
-    
+
     /**
      * @param string $name
      * @return string
@@ -225,15 +225,15 @@ class TemplateExpression extends SubTemplateExpression
 
         ErrorHandlers::pop();
     }
-    
+
     /**
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
     public function initialize(Context $context): void
-    {   
+    {
         $context->setTemplateExpression($this);
-    
+
         parent::initialize($context);
     }
 
@@ -244,7 +244,7 @@ class TemplateExpression extends SubTemplateExpression
     public static function cleanup(Context $context): void
     {
         parent::cleanup($context);
-        
+
         $context->resetTemplateExpression();
     }
 }

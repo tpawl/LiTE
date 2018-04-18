@@ -11,7 +11,7 @@ class Filter implements FilterInterface
 {
     private const REMAINING_VALID_NAME_CHARACTERS =
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
-    
+
     /**
      * @param string $name
      * @return bool
@@ -25,7 +25,7 @@ class Filter implements FilterInterface
             self::areRemainingCharactersOfNameValid($name) :
             false;
     }
-    
+
     /**
      * @param string $name
      * @return bool;
@@ -38,7 +38,7 @@ class Filter implements FilterInterface
             $ascii >= 65 && $ascii <= 90 || // A - Z
             $ascii === 95; // _
     }
-    
+
     /**
      * @param string $name
      * @return bool

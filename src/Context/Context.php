@@ -22,7 +22,7 @@ class Context
      * @var \TPawl\LiTE\Expressions\TemplateExpression
      */
     private $templateExpression = null;
-    
+
     /**
      * @var \TPawl\LiTE\Expressions\SubTemplateExpression
      */
@@ -41,10 +41,10 @@ class Context
     public static function isEmpty(): bool
     {
         $self = self::getInstance();
-        
+
         return $self->isContextEmpty();
     }
-    
+
     /**
      * @return static
      */
@@ -56,7 +56,7 @@ class Context
         }
         return self::$instance;
     }
-    
+
     /**
      * @return string
      */
@@ -74,7 +74,7 @@ class Context
     {
         return $this->topSubTemplateExpression()->lookUp($name, $filter);
     }
-    
+
     /**
      * @param string $name
      * @param array $arguments
@@ -86,7 +86,7 @@ class Context
     {
         $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
     }
-    
+
     /**
      * @param \TPawl\LiTE\Expressions\TemplateExpression $templateExpression
      * @return void
@@ -94,12 +94,12 @@ class Context
     public function setTemplateExpression(TemplateExpression $templateExpression): void
     {
         if (!$this->isContextEmpty()) {
-            
+
             throw new ContextException('A template expression must not be used within a template expression');
         }
         $this->templateExpression = $templateExpression;
     }
-    
+
     /**
      * @return void
      */
@@ -107,17 +107,17 @@ class Context
     {
         $this->templateExpression = null;
     }
-    
+
     /**
      * @return \TPawl\LiTE\Expressions\TemplateExpression
      */
     public function getTemplateExpression(): TemplateExpression
     {
         Assertion::notIsNull($this->templateExpression);
-        
+
         return $this->templateExpression;
     }
-    
+
     /**
      * @param \TPawl\LiTE\Expressions\SubTemplateExpression $subTemplateExpression
      * @return void
@@ -125,11 +125,11 @@ class Context
     public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
     {
         if ($this->isContextEmpty()) {
-            
+
             throw new ContextException('A sub-template expression must only be used within a template expression');
         }
         $subTemplateExpression->setNext($this->firstSubTemplateExpression);
-        
+
         $this->firstSubTemplateExpression = $subTemplateExpression;
     }
 
@@ -137,24 +137,24 @@ class Context
      * @return void
      */
     public function popSubTemplateExpression(): void
-    {  
+    {
         $topSubTemplateExpression = $this->topSubTemplateExpression();
-        
+
         $this->firstSubTemplateExpression = $topSubTemplateExpression->getNext();
-        
+
         $topSubTemplateExpression->setNext(null);
     }
-    
+
     /**
      * @return \TPawl\LiTE\Expressions\SubTemplateExpression
      */
     public function topSubTemplateExpression(): SubTemplateExpression
-    {   
+    {
         Assertion::notIsNull($this->firstSubTemplateExpression);
-        
+
         return $this->firstSubTemplateExpression;
     }
-    
+
     /**
      * @return bool
      */
@@ -162,7 +162,7 @@ class Context
     {
         return is_null($this->templateExpression);
     }
-    
+
     /**
      * @return void
      * @codeCoverageIgnore
@@ -170,7 +170,7 @@ class Context
     private function __clone()
     {
     }
-    
+
     /**
      * @return void
      * @codeCoverageIgnore

@@ -6,6 +6,6 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Php;
 
 interface ConfigurationInterface
-{   
+{
     public function shouldErrorLevelBeReported(int $errorLevel): bool;
 }
