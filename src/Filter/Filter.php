@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Filter;
 
-use TPawl\LiTE\Assert\Assert;
+use TPawl\LiTE\Assertion\Assertion;
 
 class Filter implements FilterInterface
 {
@@ -19,7 +19,7 @@ class Filter implements FilterInterface
      */
     public function isValidName(string $name): bool
     {
-        Assert::notIsEmptyString($name, 'Name must not be empty');
+        Assertion::notIsEmptyString($name, 'Name must not be empty');
 
         return self::isFirstCharacterOfNameValid($name) ?
             self::areRemainingCharactersOfNameValid($name) :
