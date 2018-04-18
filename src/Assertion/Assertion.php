@@ -34,7 +34,8 @@ class Assertion
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException
      */
-    public static function notIsEmptyString(string $string, string $message = ''): void
+    public static function notIsEmptyString(string $string,
+        string $message = ''): void
     {
         self::isFalse(strlen($string) === 0, $message);
     }

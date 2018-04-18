@@ -43,8 +43,10 @@ class Filter implements FilterInterface
      * @param string $name
      * @return bool
      */
-    private static function areRemainingCharactersOfNameValid(string $name): bool
+    private static function areRemainingCharactersOfNameValid(string $name):
+        bool
     {
-        return strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) === strlen($name) - 1;
+        return strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) ===
+             strlen($name) - 1;
     }
 }
