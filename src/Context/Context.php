@@ -113,7 +113,7 @@ class Context
      */
     public function getTemplateExpression(): TemplateExpression
     {
-        Assert::notIsNull($this->templateExpression);
+        Assertion::notIsNull($this->templateExpression);
         
         return $this->templateExpression;
     }
