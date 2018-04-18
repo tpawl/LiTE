@@ -29,7 +29,7 @@ class Assert
     }
     
     /**
-     * @param int $value
+     * @param string $string
      * @param string $message
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertException
