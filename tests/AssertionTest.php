@@ -11,7 +11,7 @@ use TPawl\LiTE\Assertion\Assertion;
 class AssertionTest extends TestCase
 {
     /**
-     * @expectedException TPawl\LiTE\Exceptions\AssertException
+     * @expectedException TPawl\LiTE\Exceptions\AssertionException
      * @expectedExceptionMessage abc
      */
     public function testTrueConditionThrowsAnException()
