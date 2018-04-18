@@ -11,7 +11,7 @@ use TPawl\LiTE\Filter\Filter;
 class FilterTest extends TestCase
 {
     /**
-     * @expectedException TPawl\LiTE\Exceptions\AssertException
+     * @expectedException TPawl\LiTE\Exceptions\AssertionException
      * @expectedExceptionMessage Name must not be empty
      */
     public function testEmptyNameThrowsAnException()
