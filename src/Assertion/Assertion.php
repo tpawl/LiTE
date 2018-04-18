@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Assertion;
 
-use TPawl\LiTE\Exceptions\AssertException;
+use TPawl\LiTE\Exceptions\AssertionException;
 
 class Assertion
 {
@@ -21,7 +21,7 @@ class Assertion
      * @param mixed $value
      * @param string $message
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException
      */
     public static function notIsNull($value, string $message = ''): void
     {
@@ -32,7 +32,7 @@ class Assertion
      * @param string $string
      * @param string $message
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException
      */
     public static function notIsEmptyString(string $string, string $message = ''): void
     {
@@ -43,13 +43,13 @@ class Assertion
      * @param bool $condition
      * @param string $message
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException
      */
     public static function isFalse(bool $condition, string $message = ''): void
     {
         if ($condition) {
 
-            throw new AssertException($message);
+            throw new AssertionException($message);
         }
     }
 }
