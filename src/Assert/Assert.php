@@ -34,9 +34,9 @@ class Assert
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertException
      */
-    public static function notEqualsZero(int $value, string $message = ''): void
+    public static function notEmptyString(string $string, string $message = ''): void
     {
-        self::isFalse($value === 0, $message);
+        self::isFalse(strlen($string) === 0, $message);
     }
 
     /**
