@@ -92,7 +92,6 @@ class TemplateExpression extends SubTemplateExpression
      * @param array $arguments
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperContextException
      */
     public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
