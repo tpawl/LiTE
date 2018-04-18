@@ -8,7 +8,7 @@ namespace TPawl\LiTE\Context;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Assert\Assert;
+use TPawl\LiTE\Assertion\Assertion;
 use TPawl\LiTE\Exceptions\ContextException;
 
 class Context
@@ -150,7 +150,7 @@ class Context
      */
     public function topSubTemplateExpression(): SubTemplateExpression
     {   
-        Assert::notIsNull($this->firstSubTemplateExpression);
+        Assertion::notIsNull($this->firstSubTemplateExpression);
         
         return $this->firstSubTemplateExpression;
     }
