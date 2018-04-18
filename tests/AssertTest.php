@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TPawl\LiTE\Assert\Assert;
+use TPawl\LiTE\Assertion\Assertion;
 
 class AssertTest extends TestCase
 {
@@ -16,6 +16,6 @@ class AssertTest extends TestCase
      */
     public function testTrueConditionThrowsAnException()
     {
-        Assert::isFalse(true, 'abc');
+        Assertion::isFalse(true, 'abc');
     }
 }
