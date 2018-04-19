@@ -255,6 +255,6 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->executeViewHelper('exception', [], $filter);
+        $templateExpression->executeViewHelper('runtime', [], $filter);
     }
 }
