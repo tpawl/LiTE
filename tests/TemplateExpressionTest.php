@@ -279,6 +279,6 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
         willReturn(true);
         
-        $templateExpression->executeViewHelper('logig', [], $filter);
+        $templateExpression->executeViewHelper('logic', [], $filter);
     }
 }
