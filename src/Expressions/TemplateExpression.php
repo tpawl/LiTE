@@ -208,6 +208,10 @@ class TemplateExpression extends SubTemplateExpression
         } catch (\RuntimeException $ex) {
 
             throw new ViewHelperRuntimeException($ex->getMessage());
+
+        } catch (\LogicException $ex) {
+
+            throw new ViewHelperLogicException($ex->getMessage());
         }
     }
 
