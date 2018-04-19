@@ -238,7 +238,7 @@ class TemplateExpressionTest extends TestCase
 
     /**
      * @expectedException TPawl\LiTE\Exceptions\ViewHelperRuntimeException
-     * @expectedExceptionMessage abc
+     * @expectedExceptionMessage Runtime exception was thrown in view helper: \RuntimeViewHelper
      */
     public function testRuntimeViewHelperThrowsAnException()
     {
@@ -261,7 +261,7 @@ class TemplateExpressionTest extends TestCase
 
     /**
      * @expectedException TPawl\LiTE\Exceptions\ViewHelperLogicException
-     * @expectedExceptionMessage abc
+     * @expectedExceptionMessage Logic exception was thrown in view helper: \LogicViewHelper
      */
     public function testLogicViewHelperThrowsAnException()
     {
