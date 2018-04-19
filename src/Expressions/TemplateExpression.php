@@ -207,11 +207,15 @@ class TemplateExpression extends SubTemplateExpression
 
         } catch (\RuntimeException $ex) {
 
-            throw new ViewHelperRuntimeException($ex->getMessage());
+            throw new ViewHelperRuntimeException(
+                "Runtime exception was thrown in view helper: {$classQualifier}",
+                0, $ex);
 
         } catch (\LogicException $ex) {
 
-            throw new ViewHelperLogicException($ex->getMessage());
+            throw new ViewHelperLogicException(
+                "Logic exception was thrown in view helper: {$classQualifier}",
+                0, $ex);
         }
     }
 
