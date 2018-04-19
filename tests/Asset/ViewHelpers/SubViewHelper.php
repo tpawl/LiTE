@@ -9,7 +9,7 @@ class SubViewHelper implements ViewHelperInterface
     public static function execute(array $arguments): void
     {
         $ste = new SubTemplateExpression('abc<?php $this->var; ?><?php self::test(); ?>', ['var' => 'def']);
-        
+
         $ste->display();
     }
 }

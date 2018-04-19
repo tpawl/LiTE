@@ -12,9 +12,9 @@ class Functions
     public static function resetContext(): void
     {
         $rp = new \ReflectionProperty(Context::class, 'instance');
-        
+
         $rp->setAccessible(true);
-        
+
         $rp->setValue(null);
     }
 }
