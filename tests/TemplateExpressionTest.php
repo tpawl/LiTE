@@ -258,4 +258,27 @@ class TemplateExpressionTest extends TestCase
 
         $templateExpression->executeViewHelper('runtime', [], $filter);
     }
+    
+    /**
+     * @expectedException TPawl\LiTE\Exceptions\ViewHelperLogicException
+     * @expectedExceptionMessage abc
+     */
+    public function testLogicViewHelperThrowsAnException()
+    {
+        $settings = [
+            '',
+            [],
+            __DIR__ . '/Asset/ViewHelpers',
+            '',
+        ];
+        
+        $templateExpression = new TemplateExpression($settings);
+        
+        $filter = $this->createMock(FilterInterface::class);
+        
+        $filter->method('isValidName')->
+        willReturn(true);
+        
+        $templateExpression->executeViewHelper('logiv', [], $filter);
+    }
 }
