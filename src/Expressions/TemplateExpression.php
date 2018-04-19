@@ -8,7 +8,7 @@ namespace TPawl\LiTE\Expressions;
 use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Exceptions\ViewHelperException;
+use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
 
@@ -195,7 +195,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $classQualifier
      * @param array $arguments
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
      */
     private function tryCallViewHelper(string $classQualifier,
         array $arguments): void
@@ -206,7 +206,7 @@ class TemplateExpression extends SubTemplateExpression
 
         } catch (\RuntimeException $ex) {
 
-            throw new ViewHelperException($ex->getMessage());
+            throw new ViewHelperRuntimeException($ex->getMessage());
         }
     }
 

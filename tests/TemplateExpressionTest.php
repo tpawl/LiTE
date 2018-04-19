@@ -238,6 +238,7 @@ class TemplateExpressionTest extends TestCase
 
     /**
      * @expectedException TPawl\LiTE\Exceptions\ViewHelperException
+     * @expectedExceptionMessage abc
      */
     public function testExceptionViewHelperThrowsAnException()
     {

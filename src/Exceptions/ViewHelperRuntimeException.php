@@ -5,6 +5,6 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Exceptions;
 
-class ViewHelperException extends \RuntimeException
+class ViewHelperRuntimeException extends \RuntimeException
 {
 }
