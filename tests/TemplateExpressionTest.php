@@ -237,10 +237,10 @@ class TemplateExpressionTest extends TestCase
     }
 
     /**
-     * @expectedException TPawl\LiTE\Exceptions\ViewHelperException
+     * @expectedException TPawl\LiTE\Exceptions\ViewHelperRuntimeException
      * @expectedExceptionMessage abc
      */
-    public function testExceptionViewHelperThrowsAnException()
+    public function testRuntimeViewHelperThrowsAnException()
     {
         $settings = [
             '',
