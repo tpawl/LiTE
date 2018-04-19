@@ -29,22 +29,22 @@ class FilterTest extends TestCase
 
         $this->assertFalse($isValidName);
     }
-    
+
     public function testNotFirstInvalidCharacterOfNameReturnsFalse()
     {
         $filter = new Filter();
-        
+
         $isValidName = $filter->isValidName('abc#');
-        
+
         $this->assertFalse($isValidName);
     }
-    
+
     public function testValidCharactersOfNameReturnTrue()
     {
         $filter = new Filter();
-        
+
         $isValidName = $filter->isValidName('abc');
-        
+
         $this->assertTrue($isValidName);
     }
 }

@@ -20,10 +20,10 @@ class TemplateExpressionTest extends TestCase
     {
         $settings = [
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Missing index 1 in settings
@@ -33,10 +33,10 @@ class TemplateExpressionTest extends TestCase
         $settings = [
             '',
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Missing index 2 in settings
@@ -47,10 +47,10 @@ class TemplateExpressionTest extends TestCase
             '',
             [],
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Missing index 3 in settings
@@ -62,10 +62,10 @@ class TemplateExpressionTest extends TestCase
             [],
             '',
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Wrong type in settings at index 0: 'string' expected, 'null' given
@@ -75,10 +75,10 @@ class TemplateExpressionTest extends TestCase
         $settings = [
             null,
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Wrong type in settings at index 1: 'array' expected, 'null' given
@@ -89,10 +89,10 @@ class TemplateExpressionTest extends TestCase
             '',
             null,
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Wrong type in settings at index 2: 'string' expected, 'null' given
@@ -104,10 +104,10 @@ class TemplateExpressionTest extends TestCase
             [],
             null,
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Wrong type in settings at index 3: 'string' expected, 'null' given
@@ -120,10 +120,10 @@ class TemplateExpressionTest extends TestCase
             '',
             null,
         ];
-        
+
         $te = new TemplateExpression($settings);
     }
-    
+
     public function testDisplay()
     {
         $settings = [
@@ -132,16 +132,16 @@ class TemplateExpressionTest extends TestCase
              __DIR__ . '/Asset',
             '',
         ];
-        
+
         $te = new TemplateExpression($settings);
-        
+
         $this->expectOutputString('abcdefghi');
-        
+
         $te->display();
-   
+
         Functions::resetContext();
     }
-    
+
     /**
      * @expectedException \DomainException
      * @expectedExceptionMessage Invalid view helper name: abc
@@ -154,7 +154,7 @@ class TemplateExpressionTest extends TestCase
             '',
             '',
         ];
-        
+
         $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -173,7 +173,7 @@ class TemplateExpressionTest extends TestCase
             __DIR__ . '/Asset/ViewHelpers',
             '',
         ];
-        
+
         $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -203,7 +203,7 @@ class TemplateExpressionTest extends TestCase
             __DIR__ . '/Asset/ViewHelpers',
             '',
         ];
-        
+
         $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -225,7 +225,7 @@ class TemplateExpressionTest extends TestCase
             __DIR__ . '/Asset/ViewHelpers',
             '',
         ];
-        
+
         $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -247,7 +247,7 @@ class TemplateExpressionTest extends TestCase
             __DIR__ . '/Asset/ViewHelpers',
             '',
         ];
-        
+
         $templateExpression = new TemplateExpression($settings);
 
         $filter = $this->createMock(FilterInterface::class);

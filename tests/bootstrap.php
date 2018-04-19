@@ -4,16 +4,16 @@
 function loader($class)
 {
     if (strpos($class, 'Tests\\') !== false) {
-        
+
         $file = __DIR__ . '/' . str_replace('\\', '/', substr($class, 17)) . '.php';
-        
+
     } else {
-        
+
         $file = __DIR__ . '/../src/' . str_replace('\\', '/', substr($class, 11)) . '.php';
     }
-    
+
     if (file_exists($file)) {
-        
+
         require $file;
     }
 }

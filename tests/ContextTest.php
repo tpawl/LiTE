@@ -14,12 +14,12 @@ use TPawl\LiTE\Tests\Asset\Functions;
 class ContextTest extends TestCase
 {
     private $context;
-    
+
     protected function setUp()
     {
         $this->context = Context::getInstance();
     }
-    
+
     protected function tearDown()
     {
         Functions::resetContext();
@@ -30,34 +30,34 @@ class ContextTest extends TestCase
      * @expectedExceptionMessage A template expression must not be used within a template expression
      */
     public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
-    {   
+    {
         $settings = [
             '',
             [],
             '.',
             ''
         ];
-        
+
         $te1 = new TemplateExpression($settings);
-        
+
         $te1->initialize($this->context);
-        
+
         $te2 = new TemplateExpression($settings);
-        
+
         $te2->initialize($this->context);
     }
-    
+
     /**
      * @expectedException TPawl\LiTE\Exceptions\ContextException
      * @expectedExceptionMessage A sub-template expression must only be used within a template expression
      */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
-    {  
+    {
         $ste = new SubTemplateExpression('', []);
-        
+
         $ste->initialize($this->context);
     }
-    
+
     public function testPushVariablesContext()
     {
         $settings = [
@@ -66,28 +66,28 @@ class ContextTest extends TestCase
             '.',
             ''
         ];
-        
+
         $te = new TemplateExpression($settings);
-        
+
         $te->initialize($this->context);
-        
+
         $ste = new SubTemplateExpression('', []);
-        
+
         $ste->initialize($this->context);
-        
+
         $tste = $this->context->topSubTemplateExpression();
-        
+
         $this->assertSame($ste, $tste);
-        
+
         SubTemplateExpression::cleanup($this->context);
-        
+
         $tste = $this->context->topSubTemplateExpression();
-        
+
         $this->assertSame($te, $tste);
-        
+
         TemplateExpression::cleanup($this->context);
     }
-    
+
     /**
      * @expectedException TPawl\LiTE\Exceptions\AssertionException
      */
@@ -99,22 +99,22 @@ class ContextTest extends TestCase
     public function testIsEmpty()
     {
         $this->assertTrue(Context::isEmpty());
-        
+
         $settings = [
             '',
             [],
             '.',
             ''
         ];
-        
+
         $te = new TemplateExpression($settings);
-        
+
         $te->initialize($this->context);
-        
+
         $this->assertFalse(Context::isEmpty());
-        
+
         TemplateExpression::cleanup($this->context);
-        
+
         $this->assertTrue(Context::isEmpty());
     }
 }

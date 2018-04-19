@@ -16,28 +16,28 @@ class TemplateInterpreterTest extends TestCase
     public function testXml()
     {
         $context = Context::getInstance();
-    
+
         $settings = [
             '',
             [],
             '.',
             ''
         ];
-        
+
         $te = new TemplateExpression($settings);
-    
+
         $context->setTemplateExpression($te);
         $context->pushSubTemplateExpression($te);
-        
+
         $ti = new TemplateInterpreter();
-    
+
         $this->expectOutputString("<?xml test ?>\n");
-    
+
         $ti->_xml('test');
-    
+
         $context->popSubTemplateExpression();
         $context->resetTemplateExpression();
-        
+
         Functions::resetContext();
     }
 }

@@ -19,15 +19,15 @@ class SubTemplateExpressionTest extends TestCase
      * @expectedExceptionMessage Sub-template expression is already in use
      */
     public function testSubTemplateExpressionAlreadyInUseThrowsAnException()
-    {   
+    {
         $subTemplateExpression1 = new SubTemplateExpression('', []);
         $subTemplateExpression2 = new SubTemplateExpression('', []);
-        
+
         $subTemplateExpression1->setNext($subTemplateExpression2);
-        
+
         $subTemplateExpression1->setNext($subTemplateExpression2);
     }
-    
+
     /**
      * @expectedException \DomainException
      * @expectedExceptionMessage Invalid template variable name: abc
@@ -73,7 +73,7 @@ class SubTemplateExpressionTest extends TestCase
 
         $this->assertEquals(123, $value);
     }
-    
+
     public function testDisplay()
     {
         $settings = [
@@ -82,29 +82,29 @@ class SubTemplateExpressionTest extends TestCase
             __DIR__ . '/Asset/ViewHelpers',
             '',
         ];
-        
+
         $te = new TemplateExpression($settings);
-        
+
         $this->expectOutputString('abcdefghi');
-        
+
         $te->display();
-   
+
         Functions::resetContext();
     }
-    
+
     /**
      * @expectedException \ErrorException
      * @expectedExceptionMessage Test
      */
     public function testErrorHandler()
-    {   
+    {
         $mock = $this->createMock(ConfigurationInterface::class);
-        
+
         $mock->method('shouldErrorLevelBeReported')->
             willReturn(true);
-   
+
         $eh = SubTemplateExpression::getErrorHandler($mock);
-        
+
         call_user_func($eh, E_WARNING, 'Test', '', 0);
-    }   
+    }
 }
