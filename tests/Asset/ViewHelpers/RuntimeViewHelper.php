@@ -7,6 +7,6 @@ class RuntimeViewHelper implements ViewHelperInterface
 {
     public static function execute(array $arguments): void
     {
-        throw new RuntimeException();
+        throw new \RuntimeException('abc');
     }
 }
