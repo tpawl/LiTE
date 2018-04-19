@@ -9,6 +9,7 @@ use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
+use TPawl\LiTE\Exceptions\ViewHelperLogicException;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
 
