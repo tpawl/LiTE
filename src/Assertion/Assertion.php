@@ -21,7 +21,7 @@ class Assertion
      * @param mixed $value
      * @param string $message
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertionException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if value is null
      */
     public static function notIsNull($value, string $message = ''): void
     {
@@ -32,7 +32,7 @@ class Assertion
      * @param string $string
      * @param string $message
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertionException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if string is empty
      */
     public static function notIsEmptyString(string $string,
         string $message = ''): void
@@ -44,7 +44,7 @@ class Assertion
      * @param bool $condition
      * @param string $message
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertionException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if condition is true
      */
     public static function isFalse(bool $condition, string $message = ''): void
     {
