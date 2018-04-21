@@ -25,6 +25,11 @@ class ViewHelperExpression implements TemplateExpressionInterface
      */
     private $filter;
 
+    /**
+     * @param string $name
+     * @param array $arguments
+     * @param \TPawl\LiTE\Filter\FilterInterface $filter
+     */
     public function __construct(string $name, array $arguments,
         FilterInterface $filter)
     {
@@ -32,6 +37,7 @@ class ViewHelperExpression implements TemplateExpressionInterface
         $this->arguments = $arguments;
         $this->filter = $filter;
     }
+
     /**
      * @param string $name
      * @param array $arguments
