@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2013 - 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2013 - 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -7,6 +7,7 @@ namespace TPawl\LiTE\Expressions;
 
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
+use RuntimeException;
 
 class ViewHelperExpression implements TemplateExpressionInterface
 {
@@ -22,7 +23,8 @@ class ViewHelperExpression implements TemplateExpressionInterface
 
     private $filter;
 
-    public function __construct(string $name, array $arguments, FilterInterface $filter)
+    public function __construct(string $name, array $arguments,
+        FilterInterface $filter)
     {
         $this->name = $name;
         $this->arguments = $arguments;
@@ -39,6 +41,7 @@ class ViewHelperExpression implements TemplateExpressionInterface
     {
         $context = Context::getInstance();
 
-        $context->executeViewHelper($this->name, $this->arguments, $this->filter);
+        $context->executeViewHelper($this->name, $this->arguments,
+            $this->filter);
     }
 }

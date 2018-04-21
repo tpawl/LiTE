@@ -43,7 +43,8 @@ class SubTemplateExpression implements TemplateExpressionInterface
 
     /**
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
      */
     public function display(): void
     {
