@@ -14,7 +14,8 @@ class TemplateInterpreter
 {
     /**
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
      */
     public function __construct()
     {
@@ -38,7 +39,8 @@ class TemplateInterpreter
      * @param string $name
      * @param array $arguments
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
      */
     public static function __callStatic(string $name, array $arguments): void
     {
