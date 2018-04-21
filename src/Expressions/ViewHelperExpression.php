@@ -32,7 +32,8 @@ class ViewHelperExpression implements TemplateExpressionInterface
      * @param string $name
      * @param array $arguments
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
      */
     public function display(): void
     {
