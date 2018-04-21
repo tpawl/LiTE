@@ -15,7 +15,7 @@ class Filter implements FilterInterface
     /**
      * @param string $name
      * @return bool
-     * @throws \TPawl\LiTE\Exceptions\AssertionException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
      */
     public function isValidName(string $name): bool
     {
