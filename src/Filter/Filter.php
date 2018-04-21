@@ -47,6 +47,6 @@ class Filter implements FilterInterface
         bool
     {
         return strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) ===
-             strlen($name) - 1;
+            strlen($name) - 1;
     }
 }
