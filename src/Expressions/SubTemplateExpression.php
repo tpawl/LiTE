@@ -48,11 +48,11 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function display(): void
     {
+        ErrorHandlers::push(self::getErrorHandler($configuration));
+        
         $context = Context::getInstance();
 
         $configuration = new Configuration();
-
-        ErrorHandlers::push(self::getErrorHandler($configuration));
 
         $this->initialize($context);
 
