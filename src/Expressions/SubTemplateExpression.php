@@ -106,7 +106,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @throws \DomainException if name is invalid
      * @throws \OutOfRangeException if name does not exist
      */
-    public function lookUp(string $name, FilterInterface $filter)
+    public function lookUpVariable(string $name, FilterInterface $filter)
     {
         self::filterVariableName($name, $filter);
 

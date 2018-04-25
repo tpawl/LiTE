@@ -72,7 +72,8 @@ class Context
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
-        return $this->topSubTemplateExpression()->lookUp($name, $filter);
+        return $this->topSubTemplateExpression()->lookUpVariable(
+            $name, $filter);
     }
 
     /**

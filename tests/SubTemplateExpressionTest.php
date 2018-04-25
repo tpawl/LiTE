@@ -41,7 +41,7 @@ class SubTemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $subTemplateExpression->lookUp('abc', $filter);
+        $subTemplateExpression->lookUpVariable('abc', $filter);
     }
 
     /**
@@ -57,7 +57,7 @@ class SubTemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $subTemplateExpression->lookUp('abc', $filter);
+        $subTemplateExpression->lookUpVariable('abc', $filter);
     }
 
     public function testNormalOperation()
@@ -69,7 +69,7 @@ class SubTemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $value = $subTemplateExpression->lookUp('abc', $filter);
+        $value = $subTemplateExpression->lookUpVariable('abc', $filter);
 
         $this->assertEquals(123, $value);
     }
