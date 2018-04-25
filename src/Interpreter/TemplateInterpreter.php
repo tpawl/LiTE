@@ -9,6 +9,7 @@ use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\Filter;
 use TPawl\LiTE\Expressions\VariableExpression;
 use TPawl\LiTE\Expressions\ViewHelperExpression;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 
 class TemplateInterpreter
 {
@@ -28,9 +29,7 @@ class TemplateInterpreter
      */
     public function __get(string $name): void
     {
-        $filter = new Filter();
-
-        $variableExpression = new VariableExpression($name, $filter);
+        $variableExpression = new VariableExpression($name, new Filter());
 
         $variableExpression->display();
     }
@@ -44,9 +43,10 @@ class TemplateInterpreter
      */
     public static function __callStatic(string $name, array $arguments): void
     {
-        $filter = new Filter();
+        $viewHelperCallData = new ViewHelperCallData($name, $arguments);
 
-        $viewHelperExpression = new ViewHelperExpression($name, $arguments, $filter);
+        $viewHelperExpression = new ViewHelperExpression(
+            $viewHelperCallData, new Filter());
 
         $viewHelperExpression->display();
     }
