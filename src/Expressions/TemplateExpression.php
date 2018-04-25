@@ -97,7 +97,7 @@ class TemplateExpression extends SubTemplateExpression
     public function executeViewHelper(string $name, array $arguments,
         FilterInterface $filter): void
     {
-        self::filterName($name, $filter);
+        self::filterViewHelperName($name, $filter);
 
         $classQualifier = $this->loadViewHelper($name);
 
@@ -108,9 +108,10 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
-     * @throws \DomainException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
+     * @throws \DomainException if name is invalid
      */
-    private static function filterName(string $name,
+    private static function filterViewHelperName(string $name,
         FilterInterface $filter): void
     {
         if (!$filter->isValidName($name)) {
