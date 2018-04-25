@@ -163,7 +163,9 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $templateExpression->executeViewHelper('abc', [], $filter);
+        $viewHelperCallData = new ViewHelperCallData('abc', []);
+
+        $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
     public function testNormalOperation()
