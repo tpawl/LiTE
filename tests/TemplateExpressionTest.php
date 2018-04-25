@@ -194,7 +194,7 @@ class TemplateExpressionTest extends TestCase
 
         $this->expectOutputString('ghighi');
 
-        $templateExpression->executeViewHelper('test', [], $filter);
+        $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
     /**
