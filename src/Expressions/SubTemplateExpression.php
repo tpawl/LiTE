@@ -102,7 +102,9 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return mixed
-     * @throws \OutOfRangeException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
+     * @throws \DomainException if name is invalid
+     * @throws \OutOfRangeException if name does not exist
      */
     public function lookUp(string $name, FilterInterface $filter)
     {
