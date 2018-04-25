@@ -119,7 +119,8 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
-     * @throws \DomainException
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
+     * @throws \DomainException if name is invalid
      */
     private static function filterName(string $name,
         FilterInterface $filter): void
