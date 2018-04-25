@@ -10,6 +10,8 @@ use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Assertion\Assertion;
 use TPawl\LiTE\Exceptions\ContextException;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Expressions\VariableExpression;
 
 class Context
 {
@@ -77,15 +79,15 @@ class Context
     }
 
     /**
-     * @param string $name
-     * @param array $arguments
+     * @param \TPawl\LiTE\Miscellaneous\ViewHelperCallData $viewHelperCallData
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      */
-    public function executeViewHelper(string $name, array $arguments,
+    public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void
     {
-        $this->getTemplateExpression()->executeViewHelper($name, $arguments, $filter);
+        $this->getTemplateExpression()->executeViewHelper(
+            $viewHelperCallData, $filter);
     }
 
     /**
