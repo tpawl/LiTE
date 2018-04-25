@@ -261,7 +261,9 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->executeViewHelper('runtime', [], $filter);
+        $viewHelperCallData = new ViewHelperCallData('runtime', []);
+
+        $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
     /**
@@ -284,6 +286,8 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
         willReturn(true);
 
-        $templateExpression->executeViewHelper('logic', [], $filter);
+        $viewHelperCallData = new ViewHelperCallData('logic', []);
+
+        $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 }
