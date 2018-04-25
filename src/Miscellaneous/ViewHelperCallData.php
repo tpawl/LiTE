@@ -11,12 +11,12 @@ class ViewHelperCallData
      * @var string
      */
     private $name;
-    
+
     /**
      * @var array
      */
     private $arguments;
-    
+
     /**
      * @param string $name
      * @param array $arguments
@@ -25,10 +25,10 @@ class ViewHelperCallData
     public function __construct(string $name, array $arguments)
     {
         $this->name = $name;
-        
+
         $this->arguments = $arguments;
     }
-    
+
     /**
      * @return string
      */
@@ -36,7 +36,7 @@ class ViewHelperCallData
     {
         return $this->name;
     }
-    
+
     /**
      * @return array
      */
