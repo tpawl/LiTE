@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
 use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 
 class TemplateExpressionTest extends TestCase
 {
@@ -181,7 +182,9 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $templateExpression->executeViewHelper('test', [], $filter);
+        $viewHelperCallData = new ViewHelperCallData('test', []);
+
+        $templateExpression->executeViewHelper($viewHelperCallData, $filter);
 
         $out = $this->getActualOutput();
 
