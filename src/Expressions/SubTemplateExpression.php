@@ -67,13 +67,16 @@ class SubTemplateExpression implements TemplateExpressionInterface
      * @param \TPawl\LiTE\Php\ConfigurationInterface $configuration
      * @return callable
      */
-    public static function getErrorHandler(ConfigurationInterface $configuration): callable
+    public static function getErrorHandler(
+        ConfigurationInterface $configuration): callable
     {
-        return function($errno, $errstr, $errfile, $errline) use ($configuration) {
+        return function($errno, $errstr, $errfile, $errline) use
+            ($configuration) {
 
             if ($configuration->shouldErrorLevelBeReported($errno)) {
 
-                throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+                throw new \ErrorException(
+                    $errstr, 0, $errno, $errfile, $errline);
             }
         };
     }
@@ -140,7 +143,8 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         if ($this->isInUse() && !is_null($subTemplateExpression)) {
 
-            throw new SubTemplateExpressionException('Sub-template expression is already in use');
+            throw new SubTemplateExpressionException(
+                'Sub-template expression is already in use');
         }
         $this->next = $subTemplateExpression;
     }
