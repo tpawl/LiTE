@@ -16,6 +16,13 @@ use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 
 class TemplateExpression extends SubTemplateExpression
 {
+    private const SETTINGS_TYPE_AT_INDEX = [
+        'string',
+        'array',
+        'string',
+        'string',
+    ];
+
     /**
      * @var string
      */
@@ -55,13 +62,10 @@ class TemplateExpression extends SubTemplateExpression
      */
     private static function validateSettings(array $settings): void
     {
-        self::validateSettingsIndex($settings, 0, 'string');
+        foreach (self::SETTINGS_TYPE_AT_INDEX as $index => $type) {
 
-        self::validateSettingsIndex($settings, 1, 'array');
-
-        self::validateSettingsIndex($settings, 2, 'string');
-
-        self::validateSettingsIndex($settings, 3, 'string');
+            self::validateSettingsIndex($settings, $index, $type);
+        }
     }
 
     /**
