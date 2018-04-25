@@ -11,7 +11,6 @@ use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Assertion\Assertion;
 use TPawl\LiTE\Exceptions\ContextException;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
-use TPawl\LiTE\Expressions\VariableExpression;
 
 class Context
 {

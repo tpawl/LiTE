@@ -12,6 +12,7 @@ use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
 use TPawl\LiTE\Exceptions\ViewHelperLogicException;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -94,14 +95,17 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      */
-    public function executeViewHelper(string $name, array $arguments,
+    public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void
     {
+        $name = $viewHelperCallData->getName();
+
         self::filterViewHelperName($name, $filter);
 
         $classQualifier = $this->loadViewHelper($name);
 
-        $this->tryCallViewHelper($classQualifier, $arguments);
+        $this->tryCallViewHelper(
+            $classQualifier, $viewHelperCallData->getArguments());
     }
 
     /**
