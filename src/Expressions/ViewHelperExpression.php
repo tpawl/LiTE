@@ -7,18 +7,14 @@ namespace TPawl\LiTE\Expressions;
 
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 
 class ViewHelperExpression implements TemplateExpressionInterface
 {
     /**
-     * @var string
+     * @var \TPawl\LiTE\Miscellaneous\ViewHelperCallData
      */
-    private $name;
-
-    /**
-     * @var array
-     */
-    private $arguments;
+    private $viewHelperCallData;
 
     /**
      * @var \TPawl\LiTE\Filter\FilterInterface
@@ -26,21 +22,17 @@ class ViewHelperExpression implements TemplateExpressionInterface
     private $filter;
 
     /**
-     * @param string $name
-     * @param array $arguments
+     * @param \TPawl\LiTE\Miscellaneous\ViewHelperCallData $viewHelperCallData
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      */
-    public function __construct(string $name, array $arguments,
+    public function __construct(ViewHelperCallData $viewHelperCallData,
         FilterInterface $filter)
     {
-        $this->name = $name;
-        $this->arguments = $arguments;
+        $this->viewHelperCallData = $viewHelperCallData;
         $this->filter = $filter;
     }
 
     /**
-     * @param string $name
-     * @param array $arguments
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
      * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
@@ -49,7 +41,6 @@ class ViewHelperExpression implements TemplateExpressionInterface
     {
         $context = Context::getInstance();
 
-        $context->executeViewHelper($this->name, $this->arguments,
-            $this->filter);
+        $context->executeViewHelper($this->viewHelperCallData, $this->filter);
     }
 }
