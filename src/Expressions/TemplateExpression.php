@@ -17,10 +17,10 @@ use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 class TemplateExpression extends SubTemplateExpression
 {
     private const SETTINGS_TYPE_AT_INDEX = [
-        'string', // template
-        'array', // variables
-        'string', // view helper directory
-        'string', // view helper namespace
+        'string', // template (index: 0)
+        'array', // variables (index: 1)
+        'string', // view helper directory (index: 2)
+        'string', // view helper namespace (index: 3)
     ];
 
     /**
