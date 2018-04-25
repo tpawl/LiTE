@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2013 - 2017 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2013 - 2018 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -15,6 +15,9 @@ class VariableExpression implements TemplateExpressionInterface
      */
     private $name;
 
+    /**
+     * @var \TPawl\LiTE\Filter\FilterInterface
+     */
     private $filter;
 
     /**
