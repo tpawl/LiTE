@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Miscellaneous;
 
-class SettingsValidationData
+class SettingValidationData
 {
     /**
      * @var int
