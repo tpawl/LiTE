@@ -13,6 +13,7 @@ use TPawl\LiTE\Exceptions\ViewHelperLogicException;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\SettingsValidationData;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -64,7 +65,9 @@ class TemplateExpression extends SubTemplateExpression
     {
         foreach (self::SETTINGS_TYPE_AT_INDEX as $index => $type) {
 
-            self::validateSettingsIndex($settings, $index, $type);
+            $settingsValidationData = new SettingsValidationData($index, $type);
+            
+            self::validateSettingsIndex($settings, $settingsValidationData);
         }
     }
 
@@ -75,8 +78,10 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      */
     private static function validateSettingsIndex(array $settings,
-        int $index, string $type): void
+        SettingsValidationData $settingsValidationData): void
     {
+        $index = $settingsValidationData->getIndex();
+        
         $hasSettingsGivenIndex = array_key_exists($index, $settings);
 
         if (!$hasSettingsGivenIndex) {
@@ -86,6 +91,8 @@ class TemplateExpression extends SubTemplateExpression
         }
         $typeAtGivenIndex = strtolower(gettype($settings[$index]));
 
+        $type = $settingsValidationData->getType();
+        
         if ($typeAtGivenIndex !== $type) {
 
             throw new \InvalidArgumentException(
