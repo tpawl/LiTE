@@ -69,17 +69,17 @@ class TemplateExpression extends SubTemplateExpression
 
             $settingValidationData->set($index, $type);
 
-            self::validateSettingsIndex($settings, $settingValidationData);
+            self::validateSettingAtGivenIndex(
+                $settings, $settingValidationData);
         }
     }
 
     /**
      * @param array $settings
-     * @param int $index
-     * @param string $type
+     * @param \TPawl\LiTE\Miscellaneous\SettingValidationData $settingValidationData
      * @return void
      */
-    private static function validateSettingsIndex(array $settings,
+    private static function validateSettingAtGivenIndex(array $settings,
         SettingValidationData $settingValidationData): void
     {
         $index = $settingValidationData->getIndex();
