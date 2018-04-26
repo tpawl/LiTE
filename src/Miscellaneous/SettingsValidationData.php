@@ -22,7 +22,7 @@ class SettingsValidationData
      * @param string $type
      * @return void
      */
-    public function __construct(int $index, string $type)
+    public function set(int $index, string $type): void
     {
         $this->index = $index;
 

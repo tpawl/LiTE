@@ -63,10 +63,12 @@ class TemplateExpression extends SubTemplateExpression
      */
     private static function validateSettings(array $settings): void
     {
+        $settingsValidationData = new SettingsValidationData();
+
         foreach (self::SETTINGS_TYPE_AT_INDEX as $index => $type) {
 
-            $settingsValidationData = new SettingsValidationData($index, $type);
-            
+            $settingsValidationData->set($index, $type);
+
             self::validateSettingsIndex($settings, $settingsValidationData);
         }
     }
@@ -81,7 +83,7 @@ class TemplateExpression extends SubTemplateExpression
         SettingsValidationData $settingsValidationData): void
     {
         $index = $settingsValidationData->getIndex();
-        
+
         $hasSettingsGivenIndex = array_key_exists($index, $settings);
 
         if (!$hasSettingsGivenIndex) {
@@ -92,7 +94,7 @@ class TemplateExpression extends SubTemplateExpression
         $typeAtGivenIndex = strtolower(gettype($settings[$index]));
 
         $type = $settingsValidationData->getType();
-        
+
         if ($typeAtGivenIndex !== $type) {
 
             throw new \InvalidArgumentException(
