@@ -13,7 +13,7 @@ use TPawl\LiTE\Exceptions\ViewHelperLogicException;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
-use TPawl\LiTE\Miscellaneous\SettingsValidationData;
+use TPawl\LiTE\Miscellaneous\SettingValidationData;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -63,13 +63,13 @@ class TemplateExpression extends SubTemplateExpression
      */
     private static function validateSettings(array $settings): void
     {
-        $settingsValidationData = new SettingsValidationData();
+        $settingValidationData = new SettingValidationData();
 
         foreach (self::SETTINGS_TYPE_AT_INDEX as $index => $type) {
 
-            $settingsValidationData->set($index, $type);
+            $settingValidationData->set($index, $type);
 
-            self::validateSettingsIndex($settings, $settingsValidationData);
+            self::validateSettingsIndex($settings, $settingValidationData);
         }
     }
 
@@ -80,9 +80,9 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      */
     private static function validateSettingsIndex(array $settings,
-        SettingsValidationData $settingsValidationData): void
+        SettingValidationData $settingValidationData): void
     {
-        $index = $settingsValidationData->getIndex();
+        $index = $settingValidationData->getIndex();
 
         $hasSettingsGivenIndex = array_key_exists($index, $settings);
 
@@ -93,7 +93,7 @@ class TemplateExpression extends SubTemplateExpression
         }
         $typeAtGivenIndex = strtolower(gettype($settings[$index]));
 
-        $type = $settingsValidationData->getType();
+        $type = $settingValidationData->getType();
 
         if ($typeAtGivenIndex !== $type) {
 
