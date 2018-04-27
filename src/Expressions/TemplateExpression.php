@@ -78,6 +78,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param array $settings
      * @param \TPawl\LiTE\Miscellaneous\SettingValidationData $settingValidationData
      * @return void
+     * @throws \InvalidArgumentException if given index does not exist or the type at given index is wrong
      */
     private static function validateSettingAtGivenIndex(array $settings,
         SettingValidationData $settingValidationData): void
