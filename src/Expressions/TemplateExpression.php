@@ -104,7 +104,8 @@ class TemplateExpression extends SubTemplateExpression
     }
 
     /**
-     * @param \TPawl\LiTE\Miscellaneous\ViewHelperCallData $viewHelperCallData
+     * @param string $name
+     * @param array $arguments
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      */

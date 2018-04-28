@@ -70,9 +70,6 @@ class Context
      * @param string $name
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return mixed
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
-     * @throws \DomainException if name is invalid
-     * @throws \OutOfRangeException if name does not exist
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
