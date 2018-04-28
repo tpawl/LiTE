@@ -24,7 +24,7 @@ class TemplateInterpreter
     }
 
     /**
-     * @param string $name
+     * @param string $name is not empty
      * @return void
      * @throws \DomainException if name is invalid
      * @throws \OutOfRangeException if name does not exist
@@ -37,7 +37,7 @@ class TemplateInterpreter
     }
 
     /**
-     * @param string $name
+     * @param string $name is not empty
      * @param array $arguments
      * @return void
      * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
