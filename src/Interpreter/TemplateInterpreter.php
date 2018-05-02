@@ -15,6 +15,8 @@ class TemplateInterpreter
 {
     /**
      * @return void
+     * @throws \DomainException if variable name or view helper name is invalid
+     * @throws \OutOfRangeException if variable name does not exist
      * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
      * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
      */
