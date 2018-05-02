@@ -99,7 +99,8 @@ class TemplateExpression extends SubTemplateExpression
         if ($typeAtGivenIndex !== $type) {
 
             throw new \InvalidArgumentException(
-                "Wrong type in settings at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given");
+                "Wrong type in settings at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given"
+            );
         }
     }
 
@@ -186,7 +187,8 @@ class TemplateExpression extends SubTemplateExpression
             if (!self::isClassImplementingViewHelper($classQualifier)) {
 
                 throw new TemplateExpressionException(
-                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface");
+                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface"
+                );
             }
         }
         return $classQualifier;
