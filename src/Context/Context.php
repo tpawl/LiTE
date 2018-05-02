@@ -96,11 +96,14 @@ class Context
      * @param \TPawl\LiTE\Expressions\TemplateExpression $templateExpression
      * @return void
      */
-    public function setTemplateExpression(TemplateExpression $templateExpression): void
+    public function setTemplateExpression(
+        TemplateExpression $templateExpression): void
     {
         if (!$this->isContextEmpty()) {
 
-            throw new ContextException('A template expression must not be used within a template expression');
+            throw new ContextException(
+                'A template expression must not be used within a template expression'
+            );
         }
         $this->templateExpression = $templateExpression;
     }
@@ -127,11 +130,14 @@ class Context
      * @param \TPawl\LiTE\Expressions\SubTemplateExpression $subTemplateExpression
      * @return void
      */
-    public function pushSubTemplateExpression(SubTemplateExpression $subTemplateExpression): void
+    public function pushSubTemplateExpression(
+        SubTemplateExpression $subTemplateExpression): void
     {
         if ($this->isContextEmpty()) {
 
-            throw new ContextException('A sub-template expression must only be used within a template expression');
+            throw new ContextException(
+                'A sub-template expression must only be used within a template expression'
+            );
         }
         $subTemplateExpression->setNext($this->firstSubTemplateExpression);
 
@@ -145,7 +151,8 @@ class Context
     {
         $topSubTemplateExpression = $this->topSubTemplateExpression();
 
-        $this->firstSubTemplateExpression = $topSubTemplateExpression->getNext();
+        $this->firstSubTemplateExpression = $topSubTemplateExpression->
+            getNext();
 
         $topSubTemplateExpression->setNext(null);
     }
