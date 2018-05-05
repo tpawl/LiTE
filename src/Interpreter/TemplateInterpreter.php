@@ -17,8 +17,10 @@ class TemplateInterpreter
      * @return void
      * @throws \DomainException if variable name or view helper name is invalid
      * @throws \OutOfRangeException if variable name does not exist
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
+     * @throws \TPawl\LiTE\Exceptions\TemplateExpressionException if view helper does not exist or
+     * if view helper does not implement the interface TPawl\LiTE\ViewHelperInterface
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper
      */
     public function __construct()
     {
