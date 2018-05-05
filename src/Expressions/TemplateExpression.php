@@ -111,7 +111,11 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty 
-     * @throws \DomainException if name is invalid
+     * @throws \DomainException if view helper name is invalid
+     * @throws \TPawl\LiTE\Exceptions\TemplateExpressionException if view helper does not exist or
+     * if view helper does not implement the interface TPawl\LiTE\ViewHelperInterface
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper  
      */
     public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void
@@ -131,7 +135,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
-     * @throws \DomainException if name is invalid
+     * @throws \DomainException if view helper name is invalid
      */
     private static function filterViewHelperName(string $name,
         FilterInterface $filter): void
@@ -173,6 +177,8 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @param string $className
      * @return string
+     * @throws \TPawl\LiTE\Exceptions\TemplateExpressionException if view helper does not exist or
+     * if view helper does not implement the interface TPawl\LiTE\ViewHelperInterface
      */
     private function loadViewHelper(string $name): string
     {
@@ -220,7 +226,8 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $classQualifier
      * @param array $arguments
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper
      */
     private function tryCallViewHelper(string $classQualifier,
         array $arguments): void
@@ -247,7 +254,6 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $classQualifier
      * @param array $arguments
      * @return void
-     * @throws \RuntimeException
      */
     private function callViewHelper(string $classQualifier,
         array $arguments): void

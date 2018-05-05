@@ -28,7 +28,7 @@ class TemplateInterpreter
     /**
      * @param string $name is not empty
      * @return void
-     * @throws \DomainException if name is invalid
+     * @throws \DomainException if variable name is invalid
      * @throws \OutOfRangeException if name does not exist
      */
     public function __get(string $name): void

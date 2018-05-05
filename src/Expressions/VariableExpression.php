@@ -33,7 +33,7 @@ class VariableExpression implements TemplateExpressionInterface
     /**
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
-     * @throws \DomainException if name is invalid
+     * @throws \DomainException if variable name is invalid
      * @throws \OutOfRangeException if name does not exist
      */
     public function display(): void
