@@ -42,6 +42,7 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @param array $settings
      * @return void
+     * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
     public function __construct(array $settings)
     {
@@ -60,6 +61,7 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @param array $settings
      * @return void
+     * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
     private static function validateSettings(array $settings): void
     {
@@ -108,6 +110,8 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Miscellaneous\ViewHelperCallData $viewHelperCallData
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty 
+     * @throws \DomainException if name is invalid
      */
     public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void
