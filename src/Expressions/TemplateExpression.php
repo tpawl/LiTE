@@ -110,12 +110,12 @@ class TemplateExpression extends SubTemplateExpression
      * @param \TPawl\LiTE\Miscellaneous\ViewHelperCallData $viewHelperCallData
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty 
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
      * @throws \DomainException if view helper name is invalid
      * @throws \TPawl\LiTE\Exceptions\TemplateExpressionException if view helper does not exist or
      * if view helper does not implement the interface TPawl\LiTE\ViewHelperInterface
      * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper  
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper
      */
     public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void

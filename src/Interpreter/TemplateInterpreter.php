@@ -42,8 +42,11 @@ class TemplateInterpreter
      * @param string $name is not empty
      * @param array $arguments
      * @return void
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException
-     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException
+     * @throws \DomainException if view helper name is invalid
+     * @throws \TPawl\LiTE\Exceptions\TemplateExpressionException if view helper does not exist or
+     * if view helper does not implement the interface TPawl\LiTE\ViewHelperInterface
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
+     * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper
      */
     public static function __callStatic(string $name, array $arguments): void
     {
