@@ -8,7 +8,6 @@ namespace TPawl\LiTE\Expressions;
 use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
 use TPawl\LiTE\Interpreter\TemplateInterpreter;
 use TPawl\LiTE\Context\Context;
-use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Php\Configuration;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\SubTemplateExpressionException;
@@ -48,9 +47,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function display(): void
     {
-        $configuration = new Configuration();
-
-        ErrorHandlers::push(self::getErrorHandler($configuration));
+        ErrorHandlers::push(self::getErrorHandler());
 
         $context = Context::getInstance();
 
@@ -64,16 +61,13 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
 
     /**
-     * @param \TPawl\LiTE\Php\ConfigurationInterface $configuration
      * @return callable
      */
-    public static function getErrorHandler(
-        ConfigurationInterface $configuration): callable
+    public static function getErrorHandler(): callable
     {
-        return function($errno, $errstr, $errfile, $errline) use
-            ($configuration) {
+        return function($errno, $errstr, $errfile, $errline) {
 
-            if ($configuration->shouldErrorLevelBeReported($errno)) {
+            if (Configuration::shouldErrorLevelBeReported($errno)) {
 
                 throw new \ErrorException(
                     $errstr, 0, $errno, $errfile, $errline);
