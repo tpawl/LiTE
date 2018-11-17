@@ -5,13 +5,13 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Php;
 
-class Configuration implements ConfigurationInterface
+class Configuration
 {
     /**
      * @param int $errorLevel
      * @return bool
      */
-    public function shouldErrorLevelBeReported(int $errorLevel): bool
+    public static function shouldErrorLevelBeReported(int $errorLevel): bool
     {
         return (bool) (error_reporting() & $errorLevel);
     }
