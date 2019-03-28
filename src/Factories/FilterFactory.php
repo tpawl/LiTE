@@ -9,6 +9,9 @@ use TPawl\LiTE\Filter\FilterInterface;
 
 class FilterFactory
 {
+    /**
+     * @return \TPawl\LiTE\Filter\FilterInterface
+     */
     public static function createFilter(): FilterInterface
     {
         return new Filter();
