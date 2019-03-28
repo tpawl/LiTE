@@ -8,6 +8,8 @@ namespace TPawl\LiTE\Factories;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Expressions\TemplateExpressionInterface;
 use TPawl\LiTE\Expressions\VariableExpression;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Expressions\ViewHelperExpression;
 use TPawl\LiTE\Filter\Filter;
 
 class Factories
@@ -16,6 +18,12 @@ class Factories
         string $name, FilterInterface $filter): TemplateExpressionInterface
     {
         return new VariableExpression($name, $filter);
+    }
+    
+    public static function createViewHelperExpression(
+        ViewHelperCallData $viewHelperCallData, FilterInterface $filter): TemplateExpressionInterface
+    {
+        return new ViewHelperExpression($viewHelperCallData, $filter);
     }
     
     /**
