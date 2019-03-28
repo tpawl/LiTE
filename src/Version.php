@@ -14,5 +14,5 @@ class Version
     public const MINOR = 2;
 
     // Revision number (patch level)
-    public const REVISION = 1;
+    public const REVISION = 2;
 }
