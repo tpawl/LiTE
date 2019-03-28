@@ -11,7 +11,7 @@ class Version
     public const MAJOR = 1;
 
     // Minor version number (minor release)
-    public const MINOR = 1;
+    public const MINOR = 2;
 
     // Revision number (patch level)
     public const REVISION = 0;
