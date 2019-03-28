@@ -55,7 +55,7 @@ class TemplateInterpreter
     {
         $viewHelperCallData = new ViewHelperCallData($name, $arguments);
 
-        $viewHelperExpression = new ViewHelperExpression(
+        $viewHelperExpression = Factories::createViewHelperExpression(
             $viewHelperCallData, Factories::createFilter());
 
         $viewHelperExpression->display();
