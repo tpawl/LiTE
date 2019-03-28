@@ -53,10 +53,8 @@ class TemplateInterpreter
      */
     public static function __callStatic(string $name, array $arguments): void
     {
-        $viewHelperCallData = new ViewHelperCallData($name, $arguments);
-
         $viewHelperExpression = Factories::createViewHelperExpression(
-            $viewHelperCallData, Factories::createFilter());
+            ViewHelperCallData::create($name, $arguments), Factories::createFilter());
 
         $viewHelperExpression->display();
     }
