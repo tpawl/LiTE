@@ -8,7 +8,7 @@ namespace TPawl\LiTE\Factories;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Filter\Filter;
 
-class FilterFactory
+class Factories
 {
     /**
      * @return \TPawl\LiTE\Filter\FilterInterface
