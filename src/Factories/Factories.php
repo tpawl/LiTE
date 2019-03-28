@@ -7,7 +7,7 @@ namespace TPawl\LiTE\Factories;
 
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Expressions\TemplateExpressionInterface;
-use TPAwl\LiTE\Expressions\VariableExpression;
+use TPawl\LiTE\Expressions\VariableExpression;
 use TPawl\LiTE\Filter\Filter;
 
 class Factories
