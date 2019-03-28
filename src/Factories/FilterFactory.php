@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Factories;
 
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\Lite\Filter\Filter;
+use TPawl\LiTE\Filter\Filter;
 
 class FilterFactory
 {
