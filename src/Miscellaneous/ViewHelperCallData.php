@@ -22,13 +22,18 @@ class ViewHelperCallData
      * @param array $arguments
      * @return void
      */
-    public function __construct(string $name, array $arguments)
+    private function __construct(string $name, array $arguments)
     {
         $this->name = $name;
 
         $this->arguments = $arguments;
     }
 
+    public static function create(string $name, array $arguments): self
+    {
+        return new self($name, $arguments);
+    }
+    
     /**
      * @return string
      */
