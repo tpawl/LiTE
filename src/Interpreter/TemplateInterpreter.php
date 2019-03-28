@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Interpreter;
 
 use TPawl\LiTE\Context\Context;
-use TPawl\LiTE\Filter\Filter;
+use TPawl\LiTE\Filter\FilterFactory;
 use TPawl\LiTE\Expressions\VariableExpression;
 use TPawl\LiTE\Expressions\ViewHelperExpression;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
@@ -35,7 +35,7 @@ class TemplateInterpreter
      */
     public function __get(string $name): void
     {
-        $variableExpression = new VariableExpression($name, new Filter());
+        $variableExpression = new VariableExpression($name, FilterFactory::createFilter());
 
         $variableExpression->display();
     }
@@ -55,7 +55,7 @@ class TemplateInterpreter
         $viewHelperCallData = new ViewHelperCallData($name, $arguments);
 
         $viewHelperExpression = new ViewHelperExpression(
-            $viewHelperCallData, new Filter());
+            $viewHelperCallData, FilterFactory::createFilter());
 
         $viewHelperExpression->display();
     }
