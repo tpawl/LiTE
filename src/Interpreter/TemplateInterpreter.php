@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2013 - 2018 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2013 - 2019 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -35,7 +35,8 @@ class TemplateInterpreter
      */
     public function __get(string $name): void
     {
-        $variableExpression = new VariableExpression($name, Factories::createFilter());
+        $variableExpression = Factories::createVariableExpression(
+            $name, Factories::createFilter());
 
         $variableExpression->display();
     }
