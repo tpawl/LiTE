@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Interpreter;
 
 use TPawl\LiTE\Context\Context;
-use TPawl\LiTE\Filter\FilterFactory;
+use TPawl\LiTE\Factories\FilterFactory;
 use TPawl\LiTE\Expressions\VariableExpression;
 use TPawl\LiTE\Expressions\ViewHelperExpression;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
