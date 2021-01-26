@@ -14,6 +14,7 @@ use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
 use TPawl\LiTE\Miscellaneous\SettingValidationData;
+use TPawl\LiTE\FileSystem\FileSystem;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -53,7 +54,7 @@ class TemplateExpression extends SubTemplateExpression
 
         parent::__construct($template, $variables);
 
-        $this->viewHelperDirectory = realpath($viewHelperDirectory);
+        $this->viewHelperDirectory = FileSystem::makeRealPathname($viewHelperDirectory);
         $this->viewHelperNamespace = $viewHelperNamespace;
         $this->viewHelperErrorHandler = ErrorHandlers::top();
     }
