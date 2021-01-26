@@ -18,18 +18,18 @@ class FileSystem
     }
 
     /*
-	   * @param string $pathname
-	   * @return void
-	   */
+	 * @param string $pathname
+	 * @return void
+	 */
     public static function makeRealPathname(string $pathname): string
-	  {
-		    $realPathname = realpath($pathname);
+	{
+        $realPathname = realpath($pathname);
 		
-		    if ($realPathname === false) {
+		if ($realPathname === false) {
 			
-			      throw new FileSystemException(
-			          "can not make real pathname for: '{$pathname}'");
-	      }
-		    return $realPathname;
-	  }
+	        throw new FileSystemException(
+			    "can not make real pathname for: '{$pathname}'");
+	    }
+		return $realPathname;
+	}
 }
