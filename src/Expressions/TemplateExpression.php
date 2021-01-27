@@ -28,17 +28,17 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @var string
      */
-    private $viewHelperDirectory;
+    private $viewHelpersDirectory;
 
     /**
      * @var string
      */
-    private $viewHelperNamespace;
+    private $viewHelpersNamespace;
 
     /**
      * @var callable|null;
      */
-    private $viewHelperErrorHandler;
+    private $viewHelpersErrorHandler;
 
     /**
      * @param array $settings
@@ -49,14 +49,14 @@ class TemplateExpression extends SubTemplateExpression
     {
         self::validateSettings($settings);
 
-        [$template, $variables, $viewHelperDirectory, $viewHelperNamespace] =
+        [$template, $variables, $viewHelpersDirectory, $viewHelpersNamespace] =
             $settings;
 
         parent::__construct($template, $variables);
 
-        $this->viewHelperDirectory = FileSystem::makeRealPathname($viewHelperDirectory);
-        $this->viewHelperNamespace = $viewHelperNamespace;
-        $this->viewHelperErrorHandler = ErrorHandlers::top();
+        $this->viewHelpersDirectory = FileSystem::makeRealPathname($viewHelpersDirectory);
+        $this->viewHelpersNamespace = $viewHelpersNamespace;
+        $this->viewHelpersErrorHandler = ErrorHandlers::top();
     }
 
     /**
@@ -163,7 +163,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getClassQualifier(string $className): string
     {
-        return "{$this->viewHelperNamespace}\\{$className}";
+        return "{$this->viewHelpersNamespace}\\{$className}";
     }
 
     /**
@@ -211,7 +211,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getClassFilename(string $className): string
     {
-        return "{$this->viewHelperDirectory}/{$className}.php";
+        return "{$this->viewHelpersDirectory}/{$className}.php";
     }
 
     /**
