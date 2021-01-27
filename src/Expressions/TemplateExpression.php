@@ -211,7 +211,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function getClassFilename(string $className): string
     {
-        return "{$this->viewHelpersDirectory}/{$className}.php";
+        return $this->viewHelpersDirectory . DIRECTORY_SEPARATOR . "{$className}.php";
     }
 
     /**
