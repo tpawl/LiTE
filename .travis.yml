@@ -13,7 +13,7 @@ matrix:
 #before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer require satooshi/php-coveralls:^0.7 -n ; fi
 
 script:
-  - make test-phpunit
+  - phpunit
 #  - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
 #  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi
 
