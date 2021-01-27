@@ -3,18 +3,19 @@ sudo: false
 language: php
 
 php:
-  - '7.1'
-  - '7.2'
+  - '7.3'
+  - '7.4'
+  - '8.0'
   - nightly
 
 matrix:
   allow_failures:
     - php: nightly
 
-before_script: if [[ "$TRAVIS_PHP_VERSION" == '7.2' ]]; then composer require satooshi/php-coveralls:^0.7 -n ; fi
+before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer require satooshi/php-coveralls:^0.7 -n ; fi
 
 script:
-  - if [[ "$TRAVIS_PHP_VERSION" == '7.2' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" != '7.2' ]]; then phpunit ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi
 
-after_script: if [[ "$TRAVIS_PHP_VERSION" == '7.2' ]]; then php vendor/bin/coveralls -v ; fi
+after_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then php vendor/bin/coveralls -v ; fi
