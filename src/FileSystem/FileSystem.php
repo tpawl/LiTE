@@ -28,7 +28,7 @@ class FileSystem
 		if ($realPathname === false) {
 			
 	        throw new FileSystemException(
-			    "can not make real pathname for: '{$pathname}'");
+			    "Could not make real pathname for: '{$pathname}'");
 	    }
 		return $realPathname;
 	}
