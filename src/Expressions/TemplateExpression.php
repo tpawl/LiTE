@@ -152,7 +152,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $name
      * @return string
      */
-    private static function getClassName(string $name): string
+    private static function makeClassName(string $name): string
     {
         return ucfirst($name) . 'ViewHelper';
     }
@@ -161,7 +161,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $className
      * @return string
      */
-    private function getClassQualifier(string $className): string
+    private function makeClassQualifier(string $className): string
     {
         return "{$this->viewHelpersNamespace}\\{$className}";
     }
@@ -183,12 +183,12 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function loadViewHelper(string $name): string
     {
-        $className = self::getClassName($name);
-        $classQualifier = $this->getClassQualifier($className);
+        $className = self::makeClassName($name);
+        $classQualifier = $this->makeClassQualifier($className);
 
         if (!self::isClassExisting($classQualifier)) {
 
-            include $this->getClassFilename($className);
+            include $this->makeClassFilename($className);
 
             if (!self::isClassExisting($classQualifier)) {
 
@@ -209,7 +209,7 @@ class TemplateExpression extends SubTemplateExpression
      * @param string $className
      * @return string
      */
-    private function getClassFilename(string $className): string
+    private function makeClassFilename(string $className): string
     {
         return $this->viewHelpersDirectory . DIRECTORY_SEPARATOR . "{$className}.php";
     }
