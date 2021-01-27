@@ -15,12 +15,12 @@ class ContextTest extends TestCase
 {
     private $context;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->context = Context::getInstance();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Functions::resetContext();
     }
