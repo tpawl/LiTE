@@ -191,9 +191,9 @@ class Context
 
     /**
      * @return void
-     * @codeCoverageIgnore
      */
     public function __wakeup()
     {
+        Assertion::assertNeverReachesHere('You can not deserialize a object of the class Context.');
     }
 }
