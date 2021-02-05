@@ -286,7 +286,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
         willReturn(true);
 
-        $viewHelperCallData = new LiteViewHelperCallData::create('logic', []);
+        $viewHelperCallData = LiteViewHelperCallData::create('logic', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
