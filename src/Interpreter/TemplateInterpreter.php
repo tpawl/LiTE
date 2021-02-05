@@ -9,7 +9,7 @@ use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Factories\Factories;
 use TPawl\LiTE\Expressions\VariableExpression;
 use TPawl\LiTE\Expressions\ViewHelperExpression;
-use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 
 class TemplateInterpreter
 {
@@ -54,7 +54,7 @@ class TemplateInterpreter
     public static function __callStatic(string $name, array $arguments): void
     {
         $viewHelperExpression = Factories::createViewHelperExpression(
-            ViewHelperCallData::create($name, $arguments), Factories::createFilter());
+            LiteViewHelperCallData::create($name, $arguments), Factories::createFilter());
 
         $viewHelperExpression->display();
     }
