@@ -19,7 +19,7 @@ class Assertion
 
     public static function assertNeverReachesHere(string $message = ''): void
     {
-        self::isFalse(true, $message);
+        self::assertIsFalse(true, $message);
     }
     
     /**
@@ -30,7 +30,7 @@ class Assertion
      */
     public static function notIsNull($value, string $message = ''): void
     {
-        self::isFalse(is_null($value), $message);
+        self::assertIsFalse(is_null($value), $message);
     }
 
     /**
@@ -42,7 +42,7 @@ class Assertion
     public static function notIsEmptyString(string $string,
         string $message = ''): void
     {
-        self::isFalse(strlen($string) === 0, $message);
+        self::assertIsFalse(strlen($string) === 0, $message);
     }
 
     /**
@@ -51,7 +51,7 @@ class Assertion
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if condition is true
      */
-    public static function isFalse(bool $condition, string $message = ''): void
+    private static function assertIsFalse(bool $condition, string $message = ''): void
     {
         if ($condition) {
 
