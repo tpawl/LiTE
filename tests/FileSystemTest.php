@@ -17,10 +17,7 @@ class FileSystemTest extends TestCase
         
         $this->assertTrue(true);
     }
-}
-
-class FileSystemTest extends TestCase
-{
+    
     public function testMakeRealPathnameThrowsAnException()
     {
 		$this->expectException(FileSystemException::class);
