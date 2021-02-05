@@ -7,15 +7,15 @@ namespace TPawl\LiTE\Tests;
 
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Filter\Filter;
+use TPawl\LiTE\Exceptions\AssertionException;
 
 class FilterTest extends TestCase
 {
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\AssertionException
-     * @expectedExceptionMessage Name must not be empty
-     */
     public function testEmptyNameThrowsAnException()
     {
+		$this->expectException(AssertionException::class);
+		$this->expectExceptionMessage('Name must not be empty');
+		
         $filter = new Filter();
 
         $filter->isValidName('');
