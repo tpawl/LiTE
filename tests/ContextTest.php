@@ -10,6 +10,7 @@ use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
+use TPawl\LiTE\Exceptions\ContextException;
 
 class ContextTest extends TestCase
 {
@@ -25,12 +26,12 @@ class ContextTest extends TestCase
         Functions::resetContext();
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\ContextException
-     * @expectedExceptionMessage A template expression must not be used within a template expression
-     */
     public function testTemplateExpressionWithinTemplateExpressionThrowsAnException()
     {
+		$this->expectException(ContextException::class);
+		$this->expectExceptionMessage(
+		    'A template expression must not be used within a template expression');
+		
         $settings = [
             '',
             [],
