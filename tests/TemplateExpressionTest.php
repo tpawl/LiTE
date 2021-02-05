@@ -10,27 +10,28 @@ use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Exceptions\TemplateExpressionException;
+use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
+use TPawl\LiTE\Exceptions\ViewHelperLogicException;
 
 class TemplateExpressionTest extends TestCase
 {
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 0 in settings
-     */
     public function testNonExistingIndex0InSettingsThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('Missing index 0 in settings');
+		
         $settings = [
         ];
 
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 1 in settings
-     */
     public function testNonExistingIndex1InSettingsThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('Missing index 1 in settings');
+		
         $settings = [
             '',
         ];
@@ -38,12 +39,11 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 2 in settings
-     */
     public function testNonExistingIndex2InSettingsThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('Missing index 2 in settings');
+		
         $settings = [
             '',
             [],
@@ -52,12 +52,11 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Missing index 3 in settings
-     */
     public function testNonExistingIndex3InSettingsThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage('Missing index 3 in settings');
+		
         $settings = [
             '',
             [],
@@ -67,12 +66,12 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in settings at index 0: 'string' expected, 'null' given
-     */
     public function testIndex0InSettingsWithWrongTypeThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage(
+		    "Wrong type in settings at index 0: 'string' expected, 'null' given");
+		
         $settings = [
             null,
         ];
@@ -80,12 +79,12 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in settings at index 1: 'array' expected, 'null' given
-     */
     public function testIndex1InSettingsWithWrongTypeThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage(
+		    "Wrong type in settings at index 1: 'array' expected, 'null' given");
+		
         $settings = [
             '',
             null,
@@ -94,12 +93,12 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in settings at index 2: 'string' expected, 'null' given
-     */
     public function testIndex2InSettingsWithWrongTypeThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage(
+		    "Wrong type in settings at index 2: 'string' expected, 'null' given");
+			
         $settings = [
             '',
             [],
@@ -109,12 +108,12 @@ class TemplateExpressionTest extends TestCase
         $te = new TemplateExpression($settings);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Wrong type in settings at index 3: 'string' expected, 'null' given
-     */
     public function testIndex3InSettingsWithWrongTypeThrowsAnException()
     {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage(
+		    "Wrong type in settings at index 3: 'string' expected, 'null' given");
+			
         $settings = [
             '',
             [],
@@ -143,12 +142,11 @@ class TemplateExpressionTest extends TestCase
         Functions::resetContext();
     }
 
-    /**
-     * @expectedException \DomainException
-     * @expectedExceptionMessage Invalid view helper name: abc
-     */
     public function testInvalidNameThrowsAnException()
     {
+		$this->expectException(\DomainException::class);
+		$this->expectExceptionMessage('Invalid view helper name: abc');
+			
         $settings = [
             '',
             [],
@@ -197,11 +195,10 @@ class TemplateExpressionTest extends TestCase
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\TemplateExpressionException
-     */
     public function testWrongViewHelperThrowsAnException()
     {
+		$this->expectException(TemplateExpressionException::class);
+		
         $settings = [
             '',
             [],
@@ -221,11 +218,10 @@ class TemplateExpressionTest extends TestCase
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\TemplateExpressionException
-     */
     public function testInvalidViewHelperThrowsAnException()
     {
+		$this->expectException(TemplateExpressionException::class);
+		
         $settings = [
             '',
             [],
@@ -245,12 +241,12 @@ class TemplateExpressionTest extends TestCase
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\ViewHelperRuntimeException
-     * @expectedExceptionMessage Runtime exception was thrown in view helper: \RuntimeViewHelper
-     */
     public function testRuntimeViewHelperThrowsAnException()
     {
+		$this->expectException(ViewHelperRuntimeException::class);
+		$this->expectExceptionMessage(
+		    'Runtime exception was thrown in view helper: \RuntimeViewHelper');
+		
         $settings = [
             '',
             [],
@@ -270,12 +266,12 @@ class TemplateExpressionTest extends TestCase
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\ViewHelperLogicException
-     * @expectedExceptionMessage Logic exception was thrown in view helper: \LogicViewHelper
-     */
     public function testLogicViewHelperThrowsAnException()
     {
+		$this->expectException(ViewHelperLogicException::class);
+		$this->expectExceptionMessage(
+		    'Logic exception was thrown in view helper: \LogicViewHelper');
+			
         $settings = [
             '',
             [],
