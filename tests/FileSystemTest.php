@@ -14,6 +14,8 @@ class FileSystemTest extends TestCase
     public function testMakeRealPathname()
     {	
         $realPathname = FileSystem::makeRealPathname(__DIR__ . '/Asset/ViewHelpers');
+        
+        $this->assertTrue(true);
     }
 }
 
