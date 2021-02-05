@@ -16,6 +16,6 @@ class AssertionTest extends TestCase
 		$this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::isFalse(true, 'abc');
+        Assertion::assertIsFalse(true, 'abc');
     }
 }
