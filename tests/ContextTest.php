@@ -11,6 +11,7 @@ use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
 use TPawl\LiTE\Exceptions\ContextException;
+use TPawl\LiTE\Exceptions\AssertionException;
 
 class ContextTest extends TestCase
 {
@@ -48,12 +49,12 @@ class ContextTest extends TestCase
         $te2->initialize($this->context);
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\ContextException
-     * @expectedExceptionMessage A sub-template expression must only be used within a template expression
-     */
     public function testSubTemplateExpressionNotWithinTemplateExpressionThrowsAnException()
     {
+		$this->expectException(ContextException::class);
+		$this->expectExceptionMessage(
+		    'A sub-template expression must only be used within a template expression');
+		
         $ste = new SubTemplateExpression('', []);
 
         $ste->initialize($this->context);
@@ -89,11 +90,10 @@ class ContextTest extends TestCase
         TemplateExpression::cleanup($this->context);
     }
 
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\AssertionException
-     */
     public function testPopFromEmptyVariablesContextThrowsAnException()
     {
+		$this->expectException(AssertionException::class);
+		
         $this->context->popSubTemplateExpression();
     }
 
