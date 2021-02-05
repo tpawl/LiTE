@@ -7,15 +7,15 @@ namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Assertion\Assertion;
+use TPawl\LiTE\Exceptions\AssertionException;
 
 class AssertionTest extends TestCase
 {
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\AssertionException
-     * @expectedExceptionMessage abc
-     */
     public function testTrueConditionThrowsAnException()
     {
+		$this->expectException(AssertionException::class);
+		$this->expectExceptionMessage('abc');
+		
         Assertion::isFalse(true, 'abc');
     }
 }
