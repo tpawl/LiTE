@@ -161,7 +161,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $viewHelperCallData = new ViewHelperCallData('abc', []);
+        $viewHelperCallData = ViewHelperCallData::create('abc', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -182,7 +182,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperCallData = new ViewHelperCallData('test', []);
+        $viewHelperCallData = ViewHelperCallData::create('test', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
 
@@ -213,7 +213,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperCallData = new ViewHelperCallData('wrong', []);
+        $viewHelperCallData = ViewHelperCallData::create('wrong', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -236,7 +236,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-            $viewHelperCallData = new ViewHelperCallData('invalid', []);
+            $viewHelperCallData = ViewHelperCallData::create('invalid', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -261,7 +261,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperCallData = new ViewHelperCallData('runtime', []);
+        $viewHelperCallData = ViewHelperCallData::create('runtime', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -286,7 +286,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
         willReturn(true);
 
-        $viewHelperCallData = new ViewHelperCallData('logic', []);
+        $viewHelperCallData = new ViewHelperCallData::create('logic', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
