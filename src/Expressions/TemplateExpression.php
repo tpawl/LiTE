@@ -12,7 +12,7 @@ use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
 use TPawl\LiTE\Exceptions\ViewHelperLogicException;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\ViewHelperInterface;
-use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\FileSystem\FileSystem;
 
@@ -118,7 +118,7 @@ class TemplateExpression extends SubTemplateExpression
      * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
      * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper
      */
-    public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
+    public function executeViewHelper(LiteViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void
     {
         $name = $viewHelperCallData->getName();
