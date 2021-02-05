@@ -10,7 +10,7 @@ use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Assertion\Assertion;
 use TPawl\LiTE\Exceptions\ContextException;
-use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 
 class Context
 {
@@ -91,7 +91,7 @@ class Context
      * @throws \TPawl\LiTE\Exceptions\ViewHelperRuntimeException if a runtime exception occured in view helper
      * @throws \TPawl\LiTE\Exceptions\ViewHelperLogicException if a logic exception occured in view helper
      */
-    public function executeViewHelper(ViewHelperCallData $viewHelperCallData,
+    public function executeViewHelper(LiteViewHelperCallData $viewHelperCallData,
         FilterInterface $filter): void
     {
         $this->getTemplateExpression()->executeViewHelper(
