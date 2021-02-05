@@ -11,15 +11,16 @@ use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Tests\Asset\Functions;
 use TPawl\LiTE\Filter\FilterInterface;
+use TPawl\LiTE\Exceptions\SubTemplateExpressionException;
 
 class SubTemplateExpressionTest extends TestCase
 {
-    /**
-     * @expectedException TPawl\LiTE\Exceptions\SubTemplateExpressionException
-     * @expectedExceptionMessage Sub-template expression is already in use
-     */
     public function testSubTemplateExpressionAlreadyInUseThrowsAnException()
     {
+		$this->expectException(SubTemplateExpressionException::class);
+		$this->expectExceptionMessage(
+		    'Sub-template expression is already in use');
+		
         $subTemplateExpression1 = new SubTemplateExpression('', []);
         $subTemplateExpression2 = new SubTemplateExpression('', []);
 
@@ -28,12 +29,11 @@ class SubTemplateExpressionTest extends TestCase
         $subTemplateExpression1->setNext($subTemplateExpression2);
     }
 
-    /**
-     * @expectedException \DomainException
-     * @expectedExceptionMessage Invalid template variable name: abc
-     */
     public function testInvalidNameThrowsAnException()
     {
+		$this->expectException(\DomainException::class);
+		$this->expectExceptionMessage('Invalid template variable name: abc');
+			
         $subTemplateExpression = new SubTemplateExpression('', []);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -44,12 +44,11 @@ class SubTemplateExpressionTest extends TestCase
         $subTemplateExpression->lookUpVariable('abc', $filter);
     }
 
-    /**
-     * @expectedException \OutOfRangeException
-     * @expectedExceptionMessage Template variable 'abc' does not exist
-     */
     public function testNonExistingVariableThrowsAnException()
     {
+		$this->expectException(\OutOfRangeException::class);
+		$this->expectExceptionMessage("Template variable 'abc' does not exist");
+		
         $subTemplateExpression = new SubTemplateExpression('', []);
 
         $filter = $this->createMock(FilterInterface::class);
@@ -92,12 +91,11 @@ class SubTemplateExpressionTest extends TestCase
         Functions::resetContext();
     }
 
-    /**
-     * @expectedException \ErrorException
-     * @expectedExceptionMessage Test
-     */
     public function testErrorHandler()
     {
+		$this->expectException(\ErrorException::class);
+		$this->expectExceptionMessage('Test');
+		
         $mock = $this->createMock(ConfigurationInterface::class);
 
         $mock->method('shouldErrorLevelBeReported')->
