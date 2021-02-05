@@ -17,6 +17,11 @@ class Assertion
     {
     }
 
+    public static function assertNeverReachesHere(string $message = ''): void
+    {
+        self::isFalse(true, $message);
+    }
+    
     /**
      * @param mixed $value
      * @param string $message
