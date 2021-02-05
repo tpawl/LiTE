@@ -51,7 +51,7 @@ class Assertion
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if condition is true
      */
-    private static function assertIsFalse(bool $condition, string $message = ''): void
+    public static function assertIsFalse(bool $condition, string $message = ''): void
     {
         if ($condition) {
 
