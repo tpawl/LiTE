@@ -7,7 +7,7 @@ namespace TPawl\LiTE\Expressions;
 
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 
 class ViewHelperExpression implements TemplateExpressionInterface
 {
@@ -25,7 +25,7 @@ class ViewHelperExpression implements TemplateExpressionInterface
      * @param \TPawl\LiTE\Miscellaneous\ViewHelperCallData $viewHelperCallData
      * @param \TPawl\LiTE\Filter\FilterInterface $filter
      */
-    public function __construct(ViewHelperCallData $viewHelperCallData,
+    public function __construct(LiteViewHelperCallData $viewHelperCallData,
         FilterInterface $filter)
     {
         $this->viewHelperCallData = $viewHelperCallData;
