@@ -24,6 +24,6 @@ class FileSystemTest extends TestCase
 		$this->expectException(FileSystemException::class);
 		$this->expectExceptionMessage('Could not make real pathname for');
 		
-        $realPathname = FileSystem::makeRealPathname(__DIR__ . '/Asset/non-existing-path');
+        $realPathname = FileSystem::makeRealPathname(__DIR__ . '/Asset/NonExistingPath');
     }
 }
