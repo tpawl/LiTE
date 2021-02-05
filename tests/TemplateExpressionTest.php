@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Tests\Asset\Functions;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Miscellaneous\ViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 use TPawl\LiTE\Exceptions\TemplateExpressionException;
 use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
 use TPawl\LiTE\Exceptions\ViewHelperLogicException;
@@ -161,7 +161,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(false);
 
-        $viewHelperCallData = ViewHelperCallData::create('abc', []);
+        $viewHelperCallData = LiteViewHelperCallData::create('abc', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -182,7 +182,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperCallData = ViewHelperCallData::create('test', []);
+        $viewHelperCallData = LiteViewHelperCallData::create('test', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
 
@@ -213,7 +213,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperCallData = ViewHelperCallData::create('wrong', []);
+        $viewHelperCallData = LiteViewHelperCallData::create('wrong', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -261,7 +261,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-        $viewHelperCallData = ViewHelperCallData::create('runtime', []);
+        $viewHelperCallData = LiteViewHelperCallData::create('runtime', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
@@ -286,7 +286,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
         willReturn(true);
 
-        $viewHelperCallData = new ViewHelperCallData::create('logic', []);
+        $viewHelperCallData = new LiteViewHelperCallData::create('logic', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
