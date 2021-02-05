@@ -118,4 +118,15 @@ class ContextTest extends TestCase
 
         $this->assertTrue(Context::isEmpty());
     }
+    
+    public function testDeserializationThrowsAnException()
+    {
+        $this->expectException(AssertionException::class);
+        $this->expectExceptionMessage(
+            '');
+        
+        $s = serialize($this->context);
+        
+        $c = unserialize($s);
+    }
 }
