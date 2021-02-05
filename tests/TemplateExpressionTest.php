@@ -236,7 +236,7 @@ class TemplateExpressionTest extends TestCase
         $filter->method('isValidName')->
             willReturn(true);
 
-            $viewHelperCallData = ViewHelperCallData::create('invalid', []);
+            $viewHelperCallData = LiteViewHelperCallData::create('invalid', []);
 
         $templateExpression->executeViewHelper($viewHelperCallData, $filter);
     }
