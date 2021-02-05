@@ -123,7 +123,7 @@ class ContextTest extends TestCase
     {
         $this->expectException(AssertionException::class);
         $this->expectExceptionMessage(
-            '');
+            'You can not deserialize a object of the class Context.');
         
         $s = serialize($this->context);
         
