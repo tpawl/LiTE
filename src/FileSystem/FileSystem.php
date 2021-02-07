@@ -17,10 +17,6 @@ class FileSystem
     {
     }
 
-    /*
-     * @param string $pathname
-     * @return string
-     */
     public static function makeRealPathname(string $pathname): string
     {
         $realPathname = realpath($pathname);
@@ -28,7 +24,7 @@ class FileSystem
         if ($realPathname === false) {
 
             throw new FileSystemException(
-                "Could not make real pathname for: '{$pathname}'");
+                "Could not make real pathname for '{$pathname}'.");
         }
         return $realPathname;
     }
