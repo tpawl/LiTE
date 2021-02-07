@@ -12,17 +12,19 @@ use TPawl\LiTE\Exceptions\FileSystemException;
 class FileSystemTest extends TestCase
 {
     public function testMakeRealPathname()
-    {	
-        $realPathname = FileSystem::makeRealPathname(__DIR__ . '/Asset/ViewHelpers');
-        
+    {
+        $realPathname = FileSystem::makeRealPathname(
+            __DIR__ . '/Asset/ViewHelpers');
+
         $this->assertTrue(true);
     }
-    
+
     public function testMakeRealPathnameThrowsAnException()
     {
-		$this->expectException(FileSystemException::class);
-		$this->expectExceptionMessage('Could not make real pathname for');
-		
-        $realPathname = FileSystem::makeRealPathname(__DIR__ . '/Asset/NonExistingPath');
+        $this->expectException(FileSystemException::class);
+        $this->expectExceptionMessage('Could not make real pathname for');
+
+        $realPathname = FileSystem::makeRealPathname(
+            __DIR__ . '/Asset/NonExistingPath');
     }
 }
