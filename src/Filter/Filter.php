@@ -19,7 +19,7 @@ class Filter implements FilterInterface
      */
     public function isValidName(string $name): bool
     {
-        Assertion::notIsEmptyString($name, 'Name must not be empty');
+        Assertion::assertNotIsEmptyString($name, 'Name must not be empty');
 
         return self::isFirstCharacterOfNameValid($name) ?
             self::areRemainingCharactersOfNameValid($name) :
