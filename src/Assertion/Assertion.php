@@ -28,7 +28,7 @@ class Assertion
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if value is null
      */
-    public static function notIsNull($value, string $message = ''): void
+    public static function assertNotIsNull($value, string $message = ''): void
     {
         self::assertIsFalse(is_null($value), $message);
     }
@@ -39,8 +39,8 @@ class Assertion
      * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if string is empty
      */
-    public static function notIsEmptyString(string $string,
-        string $message = ''): void
+    public static function assertNotIsEmptyString(
+	    string $string, string $message = ''): void
     {
         self::assertIsFalse(strlen($string) === 0, $message);
     }
