@@ -6,7 +6,7 @@ php:
   - '8.0'
   - nightly
 
-matrix:
+jobs:
   allow_failures:
     - php: nightly
 
