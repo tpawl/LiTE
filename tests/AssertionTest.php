@@ -33,4 +33,19 @@ class AssertionTest extends TestCase
 		
         Assertion::assertNeverReachesHere('abc');
     }
+    
+    public function testAssertNotIsNull()
+    {
+        Assertion::assertNotIsNull('notNull');
+        
+        $this->assertTrue(true);
+    }
+    
+    public function testAssertNotIsNullThrowsAnException()
+    {
+        $this->expectException(AssertionException::class);
+		$this->expectExceptionMessage('abc');
+		
+        Assertion::assertNotIsNull(null, 'abc');
+    }
 }
