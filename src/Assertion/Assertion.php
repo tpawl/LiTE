@@ -8,22 +8,17 @@ namespace TPawl\LiTE\Assertion;
 use TPawl\LiTE\Exceptions\AssertionException;
 
 class Assertion
-{
-	/**
-     * @throws \TPawl\LiTE\Exceptions\AssertionException anyway
-     */
-    public static function assertNeverReachesHere(string $message = ''): void
-    {
-        self::assertIsFalse(true, $message);
-    }
-    
+{   
     /**
      * @param mixed $value
      * @throws \TPawl\LiTE\Exceptions\AssertionException if value is null
      */
     public static function assertNotIsNull($value, string $message = ''): void
     {
-        self::assertIsFalse(is_null($value), $message);
+        if (is_null($value)) {
+            
+            self::assertNeverReachesHere($message);
+        }
     }
 
     /**
@@ -32,18 +27,17 @@ class Assertion
     public static function assertNotIsEmptyString(
 	    string $string, string $message = ''): void
     {
-        self::assertIsFalse(strlen($string) === 0, $message);
-    }
-
-    /**
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if condition is true
-     */
-    public static function assertIsFalse(
-	    bool $condition, string $message = ''): void
-    {
-        if ($condition) {
-
-            throw new AssertionException($message);
+        if (strlen($string) === 0) {
+            
+            self::assertNeverReachesHere($message);
         }
+    }
+    
+    /**
+     * @throws \TPawl\LiTE\Exceptions\AssertionException anyway
+     */
+    public static function assertNeverReachesHere(string $message = ''): void
+    {
+        throw new AssertionException($message);
     }
 }
