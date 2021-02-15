@@ -61,6 +61,6 @@ class AssertionTest extends TestCase
         $this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::assertNotIsNull('', 'abc');
+        Assertion::assertNotIsEmptyString('', 'abc');
     }
 }
