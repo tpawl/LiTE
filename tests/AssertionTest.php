@@ -48,4 +48,19 @@ class AssertionTest extends TestCase
 		
         Assertion::assertNotIsNull(null, 'abc');
     }
+    
+    public function testAssertNotIsEmptyString()
+    {
+        Assertion::assertNotIsEmptyString('notEmpty');
+        
+        $this->assertTrue(true);
+    }
+    
+    public function testAssertNotIsEmptyStringThrowsAnException()
+    {
+        $this->expectException(AssertionException::class);
+		$this->expectExceptionMessage('abc');
+		
+        Assertion::assertNotIsNull('', 'abc');
+    }
 }
