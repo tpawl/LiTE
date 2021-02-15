@@ -9,14 +9,9 @@ use TPawl\LiTE\Exceptions\AssertionException;
 
 class Assertion
 {
-    /**
-     * @return void
-     * @codeCoverageIgnore
+	/**
+     * @throws \TPawl\LiTE\Exceptions\AssertionException anyway
      */
-    private function __construct()
-    {
-    }
-
     public static function assertNeverReachesHere(string $message = ''): void
     {
         self::assertIsFalse(true, $message);
@@ -24,8 +19,6 @@ class Assertion
     
     /**
      * @param mixed $value
-     * @param string $message
-     * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if value is null
      */
     public static function assertNotIsNull($value, string $message = ''): void
@@ -34,9 +27,6 @@ class Assertion
     }
 
     /**
-     * @param string $string
-     * @param string $message
-     * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if string is empty
      */
     public static function assertNotIsEmptyString(
@@ -46,12 +36,10 @@ class Assertion
     }
 
     /**
-     * @param bool $condition
-     * @param string $message
-     * @return void
      * @throws \TPawl\LiTE\Exceptions\AssertionException if condition is true
      */
-    public static function assertIsFalse(bool $condition, string $message = ''): void
+    public static function assertIsFalse(
+	    bool $condition, string $message = ''): void
     {
         if ($condition) {
 
