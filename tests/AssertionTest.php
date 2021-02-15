@@ -11,11 +11,26 @@ use TPawl\LiTE\Exceptions\AssertionException;
 
 class AssertionTest extends TestCase
 {
-    public function testTrueConditionThrowsAnException()
+    public function testAssertIsFalse()
+    {
+        Assertion::assertIsFalse(false);
+        
+        $this->assertTrue(true);
+    }
+    
+    public function testAssertIsFalseThrowsAnException()
     {
 		$this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
         Assertion::assertIsFalse(true, 'abc');
+    }
+    
+    public function testAssertNeverReachesHereThrowsAnException()
+    {
+        $this->expectException(AssertionException::class);
+		$this->expectExceptionMessage('abc');
+		
+        Assertion::assertNeverReachesHere('abc');
     }
 }
