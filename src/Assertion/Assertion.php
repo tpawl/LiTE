@@ -27,7 +27,7 @@ class Assertion
     public static function assertNotIsEmptyString(
 	    string $string, string $message = ''): void
     {
-        if (strlen($string) === 0) {
+        if (empty($string)) {
             
             self::assertNeverReachesHere($message);
         }
