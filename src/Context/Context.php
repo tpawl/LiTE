@@ -127,7 +127,7 @@ class Context
      */
     public function getTemplateExpression(): TemplateExpression
     {
-        Assertion::assertNotIsNull($this->templateExpression);
+        Assertion::assertNotNull($this->templateExpression);
 
         return $this->templateExpression;
     }
@@ -168,7 +168,7 @@ class Context
      */
     public function topSubTemplateExpression(): SubTemplateExpression
     {
-        Assertion::assertNotIsNull($this->firstSubTemplateExpression);
+        Assertion::assertNotNull($this->firstSubTemplateExpression);
 
         return $this->firstSubTemplateExpression;
     }
