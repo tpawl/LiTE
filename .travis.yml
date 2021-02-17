@@ -10,10 +10,16 @@ jobs:
   allow_failures:
     - php: nightly
 
-before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer require --dev php-coveralls/php-coveralls -n ; fi
+before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer global require php-coveralls/php-coveralls ; fi
 
 script:
   - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
   - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi 
   
 after_success: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then travis_retry php vendor/bin/php-coveralls -v ; fi
+
+- name: Upload coverage results to Coveralls
+  env:
+    COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  run: |
+    php-coveralls --coverage_clover=build/logs/clover.xml -v
