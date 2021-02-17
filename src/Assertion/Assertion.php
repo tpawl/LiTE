@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-namespace TPawl\LiTE\Assertion;
+namespace TPawl\LiTE\Assertions;
 
 use TPawl\LiTE\Exceptions\AssertionException;
 use TPawl\LiTE\Variable\VariableFunctions;
