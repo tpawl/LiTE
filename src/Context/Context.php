@@ -8,7 +8,7 @@ namespace TPawl\LiTE\Context;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Filter\FilterInterface;
-use TPawl\LiTE\Assertion\Assertions;
+use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Exceptions\ContextException;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 
