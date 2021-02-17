@@ -127,7 +127,7 @@ class Context
      */
     public function getTemplateExpression(): TemplateExpression
     {
-        Assertion::assertNotNull($this->templateExpression);
+        Assertions::assertNotNull($this->templateExpression);
 
         return $this->templateExpression;
     }
@@ -168,7 +168,7 @@ class Context
      */
     public function topSubTemplateExpression(): SubTemplateExpression
     {
-        Assertion::assertNotNull($this->firstSubTemplateExpression);
+        Assertions::assertNotNull($this->firstSubTemplateExpression);
 
         return $this->firstSubTemplateExpression;
     }
@@ -194,7 +194,7 @@ class Context
      */
     public function __wakeup()
     {
-        Assertion::assertNeverReachesHere(
+        Assertions::assertNeverReachesHere(
 		    'You can not deserialize a object of the class Context.');
     }
 }
