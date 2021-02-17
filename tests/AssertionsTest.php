@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TPawl\LiTE\Assertion\Assertion;
+use TPawl\LiTE\Assertion\Assertions;
 use TPawl\LiTE\Exceptions\AssertionException;
 
 class AssertionsTest extends TestCase
