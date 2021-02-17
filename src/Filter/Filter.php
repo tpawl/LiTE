@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Filter;
 
-use TPawl\LiTE\Assertion\Assertion;
+use TPawl\LiTE\Assertion\Assertions;
 
 class Filter implements FilterInterface
 {
