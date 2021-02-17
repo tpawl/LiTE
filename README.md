@@ -15,7 +15,7 @@ It supports Template Variables and View Helpers.
 Requirements
 ------------
 
-**LiTE** requires PHP 7.1+
+**LiTE** requires PHP 7.3+
 
 Installation
 ------------
