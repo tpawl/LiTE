@@ -17,9 +17,8 @@ script:
   - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi 
   
 after_success: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then travis_retry php vendor/bin/php-coveralls -v ; fi
-
-- name: Upload coverage results to Coveralls
-  env:
-    COVERALLS_REPO_TOKEN: ${{ secrets.TEST }}
-  run: |
-    php-coveralls --coverage_clover=build/logs/clover.xml -v
+  - name: Upload coverage results to Coveralls
+    env:
+      COVERALLS_REPO_TOKEN: ${{ secrets.TEST }}
+    run: |
+      php-coveralls --coverage_clover=build/logs/clover.xml -v
