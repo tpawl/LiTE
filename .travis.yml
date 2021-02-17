@@ -13,8 +13,7 @@ jobs:
 before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer require php-coveralls/php-coveralls -n ; fi
 
 script:
-  - phpunit
-#  - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
-#  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi
 
-#after_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then php vendor/bin/coveralls -v ; fi
+after_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then php vendor/bin/coveralls -v ; fi
