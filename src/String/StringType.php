@@ -8,10 +8,9 @@ namespace TPawl\LiTE\String;
 class StringType
 {
     public const EMPTY_STRING = '';
-    
+
     public static function isEmptyString(string $string): bool
     {
         return empty($string);
     }
 }
-    
