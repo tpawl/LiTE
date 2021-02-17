@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Assertion;
 
 use TPawl\LiTE\Exceptions\AssertionException;
+use TPawl\LiTE\Variable\VariableFunctions;
 use TPawl\LiTE\String\StringType;
 
 class Assertion
@@ -17,7 +18,7 @@ class Assertion
     public static function assertNotIsNull(
         $value, string $message = StringType::EMPTY_STRING): void
     {
-        if (is_null($value)) {
+        if (VariableFunctions::isNull($value)) {
 
             self::assertNeverReachesHere($message);
         }
