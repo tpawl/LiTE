@@ -1,21 +1,28 @@
 language: php
 
 php:
-  - '7.3'
-  - '7.4'
+#  - '7.3'
+#  - '7.4'
   - '8.0'
-  - nightly
+#  - nightly
 
 jobs:
   allow_failures:
     - php: nightly
 
-before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer global require php-coveralls/php-coveralls ; fi
+#before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer global require php-coveralls/php-coveralls ; fi
+
+before_script: 
+  - composer global require php-coveralls/php-coveralls
+
+#script:
+#  - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
+#  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi 
 
 script:
-  - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi 
-  
+  - mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml
+
+
 after_script: 
   - travis_retry php vendor/bin/php-coveralls -v
   - name: Upload coverage results to Coveralls
