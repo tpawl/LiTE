@@ -10,8 +10,8 @@ class VariableFunctions
     /**
      * @param mixed $variable
      */
-    public static function isNull($variable): bool
+    public static function isNull($value): bool
     {
-        return is_null($variable);
+        return is_null($value);
     }
 }
