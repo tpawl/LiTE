@@ -1,2 +1,4 @@
-service_name: travis-ci
-src_dir: src
+#.coveralls.yml
+
+# single file
+coverage_clover: build/logs/clover.xml
