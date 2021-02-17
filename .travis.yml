@@ -20,6 +20,6 @@ after_success: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then travis_retry php ve
 
 - name: Upload coverage results to Coveralls
   env:
-    COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    COVERALLS_REPO_TOKEN: ${{ secrets.TEST }}
   run: |
     php-coveralls --coverage_clover=build/logs/clover.xml -v
