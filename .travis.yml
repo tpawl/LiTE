@@ -14,6 +14,6 @@ before_script: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then composer require --
 
 script:
   - if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '8.0' ]]; then phpunit ; fi 
   
 after_success: if [[ "$TRAVIS_PHP_VERSION" == '8.0' ]]; then travis_retry php vendor/bin/php-coveralls -v ; fi
