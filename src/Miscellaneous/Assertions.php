@@ -7,7 +7,6 @@ namespace TPawl\LiTE\Miscellaneous;
 
 use TPawl\LiTE\Exceptions\AssertionException;
 use TPawl\LiTE\Variable\VariableFunctions;
-use TPawl\LiTE\String\StringType;
 
 class Assertions
 {
