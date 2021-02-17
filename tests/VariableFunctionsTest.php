@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TPawl\LiTE\Variable\VariableFunctions;
+use TPawl\LiTE\Miscellaneous\VariableFunctions;
 
 class VariableFunctionsTest extends TestCase
 {
