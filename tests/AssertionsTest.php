@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2017, 2018 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2017 - 2021 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Assertion\Assertion;
 use TPawl\LiTE\Exceptions\AssertionException;
 
-class AssertionTest extends TestCase
+class AssertionsTest extends TestCase
 {   
     public function testAssertNeverReachesHereThrowsAnException()
     {
@@ -19,33 +19,33 @@ class AssertionTest extends TestCase
         Assertion::assertNeverReachesHere('abc');
     }
     
-    public function testAssertNotIsNull()
+    public function testAssertNotNull()
     {
-        Assertion::assertNotIsNull('notNull');
+        Assertion::assertNotNull('not null');
         
         $this->assertTrue(true);
     }
     
-    public function testAssertNotIsNullThrowsAnException()
+    public function testAssertNotNullThrowsAnException()
     {
         $this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::assertNotIsNull(null, 'abc');
+        Assertion::assertNotNull(null, 'abc');
     }
     
-    public function testAssertNotIsEmptyString()
+    public function testAssertNotEmptyString()
     {
-        Assertion::assertNotIsEmptyString('notEmpty');
+        Assertion::assertNotEmptyString('not empty');
         
         $this->assertTrue(true);
     }
     
-    public function testAssertNotIsEmptyStringThrowsAnException()
+    public function testAssertNotEmptyStringThrowsAnException()
     {
         $this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::assertNotIsEmptyString('', 'abc');
+        Assertion::assertNotEmptyString('', 'abc');
     }
 }
