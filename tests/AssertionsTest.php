@@ -16,12 +16,12 @@ class AssertionsTest extends TestCase
         $this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::assertNeverReachesHere('abc');
+        Assertions::assertNeverReachesHere('abc');
     }
     
     public function testAssertNotNull()
     {
-        Assertion::assertNotNull('not null');
+        Assertions::assertNotNull('not null');
         
         $this->assertTrue(true);
     }
@@ -31,12 +31,12 @@ class AssertionsTest extends TestCase
         $this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::assertNotNull(null, 'abc');
+        Assertions::assertNotNull(null, 'abc');
     }
     
     public function testAssertNotEmptyString()
     {
-        Assertion::assertNotEmptyString('not empty');
+        Assertions::assertNotEmptyString('not empty');
         
         $this->assertTrue(true);
     }
@@ -46,6 +46,6 @@ class AssertionsTest extends TestCase
         $this->expectException(AssertionException::class);
 		$this->expectExceptionMessage('abc');
 		
-        Assertion::assertNotEmptyString('', 'abc');
+        Assertions::assertNotEmptyString('', 'abc');
     }
 }
