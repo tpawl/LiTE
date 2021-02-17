@@ -8,7 +8,7 @@ namespace TPawl\LiTE\Variable;
 class VariableFunctions
 {
     /**
-     * @param mixed $variable
+     * @param mixed $value
      */
     public static function isNull($value): bool
     {
