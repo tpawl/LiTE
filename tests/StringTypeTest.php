@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TPawl\LiTE\String\StringType;
+use TPawl\LiTE\Miscellaneous\StringType;
 
 class StringTypeTest extends TestCase
 {   
