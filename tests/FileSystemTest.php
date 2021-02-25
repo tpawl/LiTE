@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TPawl\LiTE\FileSystem\FileSystem;
+use TPawl\LiTE\Miscellaneous\FileSystem;
 use TPawl\LiTE\Exceptions\FileSystemException;
 
 class FileSystemTest extends TestCase
