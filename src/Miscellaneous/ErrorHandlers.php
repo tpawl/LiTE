@@ -21,11 +21,11 @@ class ErrorHandlers
      */
     public static function getTopErrorHandler(): ?callable
     {
-        $previousErrorHandler = set_error_handler(null);
+        $topErrorHandler = set_error_handler(null);
 
         self::popErrorHandler();
 
-        return $previousErrorHandler;
+        return $topErrorHandler;
     }
 
     /**
