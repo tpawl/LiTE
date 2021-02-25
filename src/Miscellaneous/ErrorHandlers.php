@@ -21,7 +21,7 @@ class ErrorHandlers
      */
     public static function pushErrorHandler(?callable $errorHandler): void
     {
-        set_error_handler($errorHandler);
+        self::setErrorHandler($errorHandler);
     }
 
     /**
@@ -29,7 +29,7 @@ class ErrorHandlers
      */
     public static function getTopErrorHandler(): ?callable
     {
-        $previousErrorHandler = set_error_handler(null);
+        $previousErrorHandler = self::setErrorHandler(null);
 
         self::popErrorHandler();
 
@@ -42,5 +42,10 @@ class ErrorHandlers
     public static function popErrorHandler(): void
     {
         restore_error_handler();
+    }
+    
+    private static function setErrorHandler(?callable $errorHandler): ?callable
+    {
+        return set_error_handler($errorHandler);
     }
 }
