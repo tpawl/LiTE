@@ -56,7 +56,7 @@ class TemplateExpression extends SubTemplateExpression
 
         $this->viewHelpersDirectory = FileSystem::makeRealPathname($viewHelpersDirectory);
         $this->viewHelpersNamespace = $viewHelpersNamespace;
-        $this->viewHelpersErrorHandler = ErrorHandlers::top();
+        $this->viewHelpersErrorHandler = ErrorHandlers::getTopErrorHandler();
     }
 
     /**
