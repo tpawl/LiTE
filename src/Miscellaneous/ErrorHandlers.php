@@ -8,14 +8,6 @@ namespace TPawl\LiTE\Miscellaneous;
 class ErrorHandlers
 {
     /**
-     * @return void
-     * @codeCoverageIgnore
-     */
-    private function __construct()
-    {
-    }
-
-    /**
      * @param callable|null $errorHandler
      * @return void
      */
