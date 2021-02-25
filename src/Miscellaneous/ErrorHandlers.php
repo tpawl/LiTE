@@ -19,7 +19,7 @@ class ErrorHandlers
      * @param callable|null $errorHandler
      * @return void
      */
-    public static function push(?callable $errorHandler): void
+    public static function pushErrorHandler(?callable $errorHandler): void
     {
         set_error_handler($errorHandler);
     }
@@ -27,11 +27,11 @@ class ErrorHandlers
     /**
      * @return callable|null
      */
-    public static function top(): ?callable
+    public static function top(): ?callable // anderer Name !!!
     {
         $previousErrorHandler = set_error_handler(null);
 
-        self::pop();
+        self::popErrorHandler();
 
         return $previousErrorHandler;
     }
@@ -39,7 +39,7 @@ class ErrorHandlers
     /**
      * @return void
      */
-    public static function pop(): void
+    public static function popErrorHandler(): void
     {
         restore_error_handler();
     }
