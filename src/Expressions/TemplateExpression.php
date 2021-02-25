@@ -259,11 +259,11 @@ class TemplateExpression extends SubTemplateExpression
     private function callViewHelper(string $classQualifier,
         array $arguments): void
     {
-        ErrorHandlers::push($this->viewHelpersErrorHandler);
+        ErrorHandlers::pushErrorHandler($this->viewHelpersErrorHandler);
 
         $classQualifier::execute($arguments);
 
-        ErrorHandlers::pop();
+        ErrorHandlers::popErrorHandler();
     }
 
     /**
