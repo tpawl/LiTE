@@ -50,7 +50,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         $configuration = new Configuration();
         
-        ErrorHandlers::push(self::getErrorHandler($configuration));
+        ErrorHandlers::pushErrorHandler(self::getErrorHandler($configuration));
 
         $context = Context::getInstance();
 
@@ -60,7 +60,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
 
         static::cleanup($context);
 
-        ErrorHandlers::pop();
+        ErrorHandlers::popErrorHandler();
     }
 
     /**
