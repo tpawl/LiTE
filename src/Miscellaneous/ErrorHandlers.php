@@ -27,7 +27,7 @@ class ErrorHandlers
     /**
      * @return callable|null
      */
-    public static function top(): ?callable // anderer Name !!!
+    public static function getTopErrorHandler(): ?callable
     {
         $previousErrorHandler = set_error_handler(null);
 
