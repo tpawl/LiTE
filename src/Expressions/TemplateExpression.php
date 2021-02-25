@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Expressions;
 
-use TPawl\LiTE\ErrorHandlers\ErrorHandlers;
+use TPawl\LiTE\Miscellaneous\ErrorHandlers;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
