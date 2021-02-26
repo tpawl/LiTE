@@ -25,8 +25,8 @@ class ErrorHandlers
         self::popErrorHandler();
 
         return $topErrorHandler;
-	}
-	
+    }
+
     public static function popErrorHandler(): void
     {
         restore_error_handler();
