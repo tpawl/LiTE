@@ -9,7 +9,6 @@ class ErrorHandlers
 {
     /**
      * @param callable|null $errorHandler
-     * @return void
      */
     public static function pushErrorHandler(?callable $errorHandler): void
     {
@@ -26,11 +25,8 @@ class ErrorHandlers
         self::popErrorHandler();
 
         return $topErrorHandler;
-    }
-
-    /**
-     * @return void
-     */
+	}
+	
     public static function popErrorHandler(): void
     {
         restore_error_handler();
