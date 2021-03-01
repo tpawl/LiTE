@@ -22,7 +22,7 @@ class ErrorHandlers
     {
         $topErrorHandler = set_error_handler(null);
 
-        self::popErrorHandler();
+        restore_error_handler();
 
         return $topErrorHandler;
     }
