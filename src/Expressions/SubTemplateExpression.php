@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Expressions;
 
-use TPawl\LiTE\Miscellaneous\ErrorHandlers;
+use TPawl\LiTE\Miscellaneous\ErrorHandlersStack;
 use TPawl\LiTE\Interpreter\TemplateInterpreter;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Php\ConfigurationInterface;
@@ -50,7 +50,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
     {
         $configuration = new Configuration();
         
-        ErrorHandlers::pushErrorHandler(self::getErrorHandler($configuration));
+        ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
 
         $context = Context::getInstance();
 
@@ -60,7 +60,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
 
         static::cleanup($context);
 
-        ErrorHandlers::popErrorHandler();
+        ErrorHandlersStack::popErrorHandler();
     }
 
     /**
