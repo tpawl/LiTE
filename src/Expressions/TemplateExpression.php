@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Expressions;
 
-use TPawl\LiTE\Miscellaneous\ErrorHandlers;
+use TPawl\LiTE\Miscellaneous\ErrorHandlersStack;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\ViewHelperRuntimeException;
@@ -56,7 +56,7 @@ class TemplateExpression extends SubTemplateExpression
 
         $this->viewHelpersDirectory = FileSystem::makeRealPathname($viewHelpersDirectory);
         $this->viewHelpersNamespace = $viewHelpersNamespace;
-        $this->viewHelpersErrorHandler = ErrorHandlers::getTopErrorHandler();
+        $this->viewHelpersErrorHandler = ErrorHandlersStack::getTopErrorHandler();
     }
 
     /**
@@ -259,11 +259,11 @@ class TemplateExpression extends SubTemplateExpression
     private function callViewHelper(string $classQualifier,
         array $arguments): void
     {
-        ErrorHandlers::pushErrorHandler($this->viewHelpersErrorHandler);
+        ErrorHandlersStack::pushErrorHandler($this->viewHelpersErrorHandler);
 
         $classQualifier::execute($arguments);
 
-        ErrorHandlers::popErrorHandler();
+        ErrorHandlersStack::popErrorHandler();
     }
 
     /**
