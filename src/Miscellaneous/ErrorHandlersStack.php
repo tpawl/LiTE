@@ -16,7 +16,7 @@ class ErrorHandlersStack
     }
 
     /**
-     * @return callable|nullx
+     * @return callable|null
      */
     public static function getTopErrorHandler(): ?callable
     {
