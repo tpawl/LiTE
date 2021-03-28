@@ -9,14 +9,6 @@ use TPawl\LiTE\Exceptions\FileSystemException;
 
 class FileSystem
 {
-    /**
-     * @return void
-     * @codeCoverageIgnore
-     */
-    private function __construct()
-    {
-    }
-
     public static function makeRealPathname(string $pathname): string
     {
         $realPathname = realpath($pathname);
