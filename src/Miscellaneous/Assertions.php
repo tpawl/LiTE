@@ -40,6 +40,10 @@ class Assertions
     public static function assertNeverReachesHere(
         string $message = StringType::EMPTY_STRING): void
     {
+        if (StringType::isEmptyString($message)) {
+            
+            $message = 'Assertion failed.';
+        }
         throw new AssertionException('LiTE: ' . $message);
     }
 }
