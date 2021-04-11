@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Miscellaneous;
 
 use TPawl\LiTE\Exceptions\AssertionException;
+use TPawl\LiTE\PackageInformations;
 
 class Assertions
 {
@@ -44,6 +45,6 @@ class Assertions
             
             $message = 'Assertion failed.';
         }
-        throw new AssertionException('LiTE: ' . $message);
+        throw new AssertionException(PackageInformations::NAME . ": {$message}");
     }
 }
