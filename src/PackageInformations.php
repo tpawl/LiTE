@@ -23,4 +23,6 @@ class PackageInformations
     public const COPYRIGHT_YEARS = '2013 - 2021';
   
     public const COPYRIGHT_HOLDERS = ['Thomas Pawlitschko'];
+	
+	public const LICENSE = 'MIT License';
 }
