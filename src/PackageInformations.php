@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2013 - 2019 by Thomas Pawlitschko. (MIT License)
+// Copyright (c) 2013 - 2021 by Thomas Pawlitschko. (MIT License)
 
 declare(strict_types=1);
 
