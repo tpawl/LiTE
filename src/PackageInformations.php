@@ -8,9 +8,9 @@ namespace TPawl\LiTE;
 class PackageInformations
 {
     private const SEMICOLON_SPACE = ': ';
-    
+
     public const PACKAGE_NAME = 'LiTE';
-  
+
     // Major version number (major release)
     public const MAJOR_VERSION = 2;
 
@@ -21,12 +21,12 @@ class PackageInformations
     public const REVISION_NUMBER = 0;
 
     public const AUTHORS = ['Thomas Pawlitschko'];
-  
+
     public const COPYRIGHT_YEARS = '2013 - 2021';
-  
+
     public const COPYRIGHT_HOLDERS = ['Thomas Pawlitschko'];
-	
-	public const LICENSE = 'MIT License';
+
+    public const LICENSE = 'MIT License';
 
     public static function prependPackageName(string $string): string
     {
