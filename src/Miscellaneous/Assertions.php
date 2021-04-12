@@ -47,6 +47,6 @@ class Assertions
             
             $message = self::STANDARD_MESSAGE;
         }
-        throw new AssertionException(PackageInformations::NAME . ": {$message}");
+        throw new AssertionException(PackageInformations::prependName($message));
     }
 }
