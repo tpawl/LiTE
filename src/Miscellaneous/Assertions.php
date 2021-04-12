@@ -10,7 +10,7 @@ use TPawl\LiTE\PackageInformations;
 
 class Assertions
 {
-    private const STANDARD_MESSAGE = 'Assertion failed.';
+    private const DEFAULT_MESSAGE = 'Assertion failed.';
     
     /**
      * @param mixed $value
@@ -45,8 +45,8 @@ class Assertions
     {
         if (StringType::isEmptyString($message)) {
             
-            $message = self::STANDARD_MESSAGE;
+            $message = self::DEFAULT_MESSAGE;
         }
-        throw new AssertionException(PackageInformations::prependName($message));
+        throw new AssertionException(PackageInformations::prependPackageName($message));
     }
 }
