@@ -9,7 +9,7 @@ class PackageInformations
 {
     private const SEMICOLON_SPACE = ': ';
     
-    public const NAME = 'LiTE';
+    public const PACKAGE_NAME = 'LiTE';
   
     // Major version number (major release)
     public const MAJOR_VERSION = 2;
@@ -28,8 +28,8 @@ class PackageInformations
 	
 	public const LICENSE = 'MIT License';
 
-    public static function prependName(string $string): string
+    public static function prependPackageName(string $string): string
     {
-        return self::NAME . self::SEMICOLON_SPACE . $string;
+        return self::PACKAGE_NAME . self::SEMICOLON_SPACE . $string;
     }
 }
