@@ -5,6 +5,8 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE;
 
+use TPawl\LiTE\Miscellaneous\ArrayFunctions;
+
 class PackageInformations
 {
     private const SEMICOLON_SPACE = ': ';
@@ -49,6 +51,6 @@ class PackageInformations
     
     private static function implodeWithCommaSpace(array $array): string
     {
-        return implode(self::COMMA_SPACE, $array);
+        return ArrayFunctions::implodeWith($array, self::COMMA_SPACE);
     }
 }
