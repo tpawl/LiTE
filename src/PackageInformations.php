@@ -39,15 +39,15 @@ class PackageInformations
     
     public static function makePackageAuthorsString(): string
     {
-        return self::implodeCommaSpace(self::PACKAGE_AUTHORS);
+        return self::implodeWithCommaSpace(self::PACKAGE_AUTHORS);
     }
     
     public static function makeCopyrightHoldersString(): string
     {
-        return self::implodeCommaSpace(self::COPYRIGHT_HOLDERS);
+        return self::implodeWithCommaSpace(self::COPYRIGHT_HOLDERS);
     }
     
-    private static function implodeCommaSpace(array $array): string
+    private static function implodeWithCommaSpace(array $array): string
     {
         return implode(self::COMMA_SPACE, $array);
     }
