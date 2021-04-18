@@ -36,7 +36,7 @@ class PackageInformations
     
     public static function makeVersionString(): string
     {
-        return self::VERSION_MAJOR . self::DOT . self::VERSION_MINOR . self::DOT . self::REVISION_NUMBER;
+        return ArrayFunctions::implodeWith([self::VERSION_MAJOR, self::VERSION_MINOR, self::REVISION_NUMBER], self::DOT);
     }
     
     public static function makePackageAuthorsString(): string
