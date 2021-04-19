@@ -15,15 +15,11 @@ class PackageInformations
     
     public const PACKAGE_NAME = 'LiTE';
 
-    public const PACKAGE_VERSION = ['major' => 2, 'minor' => 0, 'revision' => 0];
-    
-    // Major version number (major release)
-    //public const MAJOR_VERSION = 2;
-    // Minor version number (minor release)
-    //public const MINOR_VERSION = 0;
-    // Revision number (patch level)
-    //public const REVISION_NUMBER = 0;
-
+    public const PACKAGE_VERSION = [
+        'major' => 2, // Major version number (major release)
+        'minor' => 0, // Minor version number (minor release)
+        'revision' => 0 // Revision number (patch level)
+    ];
     public const PACKAGE_AUTHORS = ['Thomas Pawlitschko'];
 
     public const COPYRIGHT_YEARS = '2013 - 2021';
