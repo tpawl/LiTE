@@ -17,7 +17,7 @@ class PackageInformationsTest extends TestCase
 
     public function testPackageVersion()
     {
-        $this->assertEquals(PackageInformations::makePackageVerionString(), '2.0.0');
+        $this->assertEquals(PackageInformations::makePackageVersionString(), '2.0.0');
     }
     
     public function testPackageAuthors()
