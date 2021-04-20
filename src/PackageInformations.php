@@ -32,7 +32,7 @@ class PackageInformations
         return self::PACKAGE_NAME . self::SEMICOLON_SPACE . $string;
     }
     
-    public static function makeVersionString(): string
+    public static function makePackageVersionString(): string
     {
         return ArrayFunctions::implodeWith(self::PACKAGE_VERSION, self::DOT);
     }
