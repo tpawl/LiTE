@@ -6,25 +6,37 @@ declare(strict_types=1);
 namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TPawl\LiTE\Miscellaneous\FileSystem;
-use TPawl\LiTE\Exceptions\FileSystemException;
+use TPawl\LiTE\PackageInformations;
 
-class FileSystemTest extends TestCase
+class PackageInformationsTest extends TestCase
 {
-    public function testMakeRealPathname()
+    public function testPackageName()
     {
-        $realPathname = FileSystem::makeRealPathname(
-            __DIR__ . '/Asset/ViewHelpers');
-
-        $this->assertTrue(true);
+        $this->assertEquals(PackageInformations::prependPackageName('abc'), 'LiTE: abc');
     }
 
-    public function testMakeRealPathnameThrowsAnException()
+    public function testPackageVersion()
     {
-        $this->expectException(FileSystemException::class);
-        $this->expectExceptionMessage('Could not make real pathname for');
-
-        $realPathname = FileSystem::makeRealPathname(
-            __DIR__ . '/Asset/NonExistingPath');
+        $this->assertEquals(PackageInformations::makeVerionString(), '2.0.0');
+    }
+    
+    public function testPackageAuthors()
+    {
+        $this->assertEquals(PackageInformations::makePackageAuthorsString(), 'Thomas Pawlitschko');
+    }
+    
+    public function testCopyrightYears()
+    {
+        $this->assertEquals(PackageInformations::COPYRIGHT_YEARS, '2013 - 2021');
+    }
+    
+    public function testCopyrightHolders()
+    {
+        $this->assertEquals(PackageInformations::makeCopyrightHoldersString(), 'Thomas Pawlitschko');
+    }
+    
+    public function testPackageLicense()
+    {
+        $this->assertEquals(PackageInformations::PACKAGE_LICENSE, 'MIT License');
     }
 }
