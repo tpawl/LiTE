@@ -24,7 +24,7 @@ class PackageInformations
 
     public const PACKAGE_COPYRIGHT = [
         'years' => '2013 - 2021',
-        'holders' =>  = ['Thomas Pawlitschko']
+        'holders' => ['Thomas Pawlitschko']
     ];
 
     public const PACKAGE_LICENSE = 'MIT License';
