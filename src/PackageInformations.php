@@ -22,8 +22,10 @@ class PackageInformations
     ];
     public const PACKAGE_AUTHORS = ['Thomas Pawlitschko'];
 
-    public const COPYRIGHT_YEARS = '2013 - 2021';
-    public const COPYRIGHT_HOLDERS = ['Thomas Pawlitschko'];
+    public const PACKAGE_COPYRIGHT = [
+        'years' => '2013 - 2021',
+        'holders' =>  = ['Thomas Pawlitschko']
+    ];
 
     public const PACKAGE_LICENSE = 'MIT License';
 
@@ -42,9 +44,9 @@ class PackageInformations
         return self::implodeWithCommaSpace(self::PACKAGE_AUTHORS);
     }
     
-    public static function makeCopyrightHoldersString(): string
+    public static function makePackageCopyrightHoldersString(): string
     {
-        return self::implodeWithCommaSpace(self::COPYRIGHT_HOLDERS);
+        return self::implodeWithCommaSpace(self::PACKAGE_COPYRIGHT['holders']);
     }
     
     private static function implodeWithCommaSpace(array $array): string
