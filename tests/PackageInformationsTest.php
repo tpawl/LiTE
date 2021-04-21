@@ -29,16 +29,16 @@ class PackageInformationsTest extends TestCase
             'Thomas Pawlitschko');
     }
 
-    public function testCopyrightYears()
+    public function testPackageCopyrightYears()
     {
         $this->assertEquals(
-            PackageInformations::COPYRIGHT_YEARS, '2013 - 2021');
+            PackageInformations::PACKAGE_COPYRIGHT['years'], '2013 - 2021');
     }
 
-    public function testCopyrightHolders()
+    public function testPackageCopyrightHolders()
     {
         $this->assertEquals(
-            PackageInformations::makeCopyrightHoldersString(),
+            PackageInformations::makePackageCopyrightHoldersString(),
             'Thomas Pawlitschko');
     }
 
