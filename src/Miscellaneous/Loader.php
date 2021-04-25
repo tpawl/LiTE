@@ -7,15 +7,16 @@ namespace TPawl\LiTE\Miscellaneous;
 
 class Loader
 {
-    public static function includeFile(string $baseDirectory, string $filename): void
+    public static function includeFile(
+        string $baseDirectory, string $filename): void
     {
-        if (!FileSystem::isEndingWithDirectorySeparator($baseDirectory)) {
-			
-			$baseDirectory .= DIRECTORY_SEPARATOR;
-	    }
-        $realFilename = FileSystem::makeRealPath($baseDirectory . $filename);
+        $normalizedBaseDirectory = self::normalizeDirectory($baseDirectory);
+
+        $realFilename = FileSystem::makeRealPath(
+            $normalizedBaseDirectory . $filename);
         
-        if (StringFunctions::isBeginningWith($realFilename, $baseDirectory)) {
+        if (StringFunctions::isBeginningWith(
+            $realFilename, $normalizedBaseDirectory)) {
             
             include $realFilename;
             
@@ -25,15 +26,16 @@ class Loader
         }
     }
     
-    public static function requireFile(string $baseDirectory, string $filename): void
+    public static function requireFile(
+        string $baseDirectory, string $filename): void
     {
-        if (!FileSystem::isEndingWithDirectorySeparator($baseDirectory)) {
-			
-			$baseDirectory .= DIRECTORY_SEPARATOR;
-	    }
-        $realFilename = FileSystem::makeRealPath($baseDirectory . $filename);
+        $normalizedBaseDirectory = self::normalizeDirectory($baseDirectory);
+
+        $realFilename = FileSystem::makeRealPath(
+            $normalizedBaseDirectory . $filename);
         
-        if (StringFunctions::isBeginningWith($realFilename, $baseDirectory)) {
+        if (StringFunctions::isBeginningWith(
+            $realFilename, $normalizedBaseDirectory)) {
             
             require $realFilename;
         
@@ -41,5 +43,11 @@ class Loader
             
             ;
         }
+    }
+
+    private static function normalizeDirectory(string $directoryName): string
+    {
+        return FileSystem::isEndingWithDirectorySeparator($directoryName) ?
+            $directoryName : $directoryName . DIRECTORY_SEPARATOR;
     }
 }
