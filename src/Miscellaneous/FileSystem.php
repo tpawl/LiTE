@@ -9,7 +9,7 @@ use TPawl\LiTE\Exceptions\FileSystemException;
 
 class FileSystem
 {
-    public static function pushDirectorySeparator(string $pathname): string
+    public static function appendDirectorySeparator(string $pathname): string
     {
         return $pathname . DIRECTORY_SEPARATOR;
     }
