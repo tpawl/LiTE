@@ -8,10 +8,8 @@ namespace TPawl\LiTE\Miscellaneous;
 class Loader
 {
     public static function includeFile(
-        string $baseDirectory, string $filename): void
+        string $normalizedBaseDirectory, string $filename): void
     {
-        $normalizedBaseDirectory = self::normalizeDirectory($baseDirectory);
-
         $realFilename = FileSystem::makeRealPath(
             $normalizedBaseDirectory . $filename);
         
@@ -27,10 +25,8 @@ class Loader
     }
     
     public static function requireFile(
-        string $baseDirectory, string $filename): void
+        string $normalizedBaseDirectory, string $filename): void
     {
-        $normalizedBaseDirectory = self::normalizeDirectory($baseDirectory);
-
         $realFilename = FileSystem::makeRealPath(
             $normalizedBaseDirectory . $filename);
         
@@ -43,11 +39,5 @@ class Loader
             
             ;
         }
-    }
-
-    private static function normalizeDirectory(string $directoryName): string
-    {
-        return FileSystem::isEndingWithDirectorySeparator($directoryName) ?
-            $directoryName : FileSystem::pushDirectorySeparator($directoryName);
     }
 }
