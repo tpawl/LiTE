@@ -304,6 +304,6 @@ class TemplateExpression extends SubTemplateExpression
         $length = strlen($string);
 
         return ($string[$length - 1] === DIRECTORY_SEPARATOR) ?
-            $string : FileSystem::pushDirectorySeparator($string);
+            $string : FileSystem::appendDirectorySeparator($string);
     }
 }
