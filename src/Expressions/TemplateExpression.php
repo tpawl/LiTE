@@ -28,7 +28,7 @@ class TemplateExpression extends SubTemplateExpression
     /**
      * @var string
      */
-    private $viewHelpersDirectory;
+    private $normalizedViewHelpersDirectory;
 
     /**
      * @var string
@@ -54,7 +54,8 @@ class TemplateExpression extends SubTemplateExpression
 
         parent::__construct($template, $variables);
 
-        $this->viewHelpersDirectory = FileSystem::makeRealPathname($viewHelpersDirectory);
+        $this->normalizedViewHelpersDirectory = self::normalizeDirectory(
+            $viewHelpersDirectory);
         $this->viewHelpersNamespace = $viewHelpersNamespace;
         $this->viewHelpersErrorHandler = ErrorHandlersStack::getTopErrorHandler();
     }
@@ -211,7 +212,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private function makeClassFilename(string $className): string
     {
-        return $this->viewHelpersDirectory . DIRECTORY_SEPARATOR . "{$className}.php";
+        return "{$this->normalizedViewHelpersDirectory}{$className}.php";
     }
 
     /**
@@ -286,5 +287,22 @@ class TemplateExpression extends SubTemplateExpression
         parent::cleanup($context);
 
         $context->resetTemplateExpression();
+    }
+
+    private static function normalizeDirectory($directoryName): string
+    {
+        $realDirectoryName = FileSystem::makeRealPathname($directoryName);
+
+        return self::makeLastCharacterDirectorySeparator($realDirectoryName);
+    }
+
+    private static function makeLastCharacterDirectorySeparator($string): string
+    {
+        Assertions::assertNotEmptyString($string);
+
+        $length = strlen($string);
+
+        return ($string[$length - 1] === DIRECTORY_SEPARATOR) ?
+            $string : FileSystem::pushDirectorySeparator($string);
     }
 }
