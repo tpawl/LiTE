@@ -11,6 +11,20 @@ use TPawl\LiTE\Exceptions\FileSystemException;
 
 class FileSystemTest extends TestCase
 {
+    public function testAppendDirectorySeparator()
+    {
+        $return = FileSystem::appendDirectorySeparator('abc');
+        
+        if (PHP_OS_FAMILY === 'Windows') {
+            
+            $this->assertEquals($return, 'abc\\');
+        
+        } else {
+            
+            $this->assertEquals($return, 'abc/');
+        }
+    }
+    
     public function testMakeRealPathname()
     {
         $realPathname = FileSystem::makeRealPathname(
