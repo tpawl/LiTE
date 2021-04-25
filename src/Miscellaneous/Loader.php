@@ -48,6 +48,6 @@ class Loader
     private static function normalizeDirectory(string $directoryName): string
     {
         return FileSystem::isEndingWithDirectorySeparator($directoryName) ?
-            $directoryName : $directoryName . DIRECTORY_SEPARATOR;
+            $directoryName : FileSystem::pushDirectorySeparator($directoryName);
     }
 }
