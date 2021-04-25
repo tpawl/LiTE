@@ -15,6 +15,7 @@ use TPawl\LiTE\ViewHelperInterface;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\Miscellaneous\FileSystem;
+use TPawl\LiTE\Miscellaneous\Assertions;
 
 class TemplateExpression extends SubTemplateExpression
 {
