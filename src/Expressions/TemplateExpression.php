@@ -191,7 +191,7 @@ class TemplateExpression extends SubTemplateExpression
 
         if (!self::isClassExisting($classQualifier)) {
 
-            Loader::includeFile(normalizedViewHelpersDirectory, $this->makeClassFilename($className));
+            Loader::includeFile($this->normalizedViewHelpersDirectory, $this->makeClassFilename($className));
 
             if (!self::isClassExisting($classQualifier)) {
 
