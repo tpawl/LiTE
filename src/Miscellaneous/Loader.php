@@ -13,7 +13,7 @@ class Loader
         $realFilename = FileSystem::makeRealPath(
             $normalizedBaseDirectory . $filename);
         
-        if (StringFunctions::isBeginningWith(
+        if (StringType::isBeginningWith(
             $realFilename, $normalizedBaseDirectory)) {
             
             include $realFilename;
@@ -30,7 +30,7 @@ class Loader
         $realFilename = FileSystem::makeRealPath(
             $normalizedBaseDirectory . $filename);
         
-        if (StringFunctions::isBeginningWith(
+        if (StringType::isBeginningWith(
             $realFilename, $normalizedBaseDirectory)) {
             
             require $realFilename;
