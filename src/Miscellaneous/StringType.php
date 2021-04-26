@@ -14,7 +14,7 @@ class StringType
         return empty($string);
     }
     
-    public static function isBeginningWith(string $string, string $str): string
+    public static function isBeginningWith(string $string, string $str): bool
     {
         $length = strlen($string);
         $len = strlen($str);
