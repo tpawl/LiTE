@@ -10,7 +10,7 @@ class Loader
     public static function includeFile(
         string $normalizedBaseDirectory, string $filename): void
     {
-        $realFilename = FileSystem::makeRealPath(
+        $realFilename = FileSystem::makeRealPathname(
             $normalizedBaseDirectory . $filename);
         
         if (StringType::isBeginningWith(
@@ -27,7 +27,7 @@ class Loader
     public static function requireFile(
         string $normalizedBaseDirectory, string $filename): void
     {
-        $realFilename = FileSystem::makeRealPath(
+        $realFilename = FileSystem::makeRealPathname(
             $normalizedBaseDirectory . $filename);
         
         if (StringType::isBeginningWith(
