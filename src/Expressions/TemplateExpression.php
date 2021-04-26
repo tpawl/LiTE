@@ -16,6 +16,7 @@ use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
 use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\Miscellaneous\FileSystem;
 use TPawl\LiTE\Miscellaneous\Assertions;
+use TPawl\LiTE\Miscellaneous\Loader;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -190,7 +191,7 @@ class TemplateExpression extends SubTemplateExpression
 
         if (!self::isClassExisting($classQualifier)) {
 
-            include $this->makeClassFilename($className);
+            Loader::includeFile($this->makeClassFilename($className));
 
             if (!self::isClassExisting($classQualifier)) {
 
