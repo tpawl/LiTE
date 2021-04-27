@@ -17,6 +17,7 @@ use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\Miscellaneous\FileSystem;
 use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Miscellaneous\Loader;
+use TPawl\LiTE\Miscallaneous\StringType;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -302,9 +303,7 @@ class TemplateExpression extends SubTemplateExpression
     {
         Assertions::assertNotEmptyString($string);
 
-        $length = strlen($string);
-
-        return ($string[$length - 1] === DIRECTORY_SEPARATOR) ?
+        return (StringType::getLastCharacter($string) === DIRECTORY_SEPARATOR) ?
             $string : FileSystem::appendDirectorySeparator($string);
     }
 }
