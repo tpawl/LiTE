@@ -41,4 +41,25 @@ class FileSystemTest extends TestCase
         $realPathname = FileSystem::makeRealPathname(
             __DIR__ . '/Asset/NonExistingPath');
     }
+    
+    public function testIsEndingWithDirectorySeparatorReturnsFalse1()
+    {
+        $result = FileSystem::IsEndingWithDirectorySeparator('');
+        
+        $this->assertFalse($result);
+    }
+    
+    public function testIsEndingWithDirectorySeparatorReturnsFalse2()
+    {
+        $result = FileSystem::IsEndingWithDirectorySeparator('abc');
+        
+        $this->assertFalse($result);
+    }
+    
+    public function testIsEndingWithDirectorySeparatorReturnsTrue()
+    {
+        $result = FileSystem::IsEndingWithDirectorySeparator('abc' . DIRECTORY_SEPARATOR);
+        
+        $this->assertTrue($result);
+    }
 }
