@@ -32,7 +32,7 @@ class StringType
         
         if ($stringLength === 0) {
             
-            throw new OutOfBoundsException('Try to get character form empty string.');
+            //throw new ...('Try to get character form empty string.'); // Must be a RuntimeException!
         }
         return $string[$stringLength - 1];
     }
