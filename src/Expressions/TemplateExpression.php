@@ -17,7 +17,6 @@ use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\Miscellaneous\FileSystem;
 use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Miscellaneous\Loader;
-use TPawl\LiTE\Miscellaneous\StringType;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -296,14 +295,12 @@ class TemplateExpression extends SubTemplateExpression
     {
         $realDirectoryName = FileSystem::makeRealPathname($directoryName);
 
-        return self::makeLastCharacterDirectorySeparator($realDirectoryName);
+        return self::makeEndingWithDirectorySeparator($realDirectoryName);
     }
 
-    private static function makeLastCharacterDirectorySeparator($string): string
+    private static function makeEndingWithDirectorySeparator($string): string
     {
-        Assertions::assertNotEmptyString($string);
-
-        return (StringType::getLastCharacter($string) === DIRECTORY_SEPARATOR) ?
+        return (FileSystem::isEndingWithDirectorySeparator($string)) ?
             $string : FileSystem::appendDirectorySeparator($string);
     }
 }
