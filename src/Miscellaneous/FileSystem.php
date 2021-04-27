@@ -26,7 +26,8 @@ class FileSystem
         return $realPathname;
     }
     
-    public static function IsEndingWithDirectorySeparator(string $pathname): bool
+    public static function IsEndingWithDirectorySeparator(
+        string $pathname): bool
     {
         return (StringType::isEmptyString($pathname)) ? false :
             StringType::getLastCharacter($pathname) === DIRECTORY_SEPARATOR;
