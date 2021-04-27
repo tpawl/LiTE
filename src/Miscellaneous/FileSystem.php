@@ -25,4 +25,10 @@ class FileSystem
         }
         return $realPathname;
     }
+    
+    public static function IsEndingWithDirectorySeparator(string $pathname): bool
+    {
+        return (StringType::isEmptyString($string)) ? false :
+            StringType::getLastCharacter($string) === DIRECTORY_SEPARATOR;
+    }
 }
