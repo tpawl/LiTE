@@ -25,4 +25,15 @@ class StringType
         }
         return substr($string, 0, $len) === $str;
     }
+    
+    public static function getLastCharacter(string $string): string
+    {
+        $stringLength = strlen($string);
+        
+        if ($stringLength === 0) {
+            
+            throw new OutOfBoundsException('Try to get character form empty string.');
+        }
+        return $string[$stringLength - 1];
+    }
 }
