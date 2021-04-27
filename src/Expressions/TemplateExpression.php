@@ -17,7 +17,7 @@ use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\Miscellaneous\FileSystem;
 use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Miscellaneous\Loader;
-use TPawl\LiTE\Miscallaneous\StringType;
+use TPawl\LiTE\Miscellaneous\StringType;
 
 class TemplateExpression extends SubTemplateExpression
 {
