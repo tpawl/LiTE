@@ -5,6 +5,8 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Miscellaneous;
 
+use TPawl\LiTE\Exceptions\EmptyStringException;
+
 class StringType
 {
     public const EMPTY_STRING = '';
@@ -32,7 +34,7 @@ class StringType
         
         if ($stringLength === 0) {
             
-            //throw new ...('Try to get character form empty string.'); // Must be a RuntimeException!
+            throw new EmptyStringException('Try to get character form empty string.');
         }
         return $string[$stringLength - 1];
     }
