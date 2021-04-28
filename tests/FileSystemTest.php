@@ -42,14 +42,14 @@ class FileSystemTest extends TestCase
             __DIR__ . '/Asset/NonExistingPath');
     }
     
-    public function testIsEndingWithDirectorySeparatorReturnsFalse1()
+    public function testIsEndingWithDirectorySeparatorReturnsFalseOnEmptyString()
     {
         $result = FileSystem::IsEndingWithDirectorySeparator('');
         
         $this->assertFalse($result);
     }
     
-    public function testIsEndingWithDirectorySeparatorReturnsFalse2()
+    public function testIsEndingWithDirectorySeparatorReturnsFalse()
     {
         $result = FileSystem::IsEndingWithDirectorySeparator('abc');
         
