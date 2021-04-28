@@ -7,6 +7,7 @@ namespace tpawl\lite\Tests;
 
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Miscellaneous\StringType;
+use TPawl\LiTE\Exceptions\EmptyStringException;
 
 class StringTypeTest extends TestCase
 {   
@@ -23,5 +24,21 @@ class StringTypeTest extends TestCase
     public function testEmptyString()
     {
         $this->assertTrue(StringType::isEmptyString(StringType::EMPTY_STRING));
+    }
+
+    public function testGetLastCharacter()
+    {
+        $lastCharacter = StringType::getLastCharacter('abc');
+
+        $this->assertEquals($lastCharacter, 'c');
+    }
+
+    public function testGetLastCharacterThrowsAnException()
+    {
+        $this->expectException(EmptyStringException::class);
+        $this->expectExceptionMessage(
+            'Try to get character from empty string.');
+
+        StringType::getLastCharacter('');
     }
 }
