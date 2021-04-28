@@ -20,11 +20,6 @@ class StringTypeTest extends TestCase
     {   
         $this->assertFalse(StringType::isEmptyString('abc'));
     }
-    
-    public function testEmptyString()
-    {
-        $this->assertTrue(StringType::isEmptyString(StringType::EMPTY_STRING));
-    }
 
     public function testGetLastCharacter()
     {
