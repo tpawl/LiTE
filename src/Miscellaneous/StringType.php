@@ -34,7 +34,8 @@ class StringType
         
         if ($stringLength === 0) {
             
-            throw new EmptyStringException('Try to get character form empty string.');
+            throw new EmptyStringException(
+                'Try to get character from empty string.');
         }
         return $string[$stringLength - 1];
     }
