@@ -11,6 +11,11 @@ use TPawl\LiTE\Exceptions\EmptyStringException;
 
 class StringTypeTest extends TestCase
 {   
+    public function testEmptyString()
+    {
+        $this->assertEquals(StringType::EMPTY_STRING, '');
+    }
+    
     public function testIsEmptyStringReturnsTrue()
     {
         $this->assertTrue(StringType::isEmptyString(''));
