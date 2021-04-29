@@ -13,7 +13,8 @@ class PackageInformationsTest extends TestCase
     public function testPackageName()
     {
         $this->assertEquals(
-            PackageInformations::prependPackageName('abc'), 'LiTE: abc');
+            PackageInformations::prependPackageNameColonSpace('abc'),
+                'LiTE: abc');
     }
 
     public function testPackageVersion()
