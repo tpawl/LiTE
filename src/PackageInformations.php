@@ -9,7 +9,7 @@ use TPawl\LiTE\Miscellaneous\ArrayFunctions;
 
 class PackageInformations
 {
-    private const SEMICOLON_SPACE = ': ';
+    private const COLON_SPACE = ': ';
     private const DOT = '.';
     private const COMMA_SPACE = ', ';
     
@@ -29,9 +29,9 @@ class PackageInformations
 
     public const PACKAGE_LICENSE = 'MIT License';
 
-    public static function prependPackageName(string $string): string
+    public static function prependPackageNameColonSpace(string $string): string
     {
-        return self::PACKAGE_NAME . self::SEMICOLON_SPACE . $string;
+        return self::PACKAGE_NAME . self::COLON_SPACE . $string;
     }
     
     public static function makePackageVersionString(): string
