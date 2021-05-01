@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Miscellaneous;
 
 use TPawl\LiTE\Exceptions\EmptyStringException;
+use TPawl\LiTE\PackageInformations;
 
 class StringType
 {
