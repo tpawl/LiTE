@@ -15,7 +15,7 @@ class PackageInformations
     
     public const PACKAGE_NAME = 'LiTE';
 
-    public const PACKAGE_HOME = 'https://github.com/tpawl/LiTE':
+    public const PACKAGE_HOME = 'https://github.com/tpawl/LiTE';
     
     public const PACKAGE_VERSION = [
         'major' => 2, // Major version number (major release)
