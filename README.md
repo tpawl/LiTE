@@ -137,9 +137,11 @@ It has the following constants defined:
 Example:
 
 ```php
-use TPawl\LiTE\Version;
+use TPawl\LiTE\PackageInformations;
 
-echo 'Powered by LiTE ', Version::MAJOR, '.', Version::MINOR;
+echo 'Powered by ', PackageInformations::PACKAGE_NAME , ' ', PackageInformations::makePackageVersionString();
+
+echo 'Copyright &copy; ', PackageInformations::PACKAGE_COPYRIGHT['years'], ' by ', PackageInformations::makePackageCopyrightHoldersString();
 ```
 
 ### LiTE for Template Designers
