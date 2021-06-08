@@ -134,7 +134,7 @@ It has the following constants defined:
 * `MINOR` for the minor version number (minor release).
 * `REVISION` for the revision number (patch level).
 
-Example:
+Examples:
 
 ```php
 use TPawl\LiTE\PackageInformations;
