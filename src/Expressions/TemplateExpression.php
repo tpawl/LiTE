@@ -47,7 +47,7 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
-    public function __construct(array $settings)
+    public function __construct(array $settings, LoggerInterface $securityLogger = null)
     {
         self::validateSettings($settings);
 
