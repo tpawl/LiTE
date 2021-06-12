@@ -9,7 +9,7 @@ class Registry
 {
     private static $instance = null;
     
-    private static function __construct()
+    private function __construct()
     {
     }
     
