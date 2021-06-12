@@ -11,6 +11,7 @@ use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Exceptions\ContextException;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
+use TPawl\LiTE\Miscellaneous\VariableFunctions;
 
 class Context
 {
@@ -49,10 +50,10 @@ class Context
     /**
      * @return static
      */
-    public static function getInstance(): Context
+    public static function getInstance(): self
     {
-        if (is_null(self::$instance))
-        {
+        if (VariableFunctions::isNull(self::$instance)) {
+            
             self::$instance = new self();
         }
         return self::$instance;
