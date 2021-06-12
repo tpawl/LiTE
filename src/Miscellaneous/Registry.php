@@ -15,7 +15,7 @@ class Registry
     
     public static function getInstance(): self
     {
-        if (self::$instance === null) {
+        if (VariableFunctions::isNull(self::$instance)) {
             
             self::$instance = new self();
         }
