@@ -9,6 +9,10 @@ class Registry
 {
     private static instance = null;
     
+    private static function __construct()
+    {
+    }
+    
     public static function getInstance(): self
     {
         if (self::instance === null) {
