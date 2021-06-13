@@ -5,9 +5,13 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Miscellaneous;
 
+use Psr\Log\LoggerInterface;
+
 class Registry
 {
     private static $instance = null;
+    
+    private $securityLogger = null;
     
     private function __construct()
     {
@@ -20,5 +24,10 @@ class Registry
             self::$instance = new self();
         }
         return self::$instance;
+    }
+    
+    public function setSecurityLogger(LoggerInterface $securityLogger): void
+    {
+        $this->securityLogger = $securityLogger;
     }
 }
