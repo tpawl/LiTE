@@ -49,7 +49,7 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
-    public function __construct(array $settings, LoggerInterface? $securityLogger = null)
+    public function __construct(array $settings, ?LoggerInterface $securityLogger = null)
     {
         self::validateSettings($settings);
 
@@ -298,6 +298,10 @@ class TemplateExpression extends SubTemplateExpression
         parent::cleanup($context);
 
         $context->resetTemplateExpression();
+        
+        $registry = Registry::getInstance();
+        
+        $registry->unsetSecurityLogger();
     }
 
     private static function normalizeDirectory($directoryName): string
