@@ -25,8 +25,8 @@ class TemplateExpression extends SubTemplateExpression
     private const SETTINGS_TYPE_AT_INDEX = [
         'string', // template (index: 0)
         'array', // variables (index: 1)
-        'string', // view helper directory (index: 2)
-        'string', // view helper namespace (index: 3)
+        'string', // view helpers directory (index: 2)
+        'string', // view helpers namespace (index: 3)
     ];
 
     /**
