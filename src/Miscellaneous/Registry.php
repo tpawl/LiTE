@@ -30,4 +30,23 @@ class Registry
     {
         $this->securityLogger = $securityLogger;
     }
+    
+    public function getSecurityLogger(): LoggerInterface
+    {
+        if (!$this->isSetSecurityLogger()) {
+        
+            // throw new ...
+        }
+        return $this->securityLogger;
+    }
+    
+    public function unsetSecurityLogger(): void
+    {
+        $this->securityLogger = null;
+    }
+    
+    public function isSetSecurityLogger(): bool
+    {
+        return !VariableFunctions::isNull($this->securityLogger);
+    }
 }
