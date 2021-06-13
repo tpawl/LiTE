@@ -17,6 +17,7 @@ use TPawl\LiTE\Miscellaneous\SettingValidationData;
 use TPawl\LiTE\Miscellaneous\FileSystem;
 use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Miscellaneous\Loader;
+use TPawl\LiTE\Miscellaneous\VariableFunctions;
 use TPawl\LiTE\Miscellaneous\Registry;
 use Psr\Log\LoggerInterface;
 
