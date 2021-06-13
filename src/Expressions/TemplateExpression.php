@@ -49,7 +49,7 @@ class TemplateExpression extends SubTemplateExpression
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
-    public function __construct(array $settings, LoggerInterface $securityLogger = null)
+    public function __construct(array $settings, LoggerInterface? $securityLogger = null)
     {
         self::validateSettings($settings);
 
@@ -63,7 +63,12 @@ class TemplateExpression extends SubTemplateExpression
         $this->viewHelpersNamespace = $viewHelpersNamespace;
         $this->viewHelpersErrorHandler = ErrorHandlersStack::getTopErrorHandler();
         
-        $registry = Registry::getInstance();
+        if (!VariableFunctions::isNull($securityLogger)) {
+        
+            $registry = Registry::getInstance();
+        
+            $registry->setSecurityLogger($securityLogger);
+        }
     }
 
     /**
