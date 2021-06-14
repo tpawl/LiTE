@@ -64,6 +64,6 @@ class Registry
     public function __wakeup()
     {
         Assertions::assertNeverReachesHere(
-		    'You can not deserialize a object of the class Registry.');
+		    'You can not deserialize an object of the class Registry.');
     }
 }
