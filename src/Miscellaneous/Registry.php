@@ -49,4 +49,21 @@ class Registry
     {
         return !VariableFunctions::isNull($this->securityLogger);
     }
+    
+    /**
+     * @return void
+     * @codeCoverageIgnore
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * @return void
+     */
+    public function __wakeup()
+    {
+        Assertions::assertNeverReachesHere(
+		    'You can not deserialize a object of the class Registry.');
+    }
 }
