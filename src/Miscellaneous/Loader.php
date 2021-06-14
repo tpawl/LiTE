@@ -20,7 +20,14 @@ class Loader
             
         } else {
             
-            ;
+            $registry = Registry::getInstance();
+            
+            if ($registry->isSetSecurityLogger()) {
+            
+                 $securityLogger = $registry->getSecurityLogger();
+                
+                 $securityLogger->warning('');
+            }
         }
     }
     
@@ -37,7 +44,14 @@ class Loader
         
         } else {
             
-            ;
+            $registry = Registry::getInstance();
+            
+            if ($registry->isSetSecurityLogger()) {
+            
+                 $securityLogger = $registry->getSecurityLogger();
+                
+                 $securityLogger->warning('');
+            }
         }
     }
 }
