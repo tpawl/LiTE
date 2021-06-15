@@ -8,7 +8,6 @@ namespace TPawl\LiTE\Tests;
 use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Expressions\SubTemplateExpression;
-use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Tests\Asset\Functions;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\SubTemplateExpressionException;
