@@ -26,3 +26,4 @@ class SubTemplateExpressionTest extends TestCase
 
         call_user_func($eh, E_WARNING, 'Test', '', 0);
     }
+}
