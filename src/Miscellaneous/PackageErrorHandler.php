@@ -24,7 +24,7 @@ class PackageErrorHandler
      /**
      * @return callable
      */
-    private static function getErrorHandler(ConfigurationInterface $configuration): callable
+    public static function getErrorHandler(ConfigurationInterface $configuration): callable
     {
         return function($errno, $errstr, $errfile, $errline) use ($configuration) {
 
