@@ -18,7 +18,7 @@ class Template extends SubTemplate
      */
     public function __construct(array $settings, ?LoggerInterface $securityLogger = null)
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         if (!VariableFunctions::isNull($securityLogger)) {
         
@@ -28,6 +28,6 @@ class Template extends SubTemplate
         }
         $this->subTemplateExpression = new TemplateExpression($settings);
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
     }
 }
