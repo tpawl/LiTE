@@ -10,14 +10,14 @@ use TPawl\LiTE\Php\ConfigurationInterface;
 
 class PackageErrorHandler
 {   
-    protected static function pushErrorHandler(): void
+    public static function pushErrorHandler(): void
     {
         $configuration = new Configuration();
         
         ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
     }
     
-    protected static function popErrorHandler(): void
+    public static function popErrorHandler(): void
     {
         ErrorHandlersStack::popErrorHandler();
     }
