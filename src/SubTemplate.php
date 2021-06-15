@@ -46,4 +46,19 @@ class SubTemplate
     {
         ErrorHandlersStack::popErrorHandler();
     }
+    
+     /**
+     * @return callable
+     */
+    private static function getErrorHandler(ConfigurationInterface $configuration): callable
+    {
+        return function($errno, $errstr, $errfile, $errline) use ($configuration) {
+
+            if ($configuration->shouldErrorLevelBeReported($errno)) {
+
+                throw new \ErrorException(
+                    $errstr, 0, $errno, $errfile, $errline);
+            }
+        };
+    }
 }
