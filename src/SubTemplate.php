@@ -20,6 +20,11 @@ class SubTemplate
         $this->subTemplateExpression = new SubTemplateExpression($template, $variables);
     }
     
+    protected static function pushErrorHandler()
+    {
+        ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
+    }
+    
     public function display(): void
     {
         $this->subTemplateExpression->display();
