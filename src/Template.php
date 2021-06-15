@@ -13,7 +13,7 @@ class Template
     private $templateExpression;
     
     /**
-     * @param array $settings
+     * @param LoggerInterface|null $securityLogger
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
