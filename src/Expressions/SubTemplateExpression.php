@@ -8,8 +8,6 @@ namespace TPawl\LiTE\Expressions;
 use TPawl\LiTE\Miscellaneous\ErrorHandlersStack;
 use TPawl\LiTE\Interpreter\TemplateInterpreter;
 use TPawl\LiTE\Context\Context;
-use TPawl\LiTE\Php\ConfigurationInterface;
-use TPawl\LiTE\Php\Configuration;
 use TPawl\LiTE\Filter\FilterInterface;
 use TPawl\LiTE\Exceptions\SubTemplateExpressionException;
 
