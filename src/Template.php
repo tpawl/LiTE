@@ -17,6 +17,8 @@ class Template extends SubTemplate
      */
     public function __construct(array $settings, ?LoggerInterface $securityLogger = null)
     {
+        self::pushErrorHandler();
+        
         if (!VariableFunctions::isNull($securityLogger)) {
         
             $registry = Registry::getInstance();
@@ -24,5 +26,7 @@ class Template extends SubTemplate
             $registry->setSecurityLogger($securityLogger);
         }
         $this->subTemplateExpression = new TemplateExpression($settings);
+        
+        self::popErrorHandler();
     }
 }
