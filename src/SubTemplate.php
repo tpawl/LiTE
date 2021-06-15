@@ -18,19 +18,19 @@ class SubTemplate
      */
     public function __construct(string $template, array $variables)
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $this->subTemplateExpression = new SubTemplateExpression($template, $variables);
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
     }
     
     public function display(): void
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $this->subTemplateExpression->display();
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
     }
 }
