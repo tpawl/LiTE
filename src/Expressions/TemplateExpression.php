@@ -19,7 +19,6 @@ use TPawl\LiTE\Miscellaneous\Assertions;
 use TPawl\LiTE\Miscellaneous\Loader;
 use TPawl\LiTE\Miscellaneous\VariableFunctions;
 use TPawl\LiTE\Miscellaneous\Registry;
-use Psr\Log\LoggerInterface;
 
 class TemplateExpression extends SubTemplateExpression
 {
