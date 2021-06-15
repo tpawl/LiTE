@@ -5,7 +5,6 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Expressions;
 
-use TPawl\LiTE\Miscellaneous\ErrorHandlersStack;
 use TPawl\LiTE\Interpreter\TemplateInterpreter;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\FilterInterface;
@@ -53,8 +52,6 @@ class SubTemplateExpression implements TemplateExpressionInterface
         new TemplateInterpreter();
 
         static::cleanup($context);
-
-        ErrorHandlersStack::popErrorHandler();
     }
 
     /**
