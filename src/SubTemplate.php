@@ -19,6 +19,8 @@ class SubTemplate
      */
     public function __construct(string $template, array $variables)
     {
+        self::pushErrorHandler();
+        
         $this->subTemplateExpression = new SubTemplateExpression($template, $variables);
     }
     
