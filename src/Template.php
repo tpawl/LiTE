@@ -8,10 +8,8 @@ namespace TPawl\LiTE;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use Psr\Log\LoggerInterface;
 
-class Template
-{
-    private $templateExpression;
-    
+class Template extends SubTemplate
+{   
     /**
      * @param LoggerInterface|null $securityLogger
      * @return void
@@ -25,11 +23,6 @@ class Template
         
             $registry->setSecurityLogger($securityLogger);
         }
-        $templateExpression = new TemplateExpression($settings);
-    }
-    
-    public function display(): void
-    {
-        $this->templateExpression->display();
+        $this->subTemplateExpression = new TemplateExpression($settings);
     }
 }
