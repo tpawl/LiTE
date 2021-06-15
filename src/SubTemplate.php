@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE;
 
 use TPawl\LiTE\Expressions\SubTemplateExpression;
+use TPawl\LiTE\Php\Configuration;
 
 class SubTemplate
 {
