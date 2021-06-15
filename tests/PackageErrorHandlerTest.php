@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 use TPawl\LiTE\Php\ConfigurationInterface;
 use TPawl\LiTE\Miscellaneous\PackageErrorHandler;
 
-class SubTemplateExpressionTest extends TestCase
+class PackageErrorHandlerTest extends TestCase
 { 
 
     public function testErrorHandler()
