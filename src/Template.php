@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE;
 
 use TPawl\LiTE\Expressions\TemplateExpression;
+use TPawl\LiTE\Miscellaneous\PackageErrorHandler;
 use Psr\Log\LoggerInterface;
 
 class Template extends SubTemplate
@@ -17,7 +18,7 @@ class Template extends SubTemplate
      */
     public function __construct(array $settings, ?LoggerInterface $securityLogger = null)
     {
-        self::pushErrorHandler();
+        PackageErrorHandler::pushErrorHandler();
         
         if (!VariableFunctions::isNull($securityLogger)) {
         
@@ -27,6 +28,6 @@ class Template extends SubTemplate
         }
         $this->subTemplateExpression = new TemplateExpression($settings);
         
-        self::popErrorHandler();
+        PackageErrorHandler::popErrorHandler();
     }
 }
