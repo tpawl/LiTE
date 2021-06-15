@@ -22,6 +22,8 @@ class SubTemplate
     
     protected static function pushErrorHandler()
     {
+        $configuration = new Configuration();
+        
         ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
     }
     
