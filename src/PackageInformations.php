@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE;
 
 use TPawl\LiTE\Miscellaneous\ArrayFunctions;
+use TPawl\LiTE\Miscellaneous\PackageErrorHandler;
 
 class PackageInformations
 {
@@ -33,26 +34,56 @@ class PackageInformations
 
     public static function prependPackageNameColonSpace(string $string): string
     {
-        return self::PACKAGE_NAME . self::COLON_SPACE . $string;
+        PackageErrorHandler::pushErrorHandler();
+        
+        $return = self::PACKAGE_NAME . self::COLON_SPACE . $string;
+    
+        PackageErrorHandler::popErrorHandler();
+        
+        return $return;
     }
     
     public static function makePackageVersionString(): string
     {
-        return ArrayFunctions::implodeWith(self::PACKAGE_VERSION, self::DOT);
+        PackageErrorHandler::pushErrorHandler();
+        
+        $return = ArrayFunctions::implodeWith(self::PACKAGE_VERSION, self::DOT);
+        
+        PackageErrorHandler::popErrorHandler();
+        
+        return $return;
     }
     
     public static function makePackageAuthorsString(): string
     {
-        return self::implodeWithCommaSpace(self::PACKAGE_AUTHORS);
+        PackageErrorHandler::pushErrorHandler();
+        
+        $return = self::implodeWithCommaSpace(self::PACKAGE_AUTHORS);
+        
+        PackageErrorHandler::popErrorHandler();
+        
+        return $return;
     }
     
     public static function makePackageCopyrightHoldersString(): string
     {
-        return self::implodeWithCommaSpace(self::PACKAGE_COPYRIGHT['holders']);
+        PackageErrorHandler::pushErrorHandler();
+        
+        $return = self::implodeWithCommaSpace(self::PACKAGE_COPYRIGHT['holders']);
+        
+        PackageErrorHandler::popErrorHandler();
+        
+        return $return;
     }
     
     private static function implodeWithCommaSpace(array $array): string
     {
-        return ArrayFunctions::implodeWith($array, self::COMMA_SPACE);
+        PackageErrorHandler::pushErrorHandler();
+        
+        $return = ArrayFunctions::implodeWith($array, self::COMMA_SPACE);
+        
+        PackageErrorHandler::popErrorHandler();
+        
+        return $return;
     }
 }
