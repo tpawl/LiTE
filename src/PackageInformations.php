@@ -34,55 +34,55 @@ class PackageInformations
 
     public static function prependPackageNameColonSpace(string $string): string
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $return = self::PACKAGE_NAME . self::COLON_SPACE . $string;
     
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
         
         return $return;
     }
     
     public static function makePackageVersionString(): string
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $return = ArrayFunctions::implodeWith(self::PACKAGE_VERSION, self::DOT);
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
         
         return $return;
     }
     
     public static function makePackageAuthorsString(): string
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $return = self::implodeWithCommaSpace(self::PACKAGE_AUTHORS);
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
         
         return $return;
     }
     
     public static function makePackageCopyrightHoldersString(): string
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $return = self::implodeWithCommaSpace(self::PACKAGE_COPYRIGHT['holders']);
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
         
         return $return;
     }
     
     private static function implodeWithCommaSpace(array $array): string
     {
-        PackageErrorHandler::pushErrorHandler();
+        PackageErrorHandler::pushOnErrorHandlersStack();
         
         $return = ArrayFunctions::implodeWith($array, self::COMMA_SPACE);
         
-        PackageErrorHandler::popErrorHandler();
+        PackageErrorHandler::popFromErrorHandlersStack();
         
         return $return;
     }
