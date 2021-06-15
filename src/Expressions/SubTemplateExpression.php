@@ -55,21 +55,6 @@ class SubTemplateExpression implements TemplateExpressionInterface
     }
 
     /**
-     * @return callable
-     */
-    public static function getErrorHandler(ConfigurationInterface $configuration): callable
-    {
-        return function($errno, $errstr, $errfile, $errline) use ($configuration) {
-
-            if ($configuration->shouldErrorLevelBeReported($errno)) {
-
-                throw new \ErrorException(
-                    $errstr, 0, $errno, $errfile, $errline);
-            }
-        };
-    }
-
-    /**
      * @param \TPawl\LiTE\Context\Context $context
      * @return void
      */
