@@ -10,6 +10,7 @@ use Psr\Log\LoggerInterface;
 
 class Template
 {
+    private $templateExpression;
     /**
      * @param array $settings
      * @return void
@@ -23,6 +24,10 @@ class Template
         
             $registry->setSecurityLogger($securityLogger);
         }
-        new TemplateExpression($settings);
+        $templateExpression = new TemplateExpression($settings);
+    }
+    
+    public function display(): void
+    {
     }
 }
