@@ -7,6 +7,7 @@ namespace TPawl\LiTE;
 
 use TPawl\LiTE\Expressions\SubTemplateExpression;
 use TPawl\LiTE\Php\Configuration;
+use TPawl\Lite\Miscellaneous\ErrorHandlersStack;
 
 class SubTemplate
 {
