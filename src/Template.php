@@ -11,6 +11,7 @@ use Psr\Log\LoggerInterface;
 class Template
 {
     private $templateExpression;
+    
     /**
      * @param array $settings
      * @return void
