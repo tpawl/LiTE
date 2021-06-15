@@ -22,17 +22,23 @@ class SubTemplate
         self::pushErrorHandler();
         
         $this->subTemplateExpression = new SubTemplateExpression($template, $variables);
-    }
-    
-    protected static function pushErrorHandler()
-    {
-        $configuration = new Configuration();
         
-        ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
+        self::popErrorHandler();
     }
     
     public function display(): void
     {
+        self::pushErrorHandler();
+        
         $this->subTemplateExpression->display();
+        
+        self::popErrorHandler();
+    }
+    
+    protected static function pushErrorHandler(): void
+    {
+        $configuration = new Configuration();
+        
+        ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
     }
 }
