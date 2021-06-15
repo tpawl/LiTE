@@ -5,31 +5,23 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE;
 
-use TPawl\LiTE\Expressions\TemplateExpression;
-use Psr\Log\LoggerInterface;
+use TPawl\LiTE\Expressions\SubTemplateExpression;
 
-class Template
+class SubTemplate
 {
-    private $templateExpression;
+    private $subTemplateExpression;
     
     /**
-     * @param LoggerInterface|null $securityLogger
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
-    public function __construct(array $settings, ?LoggerInterface $securityLogger = null)
+    public function __construct(array $variables)
     {
-        if (!VariableFunctions::isNull($securityLogger)) {
-        
-            $registry = Registry::getInstance();
-        
-            $registry->setSecurityLogger($securityLogger);
-        }
-        $templateExpression = new TemplateExpression($settings);
+        $subTemplateExpression = new SubTemplateExpression($variables);
     }
     
     public function display(): void
     {
-        $this->templateExpression->display();
+        $this->subTemplateExpression->display();
     }
 }
