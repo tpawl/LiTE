@@ -15,9 +15,9 @@ class SubTemplate
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
-    public function __construct((string $template, array $variables)
+    public function __construct(string $template, array $variables)
     {
-        $subTemplateExpression = new SubTemplateExpression($template, $variables);
+        $this->subTemplateExpression = new SubTemplateExpression($template, $variables);
     }
     
     public function display(): void
