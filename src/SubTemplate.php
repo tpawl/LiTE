@@ -41,4 +41,9 @@ class SubTemplate
         
         ErrorHandlersStack::pushErrorHandler(self::getErrorHandler($configuration));
     }
+    
+    protected static function popErrorHandler(): void
+    {
+        ErrorHandlersStack::popErrorHandler();
+    }
 }
