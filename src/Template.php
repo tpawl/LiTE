@@ -29,5 +29,6 @@ class Template
     
     public function display(): void
     {
+        $this->templateExpression->display();
     }
 }
