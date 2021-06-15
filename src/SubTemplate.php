@@ -9,15 +9,15 @@ use TPawl\LiTE\Expressions\SubTemplateExpression;
 
 class SubTemplate
 {
-    private $subTemplateExpression;
+    protected $subTemplateExpression;
     
     /**
      * @return void
      * @throws \InvalidArgumentException if an index does not exist or the type at index is wrong
      */
-    public function __construct(array $variables)
+    public function __construct((string $template, array $variables)
     {
-        $subTemplateExpression = new SubTemplateExpression($variables);
+        $subTemplateExpression = new SubTemplateExpression($template, $variables);
     }
     
     public function display(): void
