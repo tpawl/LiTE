@@ -7,10 +7,10 @@ namespace TPawl\LiTE;
 
 use TPawl\LiTE\Miscellaneous\ArrayFunctions;
 use TPawl\LiTE\Miscellaneous\PackageErrorHandler;
+use TPawl\LiTE\Miscellaneous\PackageMessages;
 
 class PackageInformations
 {
-    private const COLON_SPACE = ': ';
     private const DOT = '.';
     private const COMMA_SPACE = ', ';
     
@@ -36,7 +36,7 @@ class PackageInformations
     {
         PackageErrorHandler::pushOnErrorHandlersStack();
         
-        $return = self::PACKAGE_NAME . self::COLON_SPACE . $string;
+        $return = PackageMessages::packagizeMessage($string);
     
         PackageErrorHandler::popFromErrorHandlersStack();
         
