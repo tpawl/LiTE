@@ -6,7 +6,6 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Miscellaneous;
 
 use TPawl\LiTE\Exceptions\FileSystemException;
-use TPawl\LiTE\Miscellaneous\PackageMessages;
 
 class FileSystem
 {
