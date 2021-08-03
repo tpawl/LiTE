@@ -22,7 +22,8 @@ class FileSystem
         if ($realPathname === false) {
 
             throw new FileSystemException(
-                PackageMessages::packagizeMessage("Could not make real pathname for '{$pathname}'."));
+                PackageMessages::packagizeMessage(
+                    "Could not make real pathname for '{$pathname}'."));
         }
         return $realPathname;
     }
