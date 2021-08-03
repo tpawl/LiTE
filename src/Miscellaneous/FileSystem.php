@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Miscellaneous;
 
 use TPawl\LiTE\Exceptions\FileSystemException;
+use TPawl\LiTE\Miscellaneous\PackageMessages;
 
 class FileSystem
 {
@@ -21,7 +22,7 @@ class FileSystem
         if ($realPathname === false) {
 
             throw new FileSystemException(
-                "Could not make real pathname for '{$pathname}'.");
+                PackageMessages::packagizeMessage("Could not make real pathname for '{$pathname}'."));
         }
         return $realPathname;
     }
