@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Miscellaneous;
 
 use TPawl\LiTE\Exceptions\AssertionException;
-use TPawl\LiTE\PackageInformations;
+use TPawl\LiTE\Miscellaneous\PackageMessages;
 
 class Assertions
 {
@@ -48,6 +48,6 @@ class Assertions
             $message = self::DEFAULT_MESSAGE;
         }
         throw new AssertionException(
-            PackageInformations::prependPackageNameColonSpace($message));
+            PackageMessages::packagizeMessage($message));
     }
 }
