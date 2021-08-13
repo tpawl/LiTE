@@ -8,6 +8,7 @@ namespace TPawl\LiTE;
 use TPawl\LiTE\Expressions\TemplateExpression;
 use TPawl\LiTE\Miscellaneous\PackageErrorHandler;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 class Template extends SubTemplate
 {   
