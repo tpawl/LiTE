@@ -21,7 +21,7 @@ class Template extends SubTemplate
     {
         PackageErrorHandler::pushOnErrorHandlersStack();
         
-        if (!VariableFunctions::isNull($securityLogger)) {
+        if (VariableFunctions::isNull($securityLogger)) {
             
             $securityLogger = new NullLogger();
         }
