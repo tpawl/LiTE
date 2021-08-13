@@ -20,7 +20,7 @@
     ],
     "require": {
         "php" : ">=7.1.0"
-        "psr\log"
+        "psr/log"
     },
     "require-dev": {
         "phpunit/phpunit" : ">=7.0.0"
