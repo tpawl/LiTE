@@ -21,11 +21,13 @@ class Template extends SubTemplate
         PackageErrorHandler::pushOnErrorHandlersStack();
         
         if (!VariableFunctions::isNull($securityLogger)) {
-        
-            $registry = Registry::getInstance();
-        
-            $registry->setSecurityLogger($securityLogger);
+            
+            $securityLogger = new NullLogger();
         }
+        $registry = Registry::getInstance();
+        
+        $registry->setSecurityLogger($securityLogger);
+        
         $this->subTemplateExpression = new TemplateExpression($settings);
         
         PackageErrorHandler::popFromErrorHandlersStack();
