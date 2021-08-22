@@ -36,7 +36,9 @@ class Registry
     {
         if (!$this->isSetSecurityLogger()) {
         
-            throw new RegistryException('Security logger not set in Registry.');
+            throw new RegistryException(
+                PackageMessages::packagizeMessage(
+                    'Security logger not set in Registry.'));
         }
         return $this->securityLogger;
     }
@@ -65,6 +67,7 @@ class Registry
     public function __wakeup()
     {
         Assertions::assertNeverReachesHere(
-		    'You can not deserialize an object of the class Registry.');
+		    PackageMessages::packagizeMessage(
+                'You can not deserialize an object of the class Registry.'));
     }
 }
