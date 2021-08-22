@@ -12,6 +12,19 @@ class Assertions
     private const DEFAULT_MESSAGE = 'Assertion failed.';
     
     /**
+     * @param bool $value
+     * @throws \TPawl\LiTE\Exceptions\AssertionException if value is false
+     */
+    public static function assertTrue(
+        bool $value, string $message = StringType::EMPTY_STRING): void
+    {
+        if (!$value) {
+
+            self::assertNeverReachesHere($message);
+        }
+    }
+
+    /**
      * @param mixed $value
      * @throws \TPawl\LiTE\Exceptions\AssertionException if value is null
      */
