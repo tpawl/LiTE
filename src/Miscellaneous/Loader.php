@@ -22,12 +22,12 @@ class Loader
             
             $registry = Registry::getInstance();
             
-            if ($registry->isSetSecurityLogger()) {
+            Assertions::assertTrue($registry->isSetSecurityLogger(),
+                '');
             
-                 $securityLogger = $registry->getSecurityLogger();
+            $securityLogger = $registry->getSecurityLogger();
                 
-                 $securityLogger->warning('');
-            }
+            $securityLogger->warning('');
         }
     }
     
@@ -46,12 +46,12 @@ class Loader
             
             $registry = Registry::getInstance();
             
-            if ($registry->isSetSecurityLogger()) {
+            Assertions::assertTrue($registry->isSetSecurityLogger(),
+                '');
             
-                 $securityLogger = $registry->getSecurityLogger();
+            $securityLogger = $registry->getSecurityLogger();
                 
-                 $securityLogger->warning('');
-            }
+            $securityLogger->warning('');
         }
     }
 }
