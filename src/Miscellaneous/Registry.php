@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Miscellaneous;
 
 use Psr\Log\LoggerInterface;
+use TPawl\LiTE\Exceptions\RegistryException;
 
 class Registry
 {
@@ -35,7 +36,7 @@ class Registry
     {
         if (!$this->isSetSecurityLogger()) {
         
-            // throw new ...
+            throw new RegistryException('Security logger not set in Registry.');
         }
         return $this->securityLogger;
     }
