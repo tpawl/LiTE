@@ -5,6 +5,6 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Exceptions;
 
-class RegistryException extends \LogicException
+class RegistryException extends \RuntimeException
 {
 }
