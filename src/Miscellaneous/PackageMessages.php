@@ -9,6 +9,8 @@ use TPawl\LiTE\PackageInformations;
 
 class PackageMessages
 {
+    public const DEFAULT_ASSERTION_MESSAGE = 'Assertion failed.';
+    
     private const COLON_SPACE = ': ';
     
     public static function packagizeMessage(string $message): string
