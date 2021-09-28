@@ -51,11 +51,10 @@ class Assertions
     public static function assertNeverReachesHere(
         string $message = StringType::EMPTY_STRING): void
     {
-        if (StringType::isEmptyString($message)) {
-            
-            $message = PackageMessages::DEFAULT_ASSERTION_MESSAGE;
-        }
+        $normalizedMessage = (StringType::isEmptyString($message)) ?
+            PackageMessages::DEFAULT_ASSERTION_MESSAGE : $message;
+        
         throw new \AssertionError(
-            PackageMessages::packagizeMessage($message));
+            PackageMessages::packagizeMessage($normalizedMessage));
     }
 }
