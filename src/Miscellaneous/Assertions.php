@@ -8,9 +8,7 @@ namespace TPawl\LiTE\Miscellaneous;
 use TPawl\LiTE\Exceptions\AssertionException;
 
 class Assertions
-{
-    private const DEFAULT_MESSAGE = 'Assertion failed.';
-    
+{   
     /**
      * @param bool $value
      * @throws \TPawl\LiTE\Exceptions\AssertionException if value is false
@@ -57,7 +55,7 @@ class Assertions
     {
         if (StringType::isEmptyString($message)) {
             
-            $message = self::DEFAULT_MESSAGE;
+            $message = PackageMessages::DEFAULT_ASSERTION_MESSAGE;
         }
         throw new AssertionException(
             PackageMessages::packagizeMessage($message));
