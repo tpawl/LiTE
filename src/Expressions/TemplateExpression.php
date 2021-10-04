@@ -98,7 +98,8 @@ class TemplateExpression extends SubTemplateExpression
         if (!$hasSettingsGivenIndex) {
 
             throw new \InvalidArgumentException(
-                "Missing index {$index} in settings");
+                PackageMessages::packagizeMessage(
+                    "Missing index {$index} in settings"));
         }
         $typeAtGivenIndex = strtolower(gettype($settings[$index]));
 
@@ -107,8 +108,9 @@ class TemplateExpression extends SubTemplateExpression
         if ($typeAtGivenIndex !== $type) {
 
             throw new \InvalidArgumentException(
-                "Wrong type in settings at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given"
-            );
+                PackageMessages::packagizeMessage(
+                    "Wrong type in settings at index {$index}: '{$type}' expected, '{$typeAtGivenIndex}' given"
+            ));
         }
     }
 
@@ -149,7 +151,8 @@ class TemplateExpression extends SubTemplateExpression
         if (!$filter->isValidName($name)) {
 
             throw new \DomainException(
-                "Invalid view helper name: {$name}");
+                PackageMessages::packagizeMessage(
+                    "Invalid view helper name: {$name}"));
         }
     }
 
@@ -198,13 +201,15 @@ class TemplateExpression extends SubTemplateExpression
             if (!self::isClassExisting($classQualifier)) {
 
                 throw new TemplateExpressionException(
-                    "View helper {$classQualifier} does not exist");
+                    PackageMessages::packagizeMessage(
+                        "View helper {$classQualifier} does not exist"));
             }
             if (!self::isClassImplementingViewHelper($classQualifier)) {
 
                 throw new TemplateExpressionException(
-                    "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface"
-                );
+                    PackageMessages::packagizeMessage(
+                        "View helper {$classQualifier} must implement the interface TPawl\LiTE\ViewHelperInterface"
+                ));
             }
         }
         return $classQualifier;
@@ -245,13 +250,15 @@ class TemplateExpression extends SubTemplateExpression
         } catch (\RuntimeException $ex) {
 
             throw new ViewHelperRuntimeException(
-                "Runtime exception was thrown in view helper: {$classQualifier}",
+                PackageMessages::packagizeMessage(
+                    "Runtime exception was thrown in view helper: {$classQualifier}"),
                 0, $ex);
 
         } catch (\LogicException $ex) {
 
             throw new ViewHelperLogicException(
-                "Logic exception was thrown in view helper: {$classQualifier}",
+                PackageMessages::packagizeMessage(
+                    "Logic exception was thrown in view helper: {$classQualifier}"),
                 0, $ex);
         }
     }
