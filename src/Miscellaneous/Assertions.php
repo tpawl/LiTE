@@ -14,10 +14,7 @@ class Assertions
     public static function assertTrue(
         bool $value, string $message = StringType::EMPTY_STRING): void
     {
-        if (!$value) {
-
-            self::assertNeverReachesHere($message);
-        }
+        assert($value, self::computeMessage($message));
     }
 
     /**
@@ -27,10 +24,7 @@ class Assertions
     public static function assertNotNull(
         $value, string $message = StringType::EMPTY_STRING): void
     {
-        if (VariableFunctions::isNull($value)) {
-
-            self::assertNeverReachesHere($message);
-        }
+        assert(!VariableFunctions::isNull($value), self::computeMessage($message));
     }
 
     /**
@@ -39,10 +33,7 @@ class Assertions
     public static function assertNotEmptyString(
         string $string, string $message = StringType::EMPTY_STRING): void
     {
-        if (StringType::isEmptyString($string)) {
-
-            self::assertNeverReachesHere($message);
-        }
+        assert(!StringType::isEmptyString($string), self::computeMessage($message));
     }
 
     /**
@@ -51,11 +42,15 @@ class Assertions
     public static function assertNeverReachesHere(
         string $message = StringType::EMPTY_STRING): void
     {   
-        throw new \AssertionError(
-            PackageMessages::packagizeMessage(
-                self::normalizeMessage($message)));
+        assert(false, self::computeMessage($message);
     }
 
+    private static function computeMessage(string $message): string
+    {
+        return PackageMessages::packagizeMessage(
+            self::normalizeMessage($message));
+    }
+               
     private static function normalizeMessage(string $message): string
     {
         return (StringType::isEmptyString($message)) ?
