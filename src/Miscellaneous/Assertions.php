@@ -42,7 +42,7 @@ class Assertions
     public static function assertNeverReachesHere(
         string $message = StringType::EMPTY_STRING): void
     {   
-        assert(false, self::computeMessage($message);
+        assert(false, self::computeMessage($message));
     }
 
     private static function computeMessage(string $message): string
