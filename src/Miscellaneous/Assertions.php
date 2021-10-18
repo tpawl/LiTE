@@ -28,7 +28,7 @@ class Assertions
     }
 
     /**
-     * @throws \AssertionError if $string is empty
+     * @throws \AssertionError if $string is empty string
      */
     public static function assertNotEmptyString(
         string $string, string $message = StringType::EMPTY_STRING): void
