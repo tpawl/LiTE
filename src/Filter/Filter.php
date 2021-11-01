@@ -7,6 +7,7 @@ namespace TPawl\LiTE\Filter;
 
 use TPawl\LiTE\Exceptions\FilterException;
 use TPawl\LiTE\Miscellaneous\StringType;
+use TPawl\LiTE\Miscellaneous\PackageMessages;
 
 class Filter implements FilterInterface
 {
