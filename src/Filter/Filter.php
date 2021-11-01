@@ -14,7 +14,7 @@ class Filter implements FilterInterface
     private const ASCII_UNDERSCORE = 95;
     
     private const REMAINING_VALID_NAME_CHARACTERS =
-        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     
     public function isValidName(string $name): bool
     {
