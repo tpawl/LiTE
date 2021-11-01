@@ -81,7 +81,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
-        $filter->filterName($name, $filter);
+        $filter->filterName($name, "Invalid template variable name '{$name}'");
 
         $isVariableExisting = array_key_exists($name, $this->variables);
 
