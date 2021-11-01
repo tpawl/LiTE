@@ -15,12 +15,7 @@ class Filter implements FilterInterface
     
     private const REMAINING_VALID_NAME_CHARACTERS =
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
-
-    /**
-     * @param string $name
-     * @return bool
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
-     */
+    
     public function isValidName(string $name): bool
     {
         $ascii = ord($name);
