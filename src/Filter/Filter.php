@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace TPawl\LiTE\Filter;
 
-use TPawl\LiTE\Miscellaneous\Assertions;
+use TPawl\LiTE\Exceptions\FilterException;
 
 class Filter implements FilterInterface
 {
@@ -16,8 +16,12 @@ class Filter implements FilterInterface
     private const REMAINING_VALID_NAME_CHARACTERS =
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     
-    public function filterName($name): void
+    public function filterName(string $name): void
     {
+        if (!self::isValidName($name)) {
+        
+            throw new FilterException(/*...*/);
+        }
     }
     
     private static function isValidName(string $name): bool
