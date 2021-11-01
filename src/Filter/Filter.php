@@ -9,6 +9,10 @@ use TPawl\LiTE\Miscellaneous\Assertions;
 
 class Filter implements FilterInterface
 {
+    private const ASCII_LOWER_A = 97;
+    private const ASCII_LOWER_Z = 122;
+    private const ASCII_UNDERSCORE = 95;
+    
     private const REMAINING_VALID_NAME_CHARACTERS =
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
 
@@ -19,34 +23,11 @@ class Filter implements FilterInterface
      */
     public function isValidName(string $name): bool
     {
-        Assertions::assertNotEmptyString($name, 'Name must not be empty');
-
-        return self::isFirstCharacterOfNameValid($name) ?
-            self::areRemainingCharactersOfNameValid($name) :
-            false;
-    }
-
-    /**
-     * @param string $name
-     * @return bool;
-     */
-    private static function isFirstCharacterOfNameValid(string $name): bool
-    {
         $ascii = ord($name);
 
-        return $ascii >= 97 && $ascii <= 122 || // a - z
-            $ascii >= 65 && $ascii <= 90 || // A - Z
-            $ascii === 95; // _
-    }
-
-    /**
-     * @param string $name
-     * @return bool
-     */
-    private static function areRemainingCharactersOfNameValid(string $name):
-        bool
-    {
-        return strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) ===
-            strlen($name) - 1;
+        return ($ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z ||
+            $ascii === self::ASCII_UNDERSCORE) &&
+            (strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) ===
+            strlen($name) - 1);
     }
 }
