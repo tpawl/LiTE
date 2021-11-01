@@ -13,9 +13,6 @@ class Filter implements FilterInterface
     private const ASCII_LOWER_Z = 122;
     private const ASCII_UNDERSCORE = 95;
     
-    private const REMAINING_VALID_NAME_CHARACTERS =
-        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    
     public function filterName(string $name): void
     {
         if (!self::isValidName($name)) {
@@ -30,7 +27,6 @@ class Filter implements FilterInterface
 
         return ($ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z ||
             $ascii === self::ASCII_UNDERSCORE) &&
-            (strspn($name, self::REMAINING_VALID_NAME_CHARACTERS, 1) ===
-            strlen($name) - 1);
+            StringType::isAlphabeticNumeric(substr($name, 1));
     }
 }
