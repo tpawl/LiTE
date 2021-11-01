@@ -131,32 +131,14 @@ class TemplateExpression extends SubTemplateExpression
     {
         $name = $viewHelperCallData->getName();
 
-        self::filterViewHelperName($name, $filter);
+        $filter->filterName($name);
 
         $classQualifier = $this->loadViewHelper($name);
 
         $this->tryCallViewHelper(
             $classQualifier, $viewHelperCallData->getArguments());
     }
-
-    /**
-     * @param string $name
-     * @param \TPawl\LiTE\Filter\FilterInterface $filter
-     * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
-     * @throws \DomainException if view helper name is invalid
-     */
-    private static function filterViewHelperName(string $name,
-        FilterInterface $filter): void
-    {
-        if (!$filter->isValidName($name)) {
-
-            throw new \DomainException(
-                PackageMessages::packagizeMessage(
-                    "Invalid view helper name: {$name}"));
-        }
-    }
-
+    
     /**
      * @param string $name
      * @return string
