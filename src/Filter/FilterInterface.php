@@ -8,9 +8,7 @@ namespace TPawl\LiTE\Filter;
 interface FilterInterface
 {
     /**
-     * @param string $name
-     * @return bool
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
+     * @throws \TPawl\LiTE\Exceptions\FilterException if name is not valid
      */
-    public function isValidName(string $name): bool;
+    public function filterName(string $name): void;
 }
