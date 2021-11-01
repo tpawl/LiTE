@@ -10,5 +10,5 @@ interface FilterInterface
     /**
      * @throws \TPawl\LiTE\Exceptions\FilterException if name is not valid
      */
-    public function filterName(string $name): void;
+    public function filterName(string $name, string $message): void;
 }
