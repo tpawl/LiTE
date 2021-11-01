@@ -81,7 +81,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
      */
     public function lookUpVariable(string $name, FilterInterface $filter)
     {
-        self::filterVariableName($name, $filter);
+        $filter->filterName($name, $filter);
 
         $isVariableExisting = array_key_exists($name, $this->variables);
 
@@ -92,24 +92,7 @@ class SubTemplateExpression implements TemplateExpressionInterface
         }
         return $this->variables[$name];
     }
-
-    /**
-     * @param string $name
-     * @param \TPawl\LiTE\Filter\FilterInterface $filter
-     * @return void
-     * @throws \TPawl\LiTE\Exceptions\AssertionException if name is empty
-     * @throws \DomainException if variable name is invalid
-     */
-    private static function filterVariableName(string $name,
-        FilterInterface $filter): void
-    {
-        if (!$filter->isValidName($name)) {
-
-            throw new \DomainException(
-                "Invalid template variable name: {$name}");
-        }
-    }
-
+    
     /**
      * @param static|null $subTemplateExpression
      * @return void
