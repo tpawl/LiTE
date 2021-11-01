@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Filter;
 
 use TPawl\LiTE\Exceptions\FilterException;
+use TPawl\LiTE\Miscellaneous\StringType;
 
 class Filter implements FilterInterface
 {
