@@ -26,8 +26,8 @@ class Filter implements FilterInterface
     {
         $ascii = ord($name);
 
-        return ($ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z ||
-            $ascii === self::ASCII_UNDERSCORE) &&
-            StringType::isAlphabeticNumeric(substr($name, 1));
+        return ($ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z || // a-z
+            $ascii === self::ASCII_UNDERSCORE) && // _ (is first character of string valid?)
+            StringType::isAlphabeticNumeric(substr($name, 1)); // (is rest of string valid?)
     }
 }
