@@ -14,11 +14,11 @@ class Filter implements FilterInterface
     private const ASCII_LOWER_Z = 122;
     private const ASCII_UNDERSCORE = 95;
     
-    public function filterName(string $name): void
+    public function filterName(string $name, string $message): void
     {
         if (!self::isValidName($name)) {
         
-            throw new FilterException(/*...*/);
+            throw new FilterException(PackageMessages::packagizeMessage($message));
         }
     }
     
