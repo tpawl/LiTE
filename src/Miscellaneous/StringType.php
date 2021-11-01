@@ -10,11 +10,19 @@ use TPawl\LiTE\PackageInformations;
 
 class StringType
 {
+    private const ALPHABETIC_NUMERIC_SET =
+        'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    
     public const EMPTY_STRING = '';
 
     public static function isEmptyString(string $string): bool
     {
         return empty($string);
+    }
+    
+    public static function isAlphabeticNumeric(string $string): bool
+    {
+        return strspn($string, self::ALPHABETIC_NUMERIC_SET) === strlen($string);
     }
     
     public static function isBeginningWith(string $string, string $str): bool
