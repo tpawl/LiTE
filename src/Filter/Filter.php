@@ -10,11 +10,7 @@ use TPawl\LiTE\Miscellaneous\StringType;
 use TPawl\LiTE\Miscellaneous\PackageMessages;
 
 class Filter implements FilterInterface
-{
-    private const ASCII_LOWER_A = 97;
-    private const ASCII_LOWER_Z = 122;
-    private const ASCII_UNDERSCORE = 95;
-    
+{   
     public function filterName(string $name, string $message): void
     {
         if (!self::isValidName($name)) {
@@ -27,8 +23,8 @@ class Filter implements FilterInterface
     {
         $ascii = ord($name);
 
-        return ($ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z || // a-z
-            $ascii === self::ASCII_UNDERSCORE) && // _ (is first character of string valid?)
+        return ($ascii >= StringType::ASCII_LOWER_A && $ascii <= StringType::ASCII_LOWER_Z || // a-z
+            $ascii === StringType::ASCII_UNDERSCORE) && // _ (is first character of string valid?)
             StringType::isAlphabeticNumeric(substr($name, 1)); // (is rest of string valid?)
     }
 }
