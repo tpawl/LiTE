@@ -145,7 +145,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private static function makeClassName(string $name): string
     {
-        return ucfirst($name) . 'ViewHelper';
+        return stringType::convertFirstCharacterToUpperCase($name) . 'ViewHelper';
     }
 
     /**
