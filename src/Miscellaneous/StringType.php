@@ -15,8 +15,8 @@ class StringType
     
     public const EMPTY_STRING = '';
 
-    public const ASCII_LOWER_A = 97;
-    public const ASCII_LOWER_Z = 122;
+    private const ASCII_LOWER_A = 97;
+    private const ASCII_LOWER_Z = 122;
     public const ASCII_UNDERSCORE = 95;
         
     public static function isEmptyString(string $string): bool
@@ -27,6 +27,11 @@ class StringType
     public static function isAlphabeticNumeric(string $string): bool
     {
         return strspn($string, self::ALPHABETIC_NUMERIC_SET) === strlen($string);
+    }
+    
+    public static function isLowerCase(int $ascii): bool
+    {
+        return $ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z;
     }
     
     public static function isBeginningWith(string $string, string $str): bool
