@@ -23,8 +23,7 @@ class Filter implements FilterInterface
     {
         $ascii = ord($name);
 
-        return (StringType::isLowerCase($ascii) || // a-z
-            $ascii === StringType::ASCII_UNDERSCORE) && // _ (is first character of string valid?)
-            StringType::isAlphabeticNumeric(substr($name, 1)); // (is rest of string valid?)
+        return (StringType::isLowerCase($ascii) || $ascii === StringType::ASCII_UNDERSCORE) && // is first character of string valid?
+            StringType::isAlphabeticNumeric(substr($name, 1)); // is rest of string valid?
     }
 }
