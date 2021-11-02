@@ -29,6 +29,17 @@ class StringType
         return strspn($string, self::ALPHABETIC_NUMERIC_SET) === strlen($string);
     }
     
+    public static function convertFirstCharacterToUpperCase(string $string): string
+    {
+        $ascii = ord(string);
+        
+        if (self::isLowerCase($ascii)) {
+        
+            string[0] = chr($ascii - self::DELTA_UPPER_TO_LOWER_CASE);
+        }
+        return string;
+    }
+    
     public static function isLowerCase(int $ascii): bool
     {
         return $ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z;
