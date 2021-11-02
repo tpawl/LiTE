@@ -18,7 +18,9 @@ class StringType
     private const ASCII_LOWER_A = 97;
     private const ASCII_LOWER_Z = 122;
     public const ASCII_UNDERSCORE = 95;
-        
+    
+    private const DELTA_UPPER_TO_LOWER_CASE = 32;
+    
     public static function isEmptyString(string $string): bool
     {
         return empty($string);
