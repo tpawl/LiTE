@@ -15,6 +15,10 @@ class StringType
     
     public const EMPTY_STRING = '';
 
+    public const ASCII_LOWER_A = 97;
+    public const ASCII_LOWER_Z = 122;
+    public const ASCII_UNDERSCORE = 95;
+        
     public static function isEmptyString(string $string): bool
     {
         return empty($string);
