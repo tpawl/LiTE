@@ -14,12 +14,6 @@ class StringType
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     
     public const EMPTY_STRING = '';
-
-    private const ASCII_LOWER_A = 97;
-    private const ASCII_LOWER_Z = 122;
-    public const ASCII_UNDERSCORE = 95;
-    
-    private const DELTA_UPPER_TO_LOWER_CASE = 32;
     
     public static function isEmptyString(string $string): bool
     {
@@ -31,20 +25,15 @@ class StringType
         return strspn($string, self::ALPHABETIC_NUMERIC_SET) === strlen($string);
     }
     
-    public static function convertFirstCharacterToUpperCase(string $string): string
+    public static function convertFirstCharacterToUppercase(string $string): string
     {
-        $ascii = ord(string);
+        $ascii = ord($string);
         
-        if (self::isLowerCase($ascii)) {
+        if (AsciiCharacterFunctions::isLowercase($ascii)) {
         
-            string[0] = chr($ascii - self::DELTA_UPPER_TO_LOWER_CASE);
+            $string[0] = chr($ascii - AsciiCharacterFunctions::DELTA_UPPERCASE_TO_LOWERCASE);
         }
-        return string;
-    }
-    
-    public static function isLowerCase(int $ascii): bool
-    {
-        return $ascii >= self::ASCII_LOWER_A && $ascii <= self::ASCII_LOWER_Z;
+        return $string;
     }
     
     public static function isBeginningWith(string $string, string $str): bool
