@@ -14,7 +14,7 @@ class AsciiCharacterType
     
     public const DELTA_UPPERCASE_TO_LOWERCASE = 32; // i.e. ord('A') - ord('a')
     
-    public static function isLowerCase(int $ascii): bool
+    public static function isLowercase(int $ascii): bool
     {
         return $ascii >= self::SMALL_A && $ascii <= self::SMALL_Z;
     }
