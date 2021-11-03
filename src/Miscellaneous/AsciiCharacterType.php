@@ -12,7 +12,7 @@ class AsciiCharacterType
     
     public const UNDERSCORE = 95; // ord('_')
     
-    public const DELTA_UPPERCASE_TO_LOWERCASE_LETTERS = 32;
+    public const DELTA_UPPERCASE_TO_LOWERCASE = 32; // i.e. ord('A') - ord('a')
     
     public static function isLowerCase(int $ascii): bool
     {
