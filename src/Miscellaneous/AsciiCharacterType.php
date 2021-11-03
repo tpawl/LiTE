@@ -7,10 +7,10 @@ namespace TPawl\LiTE\Miscellaneous;
 
 class AsciiCharacterType
 {
-    private const SMALL_A = 97;
-    private const SMALL_Z = 122;
+    private const SMALL_A = 97; // ord('a')
+    private const SMALL_Z = 122; // ord('z')
     
-    public const UNDERSCORE = 95;
+    public const UNDERSCORE = 95; // ord('_')
     
     private const DELTA_UPPER_TO_LOWER_CASE = 32;
     
