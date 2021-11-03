@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace TPawl\LiTE\Filter;
 
 use TPawl\LiTE\Exceptions\FilterException;
+use TPawl\LiTE\Miscellaneous\AsciiCharacterFunctions;
 use TPawl\LiTE\Miscellaneous\StringType;
 use TPawl\LiTE\Miscellaneous\PackageMessages;
 
@@ -23,7 +24,8 @@ class Filter implements FilterInterface
     {
         $ascii = ord($name);
 
-        return (StringType::isLowerCase($ascii) || $ascii === StringType::ASCII_UNDERSCORE) && // is first character of string valid?
+        return (AsciiCharacterFunctions::isLowercase($ascii) ||
+            $ascii === AsciiCharacterFunctions::UNDERSCORE) && // is first character of string valid?
             StringType::isAlphabeticNumeric(substr($name, 1)); // is rest of string valid?
     }
 }
