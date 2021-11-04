@@ -31,7 +31,7 @@ class StringType
         
         if (AsciiCharacterFunctions::isLowercase($ascii)) {
         
-            $string[0] = chr($ascii - AsciiCharacterFunctions::DELTA_UPPERCASE_TO_LOWERCASE);
+            $string[0] = chr($ascii - AsciiCharacters::DELTA_UPPERCASE_TO_LOWERCASE);
         }
         return $string;
     }
