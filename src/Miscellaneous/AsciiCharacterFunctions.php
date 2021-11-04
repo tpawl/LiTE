@@ -7,15 +7,9 @@ namespace TPawl\LiTE\Miscellaneous;
 
 class AsciiCharacterFunctions
 {
-    private const SMALL_A = 97; // ord('a')
-    private const SMALL_Z = 122; // ord('z')
-    
-    public const UNDERSCORE = 95; // ord('_')
-    
-    public const DELTA_UPPERCASE_TO_LOWERCASE = 32; // i.e. ord('a') - ord('A')
-    
     public static function isLowercase(int $ascii): bool
     {
-        return $ascii >= self::SMALL_A && $ascii <= self::SMALL_Z;
+        return $ascii >= AsciiCharacters::SMALL_A &&
+            $ascii <= AsciiCharacters::SMALL_Z;
     }
 }
