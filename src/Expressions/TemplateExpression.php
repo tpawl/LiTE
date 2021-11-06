@@ -20,6 +20,7 @@ use TPawl\LiTE\Miscellaneous\Loader;
 use TPawl\LiTE\Miscellaneous\VariableFunctions;
 use TPawl\LiTE\Miscellaneous\Registry;
 use TPawl\LiTE\Miscellaneous\PackageMessages;
+use TPawl\LiTE\Miscellaneous\StringType;
 
 class TemplateExpression extends SubTemplateExpression
 {
@@ -145,7 +146,7 @@ class TemplateExpression extends SubTemplateExpression
      */
     private static function makeClassName(string $name): string
     {
-        return stringType::convertFirstCharacterToUpperCase($name) . 'ViewHelper';
+        return StringType::convertFirstCharacterToUpperCase($name) . 'ViewHelper';
     }
 
     /**
