@@ -7,6 +7,6 @@ namespace TPawl\LiTE\Miscellaneous;
 
 class AsciiCharacterSets
 {
-    public const ALPHABETIC_NUMERIC =
+    const ALPHABETIC_NUMERIC =
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 }
