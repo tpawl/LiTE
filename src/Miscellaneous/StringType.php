@@ -9,7 +9,7 @@ use TPawl\LiTE\Exceptions\EmptyStringException;
 
 class StringType
 {   
-    public const EMPTY_STRING = '';
+    const EMPTY_STRING = '';
     
     public static function isEmptyString(string $string): bool
     {
