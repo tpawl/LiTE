@@ -25,12 +25,4 @@ class Factories
     {
         return new ViewHelperExpression($viewHelperCallData, $filter);
     }
-    
-    /**
-     * @return \TPawl\LiTE\Filter\FilterInterface
-     */
-    public static function createFilter(): FilterInterface
-    {
-        return new Filter();
-    }
 }
