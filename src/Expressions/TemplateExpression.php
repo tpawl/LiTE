@@ -132,7 +132,7 @@ class TemplateExpression extends SubTemplateExpression
     {
         $name = $viewHelperCallData->getName();
 
-        $filter->filterName($name, "Ivalid view helper name '{$name}'");
+        $filter->filterName($name);
 
         $classQualifier = $this->loadViewHelper($name);
 
