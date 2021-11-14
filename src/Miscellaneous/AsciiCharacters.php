@@ -8,8 +8,7 @@ namespace TPawl\LiTE\Miscellaneous;
 class AsciiCharacters
 {
     const SMALL_A = 97; // ord('a')
-    const SMALL_Z = 122; // ord('z')    
-    const UNDERSCORE = 95; // ord('_')
+    const SMALL_Z = 122; // ord('z')
     
     const DELTA_UPPERCASE_TO_LOWERCASE = 32; // i.e. ord('a') - ord('A')
 }
