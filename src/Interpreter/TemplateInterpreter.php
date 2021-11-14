@@ -8,7 +8,6 @@ namespace TPawl\LiTE\Interpreter;
 use TPawl\LiTE\Context\Context;
 use TPawl\LiTE\Filter\TemplateVariableFilter;
 use TPawl\LiTE\Filter\ViewHelperFilter;
-use TPawl\LiTE\Factories\Factories;
 use TPawl\LiTE\Expressions\VariableExpression;
 use TPawl\LiTE\Expressions\ViewHelperExpression;
 use TPawl\LiTE\Miscellaneous\ViewHelperCallData as LiteViewHelperCallData;
@@ -39,8 +38,7 @@ class TemplateInterpreter
     {
         $filter = new TemplateVariableFilter();
 
-        $variableExpression = Factories::createVariableExpression(
-            $name, $filter);
+        $variableExpression = new VariableExpression($name, $filter);
 
         $variableExpression->display();
     }
@@ -57,10 +55,11 @@ class TemplateInterpreter
      */
     public static function __callStatic(string $name, array $arguments): void
     {
-        $filter = new ViewHelperFilter();
         $viewHelperCallData = LiteViewHelperCallData::create($name, $arguments);
-
-        $viewHelperExpression = Factories::createViewHelperExpression(
+        
+        $filter = new ViewHelperFilter();
+        
+        $viewHelperExpression = new ViewHelperExpression(
             $viewHelperCallData, $filter);
 
         $viewHelperExpression->display();
