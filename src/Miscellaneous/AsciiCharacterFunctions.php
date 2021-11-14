@@ -10,6 +10,6 @@ class AsciiCharacterFunctions
     public static function isLowercase(int $ascii): bool
     {
         return $ascii >= AsciiCharacters::SMALL_A &&
-            $ascii <= AsciiCharacters::SMALL_Z;
+            $ascii <= AsciiCharacters::SMALL_Z; // a-z (lowercase)
     }
 }
