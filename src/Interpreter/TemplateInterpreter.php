@@ -44,9 +44,6 @@ class TemplateInterpreter
     }
 
     /**
-     * @param string $name is not empty
-     * @param array $arguments
-     * @return void
      * @throws \DomainException if view helper name is invalid
      * @throws \TPawl\LiTE\Exceptions\TemplateExpressionException if view helper does not exist or
      * if view helper does not implement the interface TPawl\LiTE\ViewHelperInterface
