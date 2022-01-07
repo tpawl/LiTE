@@ -7,6 +7,7 @@ namespace TPawl\LiTE\Miscellaneous;
 
 use Psr\Log\LoggerInterface;
 use TPawl\LiTE\Exceptions\RegistryException;
+use TPawl\LiTE\Expressions\VariableExpression;
 
 class Registry
 {
@@ -14,6 +15,8 @@ class Registry
     
     private $securityLogger = null;
     
+    private $variableExpression = null;
+
     private function __construct()
     {
     }
@@ -52,7 +55,16 @@ class Registry
     {
         return !VariableFunctions::isNull($this->securityLogger);
     }
-    
+
+    public function getVariableExpression(): VariableExpression
+    {
+        if (VariableFunctions::isNull($this->variableExpression)) {
+            
+            $this->variableExpression = new VariableExpression();
+        }
+        return $this->variableExpression;
+    }
+
     /**
      * @return void
      * @codeCoverageIgnore
